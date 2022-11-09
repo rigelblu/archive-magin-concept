@@ -7,11 +7,11 @@
   "author": "rigélblu (https://www.rigelblu.com)",
   "license": "MIT",
   "scripts": {
-    "clean": "yarn next:clean",
+    "clean": "yarn docker:clean && yarn next:clean",
     "build": "next build",
     "start": "node server.js",
     "start:next": "source .env .env.development && next dev -p 3000",
-    "start:prod": "source .env .env.production && yarn build && next start -p 8080",
+    "start:prod": "yarn build && next start -p 8080",
     "test": "jest --passWithNoTests",
     "test:update-ss": "jest --updateSnapshot",
     "gcp-build": "npm run build && npm run build:export",
@@ -26,6 +26,14 @@
     "next:build": "next build",
     "prettier": "prettier --write --ignore-unknown",
     "prettier:check": "prettier --check --ignore-unknown",
+    "docker:clean": "rimraf docker",
+    "docker:build": "docker build -t mgn-app docker --target runner",
+    "docker:build:prod": "docker build -t mgn-app docker --target runner",
+    "docker:build-run": "yarn docker:build && yarn docker:run",
+    "docker:run": "docker run -d -p 8080:8080 mgn-app",
+    "docker:stage-context": "mkdir docker && cp -rf Dockerfile additional.d.ts jest.config.js next-env.d.ts next.config.js package.json public server.js src tsconfig*.json tsconfigs yarn.lock docker",
+    "docker:scan": "docker scan mgn-app",
+    "docker:rebuild": "yarn docker:clean && yarn docker:stage-context && yarn docker:build-run"
   },
   "keywords": [
     "magin"

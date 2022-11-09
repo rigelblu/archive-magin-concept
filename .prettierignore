@@ -3,6 +3,7 @@
 .next
 .stylelintcache
 build
+docker
 
 # dependencies
 node_modules
