@@ -1,0 +1,11 @@
+// Copyright rigélblu inc.
+// All rights reserved.
+
+{
+  "extends": "./tsconfig.base.react.json",
+  "compilerOptions": {
+    "incremental": true,
+    "target": "esnext"
+  },
+  "exclude": ["node_modules"]
+}

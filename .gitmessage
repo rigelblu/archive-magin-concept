@@ -1,0 +1,53 @@
+<type> | <topic>: <instruction>
+
+<motivation>
+
+Fixes #<issue number>
+
+# Commit Message Format
+# ────────────────────────────────────────── 100 chars ────────────────────────────────────────────┤
+#
+# <type>            commit type
+#                   build|ci|docs|enhance|feat|fix|perf|refactor|style|test|BREAKING-CHANGE
+# <topic>           name of file, component, feature, etc
+# <instruction>     what to do, writen as if giving command or instruction#
+# <motivation>      what's the reason for the change, provide context
+
+# Instructions examples
+# ---------------------
+# Write in imperative mood, in present tense.
+# Meaning, “spoken or written as if giving a command or instruction”.
+# A few examples:
+#  - Clean your room
+#  - Close the door
+#  - Take out the trash
+#
+# A good instruction should always be able to complete the following sentence:
+#  - If applied, this commit will your subject line here
+#  - If applied, this commit will refactor subsystem X for readability
+#
+#
+# Commit Message Body
+# ---------------------
+#
+# Just as in the summary, use the imperative, present tense: "fix" not "fixed" nor "fixes".
+#
+# Explain the motivation for the change in the commit message body. This commit message should
+# explain WHY you are making the change. You can include a comparison of the previous behavior with
+# the new behavior in order to illustrate the impact of the change.
+#
+#
+# Commit Message Footer
+# ---------------------
+#
+# The footer can contain information about breaking changes and is also the place to reference
+# GitHub issues, Jira tickets, and other PRs that this commit closes or is related to.
+#
+# ```
+# BREAKING CHANGE: <breaking change summary>
+# <BLANK LINE>
+# <breaking change description + migration instructions>
+# <BLANK LINE>
+# <BLANK LINE>
+# Fixes #<issue number>
+# ```

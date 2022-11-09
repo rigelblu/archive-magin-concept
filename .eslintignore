@@ -1,0 +1,24 @@
+# build & cache
+.eslintcache
+.next
+.stylelintcache
+build
+docker
+
+# configs
+next.config.js
+
+# dependencies
+node_modules
+
+# misc
+.DS_Store
+.env
+.env.development
+.env.production
+.favorites.json
+.vscode
+
+# package logs
+yarn-debug.log*
+yarn-error.log*

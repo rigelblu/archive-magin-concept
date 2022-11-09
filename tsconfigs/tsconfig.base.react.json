@@ -1,0 +1,10 @@
+// Copyright rigélblu inc.
+// All rights reserved.
+
+{
+  "extends": "./tsconfig.base.node.json",
+  "compilerOptions": {
+    "lib": ["dom", "dom.iterable"],
+    "jsx": "preserve"
+  }
+}

@@ -1,0 +1,60 @@
+# Copyright rigélblu inc.
+# All rights reserved.
+options:
+  dynamic_substitutions: true
+
+substitutions:
+  _ARTIFACT: ${_ARTIFACT}
+  _IMAGE_NAME: ${_ARTIFACT}/${PROJECT_ID}/${_SERVICE_NAME}/${_SERVICE_NAME}
+  _SERVICE_NAME: ${_SERVICE_NAME}
+
+# timeout: 1200s # Use when needed for debugging
+
+# Build for Google Cloud Run
+steps:
+  # 0. Stage docker context
+  - name: node
+    args: ['yarn', 'docker:stage-context']
+
+  # 1. Pull cached docker image
+  - name: 'gcr.io/cloud-builders/docker'
+    entrypoint: bash
+    args: ['-c', 'docker pull ${_IMAGE_NAME}:latest || exit 0']
+
+  # 2. Build docker
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', '${_IMAGE_NAME}', '--cache-from', '${_IMAGE_NAME}:latest', './docker']
+
+  # 3. Push container to registery
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', '${_IMAGE_NAME}:latest']
+
+  # 4. Deploy container to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'gcloud'
+    args:
+      [
+        'run',
+        'deploy',
+        '${_SERVICE_NAME}',
+        '--image',
+        '${_IMAGE_NAME}:latest',
+        '--region',
+        '${_REGION}',
+        '--tag=${_DEPLOY_TAG}',
+        '--min-instances=${_MIN_INSTANCES}',
+        '--max-instances=${_MAX_INSTANCES}',
+        '--allow-unauthenticated',
+        '--no-traffic',
+      ]
+
+  # 5. Sent traffic to latest based on _TRAFFIC_TO_LATEST
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        if [[ "${_TRAFFIC_TO_LATEST}" == "true" ]]
+        then
+          gcloud run services update-traffic ${_SERVICE_NAME} --region ${_REGION} --to-latest
+        fi
