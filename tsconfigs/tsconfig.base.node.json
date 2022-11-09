@@ -1,0 +1,21 @@
+// Copyright rigélblu inc.
+// All rights reserved.
+
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "baseUrl": "../",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noEmit": false,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "preserveConstEnums": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true
+  },
+  "include": ["src", "public"]
+}

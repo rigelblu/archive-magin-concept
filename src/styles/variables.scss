@@ -1,0 +1,63 @@
+// Copyright rigélblu inc.
+// All rights reserved.
+
+// -------------------------------
+// Base properties
+$mgn-colors: (
+  'blue-rb': #0080ff,
+  'blue-dark': #0054a8,
+  'blue-darker': #0e4f8f,
+  'blue-darkest': #104070,
+  'blue-light': #a7d9ff,
+  'blue-lighter': #f4faff,
+  'yellow-light': #fff2a8,
+  'grey': #7a7777,
+  'grey-light': #c4c4c4,
+);
+@function mgn-color($name) {
+  @return map-get($mgn-colors, $name);
+}
+
+// -------------------------------
+// Text sizes
+$mgn-text-sizes: (
+  'smaller': 0.75rem,
+  'small': 1rem,
+  'normal': 1.25rem,
+  'large': 1.625rem,
+  'larger': 2rem,
+  'huge': 2.5rem,
+  'immense': 3rem,
+  'enormous': 5.5rem,
+);
+@function mgn-text-size($name) {
+  @return map-get($mgn-text-sizes, $name);
+}
+
+$mgn-text-p: black;
+$mgn-text-heading: black;
+// TODO: $mgn-text-cta-primary: mgn-color('blue-rb');
+$mgn-text-cta-secondary: black;
+// TODO: $mgn-text-hover: mgn-color('blue-rb');
+
+// -------------------------------
+// Content properties
+$mgn-page-max-width: 1300px;
+$mgn-content-mad-with: 800px;
+
+// -------------------------------
+// Styles
+.mgn-primary-cta {
+  background-color: mgn-color('blue-rb') !important;
+  border: none;
+  border-radius: 10px;
+  color: mgn-color('blue-lighter');
+  font-weight: bold;
+  padding: 3px 0.5rem;
+}
+
+.mgn-primary-cta:enabled:hover,
+.mgn-primary-cta:not(button):not(a):not(.p-disabled):hover {
+  background: mgn-color('blue-darker') !important;
+  color: mgn-color('blue-lighter');
+}

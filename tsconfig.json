@@ -1,0 +1,6 @@
+// Copyright rigélblu inc.
+// All rights reserved.
+
+{
+  "extends": "./tsconfig.dev-next.json"
+}

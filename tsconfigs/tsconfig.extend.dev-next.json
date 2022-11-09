@@ -1,0 +1,12 @@
+// Copyright rigélblu inc.
+// All rights reserved.
+
+{
+  "extends": "./tsconfig.base.next.json",
+  "compilerOptions": {
+    // dev configs
+    "removeComments": false,
+    "sourceMap": true,
+    "strict": true
+  }
+}
