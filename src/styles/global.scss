@@ -57,3 +57,11 @@ a.secondary::after {
   transform: rotate(45deg);
   margin-right: 0.5em;
 }
+
+// -------------------------------
+// Utility classes
+@each $name, $color in $mgn-colors {
+  .mgn-text-#{$name} {
+    color: $color;
+  }
+}
