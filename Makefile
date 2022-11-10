@@ -24,7 +24,7 @@ gcp-beta-docker:
 
 ## GCP - Build
 gcp-build-list-ongoing: # usage: make <command> REGION=value
- 	gcloud beta builds list --ongoing --region=$(REGION)
+	gcloud beta builds list --ongoing --region=$(REGION)
 
 gcb-trigger-export: # usage: make <command> TRIGGER-NAME=value REGION=value EXPORT_PATH=value
 	gcloud beta builds triggers export $(TRIGGER_NAME) --region=$(REGION) --destination=${EXPORT_PATH)
