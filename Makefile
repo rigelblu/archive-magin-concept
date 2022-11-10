@@ -39,3 +39,34 @@ gcp-project-get:
 
 gcp-project-set: # usage: make <command> PROJECT_ID=value
 	gcloud beta config set project $(PROJECT_ID)
+
+## GCP - Run
+gcr-list: # usage: make <command> REGION=value
+	gcloud beta run revisions list --region=$(REGION)
+
+gcr-traffic-to-latest: # usage: make <command> SERVICE=value REGION=value REVISION_LIVE=value
+	gcloud beta run services update-traffic $(SERVICE) --region=$(REGION) \
+    --update_tags=live=$(REVISION_LIVE) \
+    --to-latest
+
+gcr-traffic-to-blue: # usage: make <command> SERVICE=value REGION=value REVISION_LIVE=value
+	gcloud beta run services update-traffic $(SERVICE) --region=$(REGION) \
+    --update-tags=live=$(REVISION_LIVE) \
+    --to-tags=blue=100
+
+gcr-traffic-to-green: # usage: make <command> SERVICE=value REGION=value REVISION_LIVE=value
+	gcloud beta run services update-traffic $(SERVICE) --region=$(REGION) \
+    --update-tags=live=$(REVISION_LIVE) \
+    --to-tags=green=100
+
+gcr-migrate-staging-to-blue:# usage: make <command> SERVICE=value REGION=value REVISION_STAGING=value
+	gcloud run services update-traffic $(SERVICE) --region=$(REGION) \
+    --update-tags=blue=$(REVISION_STAGING),live=$(REVISION_STAGING) \
+    --remove-tags=staging \
+    --to-tags=blue=100
+
+gcr-migrate-staging-to-green: # usage: make <command> SERVICE=value REGION=value REVISION_STAGING=value
+	gcloud run services update-traffic $(SERVICE) --region=$(REGION) \
+    --update-tags=green=$(REVISION_STAGING),live=$(REVISION_STAGING) \
+    --remove-tags=staging \
+    --to-tags=green=100
