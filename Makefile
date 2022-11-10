@@ -24,7 +24,7 @@ gcp-beta-docker:
 
 ## GCP - Build
 gcp-build-list-ongoing: # usage: make <command> REGION=value
-  gcloud beta builds list --ongoing --region=$(REGION)
+ 	gcloud beta builds list --ongoing --region=$(REGION)
 
 gcb-trigger-export: # usage: make <command> TRIGGER-NAME=value REGION=value EXPORT_PATH=value
 	gcloud beta builds triggers export $(TRIGGER_NAME) --region=$(REGION) --destination=${EXPORT_PATH)
@@ -48,27 +48,27 @@ gcr-list: # usage: make <command> REGION=value
 
 gcr-traffic-to-latest: # usage: make <command> SERVICE=value REGION=value REVISION_LIVE=value
 	gcloud beta run services update-traffic $(SERVICE) --region=$(REGION) \
-    --update_tags=live=$(REVISION_LIVE) \
-    --to-latest
+		--update_tags=live=$(REVISION_LIVE) \
+		--to-latest
 
 gcr-traffic-to-blue: # usage: make <command> SERVICE=value REGION=value REVISION_LIVE=value
 	gcloud beta run services update-traffic $(SERVICE) --region=$(REGION) \
-    --update-tags=live=$(REVISION_LIVE) \
-    --to-tags=blue=100
+		--update-tags=live=$(REVISION_LIVE) \
+		--to-tags=blue=100
 
 gcr-traffic-to-green: # usage: make <command> SERVICE=value REGION=value REVISION_LIVE=value
 	gcloud beta run services update-traffic $(SERVICE) --region=$(REGION) \
-    --update-tags=live=$(REVISION_LIVE) \
-    --to-tags=green=100
+		--update-tags=live=$(REVISION_LIVE) \
+		--to-tags=green=100
 
 gcr-migrate-staging-to-blue:# usage: make <command> SERVICE=value REGION=value REVISION_STAGING=value
 	gcloud run services update-traffic $(SERVICE) --region=$(REGION) \
-    --update-tags=blue=$(REVISION_STAGING),live=$(REVISION_STAGING) \
-    --remove-tags=staging \
-    --to-tags=blue=100
+	--update-tags=blue=$(REVISION_STAGING),live=$(REVISION_STAGING) \
+		--remove-tags=staging \
+		--to-tags=blue=100
 
 gcr-migrate-staging-to-green: # usage: make <command> SERVICE=value REGION=value REVISION_STAGING=value
 	gcloud run services update-traffic $(SERVICE) --region=$(REGION) \
-    --update-tags=green=$(REVISION_STAGING),live=$(REVISION_STAGING) \
-    --remove-tags=staging \
-    --to-tags=green=100
+		--update-tags=green=$(REVISION_STAGING),live=$(REVISION_STAGING) \
+		--remove-tags=staging \
+		--to-tags=green=100
