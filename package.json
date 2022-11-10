@@ -14,7 +14,6 @@
     "start:prod": "yarn build && next start -p 8080",
     "test": "jest --passWithNoTests",
     "test:update-ss": "jest --updateSnapshot",
-    "gcp-build": "npm run build && npm run build:export",
     "build:export": "next export -o build",
     "build:ssg": "yarn build && yarn build:export",
     "lint-staged": "lint-staged",
