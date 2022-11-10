@@ -12,7 +12,7 @@ substitutions:
   _DEPLOY_TAG: staging
   _MAX_INSTANCES: '1'
   _MIN_INSTANCES: '0'
-  _NODE_ENV: development
+  _NODE_ENV: production
   _REGION: us-central1
   _SERVICE_NAME: mgn-concept
   _TRAFFIC_TO_LATEST: 'false'
