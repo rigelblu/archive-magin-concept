@@ -9,6 +9,8 @@ setup-dotenv:
 # -------------------------------
 # Common commands
 # -------------------------------
+# TODO: read SERVICE< REGION from .env
+# TODO: convert some commands to bash or python
 ## Docker
 docker-prune:
 	docker system prune --all
@@ -24,10 +26,10 @@ gcp-beta-docker:
 gcp-build-list-ongoing: # usage: make <command> REGION=value
   gcloud beta builds list --ongoing --region=$(REGION)
 
-gcb-trigger-export: # usage: make <command> TRIGGER-NAME=value EXPORT_PATH=value
+gcb-trigger-export: # usage: make <command> TRIGGER-NAME=value REGION=value EXPORT_PATH=value
 	gcloud beta builds triggers export $(TRIGGER_NAME) --region=$(REGION) --destination=${EXPORT_PATH)
 
-gcb-trigger-import: # usage: make <command> IMPORT_PATH=value
+gcb-trigger-import: # usage: make <command> REGION=value IMPORT_PATH=value
 	gcloud beta builds triggers import --region=$(REGION) --source=$(IMPORT_PATH)
 
 ## GCP - Projects
