@@ -15,9 +15,6 @@ RUN yarn install
 # Stage: Deps runner
 FROM node:16-alpine AS deps-runner
 
-# Required by node-sass
-RUN apk update && apk add yarn python3 g++ make && rm -rf /var/cache/apk/*
-
 WORKDIR /usr/src/app
 COPY package.json yarn.lock ./
 RUN yarn install --production
