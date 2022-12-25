@@ -10,5 +10,5 @@ app.use(express.static('build'));
 
 app.listen(PORT, HOST, () => {
   // eslint-disable-next-line no-console
-  console.log('magin.blue listening on port', PORT);
+  console.log('listening on port', PORT);
 });
