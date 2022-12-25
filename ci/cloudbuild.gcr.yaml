@@ -41,7 +41,7 @@ steps:
         '${_IMAGE_NAME}:latest',
         '--region',
         '${_REGION}',
-        '--tag=${_DEPLOY_TAG}',
+        '--tag=${_DEPLOY_TAGS}',
         '--min-instances=${_MIN_INSTANCES}',
         '--max-instances=${_MAX_INSTANCES}',
         '--allow-unauthenticated',

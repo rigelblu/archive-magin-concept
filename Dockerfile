@@ -4,7 +4,7 @@
 # Stage: Deps builder
 FROM node:16-alpine AS deps-builder
 
-# Required by node-sass
+# Install packages required by node-sass
 RUN apk update && apk add yarn python3 g++ make && rm -rf /var/cache/apk/*
 
 WORKDIR /usr/src/app
@@ -20,7 +20,7 @@ COPY package.json yarn.lock ./
 RUN yarn install --production
 
 # ----------
-# Stage: Builder, SSG (server-side generated)
+# Stage: Builder using SSG (server-side generated)
 FROM node:16-alpine AS builder-ssg
 
 WORKDIR /usr/src/app
@@ -37,7 +37,7 @@ RUN yarn build:ssg
 # RUN yarn test
 
 # ----------
-# Stage: Runner, multi-layer
+# Stage: Runner using SSG, multi-layered
 FROM node:16-alpine AS runner-ssg-multi-layer
 
 WORKDIR /usr/src/app
@@ -50,7 +50,7 @@ COPY public ./public
 COPY src ./src
 
 # ----------
-# Stage: Runner, optimized for size into a single layer
+# Stage: Runner using SSG, optimized for size into a single layer
 FROM node:16-alpine AS runner-ssg
 
 WORKDIR /usr/src/app
