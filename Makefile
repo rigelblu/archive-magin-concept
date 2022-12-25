@@ -22,16 +22,7 @@ gcp-beta-clean:
 gcp-beta-docker:
 	gcloud beta code dev
 
-## GCP - Build
-gcp-build-list-ongoing: # usage: make <command> REGION=value
-	gcloud beta builds list --ongoing --region=$(REGION)
-
-gcb-trigger-export: # usage: make <command> TRIGGER-NAME=value REGION=value EXPORT_PATH=value
-	gcloud beta builds triggers export $(TRIGGER_NAME) --region=$(REGION) --destination=${EXPORT_PATH)
-
-gcb-trigger-import: # usage: make <command> REGION=value IMPORT_PATH=value
-	gcloud beta builds triggers import --region=$(REGION) --source=$(IMPORT_PATH)
-
+# -------------------------------
 ## GCP - Projects
 gcp-projects-list:
 	gcloud beta projects list
@@ -41,6 +32,20 @@ gcp-project-get:
 
 gcp-project-set: # usage: make <command> PROJECT_ID=value
 	gcloud beta config set project $(PROJECT_ID)
+
+# -------------------------------
+## GCP - Build
+gcb-list-ongoing: # usage: make <command> REGION=value
+	gcloud beta builds list --ongoing --region=$(REGION)
+
+gcb-cancel: # usage: make <command> ID=ID REGION=value
+	gcloud beta builds cancel ${ID} --region=$(REGION)
+
+gcb-trigger-export: # usage: make <command> TRIGGER-NAME=value REGION=value EXPORT_PATH=value
+	gcloud beta builds triggers export $(TRIGGER_NAME) --region=$(REGION) --destination=${EXPORT_PATH)
+
+gcb-trigger-import: # usage: make <command> REGION=value IMPORT_PATH=value
+	gcloud beta builds triggers import --region=$(REGION) --source=$(IMPORT_PATH)
 
 ## GCP - Run
 gcr-list: # usage: make <command> REGION=value
