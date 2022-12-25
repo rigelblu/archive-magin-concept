@@ -4,7 +4,7 @@ import { Button } from 'primereact/button';
 
 export default function Home() {
   return (
-    <div className='flex flex-column h-screen justify-content-center align-items-center '>
+    <div className='flex flex-column h-screen v-screen justify-content-center align-items-center '>
       <h1 className='text-center mb-8'>
         Have you <span className='mgn-text-blue-rb'>read a novel</span> <br /> and wondered,
         <br /> why can&apos;t I <span className='mgn-text-blue-rb'>remember</span>{' '}
@@ -16,7 +16,12 @@ export default function Home() {
         Learn to watch a novel <br />
         like a <span className='mgn-text-blue-rb'>Pixar</span> director
       </h2>
-      <Button label='Try magin' tooltip='Coming soon...' className='mgn-primary-cta' />
+      <Button
+        label='Try magin'
+        tooltip='Coming soon...'
+        tooltipOptions={{ position: 'bottom' }}
+        className='mgn-primary-cta'
+      />
     </div>
   );
 }
