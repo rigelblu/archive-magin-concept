@@ -78,11 +78,11 @@ gcr-traffic-to-green: # usage: make <command> SERVICE=value REGION=value REVISIO
 gcr-migrate-staging-to-blue:# usage: make <command> SERVICE=value REGION=value REVISION_STAGING=value
 	gcloud run services update-traffic $(SERVICE) --region=$(REGION) \
 	--update-tags=blue=$(REVISION_STAGING),live=$(REVISION_STAGING) \
-		--remove-tags=staging,preview \
+		--remove-tags=staging \
 		--to-tags=blue=100
 
 gcr-migrate-staging-to-green: # usage: make <command> SERVICE=value REGION=value REVISION_STAGING=value
 	gcloud run services update-traffic $(SERVICE) --region=$(REGION) \
 		--update-tags=green=$(REVISION_STAGING),live=$(REVISION_STAGING) \
-		--remove-tags=staging,preview \
+		--remove-tags=staging \
 		--to-tags=green=100
