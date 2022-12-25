@@ -7,7 +7,7 @@ setup-dotenv:
 	cp .env.example .env.production
 
 # -------------------------------
-# Common commands
+# General commands
 # -------------------------------
 # TODO: read SERVICE< REGION from .env
 # TODO: convert some commands to bash or python
