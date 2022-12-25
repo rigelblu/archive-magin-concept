@@ -50,6 +50,7 @@ $mgn-content-mad-with: 800px;
 // Styles
 .mgn-primary-cta {
   background-color: mgn-color('blue-rb');
+  border-color: mgn-color('blue-rb') !important;
   border: solid;
   border-radius: 4px;
   color: white;
@@ -59,7 +60,6 @@ $mgn-content-mad-with: 800px;
 
 .mgn-primary-cta:hover {
   background-color: white !important;
-  border-color: mgn-color('blue-rb') !important;
   color: mgn-color('blue-rb') !important;
   cursor: pointer;
 }
