@@ -41,8 +41,8 @@ RUN yarn build:ssg
 FROM node:16-alpine AS runner-ssg-multi-layer
 
 WORKDIR /usr/src/app
-COPY --chown=app --from=deps-runner  /usr/src/app/node_modules ./node_modules
-COPY --chown=app --from=builder-ssg /usr/src/app/build ./build
+COPY --from=deps-runner  /usr/src/app/node_modules ./node_modules
+COPY --from=builder-ssg /usr/src/app/build ./build
 COPY additional.d.ts jest.config.js next.config.js next-env.d.ts package.json \
   server.js tsconfig* ./
 COPY tsconfigs ./tsconfigs
