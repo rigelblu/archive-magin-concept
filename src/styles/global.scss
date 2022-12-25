@@ -12,8 +12,11 @@ html {
   scroll-padding-top: 3rem;
 }
 
+body {
+  background-color: mgn-color('yellow-lighter') !important;
+}
+
 header {
-  background: white;
   position: sticky;
   margin: 0 auto;
   width: 100%;
@@ -63,5 +66,11 @@ a.secondary::after {
 @each $name, $color in $mgn-colors {
   .mgn-text-#{$name} {
     color: $color;
+  }
+}
+
+@each $name, $color in $mgn-colors {
+  .mgn-bg-#{$name} {
+    background: $color;
   }
 }
