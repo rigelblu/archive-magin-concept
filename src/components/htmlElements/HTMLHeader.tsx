@@ -5,7 +5,7 @@ import React from 'react';
 export default function HTMLHeader() {
   return (
     <header>
-      <nav>Header Placerholder</nav>
+      <nav>Header Placeholder</nav>
     </header>
   );
 }
