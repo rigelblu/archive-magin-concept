@@ -16,7 +16,7 @@ export default function Home() {
         Learn to watch a novel <br />
         like a <span className='mgn-text-blue-rb'>Pixar</span> director
       </h2>
-      <Button className='mgn-primary-cta'>Try magin</Button>
+      <Button label='Try magin' tooltip='Coming soon...' className='mgn-primary-cta' />
     </div>
   );
 }
