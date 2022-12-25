@@ -23,6 +23,7 @@ RUN yarn install --production
 # Stage: Builder
 FROM node:16-alpine AS builder
 
+WORKDIR /usr/src/app
 COPY --from=deps-builder /usr/src/app/node_modules ./node_modules
 COPY additional.d.ts jest.config.js next.config.js next-env.d.ts package.json \
   tsconfig* ./
@@ -44,7 +45,7 @@ RUN adduser -D app && chown -R app ./
 USER app
 
 COPY --chown=app --from=deps-runner  /usr/src/app/node_modules ./node_modules
-COPY --chown=app --from=builder /.next ./.next
+COPY --chown=app --from=builder /usr/src/app/.next ./.next
 COPY additional.d.ts jest.config.js next.config.js next-env.d.ts package.json \
   tsconfig* ./
 COPY tsconfigs ./tsconfigs
