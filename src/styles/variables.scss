@@ -11,6 +11,7 @@ $mgn-colors: (
   'blue-light': #a7d9ff,
   'blue-lighter': #f4faff,
   'yellow-light': #fff2a8,
+  'yellow-lighter': #faf8f4,
   'grey': #7a7777,
   'grey-light': #c4c4c4,
 );
@@ -48,16 +49,23 @@ $mgn-content-mad-with: 800px;
 // -------------------------------
 // Styles
 .mgn-primary-cta {
-  background-color: mgn-color('blue-rb') !important;
-  border: none;
-  border-radius: 10px;
-  color: mgn-color('blue-lighter');
+  background-color: mgn-color('blue-rb');
+  border: solid;
+  border-radius: 4px;
+  color: white;
   font-weight: bold;
   padding: 3px 0.5rem;
 }
 
-.mgn-primary-cta:enabled:hover,
+.mgn-primary-cta:hover {
+  background-color: white !important;
+  border-color: mgn-color('blue-rb') !important;
+  color: mgn-color('blue-rb') !important;
+  cursor: pointer;
+}
+
+// .mgn-primary-cta:enabled:hover,
 .mgn-primary-cta:not(button):not(a):not(.p-disabled):hover {
-  background: mgn-color('blue-darker') !important;
+  background-color: mgn-color('blue-darker') !important;
   color: mgn-color('blue-lighter');
 }

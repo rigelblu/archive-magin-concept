@@ -12,8 +12,11 @@ html {
   scroll-padding-top: 3rem;
 }
 
+body {
+  background-color: mgn-color('yellow-lighter') !important;
+}
+
 header {
-  background: white;
   position: sticky;
   margin: 0 auto;
   width: 100%;
