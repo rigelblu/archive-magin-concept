@@ -65,3 +65,9 @@ a.secondary::after {
     color: $color;
   }
 }
+
+@each $name, $color in $mgn-colors {
+  .mgn-bg-#{$name} {
+    background: $color;
+  }
+}
