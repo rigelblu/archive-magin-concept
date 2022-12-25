@@ -22,16 +22,7 @@ gcp-beta-clean:
 gcp-beta-docker:
 	gcloud beta code dev
 
-## GCP - Build
-gcp-build-list-ongoing: # usage: make <command> REGION=value
-	gcloud beta builds list --ongoing --region=$(REGION)
-
-gcb-trigger-export: # usage: make <command> TRIGGER-NAME=value REGION=value EXPORT_PATH=value
-	gcloud beta builds triggers export $(TRIGGER_NAME) --region=$(REGION) --destination=${EXPORT_PATH)
-
-gcb-trigger-import: # usage: make <command> REGION=value IMPORT_PATH=value
-	gcloud beta builds triggers import --region=$(REGION) --source=$(IMPORT_PATH)
-
+# -------------------------------
 ## GCP - Projects
 gcp-projects-list:
 	gcloud beta projects list
@@ -42,7 +33,30 @@ gcp-project-get:
 gcp-project-set: # usage: make <command> PROJECT_ID=value
 	gcloud beta config set project $(PROJECT_ID)
 
+# -------------------------------
+## GCP - Build
+gcb-list-ongoing: # usage: make <command> REGION=value
+	gcloud beta builds list --ongoing --region=$(REGION)
+
+gcb-cancel: # usage: make <command> ID=ID REGION=value
+	gcloud beta builds cancel ${ID} --region=$(REGION)
+
+gcb-trigger-export: # usage: make <command> TRIGGER-NAME=value REGION=value EXPORT_PATH=value
+	gcloud beta builds triggers export $(TRIGGER_NAME) --region=$(REGION) --destination=${EXPORT_PATH)
+
+gcb-trigger-import: # usage: make <command> REGION=value IMPORT_PATH=value
+	gcloud beta builds triggers import --region=$(REGION) --source=$(IMPORT_PATH)
+
+# -------------------------------
 ## GCP - Run
+##
+## Models this CI/CD Pipeline
+##
+## Build  ->  Staging / Preview
+##            |        ->  Migrate to Blue / Live
+##            -------- or
+##                     ->  Migrate to Green / Live
+
 gcr-list: # usage: make <command> REGION=value
 	gcloud beta run revisions list --region=$(REGION)
 
@@ -64,11 +78,11 @@ gcr-traffic-to-green: # usage: make <command> SERVICE=value REGION=value REVISIO
 gcr-migrate-staging-to-blue:# usage: make <command> SERVICE=value REGION=value REVISION_STAGING=value
 	gcloud run services update-traffic $(SERVICE) --region=$(REGION) \
 	--update-tags=blue=$(REVISION_STAGING),live=$(REVISION_STAGING) \
-		--remove-tags=staging \
+		--remove-tags=staging,preview \
 		--to-tags=blue=100
 
 gcr-migrate-staging-to-green: # usage: make <command> SERVICE=value REGION=value REVISION_STAGING=value
 	gcloud run services update-traffic $(SERVICE) --region=$(REGION) \
 		--update-tags=green=$(REVISION_STAGING),live=$(REVISION_STAGING) \
-		--remove-tags=staging \
+		--remove-tags=staging,preview \
 		--to-tags=green=100
