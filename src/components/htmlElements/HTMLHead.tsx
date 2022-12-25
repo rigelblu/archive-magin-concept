@@ -29,7 +29,10 @@ export default function HTMLHead() {
       <meta name='twitter:card' content='summary' />
       <meta name='twitter:site' content='@magin' />
       <meta name='twitter:title' content='magin' />
-      <meta name='twitter:description' content='Placerholder' />
+      <meta
+        name='twitter:description'
+        content='magin | learn to watch a novel like a Pixar director'
+      />
       <meta name='twitter:image' content='https://magin.blue/static/preview-twitter.png' />
       <meta property='og:title' content='magin' />
       <meta property='og:description' content='Placeholder' />
@@ -37,8 +40,8 @@ export default function HTMLHead() {
       <meta property='og:url' content='https://magin.blue' />
       <meta property='og:image' content='https://magin.blue/static/preview-ogp.png' />
       <meta property='og:image:alt' content='// FIXME:' />
-      <meta name='description' content='// FIXME:' />
-      <title>magin | placeholder</title>
+      <meta name='description' content='magin | learn to watch a novel like a Pixar director' />
+      <title>magin | learn to watch a novel like a Pixar director</title>
     </Head>
   );
 }
