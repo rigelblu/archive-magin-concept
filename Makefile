@@ -47,7 +47,16 @@ gcb-trigger-export: # usage: make <command> TRIGGER-NAME=value REGION=value EXPO
 gcb-trigger-import: # usage: make <command> REGION=value IMPORT_PATH=value
 	gcloud beta builds triggers import --region=$(REGION) --source=$(IMPORT_PATH)
 
+# -------------------------------
 ## GCP - Run
+##
+## Models this CI/CD Pipeline
+##
+## Build  ->  Staging / Preview
+##            |        ->  Migrate to Blue / Live
+##            -------- or
+##                     ->  Migrate to Green / Live
+
 gcr-list: # usage: make <command> REGION=value
 	gcloud beta run revisions list --region=$(REGION)
 
