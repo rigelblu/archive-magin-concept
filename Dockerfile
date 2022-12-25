@@ -25,10 +25,7 @@ FROM node:16-alpine AS builder
 
 COPY --from=deps-builder /usr/src/app/node_modules ./node_modules
 COPY additional.d.ts jest.config.js next.config.js next-env.d.ts package.json \
-  tsconfig* ./
-COPY tsconfigs ./tsconfigs
-COPY public ./public
-COPY src ./src
+  tsconfig* tsconfigs public src ./
 RUN yarn build
 
 # TODO:enable steps once we have unit tests
@@ -46,11 +43,7 @@ USER app
 COPY --chown=app --from=deps-runner  /usr/src/app/node_modules ./node_modules
 COPY --chown=app --from=builder /.next ./.next
 COPY additional.d.ts jest.config.js next.config.js next-env.d.ts package.json \
-  tsconfig* ./
-COPY tsconfigs ./tsconfigs
-COPY public ./public
-COPY src ./src
-COPY .env* package.json ./
+  tsconfig* tsconfigs public src .env* package.json ./
 
 EXPOSE 8080
 CMD ["yarn", "start:prod"]
