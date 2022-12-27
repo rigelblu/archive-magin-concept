@@ -10,7 +10,7 @@ export default function Home() {
   const onClickTryMagin = async () => {
     let response;
     try {
-      response = await router.push('/magin-preview');
+      response = await router.push('/try-magin');
     } catch {
       response = null;
       console.error('Page: Home, OnClickTryMagin: router.push failed to return promise');
