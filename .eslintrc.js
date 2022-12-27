@@ -42,6 +42,7 @@ module.exports = {
       { js: 'never', jsx: 'never', ts: 'never', tsx: 'never' },
     ],
     'import/no-extraneous-dependencies': 'off',
+    'no-console': 'off',
     'no-shadow': 'off',
     'no-unused-vars': 'off',
     'no-use-before-define': 'warn',
