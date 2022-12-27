@@ -1,8 +1,23 @@
 // Copyright rigélblu inc.
 // All rights reserved.
 import { Button } from 'primereact/button';
+import { useRouter } from 'next/router';
 
 export default function Home() {
+  const router = useRouter();
+
+  // REFACTOR: turn this into a helper function
+  const onClickTryMagin = async () => {
+    let response;
+    try {
+      response = await router.push('/magin-preview');
+    } catch {
+      response = null;
+      console.error('Page: Home, OnClickTryMagin: router.push failed to return promise');
+    }
+    return response;
+  };
+
   return (
     <div className='flex flex-column h-screen v-screen justify-content-center align-items-center '>
       {/* Tagline */}
@@ -24,6 +39,9 @@ export default function Home() {
         tooltip='Coming soon...'
         tooltipOptions={{ position: 'bottom' }}
         className='mgn-primary-cta'
+        // REFACTOR: disable through eslintrc
+        // eslint-disable-next-line @typescript-eslint/no-misused-promises
+        onClick={onClickTryMagin}
       />
     </div>
   );
