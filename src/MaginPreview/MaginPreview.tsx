@@ -12,6 +12,7 @@ export default function MaginPreview() {
       <div className='w-full h-full sm:max-w-24rem sm:max-h-40rem mgn-debug-outline-red'>
         <div className='h-full flex flex-column justify-content-between'>
           <div>
+            <Guide />
             <Book />
             <Guide />
             <Film />

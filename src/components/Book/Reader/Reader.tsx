@@ -4,9 +4,9 @@ import Scene from '@/components/Scene/Scene';
 
 export default function Reader() {
   return (
-    <>
+    <div className='flex'>
       <Scene />
-      <div>Reader</div>
-    </>
+      <div className='w-full mgn-debug-outline-blue'>Reader</div>
+    </div>
   );
 }
