@@ -3,7 +3,7 @@
 import Book from '@/components/Book/Book';
 import Film from '@/components/Film/Film';
 import Guide from '@/components/Guide/Guide';
-import Navigation from '../Navigation/Navigation';
+import Navigation from '@/components/Navigation/Navigation';
 
 export default function MaginPreview() {
   return (
