@@ -75,6 +75,19 @@ a.secondary::after {
   }
 }
 
+// REFACTOR: convert into a component class for Book
+.max-h-40rem {
+  max-height: 40rem !important;
+}
+
+// REFACTOR: define media sizes and reference it instead of hardcoding
+@media screen and (min-width: 576px) {
+  /* stylelint-disable-next-line selector-class-pattern */
+  .sm\:max-h-40rem {
+    max-height: 40rem !important;
+  }
+}
+
 // -------------------------------
 // Debugging classes
 .mgn-debug-outline-red {
