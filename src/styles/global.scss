@@ -74,3 +74,21 @@ a.secondary::after {
     background: $color;
   }
 }
+
+// -------------------------------
+// Debugging classes
+.mgn-debug-outline-red {
+  outline: red 1px dashed;
+}
+
+.mgn-debug-outline-green {
+  outline: green 1px dashed;
+}
+
+.mgn-debug-outline-blues {
+  outline: blue 1px dashed;
+}
+
+.mgn-debug-outline-black {
+  outline: black 1px dashed;
+}
