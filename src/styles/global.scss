@@ -107,6 +107,59 @@ a.secondary::after {
 }
 
 // Uncomment when debugging css to apply outline to all elements
-* {
-  outline: red 1px dashed;
-}
+// * {
+//   outline: 2px dashed red;
+// }
+
+// * * {
+//   outline: 2px dashed green;
+// }
+
+// * * * {
+//   outline: 2px dashed orange;
+// }
+
+// * * * * {
+//   outline: 2px dashed blue;
+// }
+
+// * * * * * {
+//   outline: 1px solid red;
+// }
+
+// * * * * * * {
+//   outline: 1px solid green;
+// }
+
+// * * * * * * * {
+//   outline: 1px solid orange;
+// }
+
+// * * * * * * * * {
+//   outline: 1px solid blue;
+// }
+
+// * *:hover {
+//   outline: 2px solid #89a81e;
+// } /* Solid Green */
+// * * *:hover {
+//   outline: 2px solid #f34607;
+// } /* Solid Orange */
+// * * * *:hover {
+//   outline: 2px solid #5984c3;
+// } /* Solid Blue */
+// * * * * *:hover {
+//   outline: 2px solid #cd1821;
+// } /* Solid Red */
+// * * * * * *:hover {
+//   outline: 2px dashed #89a81e;
+// } /* dashed Green */
+// * * * * * * *:hover {
+//   outline: 2px dashed #f34607;
+// } /* dashed Orange */
+// * * * * * * * *:hover {
+//   outline: 2px dashed #5984c3;
+// } /* dashed Blue */
+// * * * * * * * * *:hover {
+//   outline: 2px dashed #cd1821;
+// } /* dashed Red */
