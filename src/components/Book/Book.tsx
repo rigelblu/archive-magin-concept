@@ -10,7 +10,7 @@ export default function Book(props: Props) {
   const { className = '' } = props;
 
   return (
-    <div className={`${className}`}>
+    <div className={`mgn-book ${className}`}>
       <Reader />
     </div>
   );

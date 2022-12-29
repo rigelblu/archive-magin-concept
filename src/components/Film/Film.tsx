@@ -11,7 +11,7 @@ export default function Film(props: Props) {
   const { className = '' } = props;
 
   return (
-    <div className={`flex ${className}`}>
+    <div className={`mgn-film ${className} flex`}>
       <Scene />
       <Storyboard />
     </div>

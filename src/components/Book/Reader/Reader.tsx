@@ -10,7 +10,7 @@ export default function Reader(props: Props) {
   const { className = '' } = props;
 
   return (
-    <div className={`flex ${className}`}>
+    <div className={`mgn-reader flex ${className}`}>
       <Scene />
       <div className='w-full'>Reader</div>
     </div>

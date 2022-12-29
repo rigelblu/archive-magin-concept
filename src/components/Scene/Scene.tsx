@@ -8,5 +8,5 @@ interface Props {
 export default function Scene(props: Props) {
   const { className = '' } = props;
 
-  return <div className={`${className}`}>Scene</div>;
+  return <div className={`mgn-scene ${className}`}>Scene</div>;
 }

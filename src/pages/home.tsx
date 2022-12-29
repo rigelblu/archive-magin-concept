@@ -19,7 +19,7 @@ export default function Home() {
   };
 
   return (
-    <div className='flex flex-column h-screen v-screen justify-content-center align-items-center '>
+    <div className='mgn-home flex flex-column h-screen v-screen justify-content-center align-items-center'>
       {/* Tagline */}
       <h1 className='text-center mb-8'>
         Have you <span className='mgn-text-blue-rb'>read a novel</span> <br /> and wondered,

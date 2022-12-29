@@ -3,5 +3,9 @@
 import MaginPreview from '@/src/MaginPreview/MaginPreview';
 
 export default function TryMagin() {
-  return <MaginPreview />;
+  return (
+    <div className='mgn-try-magin'>
+      <MaginPreview />
+    </div>
+  );
 }

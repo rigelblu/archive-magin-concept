@@ -11,5 +11,5 @@ export default function Guide(props: Props) {
 
   // TODO: log if message is empty string
   // REFACTOR: define standard padding in global.css
-  return <div className={`w-full p-1 text-center ${className}`}>{message}</div>;
+  return <div className={`mgn-guide ${className} w-full p-1 text-center`}>{message}</div>;
 }

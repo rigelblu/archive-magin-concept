@@ -8,5 +8,5 @@ interface Props {
 export default function Storyboard(props: Props) {
   const { className = '' } = props;
 
-  return <div className={`w-full ${className}`}>Storyboard</div>;
+  return <div className={`mgn-storyboard ${className} w-full`}>Storyboard</div>;
 }
