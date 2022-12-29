@@ -3,5 +3,5 @@
 
 export default function Guide() {
   // REFACTOR: define standard padding in global.css
-  return <div className='w-full m-2 text-center'>Guide</div>;
+  return <div className='w-full p-1 text-center'>Guide</div>;
 }
