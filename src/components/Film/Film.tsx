@@ -12,7 +12,7 @@ export default function Film(props: Props) {
 
   return (
     <div className={`mgn-film ${className} flex`}>
-      <Scene />
+      <Scene sceneNum={1}>scene</Scene>
       <Storyboard />
     </div>
   );

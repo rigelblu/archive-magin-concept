@@ -1,0 +1,20 @@
+// Copyright rigélblu inc.
+// All rights reserved.
+
+.scene {
+  &-blue {
+    border-color: blue;
+  }
+
+  &-green {
+    border-color: green;
+  }
+
+  &-orange {
+    border-color: orange;
+  }
+
+  &-black {
+    border-color: black;
+  }
+}
