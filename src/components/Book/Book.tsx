@@ -2,9 +2,15 @@
 // All rights reserved.
 import Reader from './Reader/Reader';
 
-export default function Book() {
+interface Props {
+  className?: string;
+}
+
+export default function Book(props: Props) {
+  const { className = '' } = props;
+
   return (
-    <div className=''>
+    <div className={`${className}`}>
       <Reader />
     </div>
   );
