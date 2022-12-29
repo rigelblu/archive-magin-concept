@@ -50,24 +50,28 @@ $mgn-content-mad-with: 800px;
 // FIXME: temporary inside variables, need to move to global.css
 // -------------------------------
 // Styles
-.mgn-primary-cta {
-  background-color: mgn-color('blue-rb');
-  border-color: mgn-color('blue-rb') !important;
-  border: solid;
+%mgn-cta-common {
+  border: none;
   border-radius: 4px;
-  color: white;
-  font-weight: bold;
   padding: 3px 0.5rem;
 }
 
-.mgn-primary-cta:hover {
-  background-color: white !important;
-  color: mgn-color('blue-rb') !important;
+%mgn-cta-hover {
   cursor: pointer;
 }
 
-// .mgn-primary-cta:enabled:hover,
-.mgn-primary-cta:not(button):not(a):not(.p-disabled):hover {
-  background-color: mgn-color('blue-darker') !important;
-  color: mgn-color('blue-lighter');
+.mgn-cta {
+  &-primary {
+    @extend %mgn-cta-common, %mgn-cta-hover;
+
+    background-color: mgn-color('blue-rb');
+    color: white;
+  }
+
+  &-secondary {
+    @extend %mgn-cta-common, %mgn-cta-hover;
+
+    background-color: mgn-color('grey-lighter');
+    color: black;
+  }
 }

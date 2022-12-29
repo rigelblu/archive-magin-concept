@@ -9,8 +9,9 @@ export default function Navigation(props: Props) {
 
   return (
     <div className={`flex justify-content-between ${className}`}>
-      <div className='text-center'>Left</div>
-      <div className='text-center'>Right</div>
+      {/* REFACTOR: accept divs as props */}
+      <div className='text-center mgn-cta-secondary'>Left</div>
+      <div className='text-center mgn-cta-primary'>Right</div>
     </div>
   );
 }
