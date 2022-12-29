@@ -12,6 +12,13 @@ html {
   scroll-padding-top: 3rem;
 }
 
+@font-face {
+  font-display: swap;
+  font-family: TheanoOldStyle-Regular;
+  font-style: italic;
+  src: url('/assets/common/fonts/TheanoOldStyle-Regular.woff2') format('woff2');
+}
+
 body {
   background-color: mgn-color('yellow-lighter') !important;
 }
@@ -63,6 +70,10 @@ a.secondary::after {
 
 // -------------------------------
 // Utility classes
+.mgn-font-theano-old-style {
+  font-family: TheanoOldStyle-Regular;
+}
+
 @each $name, $color in $mgn-colors {
   .mgn-text-#{$name} {
     color: $color;
