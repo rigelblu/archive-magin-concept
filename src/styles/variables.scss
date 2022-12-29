@@ -14,6 +14,7 @@ $mgn-colors: (
   'yellow-lighter': #faf8f4,
   'grey': #7a7777,
   'grey-light': #c4c4c4,
+  'grey-lighter': #f3f3f3,
 );
 @function mgn-color($name) {
   @return map-get($mgn-colors, $name);
