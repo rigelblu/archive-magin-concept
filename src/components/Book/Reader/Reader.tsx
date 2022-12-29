@@ -6,7 +6,7 @@ export default function Reader() {
   return (
     <div className='flex'>
       <Scene />
-      <div className='w-full mgn-debug-outline-blue'>Reader</div>
+      <div className='w-full'>Reader</div>
     </div>
   );
 }

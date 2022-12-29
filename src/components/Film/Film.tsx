@@ -5,7 +5,7 @@ import Storyboard from './Storyboard/Storyboard';
 
 export default function Film() {
   return (
-    <div className='flex mgn-debug-outline-green'>
+    <div className='flex'>
       <Scene />
       <Storyboard />
     </div>

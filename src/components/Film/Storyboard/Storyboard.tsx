@@ -2,5 +2,5 @@
 // All rights reserved.
 
 export default function Storyboard() {
-  return <div className='w-full mgn-debug-outline-blue'>Storyboard</div>;
+  return <div className='w-full'>Storyboard</div>;
 }

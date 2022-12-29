@@ -105,3 +105,8 @@ a.secondary::after {
 .mgn-debug-outline-black {
   outline: black 1px dashed;
 }
+
+// Uncomment when debugging css to apply outline to all elements
+* {
+  outline: red 1px dashed;
+}
