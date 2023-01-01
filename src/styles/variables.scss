@@ -56,13 +56,16 @@ $mgn-content-mad-with: 800px;
   padding: 3px 0.5rem;
 }
 
-
 .mgn-cta {
   &-primary {
     @extend %mgn-cta-common;
 
     background-color: mgn-color('blue-rb');
     color: white;
+
+    &:hover {
+      background-color: mgn-color('blue-rb') !important;
+    }
   }
 
   &-secondary {
@@ -70,5 +73,9 @@ $mgn-content-mad-with: 800px;
 
     background-color: mgn-color('grey-lighter');
     color: black;
+
+    &:hover {
+      background-color: mgn-color('blue-rb') !important;
+    }
   }
 }
