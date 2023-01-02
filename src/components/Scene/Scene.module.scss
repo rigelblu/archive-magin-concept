@@ -2,19 +2,20 @@
 // All rights reserved.
 
 .scene {
+  // FIXME: make colors pass contrast accessibility
   &-blue {
-    border-color: blue;
+    border-left: solid blue;
   }
 
   &-green {
-    border-color: green;
+    border-left: dotted green;
   }
 
   &-orange {
-    border-color: orange;
+    border-left: dashed orange;
   }
 
   &-black {
-    border-color: black;
+    border-left: solid black;
   }
 }

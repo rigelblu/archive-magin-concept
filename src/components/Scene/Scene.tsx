@@ -19,10 +19,10 @@ export default function Scene(props: Props) {
       sceneColor = styles['scene-blue'];
       break;
     case 2:
-      sceneColor = styles['scene-green'];
+      sceneColor = styles['scene-orange'];
       break;
     case 3:
-      sceneColor = styles['scene-orange'];
+      sceneColor = styles['scene-green'];
       break;
     default:
       sceneColor = styles['scene-black'];
