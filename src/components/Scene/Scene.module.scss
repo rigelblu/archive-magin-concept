@@ -1,0 +1,21 @@
+// Copyright rigélblu inc.
+// All rights reserved.
+
+.scene {
+  // FIXME: make colors pass contrast accessibility
+  &-blue {
+    border-left: solid blue;
+  }
+
+  &-green {
+    border-left: dotted green;
+  }
+
+  &-orange {
+    border-left: dashed orange;
+  }
+
+  &-black {
+    border-left: solid black;
+  }
+}

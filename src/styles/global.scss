@@ -12,6 +12,13 @@ html {
   scroll-padding-top: 3rem;
 }
 
+@font-face {
+  font-display: swap;
+  font-family: TheanoOldStyle-Regular;
+  font-style: italic;
+  src: url('/assets/common/fonts/TheanoOldStyle-Regular.woff2') format('woff2');
+}
+
 body {
   background-color: mgn-color('yellow-lighter') !important;
 }
@@ -63,6 +70,10 @@ a.secondary::after {
 
 // -------------------------------
 // Utility classes
+.mgn-font-theano-old-style {
+  font-family: TheanoOldStyle-Regular;
+}
+
 @each $name, $color in $mgn-colors {
   .mgn-text-#{$name} {
     color: $color;
@@ -74,3 +85,92 @@ a.secondary::after {
     background: $color;
   }
 }
+
+// REFACTOR: convert into a component class for Book
+.max-h-40rem {
+  max-height: 40rem !important;
+}
+
+// REFACTOR: define media sizes and reference it instead of hardcoding
+@media screen and (min-width: 576px) {
+  /* stylelint-disable-next-line selector-class-pattern */
+  .sm\:max-h-40rem {
+    max-height: 40rem !important;
+  }
+}
+
+// -------------------------------
+// Debugging classes
+.mgn-debug-outline-red {
+  outline: red 1px dashed;
+}
+
+.mgn-debug-outline-green {
+  outline: green 1px dashed;
+}
+
+.mgn-debug-outline-blue {
+  outline: blue 1px dashed;
+}
+
+.mgn-debug-outline-black {
+  outline: black 1px dashed;
+}
+
+// Uncomment when debugging css to apply outline to all elements
+// * {
+//   outline: 2px dashed red;
+// }
+
+// * * {
+//   outline: 2px dashed green;
+// }
+
+// * * * {
+//   outline: 2px dashed orange;
+// }
+
+// * * * * {
+//   outline: 2px dashed blue;
+// }
+
+// * * * * * {
+//   outline: 1px solid red;
+// }
+
+// * * * * * * {
+//   outline: 1px solid green;
+// }
+
+// * * * * * * * {
+//   outline: 1px solid orange;
+// }
+
+// * * * * * * * * {
+//   outline: 1px solid blue;
+// }
+
+// * *:hover {
+//   outline: 2px solid #89a81e;
+// } /* Solid Green */
+// * * *:hover {
+//   outline: 2px solid #f34607;
+// } /* Solid Orange */
+// * * * *:hover {
+//   outline: 2px solid #5984c3;
+// } /* Solid Blue */
+// * * * * *:hover {
+//   outline: 2px solid #cd1821;
+// } /* Solid Red */
+// * * * * * *:hover {
+//   outline: 2px dashed #89a81e;
+// } /* dashed Green */
+// * * * * * * *:hover {
+//   outline: 2px dashed #f34607;
+// } /* dashed Orange */
+// * * * * * * * *:hover {
+//   outline: 2px dashed #5984c3;
+// } /* dashed Blue */
+// * * * * * * * * *:hover {
+//   outline: 2px dashed #cd1821;
+// } /* dashed Red */
