@@ -12,9 +12,10 @@ export default function Film(props: Props) {
 
   return (
     // REFACTOR: move px-2 to global, align with book
-    <div className={`mgn-film ${className} flex px-2`}>
-      <Scene sceneNum={1}>scene</Scene>
-      <Storyboard />
+    <div className={`mgn-film ${className} flex px-3`}>
+      <Scene sceneNum={1}>
+        <Storyboard />
+      </Scene>
     </div>
   );
 }
