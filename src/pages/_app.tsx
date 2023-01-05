@@ -10,6 +10,7 @@ import 'primereact/resources/themes/tailwind-light/theme.css';
 
 import '@/styles/reset.css';
 import '@/styles/global.scss';
+import 'primeicons/primeicons.css';
 
 import * as gtag from '@/src/helpers/googleAnalytics';
 import HTMLHead from '@/src/htmlElements/HTMLHead';
