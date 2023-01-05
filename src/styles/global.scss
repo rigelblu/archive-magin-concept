@@ -99,6 +99,10 @@ a.secondary::after {
   }
 }
 
+.bg-transparent {
+  background-color: transparent !important;
+}
+
 // -------------------------------
 // Debugging classes
 .mgn-debug-outline-red {
