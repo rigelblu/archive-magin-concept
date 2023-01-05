@@ -14,6 +14,7 @@ $mgn-colors: (
   'yellow-lighter': #faf8f4,
   'grey': #7a7777,
   'grey-light': #c4c4c4,
+  'grey-lighter': #f3f3f3,
 );
 @function mgn-color($name) {
   @return map-get($mgn-colors, $name);
@@ -49,24 +50,32 @@ $mgn-content-mad-with: 800px;
 // FIXME: temporary inside variables, need to move to global.css
 // -------------------------------
 // Styles
-.mgn-primary-cta {
-  background-color: mgn-color('blue-rb');
-  border-color: mgn-color('blue-rb') !important;
-  border: solid;
+%mgn-cta-common {
+  border: none;
   border-radius: 4px;
-  color: white;
-  font-weight: bold;
   padding: 3px 0.5rem;
 }
 
-.mgn-primary-cta:hover {
-  background-color: white !important;
-  color: mgn-color('blue-rb') !important;
-  cursor: pointer;
-}
+.mgn-cta {
+  &-primary {
+    @extend %mgn-cta-common;
 
-// .mgn-primary-cta:enabled:hover,
-.mgn-primary-cta:not(button):not(a):not(.p-disabled):hover {
-  background-color: mgn-color('blue-darker') !important;
-  color: mgn-color('blue-lighter');
+    background-color: mgn-color('blue-rb');
+    color: white;
+
+    &:hover {
+      background-color: mgn-color('blue-rb') !important;
+    }
+  }
+
+  &-secondary {
+    @extend %mgn-cta-common;
+
+    background-color: mgn-color('grey-lighter');
+    color: black;
+
+    &:hover {
+      background-color: mgn-color('blue-rb') !important;
+    }
+  }
 }

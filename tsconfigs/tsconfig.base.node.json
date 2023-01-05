@@ -13,6 +13,7 @@
     "noEmit": false,
     "noImplicitAny": true,
     "noUnusedLocals": true,
+    "plugins": [{ "name": "typescript-plugin-css-modules" }],
     "preserveConstEnums": true,
     "resolveJsonModule": true,
     "skipLibCheck": true

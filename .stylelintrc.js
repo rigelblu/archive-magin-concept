@@ -9,6 +9,12 @@ module.exports = {
     'function-no-unknown': null,
     'scss/at-import-partial-extension': null,
     'scss/double-slash-comment-empty-line-before': null,
+    'selector-pseudo-class-no-unknown': [
+      true,
+      {
+        ignorePseudoClasses: ['global'],
+      },
+    ],
   },
   overrides: [
     {
