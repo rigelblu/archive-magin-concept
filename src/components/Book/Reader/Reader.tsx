@@ -12,7 +12,7 @@ export default function Reader(props: Props) {
 
   return (
     <div className={`${styles['mgn-reader']} ${className} flex`}>
-      <div className='w-full h-15rem overflow-hidden mgn-font-theano-old-style'>
+      <div className='w-full h-15rem overflow-hidden mgn-font-theano-old-style text-sm'>
         {/* REFACTOR: accept the content from a parameter */}
         <Scene sceneNum={1}>
           <p>“What’s two plus two?”</p>
