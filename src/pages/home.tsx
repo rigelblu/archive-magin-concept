@@ -8,6 +8,7 @@ export default function Home() {
   const router = useRouter();
 
   // REFACTOR: turn this into a helper function
+  // @ts-expect-error disabling onClickTryMagin temporarily
   const onClickTryMagin = async () => {
     let response;
     try {
@@ -33,6 +34,7 @@ export default function Home() {
           Learn to watch a novel <br />
           like a <span className='mgn-text-blue-rb'>Pixar</span> director
         </h2>
+
         {/* Try magin */}
         <Button
           label='Try magin'
