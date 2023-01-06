@@ -99,6 +99,14 @@ a.secondary::after {
   }
 }
 
+.bg-transparent {
+  background-color: transparent !important;
+}
+
+.mgn-bg-github {
+  background-color: #161b22 !important;
+}
+
 // -------------------------------
 // Debugging classes
 .mgn-debug-outline-red {
