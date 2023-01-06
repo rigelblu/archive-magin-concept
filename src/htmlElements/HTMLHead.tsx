@@ -35,7 +35,10 @@ export default function HTMLHead() {
       />
       <meta name='twitter:image' content='https://magin.blue/static/preview-twitter.png' />
       <meta property='og:title' content='magin' />
-      <meta property='og:description' content='Placeholder' />
+      <meta
+        property='og:description'
+        content='magin | learn to watch a novel like a Pixar director'
+      />
       <meta property='og:type' content='website' />
       <meta property='og:url' content='https://magin.blue' />
       <meta property='og:image' content='https://magin.blue/static/preview-ogp.png' />
