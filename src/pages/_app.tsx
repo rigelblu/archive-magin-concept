@@ -9,6 +9,7 @@ import 'primeflex/primeflex.css';
 import 'primereact/resources/themes/tailwind-light/theme.css';
 
 import '@/styles/reset.css';
+import '@/styles/tailwind.css';
 import '@/styles/global.scss';
 import 'primeicons/primeicons.css';
 
