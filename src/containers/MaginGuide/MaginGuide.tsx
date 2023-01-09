@@ -22,7 +22,7 @@ function Step1() {
           <div>{locale.guide.step1_tap_next}</div>
         </GuideMessage>
       </div>
-      <Navigation left={locale.navigation.returnHome} right={locale.navigation.next} />
+      <Navigation left={locale.navigation.returnHome} right={locale.navigation.watchNovel} />
     </div>
   );
 }
