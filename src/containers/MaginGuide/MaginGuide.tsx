@@ -16,9 +16,8 @@ interface Props {
 function Step1() {
   return (
     <div className='mgn-guide-step1 flex flex-column h-full justify-items-center'>
-      {/* TODO: create utility class to position it 70% below top of screen */}
-      <div className='flex h-full align-items-center'>
-        <GuideMessage>
+      <div className='flex h-full'>
+        <GuideMessage className='flex h-3/4 align-items-end justify-content-center'>
           <div>{locale.guide.step1_magin_presents}</div>
           <div>{locale.guide.step1_tap_next}</div>
         </GuideMessage>
