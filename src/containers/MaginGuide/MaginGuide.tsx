@@ -2,16 +2,16 @@
 // All rights reserved.
 import Book from '@/components/Book/Book';
 import Film from '@/components/Film/Film';
-import Guide from '@/components/Guide/Guide';
+import GuideMessage from '@/containers/MaginGuide/GuideMessage';
 import Navigation from '@/components/Navigation/Navigation';
 
 export default function MaginGuide() {
   return (
     <div>
       <div>
-        <Guide message='Guide' />
+        <GuideMessage>Guide </GuideMessage>
         <Book />
-        <Guide message='Guide' />
+        <GuideMessage>Guide </GuideMessage>
         <Film />
       </div>
       <Navigation />
