@@ -13,7 +13,7 @@ import '@/styles/global.scss';
 import 'primeicons/primeicons.css';
 
 import * as gtag from '@/src/helpers/googleAnalytics';
-import HTMLHead from '@/src/htmlElements/HTMLHead';
+import HTMLHead from '@/src/containers/HTMLElements/HTMLHead';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function App({ Component, pageProps }: any) {
