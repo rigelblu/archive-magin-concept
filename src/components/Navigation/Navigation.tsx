@@ -1,5 +1,6 @@
 // Copyright rigélblu inc.
 // All rights reserved.
+import { Button } from 'primereact/button';
 
 interface Props {
   left: string;
@@ -12,8 +13,8 @@ export default function Navigation(props: Props) {
 
   return (
     <div className={`mgn-navigation ${className} flex justify-content-between`}>
-      <div className='text-center mgn-cta-secondary'>{left}</div>
-      <div className='text-center mgn-cta-primary'>{right}</div>
+      <Button className='text-center mgn-cta-secondary'>{left}</Button>
+      <Button className='text-center mgn-cta-primary'>{right}</Button>
     </div>
   );
 }
