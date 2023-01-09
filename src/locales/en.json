@@ -1,4 +1,7 @@
 {
+  "book": {
+    "title": "Project Hail Mary"
+  },
   "guide": {
     "step1_magin_presents": "magin presents",
     "step1_tap_next": "tap next"
