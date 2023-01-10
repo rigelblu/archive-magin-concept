@@ -1,19 +1,20 @@
 // Copyright rigélblu inc.
 // All rights reserved.
 import Scene from '@/components/Scene/Scene';
-import styles from './Reader.module.scss';
+import styles from './Page.module.scss';
 
 interface Props {
   className?: string;
 }
 
-export default function Reader(props: Props) {
+export default function Page(props: Props) {
   const { className = '' } = props;
 
   return (
-    <div className={`${styles['mgn-reader']} ${className} flex`}>
+    <div className={`${styles['mgn-page']} ${className} flex`}>
       <div className='w-full h-15rem overflow-hidden mgn-font-theano-old-style text-sm'>
         {/* REFACTOR: accept the content from a parameter */}
+        <p>Chapter 1</p>
         <Scene sceneNum={1}>
           <p>“What’s two plus two?”</p>
           <p>Something about the question irritates me. I’m tired. I drift back to sleep.</p>
