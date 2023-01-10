@@ -36,12 +36,12 @@ function Step1() {
     <div className='mgn-guide-step1 flex flex-column h-full justify-items-center'>
       <div className='flex h-full'>
         <GuideMessage className='flex flex-column h-3/4 justify-content-end'>
-          <h1>
+          <h2>
             {locale.guide.step1_magin_presents}
             <br />
             {locale.book.title}
             <br />
-          </h1>
+          </h2>
         </GuideMessage>
       </div>
       <Navigation
