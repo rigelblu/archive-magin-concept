@@ -26,7 +26,10 @@ function Step1() {
           </h1>
         </GuideMessage>
       </div>
-      <Navigation left={locale.navigation.returnHome} right={locale.navigation.watchNovel} />
+      <Navigation
+        left={{ label: locale.navigation.returnHome, onClick: () => {} }}
+        right={{ label: locale.navigation.watchNovel, onClick: () => {} }}
+      />
     </div>
   );
 }

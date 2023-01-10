@@ -3,8 +3,8 @@
 import { Button } from 'primereact/button';
 
 interface Props {
-  left: string;
-  right: string;
+  left: { label: string; onClick: () => void };
+  right: { label: string; onClick: () => void };
   className?: string;
 }
 
@@ -13,8 +13,12 @@ export default function Navigation(props: Props) {
 
   return (
     <div className={`mgn-navigation ${className} flex justify-content-between`}>
-      <Button className='text-center mgn-cta-secondary'>{left}</Button>
-      <Button className='text-center mgn-cta-primary'>{right}</Button>
+      <Button className='text-center mgn-cta-secondary' onClick={left.onClick}>
+        {left.label}
+      </Button>
+      <Button className='text-center mgn-cta-primary' onClick={right.onClick}>
+        {right.label}
+      </Button>
     </div>
   );
 }
