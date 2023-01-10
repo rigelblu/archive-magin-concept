@@ -10,17 +10,20 @@ export default function Home() {
   const featureFlagOnClick = false;
 
   // REFACTOR: turn this into a helper function
-  let response;
+  let response: boolean;
   const onClickTryMagin = async () => {
     if (featureFlagOnClick) {
       try {
         response = await router.push('/try-magin');
       } catch {
-        response = null;
-        console.error('Page: Home, OnClickTryMagin: router.push failed to return promise');
+        console.error(
+          `Page: Home, onClickTryMagin: router.push failed to return promise, response: ${
+            response || 'not truthy'
+          }`
+        );
       }
     } else {
-      response = null;
+      response = false;
     }
     return response;
   };

@@ -34,6 +34,7 @@ module.exports = {
   rules: {
     '@typescript-eslint/no-shadow': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
+    '@typescript-eslint/restrict-template-expressions': ['error', { allowBoolean: true }],
     '@typescript-eslint/unbound-method': 'off',
     'eslint-comments/disable-enable-pair': ['error', { allowWholeFile: true }],
     'import/extensions': [
