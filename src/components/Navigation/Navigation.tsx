@@ -1,17 +1,24 @@
 // Copyright rigélblu inc.
 // All rights reserved.
+import { Button } from 'primereact/button';
+
 interface Props {
+  left: { label: string; onClick: () => void };
+  right: { label: string; onClick: () => void };
   className?: string;
 }
 
 export default function Navigation(props: Props) {
-  const { className = '' } = props;
+  const { left, right, className = '' } = props;
 
   return (
     <div className={`mgn-navigation ${className} flex justify-content-between`}>
-      {/* REFACTOR: accept divs as props */}
-      <div className='text-center mgn-cta-secondary'>Left</div>
-      <div className='text-center mgn-cta-primary'>Right</div>
+      <Button className='text-center mgn-cta-secondary' onClick={left.onClick}>
+        {left.label}
+      </Button>
+      <Button className='text-center mgn-cta-primary' onClick={right.onClick}>
+        {right.label}
+      </Button>
     </div>
   );
 }

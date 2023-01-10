@@ -1,9 +1,6 @@
 // Copyright rigélblu inc.
 // All rights reserved.
-import Book from '@/components/Book/Book';
-import Film from '@/components/Film/Film';
-import Guide from '@/components/Guide/Guide';
-import Navigation from '@/components/Navigation/Navigation';
+import MaginGuide from '@/containers/MaginGuide/MaginGuide';
 
 export default function MaginPreview() {
   return (
@@ -11,13 +8,7 @@ export default function MaginPreview() {
     <div className='mgn-preview flex w-screen h-screen p-3 justify-content-center align-items-center'>
       <div className='w-full h-full sm:max-w-24rem sm:max-h-40rem'>
         <div className='h-full flex flex-column justify-content-between'>
-          <div>
-            <Guide message='Guide' />
-            <Book />
-            <Guide message='Guide' />
-            <Film />
-          </div>
-          <Navigation />
+          <MaginGuide />
         </div>
       </div>
     </div>

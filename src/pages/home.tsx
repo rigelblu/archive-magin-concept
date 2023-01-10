@@ -6,16 +6,24 @@ import IconGithub from '@/assets/common/icons/github-mark.svg';
 
 export default function Home() {
   const router = useRouter();
+  // REFACTOR: load value from json file
+  const featureFlagOnClick = false;
 
   // REFACTOR: turn this into a helper function
-  // @ts-expect-error disabling onClickTryMagin temporarily
+  let response: boolean;
   const onClickTryMagin = async () => {
-    let response;
-    try {
-      response = await router.push('/try-magin');
-    } catch {
-      response = null;
-      console.error('Page: Home, OnClickTryMagin: router.push failed to return promise');
+    if (featureFlagOnClick) {
+      try {
+        response = await router.push('/try-magin');
+      } catch {
+        console.error(
+          `Page: Home, onClickTryMagin: router.push failed to return promise, response: ${
+            response || 'not truthy'
+          }`
+        );
+      }
+    } else {
+      response = false;
     }
     return response;
   };
@@ -43,7 +51,7 @@ export default function Home() {
           className='mgn-cta-primary'
           // REFACTOR: disable through eslintrc
           // eslint-disable-next-line @typescript-eslint/no-misused-promises
-          // onClick={onClickTryMagin}
+          onClick={onClickTryMagin}
         />
       </div>
 
