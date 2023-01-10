@@ -1,6 +1,6 @@
 // Copyright rigélblu inc.
 // All rigts reserve
-import MaginPreview from '@/src/MaginPreview/MaginPreview';
+import MaginPreview from '@/src/containers/MaginPreview/MaginPreview';
 
 export default function TryMagin() {
   return (
