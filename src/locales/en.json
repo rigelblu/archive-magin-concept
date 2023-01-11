@@ -4,9 +4,11 @@
   },
   "guide": {
     "step1_magin_presents": "magin presents",
-    "step1_tap_next": "tap next"
+    "step2_read": "read the scene",
+    "step2_movie_sceen": "what would this look like on a movie screen?"
   },
   "navigation": {
+    "back": "Back",
     "returnHome": "Return Home",
     "watchNovel": "Watch Novel",
     "next": "Next"
