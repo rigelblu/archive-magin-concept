@@ -38,7 +38,7 @@ export default function MarginPreview() {
                   },
                 }}
                 right={{
-                  label: locale.navigation.watchNovel,
+                  label: locale.guide.step1_watchNovel,
                   onClick: () => {
                     router.push('/try-magin/2');
                   },
