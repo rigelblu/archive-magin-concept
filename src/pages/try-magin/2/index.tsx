@@ -24,7 +24,7 @@ export default function MarginPreview() {
                   <h2>
                     {locale.guide.step2_read}
                     <br />
-                    {locale.guide.step2_movie_sceen}
+                    {locale.guide.step2_movieSceen}
                     <br />
                     <Book />
                   </h2>
@@ -40,7 +40,7 @@ export default function MarginPreview() {
                   },
                 }}
                 right={{
-                  label: locale.navigation.watchNovel,
+                  label: locale.guide.step2_showMe,
                   onClick: () => {
                     router.push('/try-magin/2');
                   },
