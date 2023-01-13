@@ -6,11 +6,20 @@ import Book from '@/components/Book/Book';
 import GuideMessage from '@/components/GuideMessage';
 import Navigation from '@/components/Navigation/Navigation';
 
-// REFACTOR: read based on language
-import locale from '@/locales/en.json';
+// OPTIMIZE: read based on language
+import Locale from '@/locales/en.json';
+
+// REFACTOR: move into LocaleType.ts file
+interface LocalePropType {
+  [key: string]: string;
+}
+interface LocaleType {
+  [key: string]: LocalePropType;
+}
 
 export default function MarginPreview() {
   const router = useRouter();
+  const locale = Locale as LocaleType;
 
   return (
     <div className='mgn-try-magin bg-white'>
