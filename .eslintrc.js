@@ -69,6 +69,10 @@ module.exports = {
 
   overrides: [
     {
+      files: ['src/pages/**/*.ts[x]'],
+      rules: { '@typescript-eslint/no-floating-promises': 'off' },
+    },
+    {
       files: ['tsconfig.json', 'tsconfig.*.json'],
       rules: {
         'json/*': 'off',

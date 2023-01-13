@@ -3,12 +3,15 @@
     "title": "Project Hail Mary"
   },
   "guide": {
-    "step1_magin_presents": "magin presents",
-    "step1_tap_next": "tap next"
+    "step1_maginPresents": "magin presents",
+    "step1_watchNovel": "Watch Novel",
+    "step2_read": "read this scene",
+    "step2_movieSceen": "imagine you heard a character say this on a movie screen",
+    "step2_whatWould": "what would it look like?",
+    "step2_showMe": "Show Me"
   },
   "navigation": {
-    "returnHome": "Return Home",
-    "watchNovel": "Watch Novel",
-    "next": "Next"
+    "back": "Back",
+    "returnHome": "Return Home"
   }
 }
