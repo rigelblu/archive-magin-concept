@@ -21,16 +21,16 @@ export default function MarginPreview() {
             <div className='mgn-guide-step1 flex flex-column h-full justify-items-center'>
               <div className='flex h-full'>
                 <GuideMessage className='flex flex-column h-3/4 justify-content-end'>
-                  <h2>
+                  <p className='font-bold '>
                     {locale.guide.step2_read}
                     <br />
                     {locale.guide.step2_movieSceen}
                     <br />
                     <Book />
-                  </h2>
                     <br />
                     {/* TODO: show on a 1 second delay */}
                     {locale.guide.step2_whatWould}
+                  </p>
                 </GuideMessage>
               </div>
 
