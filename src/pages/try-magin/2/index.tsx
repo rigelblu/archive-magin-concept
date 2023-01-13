@@ -32,6 +32,7 @@ export default function MarginPreview() {
                 <GuideMessage className='flex flex-column h-3/4 justify-content-end'>
                   <p className='font-bold '>
                     {locale.guide.step2_read}
+                    <Book maginPreviewStep={2} showPageControls={false} />
                     <br />
                     {locale.guide.step2_movieSceen}
                     <br />
