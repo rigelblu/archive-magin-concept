@@ -11,21 +11,6 @@ import locale from '@/locales/en.json';
 export default function MarginPreview() {
   const router = useRouter();
 
-  // OPTIMIZE: convert into helper function
-  let response: boolean;
-  // FIXME: figure out how to return void when promise is returned
-  // eslint-disable-next-line @typescript-eslint/no-misused-promises
-  const onClickReturnHome: () => void = async () => {
-    try {
-      response = await router.push('/');
-    } catch {
-      console.error(
-        `Page: MaginPreview, Step: 1, onClickReturnHome: router.push failed to return promise, response: ${
-          response || 'not truthy'
-        }`
-      );
-    }
-  };
   return (
     <div className='mgn-try-magin'>
       {/* REFACTOR: convert into component css class */}
@@ -36,16 +21,28 @@ export default function MarginPreview() {
               <div className='flex h-full'>
                 <GuideMessage className='flex flex-column h-3/4 justify-content-end'>
                   <h2>
-                    {locale.guide.step1_magin_presents}
+                    {locale.guide.step1_maginPresents}
                     <br />
                     {locale.book.title}
                     <br />
                   </h2>
                 </GuideMessage>
               </div>
+
+              {/* REFACTOR: use next layout */}
               <Navigation
-                left={{ label: locale.navigation.returnHome, onClick: onClickReturnHome }}
-                right={{ label: locale.navigation.watchNovel, onClick: () => {} }}
+                left={{
+                  label: locale.navigation.returnHome,
+                  onClick: () => {
+                    router.push('/');
+                  },
+                }}
+                right={{
+                  label: locale.guide.step1_watchNovel,
+                  onClick: () => {
+                    router.push('/try-magin/2');
+                  },
+                }}
               />
             </div>
           </div>

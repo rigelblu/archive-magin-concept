@@ -9,24 +9,6 @@ export default function Home() {
   // REFACTOR: load value from json file
   const featureFlagOnClick = false;
 
-  // REFACTOR: turn this into a helper function
-  let response: boolean;
-  const onClickTryMagin = async () => {
-    if (featureFlagOnClick) {
-      try {
-        response = await router.push('/try-magin');
-      } catch {
-        console.error(
-          `Page: Home, onClickTryMagin: router.push failed to return promise, response: ${
-            response || 'not truthy'
-          }`
-        );
-      }
-    } else {
-      response = false;
-    }
-    return response;
-  };
 
   return (
     <div className='flex flex-column h-screen v-screen justify-content-center align-items-center'>
@@ -51,7 +33,9 @@ export default function Home() {
           className='mgn-cta-primary'
           // REFACTOR: disable through eslintrc
           // eslint-disable-next-line @typescript-eslint/no-misused-promises
-          onClick={onClickTryMagin}
+          onClick={() => {
+            if (featureFlagOnClick) router.push('/try-magin');
+          }}
         />
       </div>
 
