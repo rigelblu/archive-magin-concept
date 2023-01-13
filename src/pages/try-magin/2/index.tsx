@@ -1,6 +1,7 @@
 // Copyright rigélblu inc.
 // All rigts reserve
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 
 import Book from '@/components/Book/Book';
 import GuideMessage from '@/components/GuideMessage';
@@ -38,7 +39,15 @@ export default function MarginPreview() {
                     {/* OPTIMIZE: figure out how to allow \n in the string and convert in to <br /> */}
                     {locale.guide.step2_movieSceen}
                     <br />
-                    <Book />
+                    <div className='flex justify-content-center relative'>
+                      <Image
+                        src='/assets/common/images/movie-screen.webp'
+                        alt='people in a theatre watching a movie'
+                        className='!object-scale-down w-20rem h-auto'
+                        width='640'
+                        height='364'
+                      />
+                    </div>
                     <br />
                     {/* TODO: show on a 1 second delay */}
                     {locale.guide.step2_whatWould}
