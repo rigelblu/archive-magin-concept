@@ -28,6 +28,9 @@ export default function MarginPreview() {
                     <br />
                     <Book />
                   </h2>
+                    <br />
+                    {/* TODO: show on a 1 second delay */}
+                    {locale.guide.step2_whatWould}
                 </GuideMessage>
               </div>
 
