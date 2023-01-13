@@ -11,5 +11,8 @@ export default function GuideMessage(props: Props) {
 
   // TODO: log if message is empty string
   // REFACTOR: define standard padding in global.css
-  return <div className={`mgn-guide ${className} w-full p-1 text-center`}>{children}</div>;
+  // OPTIMIZE: make color a parm
+  return (
+    <div className={`mgn-guide ${className} w-full p-1 text-center text-green-800`}>{children}</div>
+  );
 }
