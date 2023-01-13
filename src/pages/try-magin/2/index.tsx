@@ -34,6 +34,8 @@ export default function MarginPreview() {
                     {locale.guide.step2_read}
                     <Book maginPreviewStep={2} showPageControls={false} />
                     <br />
+                    {/* TODO: show on a 5 second delay */}
+                    {/* OPTIMIZE: figure out how to allow \n in the string and convert in to <br /> */}
                     {locale.guide.step2_movieSceen}
                     <br />
                     <Book />
