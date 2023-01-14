@@ -29,7 +29,7 @@
     "docker:build:prod": "docker build -t mgn-app docker --target runner-ssg",
     "docker:build-run": "yarn docker:build && yarn docker:run",
     "docker:run": "docker run -d -p 8080:8080 mgn-app",
-    "docker:stage-context": "mkdir docker && cp -rf Dockerfile additional.d.ts jest.config.js next-env.d.ts next.config.js package.json public server.js src tsconfig*.json tsconfigs yarn.lock docker",
+    "docker:stage-context": "mkdir docker && cp -rf Dockerfile additional.d.ts jest.config.js next-env.d.ts next.config.js package.json postcss.config.js public server.js src tailwind.config.js tsconfig*.json tsconfigs yarn.lock docker",
     "docker:scan": "docker scan mgn-app",
     "docker:rebuild": "yarn docker:clean && yarn docker:stage-context && yarn docker:build-run"
   },
