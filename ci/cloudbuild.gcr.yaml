@@ -24,6 +24,7 @@ steps:
   # 2. Build docker
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', '${_IMAGE_NAME}', '--cache-from', '${_IMAGE_NAME}:latest', './docker']
+    env: ['NEXT_PUBLIC_ANALYTICS_ID=${_ENV_NEXT_PUBLIC_ANALYTICS_ID}']
 
   # 3. Push container to registery
   - name: 'gcr.io/cloud-builders/docker'
