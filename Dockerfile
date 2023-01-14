@@ -26,7 +26,7 @@ FROM node:16-alpine AS builder-ssg
 WORKDIR /usr/src/app
 COPY --from=deps-builder /usr/src/app/node_modules ./node_modules
 COPY additional.d.ts jest.config.js next.config.js next-env.d.ts package.json \
-  tsconfig* ./
+  postcss.config.js tailwind.config.js tsconfig* ./
 COPY tsconfigs ./tsconfigs
 COPY public ./public
 COPY src ./src
@@ -44,7 +44,7 @@ WORKDIR /usr/src/app
 COPY --from=deps-runner  /usr/src/app/node_modules ./node_modules
 COPY --from=builder-ssg /usr/src/app/build ./build
 COPY additional.d.ts jest.config.js next.config.js next-env.d.ts package.json \
-  server.js tsconfig* ./
+  server.js tailwind.config.js tsconfig* ./
 COPY tsconfigs ./tsconfigs
 COPY public ./public
 COPY src ./src
