@@ -1,5 +1,10 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-yarn build:ssg
+FILES=( ".eslint*" ".linkstagerc.js" )
+FILES+=( "additional.js" "next.config.js" "next-env.d.ts" "package.json" "tailwind.config.js" "tsconfig/*" "tsconfig*" "yarn.lock")
+if [ git diff --cached --quiet -- $FILES ]; then
+  yarn build:ssg
+fi
+
 yarn test
