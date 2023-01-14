@@ -36,6 +36,12 @@ $mgn-text-sizes: (
   @return map-get($mgn-text-sizes, $name);
 }
 
+// -------------------------------
+// Text colours
+// @function mgn-text($name) {
+//   @return map-get($mgn-colors, 'color: $name');
+// }
+
 $mgn-text-p: black;
 $mgn-text-heading: black;
 // TODO: $mgn-text-cta-primary: mgn-color('blue-rb');
