@@ -7,7 +7,7 @@ Fixes #<issue number>
 # Commit Message Format
 # ────────────────────────────────────────── 100 chars ────────────────────────────────────────────┤
 #
-# <reason>          feat | enhance | fix | refactor | perf | style | BREAKING-CHANGE
+# <reason>          feat | enhance | fix | refactor | chore | perf | style | BREAKING-CHANGE
 # <topic>           build | ci | docs | refactor | test | name of file, component, feature, etc
 # <instruction>     what to do, writen as if giving command or instruction
 # <motivation>      what's the reason for the change, provide context
