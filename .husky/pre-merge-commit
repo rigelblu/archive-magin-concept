@@ -7,4 +7,8 @@ if [ git diff --cached --quiet -- $FILES ]; then
   yarn build:ssg
 fi
 
+if [ git diff --cached --quiet -- Dockerfile ]; then
+  yarn docker:rebuild
+fi
+
 yarn test
