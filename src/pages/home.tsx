@@ -7,8 +7,7 @@ import IconGithub from '@/assets/common/icons/github-mark.svg';
 export default function Home() {
   const router = useRouter();
   // REFACTOR: load value from json file
-  const featureFlagOnClick = false;
-
+  const featureFlagOnClick = true;
 
   return (
     <div className='flex flex-column h-screen v-screen justify-content-center align-items-center'>

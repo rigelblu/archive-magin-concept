@@ -1,4 +1,6 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-yarn build:ssg
+if [ "$branch" = "main" ]; then
+  yarn build:ssg
+fi

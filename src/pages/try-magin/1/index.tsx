@@ -20,7 +20,7 @@ export default function MarginPreview() {
             <div className='mgn-guide-step1 flex flex-column h-full justify-items-center'>
               <div className='flex h-full'>
                 <GuideMessage className='flex flex-column h-3/4 justify-content-end'>
-                  <h2>
+                  <h2 className='text-black'>
                     {locale.guide.step1_maginPresents}
                     <br />
                     {locale.book.title}
