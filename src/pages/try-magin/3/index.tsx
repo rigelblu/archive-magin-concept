@@ -40,6 +40,7 @@ export default function MarginPreview() {
                     {/* OPTIMIZE: create a component to cycle through the array with a delay */}
                     {locale.guide.step3_1} <br />
                     {locale.guide.step3_2} <br />
+                    <Storyboard />
                   </p>
                 </GuideMessage>
               </div>

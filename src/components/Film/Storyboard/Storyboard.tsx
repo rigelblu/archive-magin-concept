@@ -17,12 +17,13 @@ export default function Storyboard(props: Props) {
       {/* OPTIMIZE: load image cdn */}
       {/* TODO: load image based on selected scene */}
       <Scene sceneNum={1}>
-      <Image
-        src='/assets/common/images/storyboard-placeholder.png'
-        alt='Placeholder'
-        width={330}
-        height={270}
-      />
+        <Image
+          src='/assets/common/images/storyboard-placeholder.png'
+          alt='Placeholder'
+          className='!object-scale-down w-20rem h-auto'
+          width={330}
+          height={270}
+        />
       </Scene>
       <PageControl action='next' onClick={() => {}} className='px-1' />
     </div>
