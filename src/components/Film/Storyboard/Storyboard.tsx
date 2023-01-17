@@ -10,7 +10,7 @@ export default function Storyboard(props: Props) {
   const { className = '' } = props;
 
   return (
-    <div className={`mgn-storyboard ${className} w-full`}>
+    <div className={`mgn-storyboard w-full ${className}`}>
       {/* OPTIMIZE: load image cdn */}
       {/* TODO: load image based on selected scene */}
       <Image

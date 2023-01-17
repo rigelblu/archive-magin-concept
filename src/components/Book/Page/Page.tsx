@@ -90,7 +90,7 @@ export default function Page(props: Props) {
   }
 
   return (
-    <div className={`${styles['mgn-page']} ${className} flex`}>
+    <div className={`${styles['mgn-page']} flex ${className}`}>
       <div className='w-full h-15rem overflow-hidden mgn-font-theano-old-style text-sm text-left text-black bg-[#f8f1e3]'>
         {content}
       </div>

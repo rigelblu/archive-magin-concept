@@ -12,7 +12,7 @@ export default function Navigation(props: Props) {
   const { left, right, className = '' } = props;
 
   return (
-    <div className={`mgn-navigation ${className} flex justify-content-between`}>
+    <div className={`mgn-navigation flex justify-content-between ${className}`}>
       <Button className='text-center mgn-cta-secondary' onClick={left.onClick}>
         {left.label}
       </Button>
