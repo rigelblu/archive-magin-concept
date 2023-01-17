@@ -11,6 +11,8 @@ interface Props {
 export default function Page(props: Props) {
   const { className = '', maginPreviewStep = null } = props;
 
+  // REFACTOR: step 2, 3, etc into an array
+  // REFACTOR: import content from a file
   const contentMaginPreviewStep2 = (
     <Scene sceneNum={1}>
       <h2 className='mb-4 font-bold'>Chapter 1</h2>
