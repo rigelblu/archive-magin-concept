@@ -19,7 +19,7 @@ export default function Book(props: Props) {
         <PageControl action='prev' isShown={false} onClick={onClick} className='px-1' />
       )}
       <Page maginPreviewStep={maginPreviewStep} />
-      {showPageControls && <PageControl action='next' isShown onClick={onClick} className='px-1' />}
+      {showPageControls && <PageControl action='next' onClick={onClick} className='px-1' />}
     </div>
   );
 }

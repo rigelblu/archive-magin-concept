@@ -3,14 +3,15 @@
 import { Button } from 'primereact/button';
 
 interface Props {
+  // REFACTOR: improve naming to indicate aria-label
   action: string;
-  isShown: boolean;
   onClick: () => void;
+  isShown?: boolean;
   className?: string;
 }
 
 export default function PageControl(props: Props) {
-  const { action, isShown, onClick, className = '' } = props;
+  const { action, onClick, isShown = true, className = '' } = props;
 
   // TODO: replace ascii with svg
   let icon = '';
