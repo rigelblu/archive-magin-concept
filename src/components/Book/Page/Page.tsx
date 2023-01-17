@@ -14,7 +14,7 @@ export default function Page(props: Props) {
   // REFACTOR: step 2, 3, etc into an array
   // REFACTOR: import content from a file
   const contentMaginPreviewStep2 = (
-    <Scene sceneNum={1}>
+    <Scene sceneNum={1} className='pl-2'>
       <h2 className='mb-4 font-bold'>Chapter 1</h2>
       <p>“What’s two plus two?”</p>
       <p>Something about the question irritates me. I’m tired. I drift back to sleep.</p>
@@ -23,11 +23,11 @@ export default function Page(props: Props) {
 
   const contentMaginPreviewStep3 = (
     <>
-      <Scene sceneNum={1}>
+      <Scene sceneNum={1} className='pl-2'>
         <p>“What’s two plus two?”</p>
         <p>Something about the question irritates me. I’m tired. I drift back to sleep.</p>
       </Scene>
-      <Scene sceneNum={2}>
+      <Scene sceneNum={2} className='pl-2'>
         <p>A few minutes pass, then I hear it again.</p>
         <p>“What’s two plus two?”</p>
         <p>
@@ -47,12 +47,12 @@ export default function Page(props: Props) {
     <>
       {/* REFACTOR: accept the content from a parameter */}
       <p>Chapter 1</p>
-      <Scene sceneNum={1}>
+      <Scene sceneNum={1} className='pl-2'>
         <p>“What’s two plus two?”</p>
         <p>Something about the question irritates me. I’m tired. I drift back to sleep.</p>
       </Scene>
 
-      <Scene sceneNum={2}>
+      <Scene sceneNum={2} className='pl-2'>
         <p>A few minutes pass, then I hear it again.</p>
         <p>“What’s two plus two?”</p>
         <p>
@@ -66,7 +66,7 @@ export default function Page(props: Props) {
         <p>“Incorrect,” says the computer. “What’s two plus two?”</p>
       </Scene>
 
-      <Scene sceneNum={3}>
+      <Scene sceneNum={3} className='pl-2'>
         <p>Time for an experiment. I’ll try to say hello.</p>
         <p>“Hlllch?” I say.</p>
         <p>“Incorrect. What’s two plus two?”</p>

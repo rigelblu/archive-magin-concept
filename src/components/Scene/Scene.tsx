@@ -30,6 +30,6 @@ export default function Scene(props: Props) {
 
   // TODO: make scene accessible
   return (
-    <div className={`mgn-scene pl-2 my-1 border-left-2 ${sceneColor} ${className}`}>{children}</div>
+    <div className={`mgn-scene my-1 border-left-2 ${sceneColor} ${className}`}>{children}</div>
   );
 }
