@@ -19,6 +19,28 @@ export default function Page(props: Props) {
     </Scene>
   );
 
+  const contentMaginPreviewStep3 = (
+    <>
+      <Scene sceneNum={1}>
+        <p>“What’s two plus two?”</p>
+        <p>Something about the question irritates me. I’m tired. I drift back to sleep.</p>
+      </Scene>
+      <Scene sceneNum={2}>
+        <p>A few minutes pass, then I hear it again.</p>
+        <p>“What’s two plus two?”</p>
+        <p>
+          The soft, feminine voice lacks emotion and the pronunciation is identical to the previous
+          time she said it. It’s a computer. A computer is hassling me. I’m even more irritated now.
+        </p>
+        <p>
+          “Lrmln,” I say. I’m surprised. I meant to say “Leave me alone”—a completely reasonable
+          response in my opinion—but I failed to speak.
+        </p>
+        <p>“Incorrect,” says the computer. “What’s two plus two?”</p>
+      </Scene>
+    </>
+  );
+
   const projectHailMary = (
     <>
       {/* REFACTOR: accept the content from a parameter */}
@@ -59,6 +81,9 @@ export default function Page(props: Props) {
   switch (maginPreviewStep) {
     case 2:
       content = contentMaginPreviewStep2;
+      break;
+    case 3:
+      content = contentMaginPreviewStep3;
       break;
     default:
       content = projectHailMary;
