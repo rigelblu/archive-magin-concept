@@ -2,6 +2,12 @@
   "book": {
     "title": "Project Hail Mary"
   },
+  "controls": {
+    "current": "Current Scene",
+    "scene": "Scene",
+    "prev": "Previous Scene",
+    "next": "Next Scene"
+  },
   "guide": {
     "step1_maginPresents": "magin presents",
     "step1_watchNovel": "Watch Novel",
