@@ -14,12 +14,12 @@ export default function Book(props: Props) {
   const onClick = () => console.log('prev/next click');
 
   return (
-    <div className={`mgn-book ${className} flex align-items-center`}>
+    <div className={`mgn-book flex justify-content-between ${className}`}>
       {showPageControls && (
-        <PageControl action='prev' isShown={false} onClick={onClick} className='px-1' />
+        <PageControl action='prev' onClick={onClick} className='px-1' isShown={false} />
       )}
       <Page maginPreviewStep={maginPreviewStep} />
-      {showPageControls && <PageControl action='next' isShown onClick={onClick} className='px-1' />}
+      {showPageControls && <PageControl action='next' onClick={onClick} className='px-1' />}
     </div>
   );
 }

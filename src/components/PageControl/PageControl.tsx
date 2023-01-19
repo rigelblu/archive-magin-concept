@@ -3,14 +3,15 @@
 import { Button } from 'primereact/button';
 
 interface Props {
+  // REFACTOR: improve naming to indicate aria-label
   action: string;
-  isShown: boolean;
   onClick: () => void;
+  isShown?: boolean;
   className?: string;
 }
 
 export default function PageControl(props: Props) {
-  const { action, isShown, onClick, className = '' } = props;
+  const { action, onClick, isShown = true, className = '' } = props;
 
   // TODO: replace ascii with svg
   let icon = '';
@@ -29,8 +30,9 @@ export default function PageControl(props: Props) {
   // TODO: style chevron in blue-rb and background in blue-rb-lighter
   return (
     <Button
-      className={`mgn-page-control ${className} p-button-text p-0`}
+      className={`mgn-page-control p-button-text max-w-max px-1 ${className}`}
       aria-label={action}
+      disabled={!isShown}
       icon={`pi ${icon}`}
       onClick={onClick}
     />

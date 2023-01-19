@@ -1,9 +1,9 @@
 // Copyright rigélblu inc.
 // All rigts reserve
 import { useRouter } from 'next/router';
-import Image from 'next/image';
 
 import Book from '@/components/Book/Book';
+import Film from '@/components/Film/Film';
 import GuideMessage from '@/components/GuideMessage';
 import Navigation from '@/components/Navigation/Navigation';
 
@@ -31,26 +31,15 @@ export default function MarginPreview() {
             <div className='mgn-guide-step1 flex flex-column h-full justify-items-center'>
               <div className='flex h-full'>
                 <GuideMessage className='flex flex-column h-3/4 justify-content-end'>
-                  <div className='font-bold '>
-                    {locale.guide.step2_read}
-                    <Book maginPreviewStep={2} showPageControls={false} />
+                  <div className='font-bold'>
+                    <Book maginPreviewStep={3} showPageControls />
                     <br />
                     {/* TODO: show on a 5 second delay */}
                     {/* OPTIMIZE: figure out how to allow \n in the string and convert in to <br /> */}
-                    {locale.guide.step2_movieSceen}
-                    <br />
-                    <div className='flex justify-content-center relative'>
-                      <Image
-                        src='/assets/common/images/movie-screen.webp'
-                        alt='people in a theatre watching a movie'
-                        className='!object-scale-down w-20rem h-auto'
-                        width='640'
-                        height='364'
-                      />
-                    </div>
-                    <br />
-                    {/* TODO: show on a 1 second delay */}
-                    {locale.guide.step2_whatWould}
+                    {/* OPTIMIZE: create a component to cycle through the array with a delay */}
+                    {locale.guide.step3_1} <br />
+                    {locale.guide.step3_2} <br />
+                    <Film />
                   </div>
                 </GuideMessage>
               </div>
@@ -60,13 +49,13 @@ export default function MarginPreview() {
                 left={{
                   label: locale.navigation.back,
                   onClick: () => {
-                    router.push('/try-magin/1');
+                    router.push('/try-magin/2');
                   },
                 }}
                 right={{
                   label: locale.guide.step2_showMe,
                   onClick: () => {
-                    router.push('/try-magin/3');
+                    router.push('/try-magin/4');
                   },
                 }}
               />
