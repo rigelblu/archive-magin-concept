@@ -31,7 +31,7 @@ export default function MarginPreview() {
             <div className='mgn-guide-step1 flex flex-column h-full justify-items-center'>
               <div className='flex h-full'>
                 <GuideMessage className='flex flex-column h-3/4 justify-content-end'>
-                  <p className='font-bold '>
+                  <div className='font-bold '>
                     {locale.guide.step2_read}
                     <Book maginPreviewStep={2} showPageControls={false} />
                     <br />
@@ -51,7 +51,7 @@ export default function MarginPreview() {
                     <br />
                     {/* TODO: show on a 1 second delay */}
                     {locale.guide.step2_whatWould}
-                  </p>
+                  </div>
                 </GuideMessage>
               </div>
 
@@ -66,7 +66,7 @@ export default function MarginPreview() {
                 right={{
                   label: locale.guide.step2_showMe,
                   onClick: () => {
-                    router.push('/try-magin/2');
+                    router.push('/try-magin/3');
                   },
                 }}
               />
