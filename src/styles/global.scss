@@ -87,15 +87,15 @@ a.secondary::after {
 }
 
 // REFACTOR: convert into a component class for Book
-.max-h-40rem {
-  max-height: 40rem !important;
+.max-h-50rem {
+  max-height: 50rem !important;
 }
 
 // REFACTOR: define media sizes and reference it instead of hardcoding
 @media screen and (min-width: 576px) {
   /* stylelint-disable-next-line selector-class-pattern */
-  .sm\:max-h-40rem {
-    max-height: 40rem !important;
+  .sm\:max-h-50rem {
+    max-height: 50rem !important;
   }
 }
 

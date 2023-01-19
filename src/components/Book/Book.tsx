@@ -14,7 +14,7 @@ export default function Book(props: Props) {
   const onClick = () => console.log('prev/next click');
 
   return (
-    <div className={`mgn-book flex justify-content-between ${className}`}>
+    <div className={`mgn-book flex justify-content-between align-items-center ${className}`}>
       {showPageControls && (
         <PageControl action='prev' onClick={onClick} className='px-1' isShown={false} />
       )}
