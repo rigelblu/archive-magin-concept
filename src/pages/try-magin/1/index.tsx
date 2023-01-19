@@ -15,7 +15,7 @@ export default function MarginPreview() {
     <div className='mgn-try-magin'>
       {/* REFACTOR: convert into component css class */}
       <div className='mgn-preview flex w-screen h-screen p-3 justify-content-center align-items-center'>
-        <div className='w-full h-full sm:max-w-24rem sm:max-h-40rem'>
+        <div className='w-full h-full sm:max-w-24rem sm:max-h-50rem'>
           <div className='h-full flex flex-column justify-content-between'>
             <div className='mgn-guide-step1 flex flex-column h-full justify-items-center'>
               <div className='flex h-full'>
