@@ -30,7 +30,7 @@ export default function PageControl(props: Props) {
   // TODO: style chevron in blue-rb and background in blue-rb-lighter
   return (
     <Button
-      className={`mgn-page-control w-1rem p-button-text p-0 ${className}`}
+      className={`mgn-page-control p-button-text max-w-max px-1 ${className}`}
       aria-label={action}
       disabled={!isShown}
       icon={`pi ${icon}`}
