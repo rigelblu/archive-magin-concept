@@ -1,7 +1,6 @@
 // Copyright rigélblu inc.
 // All rigts reserve
 import { useRouter } from 'next/router';
-import Image from 'next/image';
 
 import Book from '@/components/Book/Book';
 import GuideMessage from '@/components/GuideMessage';
