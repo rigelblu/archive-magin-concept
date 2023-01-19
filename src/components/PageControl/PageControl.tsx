@@ -32,6 +32,7 @@ export default function PageControl(props: Props) {
     <Button
       className={`mgn-page-control w-1rem p-button-text p-0 ${className}`}
       aria-label={action}
+      disabled={!isShown}
       icon={`pi ${icon}`}
       onClick={onClick}
     />
