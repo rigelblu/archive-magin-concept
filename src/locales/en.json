@@ -18,8 +18,21 @@
     "step3_1": "let’s watch the next scene",
     "step3_2": "tap the arrow on the right"
   },
+  "join": {
+    "step1_wantMore": "Want to see more",
+    "step1_shapeItsFuture": "Join and shape its future",
+    "step1_whatYouGet": "What you get",
+    "step1_whatYouGet1": "Free updates for the next 2 years",
+    "step1_whatYouGet2": "No recurring subscription",
+    "step1_whatYouGet3": "Have a voice in what and how the next features look",
+    "step1_join": "Join"
+  },
   "navigation": {
     "back": "Back",
     "returnHome": "Return Home"
+  },
+  "about": {
+    "privacy": "Privacy",
+    "termsConditions": "Terms & Conditions"
   }
 }
