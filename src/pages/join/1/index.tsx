@@ -38,7 +38,12 @@ export default function JoinMagin() {
                   <li>{locale.join.step1_whatYouGet3}</li>
                 </ul>
               </p>
-              <Button className='text-xl text-size-medium mgn-cta-primary m-1' onClick={() => {}}>
+              <Button
+                className='text-xl text-size-medium mgn-cta-primary m-1'
+                onClick={() => {
+                  router.push('/join/2');
+                }}
+              >
                 {locale.join.step1_join}
               </Button>
               <br />
