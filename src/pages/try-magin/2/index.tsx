@@ -24,54 +24,46 @@ export default function MarginPreview() {
 
   return (
     <div className='mgn-try-magin bg-white'>
-      {/* REFACTOR: convert into component css class */}
+      {/* REFACTOR: convert into component, accept 4 children elements */}
       <div className='mgn-preview flex w-screen h-screen p-3 justify-content-center align-items-center'>
-        <div className='w-full h-full sm:max-w-24rem sm:max-h-50rem'>
-          <div className='h-full flex flex-column justify-content-between'>
-            <div className='mgn-guide-step1 flex flex-column h-full justify-items-center'>
-              <div className='flex h-full'>
-                <GuideMessage className='flex flex-column h-3/4 justify-content-end'>
-                  <div className='font-bold '>
-                    {locale.guide.step2_read}
-                    <Book maginPreviewStep={2} showPageControls={false} />
-                    <br />
-                    {/* TODO: show on a 5 second delay */}
-                    {/* OPTIMIZE: figure out how to allow \n in the string and convert in to <br /> */}
-                    {locale.guide.step2_movieSceen}
-                    <br />
-                    <div className='flex justify-content-center relative'>
-                      <Image
-                        src='/assets/common/images/movie-screen.webp'
-                        alt='people in a theatre watching a movie'
-                        className='!object-scale-down w-20rem h-auto'
-                        width='640'
-                        height='364'
-                      />
-                    </div>
-                    <br />
-                    {/* TODO: show on a 1 second delay */}
-                    {locale.guide.step2_whatWould}
-                  </div>
-                </GuideMessage>
-              </div>
+        <div className='mgn-step flex flex-column w-full h-full justify-content-between sm:max-w-24rem sm:max-h-50rem'>
+          {/* REFACTOR: make content an optional parameter */}
+          <GuideMessage className='font-bold'>{locale.guide.step2_read}</GuideMessage>
+          <Book maginPreviewStep={2} showPageControls={false} className='h-full' />
 
-              {/* REFACTOR: use next layout */}
-              <Navigation
-                left={{
-                  label: locale.navigation.back,
-                  onClick: () => {
-                    router.push('/try-magin/1');
-                  },
-                }}
-                right={{
-                  label: locale.guide.step2_showMe,
-                  onClick: () => {
-                    router.push('/try-magin/3');
-                  },
-                }}
-              />
-            </div>
+          {/* TODO: show on a 5 second delay */}
+          {/* OPTIMIZE: figure out how to allow \n in the string and convert in to <br /> */}
+          <GuideMessage className='font-bold'>{locale.guide.step2_movieSceen}</GuideMessage>
+
+          <div className='flex flex-column h-full justify-content-start align-items-center relative'>
+            <Image
+              src='/assets/common/images/movie-screen.webp'
+              alt='people in a theatre watching a movie'
+              className='!object-scale-down w-20rem h-auto'
+              width='640'
+              height='364'
+            />
+            <GuideMessage className='font-bold'>
+              {/* TODO: show on a 1 second delay */}
+              {locale.guide.step2_whatWould}
+            </GuideMessage>
           </div>
+
+          {/* REFACTOR: use next layout */}
+          <Navigation
+            left={{
+              label: locale.navigation.back,
+              onClick: () => {
+                router.push('/try-magin/1');
+              },
+            }}
+            right={{
+              label: locale.guide.step2_showMe,
+              onClick: () => {
+                router.push('/try-magin/3');
+              },
+            }}
+          />
         </div>
       </div>
     </div>

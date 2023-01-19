@@ -12,40 +12,34 @@ export default function MarginPreview() {
   const router = useRouter();
 
   return (
-    <div className='mgn-try-magin'>
-      {/* REFACTOR: convert into component css class */}
+    <div className='mgn-try-magin bg-white'>
+      {/* REFACTOR: convert into component, accept 4 children elements */}
       <div className='mgn-preview flex w-screen h-screen p-3 justify-content-center align-items-center'>
-        <div className='w-full h-full sm:max-w-24rem sm:max-h-50rem'>
-          <div className='h-full flex flex-column justify-content-between'>
-            <div className='mgn-guide-step1 flex flex-column h-full justify-items-center'>
-              <div className='flex h-full'>
-                <GuideMessage className='flex flex-column h-3/4 justify-content-end'>
-                  <h2 className='text-black'>
-                    {locale.guide.step1_maginPresents}
-                    <br />
-                    {locale.book.title}
-                    <br />
-                  </h2>
-                </GuideMessage>
-              </div>
+        <div className='mgn-step flex flex-column w-full h-full justify-content-between sm:max-w-24rem sm:max-h-50rem'>
+          <GuideMessage className='flex flex-column h-3/4 justify-content-end'>
+            <h2 className='text-black'>
+              {locale.guide.step1_maginPresents}
+              <br />
+              {locale.book.title}
+              <br />
+            </h2>
+          </GuideMessage>
 
-              {/* REFACTOR: use next layout */}
-              <Navigation
-                left={{
-                  label: locale.navigation.returnHome,
-                  onClick: () => {
-                    router.push('/');
-                  },
-                }}
-                right={{
-                  label: locale.guide.step1_watchNovel,
-                  onClick: () => {
-                    router.push('/try-magin/2');
-                  },
-                }}
-              />
-            </div>
-          </div>
+          {/* REFACTOR: use next layout */}
+          <Navigation
+            left={{
+              label: locale.navigation.returnHome,
+              onClick: () => {
+                router.push('/');
+              },
+            }}
+            right={{
+              label: locale.guide.step1_watchNovel,
+              onClick: () => {
+                router.push('/try-magin/2');
+              },
+            }}
+          />
         </div>
       </div>
     </div>
