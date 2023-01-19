@@ -32,7 +32,7 @@ export default function MarginPreview() {
             <div className='mgn-guide-step1 flex flex-column h-full justify-items-center'>
               <div className='flex h-full'>
                 <GuideMessage className='flex flex-column h-3/4 justify-content-end'>
-                  <p className='font-bold '>
+                  <div className='font-bold'>
                     <Book maginPreviewStep={3} showPageControls />
                     <br />
                     {/* TODO: show on a 5 second delay */}
@@ -41,7 +41,7 @@ export default function MarginPreview() {
                     {locale.guide.step3_1} <br />
                     {locale.guide.step3_2} <br />
                     <Storyboard />
-                  </p>
+                  </div>
                 </GuideMessage>
               </div>
 
