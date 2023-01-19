@@ -1,15 +1,14 @@
 // Copyright rigélblu inc.
 // All rigts reserve
 import { useRouter } from 'next/router';
-import Image from 'next/image';
 
 import Book from '@/components/Book/Book';
+import Film from '@/components/Film/Film';
 import GuideMessage from '@/components/GuideMessage';
 import Navigation from '@/components/Navigation/Navigation';
 
 // OPTIMIZE: read based on language
 import Locale from '@/locales/en.json';
-import Storyboard from '../../../components/Film/Storyboard/Storyboard';
 
 // REFACTOR: move into LocaleType.ts file
 interface LocalePropType {
@@ -32,7 +31,7 @@ export default function MarginPreview() {
             <div className='mgn-guide-step1 flex flex-column h-full justify-items-center'>
               <div className='flex h-full'>
                 <GuideMessage className='flex flex-column h-3/4 justify-content-end'>
-                  <p className='font-bold '>
+                  <div className='font-bold'>
                     <Book maginPreviewStep={3} showPageControls />
                     <br />
                     {/* TODO: show on a 5 second delay */}
@@ -40,8 +39,8 @@ export default function MarginPreview() {
                     {/* OPTIMIZE: create a component to cycle through the array with a delay */}
                     {locale.guide.step3_1} <br />
                     {locale.guide.step3_2} <br />
-                    <Storyboard />
-                  </p>
+                    <Film />
+                  </div>
                 </GuideMessage>
               </div>
 

@@ -1,6 +1,8 @@
 // Copyright rigélblu inc.
 // All rights reserved.
+import PageControl from '@/components/PageControl/PageControl';
 import Scene from '@/components/Scene/Scene';
+
 import Storyboard from './Storyboard/Storyboard';
 
 interface Props {
@@ -12,10 +14,12 @@ export default function Film(props: Props) {
 
   return (
     // REFACTOR: move px-2 to global, align with book
-    <div className={`mgn-film flex px-3 ${className}`}>
+    <div className={`mgn-film flex justify-content-between ${className}`}>
+      <PageControl action='prev' onClick={() => {}} className='px-1' isShown={false} />
       <Scene sceneNum={1}>
         <Storyboard />
       </Scene>
+      <PageControl action='next' onClick={() => {}} className='px-1' />
     </div>
   );
 }
