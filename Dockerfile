@@ -23,6 +23,8 @@ RUN yarn install --production
 # Stage: Builder using SSG (server-side generated)
 FROM node:16-alpine AS builder-ssg
 
+ARG NODE_ENV NEXT_PUBLIC_ANALYTICS_ID NEXT_PUBLIC_STRIPE_PAYMENT_URL
+
 WORKDIR /usr/src/app
 COPY --from=deps-builder /usr/src/app/node_modules ./node_modules
 COPY additional.d.ts jest.config.js next.config.js next-env.d.ts package.json \

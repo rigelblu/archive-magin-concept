@@ -24,7 +24,19 @@ steps:
   # 2. Build docker
   # OPTIMIZE: research if there's a better way to load all env variables
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', '${_IMAGE_NAME}', '--cache-from', '${_IMAGE_NAME}:latest', './docker']
+    args:
+      [
+        'build',
+        '-t',
+        '${_IMAGE_NAME}',
+        '--cache-from',
+        '${_IMAGE_NAME}:latest',
+        './docker',
+        '--build-arg',
+        'NEXT_PUBLIC_ANALYTICS_ID',
+        '--build-arg',
+        'NEXT_PUBLIC_STRIPE_PAYMENT_URL',
+      ]
     env:
       [
         'NEXT_PUBLIC_ANALYTICS_ID=${_ENV_NEXT_PUBLIC_ANALYTICS_ID}',
