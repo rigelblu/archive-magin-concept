@@ -33,7 +33,7 @@ export default function Home() {
           // REFACTOR: disable through eslintrc
           // eslint-disable-next-line @typescript-eslint/no-misused-promises
           onClick={() => {
-            if (featureFlagOnClick) router.push('/try-magin');
+            if (featureFlagOnClick) router.push('/try-magin/1');
           }}
         />
       </div>

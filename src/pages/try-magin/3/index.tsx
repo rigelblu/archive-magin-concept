@@ -48,7 +48,7 @@ export default function MarginPreview() {
             right={{
               label: locale.guide.step2_showMe,
               onClick: () => {
-                router.push('/try-magin/4');
+                router.push('/join/1');
               },
             }}
           />
