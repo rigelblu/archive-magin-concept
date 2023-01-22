@@ -33,14 +33,14 @@ export default function JoinMagin() {
             <div>
               <h1>{locale.join.step1_wantMore}</h1>
               <h2>{locale.join.step1_shapeItsFuture}</h2>
-              <p className='mt-20 text-left'>
+              <div className='mt-20 text-left'>
                 {locale.join.step1_whatYouGet}{' '}
                 <ul>
                   <li>{locale.join.step1_whatYouGet1}</li>
                   <li>{locale.join.step1_whatYouGet2}</li>
                   <li>{locale.join.step1_whatYouGet3}</li>
                 </ul>
-              </p>
+              </div>
               <Button
                 className='text-xl text-size-medium mgn-cta-primary m-1'
                 onClick={() => {
