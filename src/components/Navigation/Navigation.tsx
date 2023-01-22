@@ -2,23 +2,35 @@
 // All rights reserved.
 import { Button } from 'primereact/button';
 
+// REFACTOR: accept enums  for className and translate to proper css class
 interface Props {
-  left: { label: string; onClick: () => void };
-  right: { label: string; onClick: () => void };
+  left?: { className: string; label: string; onClick: () => void };
+  middle?: { className: string; label: string; onClick: () => void };
+  right?: { className: string; label: string; onClick: () => void };
   className?: string;
 }
 
 export default function Navigation(props: Props) {
-  const { left, right, className = '' } = props;
+  const { left = null, middle = null, right = null, className = 'justify-content-between' } = props;
 
+  // OPTIMIZE: generalize to accept any # of objects
   return (
-    <div className={`mgn-navigation flex justify-content-between ${className}`}>
-      <Button className='text-center mgn-cta-secondary' onClick={left.onClick}>
-        {left.label}
-      </Button>
-      <Button className='text-center mgn-cta-primary' onClick={right.onClick}>
-        {right.label}
-      </Button>
+    <div className={`mgn-navigation flex ${className}`}>
+      {left && (
+        <Button className={`text-center ${left.className}`} onClick={left.onClick}>
+          {left.label}
+        </Button>
+      )}
+      {middle && (
+        <Button className={`text-center ${middle.className}`} onClick={middle.onClick}>
+          {middle.label}
+        </Button>
+      )}
+      {right && (
+        <Button className={`text-center ${right.className}`} onClick={right.onClick}>
+          {right.label}
+        </Button>
+      )}
     </div>
   );
 }

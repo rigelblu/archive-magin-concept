@@ -52,12 +52,14 @@ export default function MarginPreview() {
           {/* REFACTOR: use next layout */}
           <Navigation
             left={{
+              className: 'mgn-cta-secondary',
               label: locale.navigation.back,
               onClick: () => {
                 router.push('/try-magin/1');
               },
             }}
             right={{
+              className: 'mgn-cta-primary',
               label: locale.guide.step2_showMe,
               onClick: () => {
                 router.push('/try-magin/3');
