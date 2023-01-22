@@ -62,18 +62,14 @@ export default function JoinMagin() {
 
           {/* REFACTOR: use next layout */}
           <Navigation
-            left={{
+            middle={{
+              className: 'mgn-cta-secondary',
               label: locale.navigation.back,
               onClick: () => {
                 router.push('/try-magin/3');
               },
             }}
-            right={{
-              label: locale.join.step1_join,
-              onClick: () => {
-                window.location.href = stripePaymentUrl;
-              },
-            }}
+            className='justify-content-center'
           />
         </div>
       </div>

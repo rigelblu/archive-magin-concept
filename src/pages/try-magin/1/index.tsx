@@ -28,12 +28,14 @@ export default function MarginPreview() {
           {/* REFACTOR: use next layout */}
           <Navigation
             left={{
+              className: 'mgn-cta-secondary',
               label: locale.navigation.returnHome,
               onClick: () => {
                 router.push('/');
               },
             }}
             right={{
+              className: 'mgn-cta-primary',
               label: locale.guide.step1_watchNovel,
               onClick: () => {
                 router.push('/try-magin/2');
