@@ -33,13 +33,15 @@ export default function JoinMagin() {
             <div className='w-full'>
               <h1>{locale.join.step1_wantMore}</h1>
               <h2>{locale.join.step1_shapeItsFuture}</h2>
-              <div className='mt-20 text-left'>
-                {locale.join.step1_whatYouGet}{' '}
-                <ul>
-                  <li>{locale.join.step1_whatYouGet1}</li>
-                  <li>{locale.join.step1_whatYouGet2}</li>
-                  <li>{locale.join.step1_whatYouGet3}</li>
-                </ul>
+              <div className='flex justify-content-center mt-20'>
+                <div className='text-left max-w-min whitespace-nowrap'>
+                  <p>{locale.join.step1_whatYouGet}</p>
+                  <ul>
+                    <li>{locale.join.step1_whatYouGet1}</li>
+                    <li>{locale.join.step1_whatYouGet2}</li>
+                    <li>{locale.join.step1_whatYouGet3}</li>
+                  </ul>
+                </div>
               </div>
               <Button
                 className='text-xl text-size-medium mgn-cta-primary m-1'
