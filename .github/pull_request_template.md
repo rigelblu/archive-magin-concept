@@ -21,5 +21,7 @@ After:
 
 # Checklist
 
-[ ] I have added enough test cases
-[ ] I have self-reviewed the changes and have added explanatory comments as needed
+[✔︎⏭️❌] I have added enough test cases
+[✔︎⏭️❌] I have self-reviewed the changes and have added explanatory comments as needed
+
+Legend: ✔︎ (done), ⏭️ (skipped), ❌ (not done)
