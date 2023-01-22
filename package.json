@@ -25,7 +25,7 @@
     "prettier": "prettier --write --ignore-unknown",
     "prettier:check": "prettier --check --ignore-unknown",
     "docker:clean": "rimraf docker",
-    "docker:build": "docker build -t mgn-app docker --target runner-ssg",
+    "docker:build": "docker build -t mgn-app docker --target runner-ssg --build-arg NEXT_PUBLIC_ANALYTICS_ID --build-arg NEXT_PUBLIC_STRIPE_PAYMENT_URL",
     "docker:build:prod": "docker build -t mgn-app docker --target runner-ssg",
     "docker:build-run": "yarn docker:build && yarn docker:run",
     "docker:run": "docker run -d -p 8080:8080 mgn-app",
