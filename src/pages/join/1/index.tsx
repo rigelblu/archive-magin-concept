@@ -30,7 +30,7 @@ export default function JoinMagin() {
       <div className='mgn-preview flex w-screen h-screen p-3 justify-content-center align-items-center'>
         <div className='mgn-step flex flex-column w-full h-full justify-content-between sm:max-w-24rem sm:max-h-50rem'>
           <div className='h-full flex align-items-center text-center'>
-            <div>
+            <div className='w-full'>
               <h1>{locale.join.step1_wantMore}</h1>
               <h2>{locale.join.step1_shapeItsFuture}</h2>
               <div className='mt-20 text-left'>
