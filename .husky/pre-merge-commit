@@ -2,7 +2,9 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 # Require pull request
-if [ "$branch" = "main" ]; then
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+
+if [ "$BRANCH" = "main" ]; then
   echo "You can't merge directly to main branch. Submit a pull request"
   exit 1
 fi
@@ -10,6 +12,7 @@ fi
 # Trigger builds
 FILES=( ".eslint*" ".linkstagerc.js" )
 FILES+=( "additional.js" "next.config.js" "next-env.d.ts" "package.json" "tailwind.config.js" "tsconfig/*" "tsconfig*" "yarn.lock")
+
 if [ git diff --cached --quiet -- $FILES ]; then
   yarn build:ssg
 fi
