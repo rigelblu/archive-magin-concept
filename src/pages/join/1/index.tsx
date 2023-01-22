@@ -17,6 +17,9 @@ interface LocaleType {
   [key: string]: LocalePropType;
 }
 
+// REFACTOR: move into a helper function
+const stripePaymentUrl = process.env.NEXT_PUBLIC_STRIPE_PAYMENT_URL || '/error';
+
 export default function JoinMagin() {
   const router = useRouter();
   const locale = Locale as LocaleType;
@@ -41,7 +44,7 @@ export default function JoinMagin() {
               <Button
                 className='text-xl text-size-medium mgn-cta-primary m-1'
                 onClick={() => {
-                  router.push('/join/2');
+                  window.location.href = stripePaymentUrl;
                 }}
               >
                 {locale.join.step1_join}
@@ -68,7 +71,7 @@ export default function JoinMagin() {
             right={{
               label: locale.join.step1_join,
               onClick: () => {
-                router.push('/join/2');
+                window.location.href = stripePaymentUrl;
               },
             }}
           />
