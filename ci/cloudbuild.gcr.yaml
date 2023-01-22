@@ -14,34 +14,34 @@ substitutions:
 steps:
   # 0. Stage docker context
   - name: node
-    args: ['yarn', 'docker:stage-context']
+    args:
+      - 'yarn'
+      - 'docker:stage-context'
 
   # 1. Pull cached docker image
   - name: 'gcr.io/cloud-builders/docker'
     entrypoint: bash
-    args: ['-c', 'docker pull ${_IMAGE_NAME}:latest || exit 0']
+    args:
+      - '-c'
+      - 'docker pull ${_IMAGE_NAME}:latest || exit 0'
 
   # 2. Build docker
   # OPTIMIZE: research if there's a better way to load all env variables
   - name: 'gcr.io/cloud-builders/docker'
     args:
-      [
-        'build',
-        '-t',
-        '${_IMAGE_NAME}',
-        '--cache-from',
-        '${_IMAGE_NAME}:latest',
-        './docker',
-        '--build-arg',
-        'NEXT_PUBLIC_ANALYTICS_ID',
-        '--build-arg',
-        'NEXT_PUBLIC_STRIPE_PAYMENT_URL',
-      ]
+      - 'build'
+      - '-t'
+      - '${_IMAGE_NAME}'
+      - '--cache-from'
+      - '${_IMAGE_NAME}:latest'
+      - './docker'
+      - '--build-arg'
+      - 'NEXT_PUBLIC_ANALYTICS_ID'
+      - '--build-arg'
+      - 'NEXT_PUBLIC_STRIPE_PAYMENT_URL'
     env:
-      [
-        'NEXT_PUBLIC_ANALYTICS_ID=${_ENV_NEXT_PUBLIC_ANALYTICS_ID}',
-        'NEXT_PUBLIC_STRIPE_PAYMENT_URL=${_ENV_NEXT_PUBLIC_STRIPE_PAYMENT_URL}',
-      ]
+      - 'NEXT_PUBLIC_ANALYTICS_ID=${_ENV_NEXT_PUBLIC_ANALYTICS_ID}'
+      - 'NEXT_PUBLIC_STRIPE_PAYMENT_URL=${_ENV_NEXT_PUBLIC_STRIPE_PAYMENT_URL}'
 
   # 3. Push container to registery
   - name: 'gcr.io/cloud-builders/docker'
@@ -51,20 +51,18 @@ steps:
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: 'gcloud'
     args:
-      [
-        'run',
-        'deploy',
-        '${_SERVICE_NAME}',
-        '--image',
-        '${_IMAGE_NAME}:latest',
-        '--region',
-        '${_REGION}',
-        '--tag=${_DEPLOY_TAG}',
-        '--min-instances=${_MIN_INSTANCES}',
-        '--max-instances=${_MAX_INSTANCES}',
-        '--allow-unauthenticated',
-        '--no-traffic',
-      ]
+      - 'run'
+      - 'deploy'
+      - '${_SERVICE_NAME}'
+      - '--image'
+      - '${_IMAGE_NAME}:latest'
+      - '--region'
+      - '${_REGION}'
+      - '--tag=${_DEPLOY_TAG}'
+      - '--min-instances=${_MIN_INSTANCES}'
+      - '--max-instances=${_MAX_INSTANCES}'
+      - '--allow-unauthenticated'
+      - '--no-traffic'
 
   # 5. Sent traffic to latest based on _TRAFFIC_TO_LATEST
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
