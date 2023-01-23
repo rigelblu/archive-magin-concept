@@ -8,6 +8,9 @@
     "prev": "Previous Scene",
     "next": "Next Scene"
   },
+  "general": {
+    "comingSoon": "coming soon"
+  },
   "guide": {
     "step1_maginPresents": "magin presents",
     "step1_watchNovel": "Watch Novel",

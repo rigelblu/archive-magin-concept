@@ -24,6 +24,9 @@ export default function JoinMagin() {
   const router = useRouter();
   const locale = Locale as LocaleType;
 
+  // OPTIMIZE: external feature flags settings
+  const flagIsJoinEnabled = false;
+
   return (
     <div className='mgn-try-magin bg-white'>
       {/* REFACTOR: convert into component, accept 4 children elements */}
@@ -46,12 +49,17 @@ export default function JoinMagin() {
               <Button
                 className='text-xl text-size-medium mgn-cta-primary m-1'
                 onClick={() => {
+                  if (flagIsJoinEnabled) {
                   window.location.href = stripePaymentUrl;
+                  }
                 }}
+                tooltip={locale.general.comingSoon}
+                tooltipOptions={{ position: 'bottom' }}
               >
                 {locale.join.step1_join}
               </Button>
-              <br />
+              {flagIsJoinEnabled && (
+                <div className='mt-3'>
               <Link className='text-sm' href='/terms-conditions'>
                 {locale.about.termsConditions}
               </Link>
@@ -59,6 +67,8 @@ export default function JoinMagin() {
               <Link className='text-sm' href='/privacy'>
                 {locale.about.privacy}
               </Link>
+                </div>
+              )}
             </div>
           </div>
 
