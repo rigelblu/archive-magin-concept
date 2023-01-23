@@ -40,7 +40,8 @@ export default function JoinMagin() {
                 <span className='mgn-text-blue-rb'>{locale.general.magin}</span>{' '}
                 {locale.join.step1_future}
               </h2>
-              
+
+              {/* Join */}
               <p className='text-2xl font-bold mt-10'>
                 <span className='text-base font-normal'>{locale.join.step1_planSponsor_name}</span>
                 <br />
@@ -51,7 +52,7 @@ export default function JoinMagin() {
                 className='text-xl text-size-medium mgn-cta-primary m-1'
                 onClick={() => {
                   if (flagIsJoinEnabled) {
-                  window.location.href = stripePaymentUrl;
+                    window.location.href = stripePaymentUrl;
                   }
                 }}
                 tooltip={locale.general.comingSoon}
@@ -59,6 +60,8 @@ export default function JoinMagin() {
               >
                 {locale.join.step1_join}
               </Button>
+
+              {/* What you get */}
               <div className='flex justify-content-center mt-20'>
                 <div className='text-left '>
                   <p>{locale.join.step1_planSponsor_whatYouGet}</p>
@@ -71,15 +74,16 @@ export default function JoinMagin() {
                 </div>
               </div>
 
+              {/* Legal */}
               {flagIsJoinEnabled && (
                 <div className='mt-3'>
-              <Link className='text-sm' href='/terms-conditions'>
-                {locale.about.termsConditions}
-              </Link>
-              &nbsp;|&nbsp;
-              <Link className='text-sm' href='/privacy'>
-                {locale.about.privacy}
-              </Link>
+                  <Link className='text-sm' href='/terms-conditions'>
+                    {locale.about.termsConditions}
+                  </Link>
+                  &nbsp;|&nbsp;
+                  <Link className='text-sm' href='/privacy'>
+                    {locale.about.privacy}
+                  </Link>
                 </div>
               )}
             </div>
