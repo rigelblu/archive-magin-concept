@@ -35,17 +35,18 @@ export default function JoinMagin() {
           <div className='h-full flex align-items-center text-center'>
             <div className='w-full'>
               <h1>{locale.join.step1_wantMore}</h1>
-              <h2>{locale.join.step1_shapeItsFuture}</h2>
-              <div className='flex justify-content-center mt-20'>
-                <div className='text-left max-w-min whitespace-nowrap'>
-                  <p>{locale.join.step1_whatYouGet}</p>
-                  <ul>
-                    <li>{locale.join.step1_whatYouGet1}</li>
-                    <li>{locale.join.step1_whatYouGet2}</li>
-                    <li>{locale.join.step1_whatYouGet3}</li>
-                  </ul>
-                </div>
-              </div>
+              <h2>
+                {locale.join.step1_joinShape}{' '}
+                <span className='mgn-text-blue-rb'>{locale.general.magin}</span>{' '}
+                {locale.join.step1_future}
+              </h2>
+              
+              <p className='text-2xl font-bold mt-10'>
+                <span className='text-base font-normal'>{locale.join.step1_planSponsor_name}</span>
+                <br />
+                {locale.join.step1_planSponsor_price}{' '}
+                <span className='text-sm'>{locale.join.step1_planSponsor_currencyUSD}</span>
+              </p>
               <Button
                 className='text-xl text-size-medium mgn-cta-primary m-1'
                 onClick={() => {
@@ -58,6 +59,18 @@ export default function JoinMagin() {
               >
                 {locale.join.step1_join}
               </Button>
+              <div className='flex justify-content-center mt-20'>
+                <div className='text-left '>
+                  <p>{locale.join.step1_planSponsor_whatYouGet}</p>
+                  <ul>
+                    <li>{locale.join.step1_planSponsor_whatYouGet1}</li>
+                    <li>{locale.join.step1_planSponsor_whatYouGet2}</li>
+                    <li>{locale.join.step1_planSponsor_whatYouGet3}</li>
+                    <li>{locale.join.step1_planSponsor_whatYouGet4}</li>
+                  </ul>
+                </div>
+              </div>
+
               {flagIsJoinEnabled && (
                 <div className='mt-3'>
               <Link className='text-sm' href='/terms-conditions'>
