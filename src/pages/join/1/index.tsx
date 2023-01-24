@@ -65,7 +65,7 @@ export default function JoinMagin() {
               <div className='flex justify-content-center mt-20'>
                 <div className='text-left '>
                   <p>{locale.join.step1_planSponsor_whatYouGet}</p>
-                  <ul>
+                  <ul className='m-0'>
                     <li>{locale.join.step1_planSponsor_whatYouGet1}</li>
                     <li>{locale.join.step1_planSponsor_whatYouGet2}</li>
                     <li>{locale.join.step1_planSponsor_whatYouGet3}</li>
