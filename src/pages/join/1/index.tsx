@@ -37,7 +37,7 @@ export default function JoinMagin() {
               <h1>{locale.join.step1_wantMore}</h1>
               <div className='text-lg font-bold'>
                 {locale.join.step1_joinShape}{' '}
-                <span className='mgn-text-blue-rb'>{locale.general.magin}</span>{' '}
+                <span className='mgn-text-blue-rb'>{locale.general.magin}&apos;s</span>{' '}
                 {locale.join.step1_future}
               </div>
 
