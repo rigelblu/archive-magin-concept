@@ -42,12 +42,13 @@ export default function JoinMagin() {
               </div>
 
               {/* Join */}
-              <p className='text-2xl font-bold mt-10'>
-                <span className='text-base font-normal'>{locale.join.step1_planSponsor_name}</span>
-                <br />
-                {locale.join.step1_planSponsor_price}{' '}
-                <span className='text-sm'>{locale.join.step1_planSponsor_currencyUSD}</span>
-              </p>
+              <div className='text-2xl font-bold mt-10'>
+                <div className='text-base mb-1'>{locale.join.step1_planSponsor_name}</div>
+                <div className='mb-1 mgn-text-blue-rb'>
+                  {locale.join.step1_planSponsor_price}{' '}
+                  <span className='text-sm'>{locale.join.step1_planSponsor_currencyUSD}</span>
+                </div>
+              </div>
               <Button
                 className='text-xl text-size-medium mgn-cta-primary m-1'
                 onClick={() => {
