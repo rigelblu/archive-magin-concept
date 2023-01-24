@@ -35,11 +35,11 @@ export default function JoinMagin() {
           <div className='h-full flex align-items-center text-center'>
             <div className='w-full'>
               <h1>{locale.join.step1_wantMore}</h1>
-              <h2>
+              <div className='text-lg font-bold'>
                 {locale.join.step1_joinShape}{' '}
                 <span className='mgn-text-blue-rb'>{locale.general.magin}</span>{' '}
                 {locale.join.step1_future}
-              </h2>
+              </div>
 
               {/* Join */}
               <p className='text-2xl font-bold mt-10'>
