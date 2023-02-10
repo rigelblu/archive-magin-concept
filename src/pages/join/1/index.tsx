@@ -94,9 +94,9 @@ export default function JoinMagin() {
           <Navigation
             middle={{
               className: 'mgn-cta-secondary',
-              label: locale.navigation.back,
+              label: locale.navigation.returnHome,
               onClick: () => {
-                router.push('/try-magin/3');
+                router.push('/');
               },
             }}
             className='justify-content-center'
