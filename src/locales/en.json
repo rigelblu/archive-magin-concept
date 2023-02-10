@@ -26,14 +26,14 @@
     "step1_wantMore": "Want to see more",
     "step1_joinShape": "join and shape",
     "step1_future": "future",
-    "step1_planSponsor_name": "early access, angel sponsor",
-    "step1_planSponsor_price": "$10",
+    "step1_planSponsor_name": "early access sponsor",
+    "step1_planSponsor_price": "$5",
     "step1_planSponsor_currencyUSD": "USD",
     "step1_planSponsor_whatYouGet": "You get:",
     "step1_planSponsor_whatYouGet1": "One time purchase ー no subscriptions",
     "step1_planSponsor_whatYouGet2": "Free updates for 2 years",
-    "step1_planSponsor_whatYouGet3": "Voice in features we add next",
-    "step1_planSponsor_whatYouGet4": "Sneak peek at our behind-the-scenes development across product, user experience, business strategy, go-to-market, investor pitch, and more…",
+    "step1_planSponsor_whatYouGet3": "Voice in what features we add next",
+    "step1_planSponsor_whatYouGet4": "Shape the design and experience",
     "step1_join": "Join"
   },
   "navigation": {

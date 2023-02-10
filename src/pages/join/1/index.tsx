@@ -35,19 +35,20 @@ export default function JoinMagin() {
           <div className='h-full flex align-items-center text-center'>
             <div className='w-full'>
               <h1>{locale.join.step1_wantMore}</h1>
-              <h2>
+              <div className='text-lg font-bold'>
                 {locale.join.step1_joinShape}{' '}
-                <span className='mgn-text-blue-rb'>{locale.general.magin}</span>{' '}
+                <span className='mgn-text-blue-rb'>{locale.general.magin}&apos;s</span>{' '}
                 {locale.join.step1_future}
-              </h2>
+              </div>
 
               {/* Join */}
-              <p className='text-2xl font-bold mt-10'>
-                <span className='text-base font-normal'>{locale.join.step1_planSponsor_name}</span>
-                <br />
-                {locale.join.step1_planSponsor_price}{' '}
-                <span className='text-sm'>{locale.join.step1_planSponsor_currencyUSD}</span>
-              </p>
+              <div className='text-2xl font-bold mt-10'>
+                <div className='text-base mb-1'>{locale.join.step1_planSponsor_name}</div>
+                <div className='mb-1 mgn-text-blue-rb'>
+                  {locale.join.step1_planSponsor_price}{' '}
+                  <span className='text-sm'>{locale.join.step1_planSponsor_currencyUSD}</span>
+                </div>
+              </div>
               <Button
                 className='text-xl text-size-medium mgn-cta-primary m-1'
                 onClick={() => {
@@ -62,10 +63,10 @@ export default function JoinMagin() {
               </Button>
 
               {/* What you get */}
-              <div className='flex justify-content-center mt-20'>
-                <div className='text-left '>
+              <div className='flex justify-content-center mt-3 mx-5'>
+                <div className='text-left text-sm'>
                   <p>{locale.join.step1_planSponsor_whatYouGet}</p>
-                  <ul>
+                  <ul className='m-0'>
                     <li>{locale.join.step1_planSponsor_whatYouGet1}</li>
                     <li>{locale.join.step1_planSponsor_whatYouGet2}</li>
                     <li>{locale.join.step1_planSponsor_whatYouGet3}</li>
@@ -93,9 +94,9 @@ export default function JoinMagin() {
           <Navigation
             middle={{
               className: 'mgn-cta-secondary',
-              label: locale.navigation.back,
+              label: locale.navigation.returnHome,
               onClick: () => {
-                router.push('/try-magin/3');
+                router.push('/');
               },
             }}
             className='justify-content-center'
