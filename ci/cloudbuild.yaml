@@ -26,7 +26,7 @@ steps:
       - '${_IMAGE_NAME}'
       - '--cache-from'
       - '${_IMAGE_NAME}:latest'
-      - './docker'
+      - '.'
       - '--build-arg'
       - 'NEXT_PUBLIC_ANALYTICS_ID'
       - '--build-arg'
