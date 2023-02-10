@@ -6,6 +6,7 @@ build
 docker
 
 # configs
+jest.config.js
 next.config.js
 
 # dependencies

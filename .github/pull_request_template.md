@@ -6,6 +6,12 @@ Describe what changes you made
 
 Describe your reason for the changes
 
+# Checklist
+
+[✔︎⏭️❌] I have added enough test cases
+
+Legend: ✔︎ (done), ⏭️ (skipped), ❌ (not done)
+
 # Screenshots (optional if it helps reviewers easily understand your changes)
 
 Add before/after screenshots or a short demo video recording of the feature / bugfix.
@@ -18,10 +24,3 @@ After:
 
 - Step by step test plan for the manual testing.
   Remove this section if there is no test plan
-
-# Checklist
-
-[✔︎⏭️❌] I have added enough test cases
-[✔︎⏭️❌] I have self-reviewed the changes and have added explanatory comments as needed
-
-Legend: ✔︎ (done), ⏭️ (skipped), ❌ (not done)

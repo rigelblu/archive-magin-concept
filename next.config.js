@@ -1,8 +1,8 @@
 module.exports = {
   images: { unoptimized: true }, // OPTIMIZE: disable when we switch to running server
+  // output: 'standalone', // TODO: determine what affect this has, if I should turn it on for docker builds
   reactStrictMode: true,
   swcMinify: true, // use swc instead of terser for minification
-  // output: 'standalone', // TODO: determine what affect this has, if I should turn it on for docker builds
   trailingSlash: true, // allow url ending with traling slash
   typescript: { tsconfigPath: './tsconfig.dev-next.json' },
 

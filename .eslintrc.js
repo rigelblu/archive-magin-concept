@@ -11,6 +11,7 @@ module.exports = {
     'eslint:recommended',
     'next',
     'next/core-web-vitals',
+    'plugin:@next/next/recommended',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
@@ -27,11 +28,12 @@ module.exports = {
     createDefaultProgram: true,
     ecmaFeatures: { jsx: true },
     ecmaVersion: 2020,
-    project: ['tsconfig.json'], // Use tsconfig.json for storybook, and tsconfig.vite.json
+    project: ['./tsconfig.json'],
     sourceType: 'module',
   },
   plugins: ['@typescript-eslint', 'import', 'jest', 'jsx-a11y', 'react', 'testing-library'],
   rules: {
+    '@next/next/no-img-element': 'off',
     '@typescript-eslint/no-shadow': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
     '@typescript-eslint/restrict-template-expressions': ['error', { allowBoolean: true }],
@@ -48,8 +50,8 @@ module.exports = {
     'no-unused-vars': 'off',
     'no-use-before-define': 'warn',
     'react/jsx-filename-extension': ['off', { extensions: ['.jsx', '.tsx'] }],
-    'react/jsx-props-no-spreading': 'warn',
     'react/jsx-no-undef': 'off',
+    'react/jsx-props-no-spreading': 'warn',
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/require-default-props': 'off',
@@ -66,7 +68,6 @@ module.exports = {
       },
     },
   },
-
   overrides: [
     {
       files: ['src/pages/**/*.ts[x]'],
