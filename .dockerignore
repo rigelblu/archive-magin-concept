@@ -1,0 +1,31 @@
+# build & cache
+build
+
+# configs
+ci
+docker-compose.yml
+Dockerfile
+
+# dependencies
+node_modules
+
+# misc
+.DS_Store
+.dockerignore
+.env
+.env.development
+.env.production
+.favorites.json
+.git
+.gitignore
+.vscode
+CHANGELOG.md
+Makefile
+README.md
+
+# package logs
+yarn-debug.log*
+yarn-error.log*
+
+# testing
+coverage

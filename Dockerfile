@@ -1,3 +1,6 @@
+# Copyright rigélblu inc.
+# All rights reserved.
+
 # syntax=docker/dockerfile:1
 
 # ----------
@@ -27,11 +30,7 @@ ARG NODE_ENV NEXT_PUBLIC_ANALYTICS_ID NEXT_PUBLIC_STRIPE_PAYMENT_URL
 
 WORKDIR /usr/src/app
 COPY --from=deps-builder /usr/src/app/node_modules ./node_modules
-COPY additional.d.ts jest.config.js next.config.js next-env.d.ts package.json \
-  postcss.config.js tailwind.config.js tsconfig* ./
-COPY tsconfigs ./tsconfigs
-COPY public ./public
-COPY src ./src
+COPY . .
 RUN yarn build:ssg
 
 # TODO:enable steps once we have unit tests
@@ -45,11 +44,7 @@ FROM node:16-alpine AS runner-ssg-multi-layer
 WORKDIR /usr/src/app
 COPY --from=deps-runner  /usr/src/app/node_modules ./node_modules
 COPY --from=builder-ssg /usr/src/app/build ./build
-COPY additional.d.ts jest.config.js next.config.js next-env.d.ts package.json \
-  server.js tailwind.config.js tsconfig* ./
-COPY tsconfigs ./tsconfigs
-COPY public ./public
-COPY src ./src
+COPY . .
 
 # ----------
 # Stage: Runner using SSG, optimized for size into a single layer
@@ -62,4 +57,4 @@ USER app
 COPY --chown=app --from=runner-ssg-multi-layer  /usr/src/app .
 
 EXPOSE 8080
-CMD ["yarn", "start"]
+CMD ["yarn", "prod"]
