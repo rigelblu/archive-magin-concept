@@ -63,8 +63,8 @@ export default function JoinMagin() {
               </Button>
 
               {/* What you get */}
-              <div className='flex justify-content-center mt-20'>
-                <div className='text-left'>
+              <div className='flex justify-content-center mt-3 mx-5'>
+                <div className='text-left text-sm'>
                   <p>{locale.join.step1_planSponsor_whatYouGet}</p>
                   <ul className='m-0'>
                     <li>{locale.join.step1_planSponsor_whatYouGet1}</li>
