@@ -1,6 +1,7 @@
 // Copyright rigélblu inc.
 // All rights reserved.
 import { Button } from 'primereact/button';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import IconGithub from '@/assets/common/icons/github-mark.svg';
 
@@ -11,6 +12,11 @@ export default function Home() {
 
   return (
     <div className='flex flex-column h-screen v-screen justify-content-center align-items-center'>
+      {/* Header */}
+      <Link href='/' className='flex w-full align-content-start font-bold mgn-rb-blue p-2'>
+        magin.blue
+      </Link>
+
       <div className='mgn-home flex flex-column h-full v-full justify-content-center align-items-center'>
         {/* Tagline */}
         <h1 className='text-center mb-8'>
@@ -21,7 +27,8 @@ export default function Home() {
         </h1>
         <h2 className='text-center'>
           Learn to watch a novel <br />
-          like a <span className='mgn-text-blue-rb'>Pixar</span> director
+          like a <span className='mgn-text-blue-rb'>Pixar</span>
+          <span className='font-normal'>&#8482;</span> director
         </h2>
 
         {/* Try magin */}

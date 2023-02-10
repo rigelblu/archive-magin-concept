@@ -1,0 +1,16 @@
+# Copyright rigélblu inc.
+# All rights reserved.
+
+version: '3'
+services:
+  rb-site:
+    build:
+      args:
+        - 'NEXT_PUBLIC_ANALYTICS_ID'
+        - 'NEXT_PUBLIC_STRIPE_PAYMENT_URL'
+      context: .
+      target: runner-ssg
+    env_file: .env.development
+    image: mgn-concept
+    ports:
+      - '8080:8080'

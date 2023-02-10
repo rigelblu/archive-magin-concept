@@ -1,5 +1,5 @@
 module.exports = {
-  '**/*.{css,html,js,jsx,json,md,ts,tsx}': 'yarn lint',
+  '**/*.{html,js,jsx,json,md,ts,tsx}': 'yarn lint:next',
   '**/*.{css,scss}': 'yarn lint:style',
   '**/*': 'yarn prettier',
 };

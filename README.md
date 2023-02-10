@@ -1,6 +1,6 @@
 # magin - product concept
 
-Learn to watch a novel like a Pixar director.
+Learn to watch a novel like a Pixar&#8482; director.
 
 ---
 

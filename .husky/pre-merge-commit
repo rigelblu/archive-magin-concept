@@ -1,4 +1,7 @@
 #!/usr/bin/env sh
+# Copyright rigélblu inc.
+# All rights reserved.
+
 . "$(dirname -- "$0")/_/husky.sh"
 
 # Require pull request
@@ -10,15 +13,17 @@ if [ "$BRANCH" = "main" ]; then
 fi
 
 # Trigger builds
-FILES=( ".eslint*" ".linkstagerc.js" )
-FILES+=( "additional.js" "next.config.js" "next-env.d.ts" "package.json" "tailwind.config.js" "tsconfig/*" "tsconfig*" "yarn.lock")
+FILES=( ".dockerignore" ".eslint*" ".linkstagerc.js" ".stylelintrc.js" "additional.d.ts" )
+FILES+=( "docker-compose.yml" "Dockerfile" "next-env.d.ts" "next.config.js" "package.json" )
+FILES+=( "postcss.config.js" "server.js" "tailwind.config.js" "tsconfig*" "tsconfigs/*" "yarn.lock" )
 
 if [ git diff --cached --quiet -- $FILES ]; then
   yarn build:ssg
 fi
 
 if [ git diff --cached --quiet -- Dockerfile ]; then
-  yarn docker:rebuild
+  docker-compose build; docker-compose up -d
 fi
 
+# TODO: enable once we add unit tests
 yarn test

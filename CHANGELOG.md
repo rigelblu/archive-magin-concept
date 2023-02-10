@@ -4,13 +4,13 @@
 
 Single Entry Format
 
-- ACTION [PULL_REQUEST]() Description
+- ACTION [PULL_REQUEST](.) Description
 
 Multie Entry Format
 
 ACTION
 
-- [PULL_REQUEST]() Description
+- [PULL_REQUEST].) Description
 
 LEGEND
 

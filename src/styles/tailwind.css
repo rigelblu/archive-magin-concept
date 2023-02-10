@@ -3,7 +3,9 @@
  * All rights reserved.
  */
 
-/* TODO: determine if we'll use the base and compponent classes */
+/* TODO: determine if we'll use the compponent styles */
+
 /* @tailwind base; */
-/* @tailwind components; */
 @tailwind utilities;
+
+/* @tailwind components; */

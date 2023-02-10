@@ -8,24 +8,16 @@ substitutions:
   _IMAGE_NAME: ${_ARTIFACT}/${PROJECT_ID}/${_SERVICE_NAME}/${_SERVICE_NAME}
   _SERVICE_NAME: ${_SERVICE_NAME}
 
-# timeout: 1200s # Use when needed for debugging
-
 # Build for Google Cloud Run
 steps:
-  # 0. Stage docker context
-  - name: node
-    args:
-      - 'yarn'
-      - 'docker:stage-context'
-
-  # 1. Pull cached docker image
+  # 0. Pull cached docker image
   - name: 'gcr.io/cloud-builders/docker'
     entrypoint: bash
     args:
       - '-c'
       - 'docker pull ${_IMAGE_NAME}:latest || exit 0'
 
-  # 2. Build docker
+  # 1. Build docker
   # OPTIMIZE: research if there's a better way to load all env variables
   - name: 'gcr.io/cloud-builders/docker'
     args:
@@ -34,7 +26,7 @@ steps:
       - '${_IMAGE_NAME}'
       - '--cache-from'
       - '${_IMAGE_NAME}:latest'
-      - './docker'
+      - '.'
       - '--build-arg'
       - 'NEXT_PUBLIC_ANALYTICS_ID'
       - '--build-arg'
@@ -43,11 +35,11 @@ steps:
       - 'NEXT_PUBLIC_ANALYTICS_ID=${_ENV_NEXT_PUBLIC_ANALYTICS_ID}'
       - 'NEXT_PUBLIC_STRIPE_PAYMENT_URL=${_ENV_NEXT_PUBLIC_STRIPE_PAYMENT_URL}'
 
-  # 3. Push container to registery
+  # 2. Push container to registery
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', '${_IMAGE_NAME}:latest']
 
-  # 4. Deploy container to Cloud Run
+  # 3. Deploy container to Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: 'gcloud'
     args:
@@ -64,7 +56,7 @@ steps:
       - '--allow-unauthenticated'
       - '--no-traffic'
 
-  # 5. Sent traffic to latest based on _TRAFFIC_TO_LATEST
+  # 4. Sent traffic to latest based on _TRAFFIC_TO_LATEST
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: 'bash'
     args:
