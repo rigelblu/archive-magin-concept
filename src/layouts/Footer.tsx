@@ -5,7 +5,7 @@
 export default function Footer() {
   return (
     <footer className='flex'>
-      <div className='justify-content-between align-items-center flex w-full'>
+      <div className='flex w-full items-center justify-between'>
         <div>
           magin is a product of&nbsp;
           <a href='https://rigelblu.com' rel='noreferrer noopener' target='_blank'>

@@ -5,7 +5,7 @@
 
 /* TODO: determine if we'll use the compponent styles */
 
-/* @tailwind base; */
+@tailwind base;
 @tailwind utilities;
 
 /* @tailwind components; */

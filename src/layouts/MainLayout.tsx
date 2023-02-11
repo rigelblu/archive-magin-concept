@@ -15,7 +15,7 @@ interface Props {
 export default function MainLayout(props: Props) {
   const { children, showHeader = true, showFooter = true } = props;
   return (
-    <div>
+    <div className='max-w-4xl'>
       {showHeader && <Header />}
       {children}
       {showFooter && <Footer />}

@@ -23,11 +23,11 @@ export default function MarginPreview() {
   const locale = Locale as LocaleType;
 
   return (
-    <div className='mgn-try-magin bg-white'>
+    <div className='mgn-try-magin'>
       {/* REFACTOR: convert into component, accept 4 children elements */}
-      <div className='mgn-preview flex w-screen h-screen p-3 justify-content-center align-items-center'>
-        <div className='mgn-step flex flex-column w-full h-full justify-content-between sm:max-w-24rem sm:max-h-50rem'>
-          <Book maginPreviewStep={3} showPageControls className='h-full' />
+      <div className='mgn-preview flex h-screen justify-center p-3'>
+        <div className='mgn-step flex flex-1 flex-col justify-between bg-white sm:max-h-[50rem] sm:max-w-[24rem]'>
+          <Book maginPreviewStep={3} showPageControls className='flex-1' />
           <GuideMessage className='font-bold'>
             {/* TODO: show on a 5 second delay */}
             {/* OPTIMIZE: figure out how to allow \n in the string and convert in to <br /> */}
@@ -35,7 +35,7 @@ export default function MarginPreview() {
             {locale.guide.step3_1} <br />
             {locale.guide.step3_2} <br />
           </GuideMessage>
-          <Film className='h-full' />
+          <Film className='flex-1' />
 
           {/* REFACTOR: use next layout */}
           <Navigation

@@ -18,7 +18,7 @@ export default function Storyboard(props: Props) {
         <Image
           src='/assets/common/images/storyboard-placeholder.png'
           alt='Placeholder'
-          className='!object-scale-down w-20rem h-auto'
+          className='h-auto w-80 !object-scale-down'
           width={330}
           height={270}
         />

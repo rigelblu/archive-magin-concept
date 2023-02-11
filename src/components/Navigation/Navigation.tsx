@@ -11,11 +11,11 @@ interface Props {
 }
 
 export default function Navigation(props: Props) {
-  const { left = null, middle = null, right = null, className = 'justify-content-between' } = props;
+  const { left = null, middle = null, right = null, className = 'justify-between' } = props;
 
   // OPTIMIZE: generalize to accept any # of objects
   return (
-    <div className={`mgn-navigation flex ${className}`}>
+    <div className={`mgn-navigation flex p-2 ${className}`}>
       {left && (
         <Button className={`text-center ${left.className}`} onClick={left.onClick}>
           {left.label}

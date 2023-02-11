@@ -12,11 +12,11 @@ export default function MarginPreview() {
   const router = useRouter();
 
   return (
-    <div className='mgn-try-magin bg-white'>
+    <div className='mgn-try-magin'>
       {/* REFACTOR: convert into component, accept 4 children elements */}
-      <div className='mgn-preview flex w-screen h-screen p-3 justify-content-center align-items-center'>
-        <div className='mgn-step flex flex-column w-full h-full justify-content-between sm:max-w-24rem sm:max-h-50rem'>
-          <GuideMessage className='flex flex-column h-3/4 justify-content-end'>
+      <div className='mgn-preview flex h-screen justify-center p-3'>
+        <div className='mgn-step flex flex-1 flex-col justify-between bg-white sm:max-h-[50rem] sm:max-w-[24rem]'>
+          <GuideMessage className='flex max-h-[75%] flex-1 items-end justify-center'>
             <h2 className='text-black'>
               {locale.guide.step1_maginPresents}
               <br />

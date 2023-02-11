@@ -70,8 +70,6 @@
     "postcss-scss": "^4.0.6",
     "prettier": "^2.8.4",
     "prettier-plugin-tailwindcss": "^0.2.2",
-    "primeflex": "^3.3.0",
-    "primeicons": "^6.0.1",
     "primereact": "^9.0.0-rc.1",
     "react": "^18.0.2",
     "react-dom": "^18.0.2",
