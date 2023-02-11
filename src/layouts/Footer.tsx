@@ -1,12 +1,11 @@
 // Copyright rigélblu inc.
 // All rights reserved.
-import React from 'react';
 // TODO: add unit tests
 
-export default function HTMLFooter() {
+export default function Footer() {
   return (
     <footer className='flex'>
-      <div className='flex w-full justify-content-between align-items-center'>
+      <div className='justify-content-between align-items-center flex w-full'>
         <div>
           magin is a product of&nbsp;
           <a href='https://rigelblu.com' rel='noreferrer noopener' target='_blank'>

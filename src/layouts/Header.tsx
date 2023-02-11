@@ -1,8 +1,7 @@
 // Copyright rigélblu inc.
 // All rights reserved.
-import React from 'react';
 
-export default function HTMLHeader() {
+export default function Header() {
   return (
     <header>
       <nav>Header Placeholder</nav>

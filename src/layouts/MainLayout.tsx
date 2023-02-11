@@ -1,25 +1,24 @@
 // Copyright rigélblu inc.
 // All rights reserved.
 import React from 'react';
-// import { useRouter } from 'next/router';
 
-import HTMLHeader from './HTMLHeader';
-import HTMLFooter from './HTMLFooter';
+import Header from './Header';
+import Footer from './Footer';
 // TODO: add unit tests
 
-interface HTMLBodyProps {
+interface Props {
   children: React.ReactNode;
   showHeader?: boolean;
   showFooter?: boolean;
 }
 
-export default function HTMLBody(props: HTMLBodyProps) {
+export default function MainLayout(props: Props) {
   const { children, showHeader = true, showFooter = true } = props;
   return (
     <div>
-      {showHeader && <HTMLHeader />}
+      {showHeader && <Header />}
       {children}
-      {showFooter && <HTMLFooter />}
+      {showFooter && <Footer />}
     </div>
   );
 }

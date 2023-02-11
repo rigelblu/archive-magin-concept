@@ -1,16 +1,14 @@
 // Copyright rigélblu inc.
 // All rights reserved.
-import React from 'react';
-
-import HTMLBody from '@/src/containers/HTMLElements/HTMLBody';
+import MainLayout from '@/src/layouts/MainLayout';
 import Home from './home';
 
 export default function PageRoot() {
   return (
-    <HTMLBody showHeader={false} showFooter={false}>
+    <MainLayout showHeader={false} showFooter={false}>
       <main>
         <Home />
       </main>
-    </HTMLBody>
+    </MainLayout>
   );
 }
