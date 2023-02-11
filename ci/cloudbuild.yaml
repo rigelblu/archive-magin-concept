@@ -23,7 +23,7 @@ steps:
     args:
       - 'build'
       - '-t'
-      - '${_IMAGE_NAME}'
+      - '${_IMAGE_NAME}:latest'
       - '--cache-from'
       - '${_IMAGE_NAME}:latest'
       - '.'

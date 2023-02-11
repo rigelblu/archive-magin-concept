@@ -1,0 +1,12 @@
+.editorconfig
+.env.example
+.git
+.gitignore
+.gitmessage
+.husky
+.prettierignore
+.prettierrc.json
+CHANGELOG.md
+ci
+LICENSE
+README.md
