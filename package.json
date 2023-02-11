@@ -67,6 +67,7 @@
     "lint-staged": "^13.1.1",
     "next": "^13.1.6",
     "postcss": "^8.4.21",
+    "postcss-100vh-fix": "^1.0.2",
     "postcss-scss": "^4.0.6",
     "prettier": "^2.8.4",
     "prettier-plugin-tailwindcss": "^0.2.2",

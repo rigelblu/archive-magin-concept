@@ -12,6 +12,13 @@ html {
   scroll-padding-top: 3rem;
 }
 
+@supports (-webkit-touch-callout: none) {
+  body {
+    /* Hack for Safari */
+    height: -webkit-fill-available;
+  }
+}
+
 @font-face {
   font-display: swap;
   font-family: TheanoOldStyle-Regular;
@@ -21,6 +28,7 @@ html {
 
 body {
   background-color: mgn-color('yellow-lighter') !important;
+  height: 100vh;
 }
 
 header {
