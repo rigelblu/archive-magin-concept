@@ -19,13 +19,13 @@ export default function Home() {
 
       <div className='mgn-home flex flex-1 flex-col items-center justify-center'>
         {/* Tagline */}
-        <h1 className='mb-8 text-center'>
+        <h1 className='mb-8 text-center text-xl'>
           Have you <span className='text-blue-rb'>read a novel</span> <br /> and wondered,
           <br /> why can&apos;t I <span className='text-blue-rb'>remember</span>{' '}
           <br className='inline sm:hidden' />
           anything?
         </h1>
-        <h2 className='text-center'>
+        <h2 className='text-center text-lg'>
           Learn to watch a novel <br />
           like a <span className='text-blue-rb'>Pixar</span>
           <span className='font-normal'>&#8482;</span> director
