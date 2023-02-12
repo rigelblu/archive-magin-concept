@@ -15,7 +15,7 @@ module.exports = {
     },
 
     extend: {
-      fontFamily: { sentinel: ['Sentinel'] },
+      fontFamily: { theano: ['Theano Old Style'] },
       fontSize: { xs: '0.75rem' },
       colors: {
         'blue-rb': '#0080ff',

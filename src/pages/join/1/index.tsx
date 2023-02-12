@@ -28,29 +28,29 @@ export default function JoinMagin() {
   const flagIsJoinEnabled = true;
 
   return (
-    <div className='mgn-try-magin bg-white'>
+    <div className='mgn-try-magin'>
       {/* REFACTOR: convert into component, accept 4 children elements */}
-      <div className='mgn-preview justify-content-center align-items-center flex h-screen w-screen p-3'>
-        <div className='mgn-step flex-column justify-content-between sm:max-w-24rem sm:max-h-50rem flex h-full w-full'>
-          <div className='align-items-center flex h-full text-center'>
+      <div className='mgn-preview flex h-screen justify-center p-3'>
+        <div className='mgn-step flex flex-1 flex-col justify-between bg-white sm:max-h-[50rem] sm:max-w-[24rem]'>
+          <div className='flex flex-1 items-center text-center'>
             <div className='w-full'>
               <h1>{locale.join.step1_wantMore}</h1>
               <div className='text-lg font-bold'>
                 {locale.join.step1_joinShape}{' '}
-                <span className='mgn-text-blue-rb'>{locale.general.magin}&apos;s</span>{' '}
+                <span className='text-blue-rb'>{locale.general.magin}&apos;s</span>{' '}
                 {locale.join.step1_future}
               </div>
 
               {/* Join */}
               <div className='mt-10 text-2xl font-bold'>
                 <div className='mb-1 text-base'>{locale.join.step1_planSponsor_name}</div>
-                <div className='mgn-text-blue-rb mb-1'>
+                <div className='mb-1 text-blue-rb'>
                   {locale.join.step1_planSponsor_price}{' '}
                   <span className='text-sm'>{locale.join.step1_planSponsor_currencyUSD}</span>
                 </div>
               </div>
               <Button
-                className='text-size-medium mgn-cta-primary m-1 text-xl'
+                className='mgn-cta-primary m-1 text-lg'
                 onClick={() => {
                   if (flagIsJoinEnabled) {
                     window.location.href = stripePaymentUrl;
@@ -63,7 +63,7 @@ export default function JoinMagin() {
               </Button>
 
               {/* What you get */}
-              <div className='justify-content-center mx-5 mt-3 flex'>
+              <div className='mx-5  mt-3 flex justify-center'>
                 <div className='text-left text-sm'>
                   <p>{locale.join.step1_planSponsor_whatYouGet}</p>
                   <ul className='m-0'>
@@ -99,7 +99,7 @@ export default function JoinMagin() {
                 router.push('/');
               },
             }}
-            className='justify-content-center'
+            className='justify-center '
           />
         </div>
       </div>

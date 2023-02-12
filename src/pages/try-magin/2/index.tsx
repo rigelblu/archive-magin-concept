@@ -23,23 +23,23 @@ export default function MarginPreview() {
   const locale = Locale as LocaleType;
 
   return (
-    <div className='mgn-try-magin bg-white'>
+    <div className='mgn-try-magin'>
       {/* REFACTOR: convert into component, accept 4 children elements */}
-      <div className='mgn-preview flex w-screen h-screen p-3 justify-content-center align-items-center'>
-        <div className='mgn-step flex flex-column w-full h-full justify-content-between sm:max-w-24rem sm:max-h-50rem'>
+      <div className='mgn-preview flex h-screen justify-center p-3'>
+        <div className='mgn-step flex flex-1 flex-col bg-white sm:max-h-[50rem] sm:max-w-[24rem]'>
           {/* REFACTOR: make content an optional parameter */}
           <GuideMessage className='font-bold'>{locale.guide.step2_read}</GuideMessage>
-          <Book maginPreviewStep={2} showPageControls={false} className='h-full' />
+          <Book maginPreviewStep={2} showPageControls={false} className='flex-1' />
 
           {/* TODO: show on a 5 second delay */}
           {/* OPTIMIZE: figure out how to allow \n in the string and convert in to <br /> */}
           <GuideMessage className='font-bold'>{locale.guide.step2_movieSceen}</GuideMessage>
 
-          <div className='flex flex-column h-full justify-content-start align-items-center relative'>
+          <div className='justify-content-start relative flex flex-1 flex-col items-center'>
             <Image
               src='/assets/common/images/movie-screen.webp'
               alt='people in a theatre watching a movie'
-              className='!object-scale-down w-20rem h-auto'
+              className='w-20rem h-auto !object-scale-down'
               width='640'
               height='364'
             />
