@@ -3,7 +3,8 @@ module.exports = {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     fontSize: {
-      xs: '0.75rem',
+      '2xs': '0.75rem',
+      xs: '0.875rem',
       sm: '1rem',
       base: '1.125rem',
       lg: '1.625rem',
@@ -16,7 +17,7 @@ module.exports = {
 
     extend: {
       fontFamily: { theano: ['Theano Old Style'] },
-      fontSize: { xs: '0.75rem' },
+      fontSize: { xs: '0.875rem', '2xs': '0.75rem' },
       colors: {
         'blue-rb': '#0080ff',
         'blue-x-light': '#e4f2ff',
