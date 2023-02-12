@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { Button } from 'primereact/button';
 
 import Navigation from '@/components/Navigation/Navigation';
+import MainLayout from '@/layouts/MainLayout';
 
 // REFACTOR: read based on language
 import Locale from '@/locales/en.json';
@@ -28,7 +29,7 @@ export default function JoinMagin() {
   const flagIsJoinEnabled = true;
 
   return (
-    <div className='mgn-try-magin'>
+    <MainLayout className='mgn-try-magin' layoutKind='app'>
       {/* REFACTOR: convert into component, accept 4 children elements */}
       <div className='mgn-preview flex h-screen justify-center p-3'>
         <div className='mgn-step flex flex-1 flex-col justify-between bg-white sm:max-h-[50rem] sm:max-w-[24rem]'>
@@ -103,6 +104,6 @@ export default function JoinMagin() {
           />
         </div>
       </div>
-    </div>
+    </MainLayout>
   );
 }

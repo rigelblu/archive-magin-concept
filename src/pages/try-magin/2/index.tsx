@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Book from '@/components/Book/Book';
 import GuideMessage from '@/components/GuideMessage';
 import Navigation from '@/components/Navigation/Navigation';
+import MainLayout from '@/layouts/MainLayout';
 
 // OPTIMIZE: read based on language
 import Locale from '@/locales/en.json';
@@ -23,7 +24,7 @@ export default function MarginPreview() {
   const locale = Locale as LocaleType;
 
   return (
-    <div className='mgn-try-magin'>
+    <MainLayout className='mgn-try-magin' layoutKind='app'>
       {/* REFACTOR: convert into component, accept 4 children elements */}
       <div className='mgn-preview flex h-screen justify-center p-3'>
         <div className='mgn-step flex flex-1 flex-col bg-white sm:max-h-[50rem] sm:max-w-[24rem]'>
@@ -68,6 +69,6 @@ export default function MarginPreview() {
           />
         </div>
       </div>
-    </div>
+    </MainLayout>
   );
 }
