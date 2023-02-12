@@ -8,16 +8,33 @@ import Footer from './Footer';
 
 interface Props {
   children: React.ReactNode;
-  showHeader?: boolean;
-  showFooter?: boolean;
+  bodyClassName?: string;
+  className?: string;
+  layoutKind?: string;
 }
 
 export default function MainLayout(props: Props) {
-  const { children, showHeader = true, showFooter = true } = props;
+  const { children, bodyClassName = '', className = '', layoutKind = 'site' } = props;
+  let showHeader = false;
+  let showFooter = false;
+
+  switch (layoutKind) {
+    case 'app':
+      showHeader = false;
+      showFooter = false;
+      break;
+    case 'site':
+      showHeader = true;
+      showFooter = false;
+      break;
+    default:
+      break;
+  }
+
   return (
-    <div className='mx-auto max-w-4xl pb-2'>
+    <div className={`mx-auto max-w-4xl pb-1 ${bodyClassName}`}>
       {showHeader && <Header />}
-      {children}
+      <main className={className}>{children}</main>
       {showFooter && <Footer />}
     </div>
   );

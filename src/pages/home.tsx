@@ -1,9 +1,10 @@
 // Copyright rigélblu inc.
 // All rights reserved.
 import { Button } from 'primereact/button';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
+
 import IconGithub from '@/assets/common/icons/github-mark.svg';
+import MainLayout from '@/layouts/MainLayout';
 
 export default function Home() {
   const router = useRouter();
@@ -11,12 +12,10 @@ export default function Home() {
   const featureFlagOnClick = true;
 
   return (
-    <div className='flex h-screen flex-col items-center justify-center'>
-      {/* Header */}
-      <Link href='/' className='flex w-full flex-none content-start p-2 font-bold text-blue-rb'>
-        magin.blue
-      </Link>
-
+    <MainLayout
+      bodyClassName='h-screen flex flex-col'
+      className='flex flex-1 flex-col items-center justify-center'
+    >
       <div className='mgn-home flex flex-1 flex-col items-center justify-center'>
         {/* Tagline */}
         <h1 className='mb-8 text-center text-xl'>
@@ -61,6 +60,6 @@ export default function Home() {
           window.location.href = 'https://github.com/rigelblu/magin-concept';
         }}
       />
-    </div>
+    </MainLayout>
   );
 }
