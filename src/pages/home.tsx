@@ -18,7 +18,7 @@ export default function Home() {
     >
       <div className='mgn-home flex flex-1 flex-col items-center justify-center'>
         {/* Tagline */}
-        <h1 className='mb-8 text-center text-xl'>
+        <h1 className='mb-16 text-center text-xl'>
           Have you <span className='text-blue-rb'>read a novel</span> <br /> and wondered,
           <br /> why can&apos;t I <span className='text-blue-rb'>remember</span>{' '}
           <br className='inline sm:hidden' />
@@ -27,7 +27,7 @@ export default function Home() {
         <h2 className='text-center text-lg'>
           Learn to watch a novel <br />
           like a <span className='text-blue-rb'>Pixar</span>
-          <span className='font-normal'>&#8482;</span> director
+          <span className='align-text-top text-2xs font-normal'>&#8482;</span> director
         </h2>
 
         {/* Try magin */}
@@ -48,9 +48,9 @@ export default function Home() {
       {/* FIXME: remove extra white space below icon */}
       <Button
         aria-label='magin on GitHub'
-        className='mgn-bg-github m-0 mb-1 w-max flex-none border-none !bg-[#161b22] p-0 pl-1 text-white'
+        className='mgn-bg-github m-0 w-max flex-none border-none !bg-[#161b22] p-0.5 text-xs text-white'
         icon={
-          <span className='p-button-icon-right m-0 ml-1 w-8 bg-[#F5F5F5] p-1 pb-0'>
+          <span className='p-button-icon-right m-0 ml-1 w-8 bg-[#F5F5F5] p-0.5 '>
             <IconGithub />
           </span>
         }
