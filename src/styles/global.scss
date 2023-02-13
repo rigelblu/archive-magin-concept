@@ -37,7 +37,7 @@ p {
 }
 
 a {
-  @apply text-blue-rb;
+  @apply text-blue-rb-600;
 }
 
 blockquote {
@@ -45,7 +45,7 @@ blockquote {
 }
 
 blockquote.primary {
-  @apply border-blue-rb;
+  @apply border-blue-rb-600;
 }
 
 blockquote.blue {
@@ -125,7 +125,7 @@ button {
   &-primary {
     @extend %mgn-cta-common;
 
-    @apply bg-blue-rb; // TODO: check if it needs to be important
+    @apply bg-blue-rb-600;
     @apply font-bold text-white;
   }
 

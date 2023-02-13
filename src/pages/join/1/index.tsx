@@ -38,14 +38,14 @@ export default function JoinMagin() {
               <h1>{locale.join.step1_wantMore}</h1>
               <div className='text-lg font-bold'>
                 {locale.join.step1_joinShape}{' '}
-                <span className='text-blue-rb'>{locale.general.magin}&apos;s</span>{' '}
+                <span className='text-blue-rb-600'>{locale.general.magin}&apos;s</span>{' '}
                 {locale.join.step1_future}
               </div>
 
               {/* Join */}
               <div className='mt-10 text-2xl font-bold'>
                 <div className='mb-1 text-base'>{locale.join.step1_planSponsor_name}</div>
-                <div className='mb-1 text-blue-rb'>
+                <div className='mb-1 text-blue-rb-600'>
                   {locale.join.step1_planSponsor_price}{' '}
                   <span className='text-sm'>{locale.join.step1_planSponsor_currencyUSD}</span>
                 </div>
