@@ -13,15 +13,15 @@ export default function MarginPreview() {
   const router = useRouter();
 
   return (
-    <MainLayout className='mgn-try-magin' layoutKind='app'>
+    <MainLayout className='mgn-try-magin bg-white' layoutKind='app'>
       {/* REFACTOR: convert into component, accept 4 children elements */}
-      <div className='mgn-preview flex h-screen justify-center p-3'>
-        <div className='mgn-step flex flex-1 flex-col justify-between bg-white sm:max-h-[50rem] sm:max-w-[24rem]'>
-          <GuideMessage className='flex max-h-[75%] flex-1 items-end justify-center'>
-            <h2 className='text-black'>
+      <div className='mgn-preview flex h-screen flex-col items-center justify-center'>
+        <div className='mgn-step flex w-full flex-1 flex-col justify-between bg-yellow-rb-200 sm:max-h-[51rem] sm:max-w-[25rem]'>
+          <GuideMessage className='flex max-h-[32rem] flex-1 items-end justify-center sm:max-h-[75%]'>
+            <h2 className='text-blue-rb-600'>
               {locale.guide.step1_maginPresents}
               <br />
-              {locale.book.title}
+              <span className='text-black'>{locale.book.title}</span>
               <br />
             </h2>
           </GuideMessage>

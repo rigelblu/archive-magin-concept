@@ -27,7 +27,7 @@ export default function PageControl(props: Props) {
 
   // REFACTOR: w-4 is used to prevent Book from shifting
   // FIXME: use primereact button instead of div
-  // TODO: style chevron in blue-rb and background in blue-rb-lighter
+  // TODO: style chevron in blue-rb-600 and background in blue-rb-lighter
   return (
     <Button
       className={`mgn-page-control p-button-text h-4 max-w-max ${className}`}

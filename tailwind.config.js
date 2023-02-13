@@ -19,9 +19,10 @@ module.exports = {
       fontFamily: { theano: ['Theano Old Style'] },
       fontSize: { xs: '0.875rem', '2xs': '0.75rem' },
       colors: {
-        'blue-rb': '#0080ff',
-        'blue-x-light': '#e4f2ff',
-        'yellow-x-light': '#faf8f4',
+        'blue-rb-100': '#f4faff',
+        'blue-rb-400': '#e4f2ff',
+        'blue-rb-600': '#0080ff',
+        'yellow-rb-200': '#faf8f4',
       },
     },
   },

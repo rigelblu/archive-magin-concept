@@ -32,7 +32,7 @@ export default function MainLayout(props: Props) {
   }
 
   return (
-    <div className={`mx-auto max-w-4xl pb-1 ${bodyClassName}`}>
+    <div className={`mx-auto max-w-4xl bg-yellow-rb-200 ${bodyClassName}`}>
       {showHeader && <Header />}
       <main className={className}>{children}</main>
       {showFooter && <Footer />}
