@@ -1,7 +1,7 @@
 # Copyright rigélblu inc.
 # All rights reserved.
 
-description: mgn / magin concept / gcr / pull request
+description: mgn / magin concept / gcr / manual on branch
 filename: ci/cloudbuild.yaml
 github:
   name: magin-concept
@@ -9,10 +9,10 @@ github:
   pullRequest:
     branch: .*
     commentControl: COMMENTS_ENABLED
-name: trigger-gcr-pr
+name: trigger-gcr-branch
 substitutions:
   _ARTIFACT: us-central1-docker.pkg.dev
-  _DEPLOY_TAG: pull-request
+  _DEPLOY_TAG: manual-branch
   _ENV_ANALYTICS_ID: ''
   _MAX_INSTANCES: '1'
   _MIN_INSTANCES: '0'
