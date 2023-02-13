@@ -5,6 +5,9 @@
 build
 docker
 
+# configs
+next-env.d.ts
+
 # dependencies
 node_modules
 
