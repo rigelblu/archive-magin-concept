@@ -1,5 +1,7 @@
 // Copyright rigélblu inc.
 // All rigts reserve
+import anime from 'animejs';
+import { useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 
 import GuideMessage from '@/components/GuideMessage';
@@ -11,6 +13,30 @@ import locale from '@/locales/en.json';
 
 export default function MarginPreview() {
   const router = useRouter();
+  const bookTitleRef = useRef<HTMLSpanElement | null>(null);
+
+  useEffect(() => {
+    const bookTitle = bookTitleRef.current;
+    if (!bookTitle) throw Error('bookTitle is not assigned');
+    else if (!bookTitle.textContent) throw Error('bookTitle.textContext is not assigned');
+
+    bookTitle.innerHTML = bookTitle.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+    anime
+      .timeline({ loop: false })
+      .add({
+        targets: '.letter',
+        opacity: [0, 1],
+        easing: 'easeInOutQuad',
+        duration: 1800,
+        delay: (el, i) => 150 * (i + 1),
+      })
+      .add({
+        opacity: 1,
+        duration: 3000,
+        easing: 'easeOutExpo',
+        delay: 1000,
+      });
+  }, []);
 
   return (
     <MainLayout className='mgn-try-magin bg-white' layoutKind='app'>
@@ -21,7 +47,9 @@ export default function MarginPreview() {
             <h2 className='text-blue-rb-600'>
               {locale.guide.step1_maginPresents}
               <br />
-              <span className='text-black'>{locale.book.title}</span>
+              <span className='animation text-black' ref={bookTitleRef}>
+                {locale.book.title}
+              </span>
               <br />
             </h2>
           </GuideMessage>
