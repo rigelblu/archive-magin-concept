@@ -8,12 +8,10 @@
 }
 
 body {
-  @apply text-base;
+  @apply text-base antialiased;
 
-  -webkit-font-smoothing: antialiased;
-  --systemFontFamily: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-    sans-serif;
-  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  font-family: 'Helvetica Neue', arial, sans-serif, -apple-system, blinkmacsystemfont, 'Segoe UI',
+    roboto;
 }
 
 h1 {
