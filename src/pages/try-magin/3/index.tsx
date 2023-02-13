@@ -24,10 +24,10 @@ export default function MarginPreview() {
   const locale = Locale as LocaleType;
 
   return (
-    <MainLayout className='mgn-try-magin' layoutKind='app'>
+    <MainLayout className='mgn-try-magin bg-white' layoutKind='app'>
       {/* REFACTOR: convert into component, accept 4 children elements */}
-      <div className='mgn-preview flex h-screen justify-center p-3'>
-        <div className='mgn-step flex flex-1 flex-col justify-between bg-white sm:max-h-[50rem] sm:max-w-[24rem]'>
+      <div className='mgn-preview flex h-screen flex-col items-center justify-center'>
+        <div className='mgn-step flex w-full flex-1 flex-col justify-between bg-yellow-rb-200 sm:max-h-[51rem] sm:max-w-[25rem]'>
           <Book maginPreviewStep={3} showPageControls className='flex-1' />
           <GuideMessage className='font-bold'>
             {/* TODO: show on a 5 second delay */}
