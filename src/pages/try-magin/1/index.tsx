@@ -16,12 +16,12 @@ export default function MarginPreview() {
     <MainLayout className='mgn-try-magin' layoutKind='app'>
       {/* REFACTOR: convert into component, accept 4 children elements */}
       <div className='mgn-preview flex h-screen flex-col items-center justify-center'>
-        <div className='mgn-step flex w-full flex-1 flex-col justify-between bg-white sm:max-h-[51rem] sm:max-w-[25rem]'>
+        <div className='mgn-step flex w-full flex-1 flex-col justify-between bg-yellow-rb-200 sm:max-h-[51rem] sm:max-w-[25rem]'>
           <GuideMessage className='flex max-h-[32rem] flex-1 items-end justify-center sm:max-h-[75%]'>
-            <h2 className='text-black'>
+            <h2 className='text-blue-rb-600'>
               {locale.guide.step1_maginPresents}
               <br />
-              {locale.book.title}
+              <span className='text-black'>{locale.book.title}</span>
               <br />
             </h2>
           </GuideMessage>
