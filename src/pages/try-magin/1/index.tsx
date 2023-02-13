@@ -15,6 +15,7 @@ export default function MarginPreview() {
   const router = useRouter();
   const bookTitleRef = useRef<HTMLSpanElement | null>(null);
 
+  // REFACTOR: move into a helper function
   useEffect(() => {
     const bookTitle = bookTitleRef.current;
     if (!bookTitle) throw Error('bookTitle is not assigned');
