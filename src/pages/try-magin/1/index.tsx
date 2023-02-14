@@ -15,11 +15,13 @@ export default function MarginPreview() {
   const router = useRouter();
   const bookTitleRef = useRef<HTMLSpanElement | null>(null);
 
+  // REFACTOR: move into a helper function
   useEffect(() => {
     const bookTitle = bookTitleRef.current;
     if (!bookTitle) throw Error('bookTitle is not assigned');
     else if (!bookTitle.textContent) throw Error('bookTitle.textContext is not assigned');
 
+    // TODO: shorten duration time
     bookTitle.innerHTML = bookTitle.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
     anime
       .timeline({ loop: false })
@@ -43,7 +45,8 @@ export default function MarginPreview() {
       {/* REFACTOR: convert into component, accept 4 children elements */}
       <div className='mgn-preview flex h-screen flex-col items-center justify-center'>
         <div className='mgn-step flex w-full flex-1 flex-col justify-between bg-yellow-rb-200 sm:max-h-[51rem] sm:max-w-[25rem]'>
-          <GuideMessage className='flex max-h-[32rem] flex-1 items-end justify-center sm:max-h-[75%]'>
+          {/* REFACTOR: into top, middle, button div elements, put the guide message into the bottom */}
+          <GuideMessage className='flex max-h-[32rem] flex-1 items-end justify-center sm:max-h-[40rem]'>
             <h2 className='text-blue-rb-600'>
               {locale.guide.step1_maginPresents}
               <br />

@@ -48,9 +48,9 @@ export default function Home() {
       {/* FIXME: remove extra white space below icon */}
       <Button
         aria-label='magin on GitHub'
-        className='mgn-bg-github m-0 w-max flex-none border-none !bg-[#161b22] p-0.5 text-xs text-white'
+        className='mgn-github m-0 w-max flex-none border-none !bg-[#161b22] p-0.5 pl-2 text-xs text-white'
         icon={
-          <span className='p-button-icon-right m-0 ml-1 w-8 bg-[#F5F5F5] p-0.5 '>
+          <span className='p-button-icon-right m-0 ml-2 w-8 bg-[#F5F5F5] p-0.5'>
             <IconGithub />
           </span>
         }
