@@ -133,19 +133,3 @@ button {
     @apply bg-gray-200 text-black;
   }
 }
-
-.max-h-for-screen {
-  // Calculation: (screen  - status bar - navigation bar) / 1rem in px * percent
-  @apply iphone-se:max-h-[13rem]; // (667 - 44 - 140) / 16 * 0.45
-
-  @apply iphone-11:max-h-[19rem]; // (896 - 48 - 140)/ 16 * 0.45
-  @apply iphone-11-pro:max-h-[17rem]; // (812 - 48 - 140) / 16 * 0.45
-  @apply iphone-11-pro-max:max-h-[19rem]; // (896 - 48 - 140) / 16 * 0.45
-
-  @apply iphone-12:max-h-[18rem]; // (844 - 47 - 140) / 16 * 0.45
-  @apply iphone-12-pro:max-h-[20rem]; // (926 - 47 - 140) / 16 * 0.45
-  @apply iphone-12-mini:max-h-[16rem]; // (780 - 44 - 140) / 16 * 0.45
-
-  @apply lg:max-h-[28rem]; // 1024 / 16 * 0.45
-  // TODO: add ipad, android phones
-}
