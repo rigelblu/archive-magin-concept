@@ -24,6 +24,18 @@ module.exports = {
       },
       fontFamily: { theano: ['Theano Old Style'] },
       fontSize: { xs: '0.875rem', '2xs': '0.75rem' },
+      screens: {
+        'iphone-se': { raw: '(max-height: 667px)' },
+
+        'iphone-11': { raw: '(max-height: 896px)' },
+        'iphone-11-pro': { raw: '(max-height: 812px)' },
+        'iphone-11-pro-max': { raw: '(max-height: 896px)' },
+        
+        'iphone-12': { raw: '(max-height: 844px)' },
+        'iphone-12-pro': { raw: '(max-height: 926px)' },
+        'iphone-12-mini': { raw: '(max-height: 780px)' },
+        // TODO: add ipad, android phones
+      },
     },
   },
   plugins: [],
