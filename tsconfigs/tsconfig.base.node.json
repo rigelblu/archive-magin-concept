@@ -10,7 +10,7 @@
     "isolatedModules": true,
     "module": "esnext",
     "moduleResolution": "node",
-    "noEmit": false,
+    "noEmit": true,
     "noImplicitAny": true,
     "noUnusedLocals": true,
     "plugins": [{ "name": "typescript-plugin-css-modules" }],
