@@ -93,7 +93,7 @@ export default function Page(props: Props) {
   return (
     <div className={`${styles['mgn-page']} flex flex-1 ${className}`}>
       <div className='w-full flex-1 overflow-hidden bg-[#f8f1e3] text-left font-theano text-sm text-black'>
-        <h2 className='mb-4 text-lg'>Chapter 1</h2>
+        <h2 className='my-2 text-lg'>Chapter 1</h2>
         {content}
       </div>
     </div>
