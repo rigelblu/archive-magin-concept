@@ -1,4 +1,2 @@
-User-agent: Googlebot
-Disallow: /
-
-Sitemap: http://magin.blue/static/sitemap.txt
+User-agent: *
+Allow: /

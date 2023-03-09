@@ -9,7 +9,7 @@ import MainLayout from '@/layouts/MainLayout';
 export default function Home() {
   const router = useRouter();
   // REFACTOR: load value from json file
-  const featureFlagOnClick = true;
+  const featureFlagOnClick = false;
 
   return (
     <MainLayout
@@ -33,8 +33,8 @@ export default function Home() {
         {/* Try magin */}
         <Button
           label='Try magin'
-          // tooltip='Coming soon...'
-          // tooltipOptions={{ position: 'bottom' }}
+          tooltip='Coming soon...'
+          tooltipOptions={{ position: 'bottom' }}
           className='mgn-cta-primary'
           // REFACTOR: disable through eslintrc
           // eslint-disable-next-line @typescript-eslint/no-misused-promises
