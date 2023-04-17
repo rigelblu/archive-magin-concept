@@ -18,7 +18,7 @@ FILES+=( "docker-compose.yml" "Dockerfile" "next-env.d.ts" "next.config.js" "pac
 FILES+=( "postcss.config.js" "server.js" "tailwind.config.js" "tsconfig*" "tsconfigs/*" "yarn.lock" )
 
 if [ git diff --cached --quiet -- $FILES ]; then
-  yarn build:ssg
+  yarn build:prod
 fi
 
 if [ git diff --cached --quiet -- Dockerfile ]; then
