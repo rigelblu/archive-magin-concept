@@ -1,0 +1,24 @@
+# Copyright rigélblu inc.
+# All rights reserved.
+
+description: <domain> / <app> / gcr / manual branch
+gitFileSource:
+  path: ci/cloudbuild.yaml
+  repoType: GITHUB
+  revision: refs/heads/main
+  uri: <add github>
+name: gcr-manual
+sourceToBuild:
+  ref: refs/heads/main
+  repoType: GITHUB
+  uri: <add github>
+substitutions:
+  _ARTIFACT: us-central1-docker.pkg.dev
+  _DEPLOY_TAG: branch-manual
+  _ENV_ANALYTICS_ID: ''
+  _ENV_NODE_ENV: ''
+  _MAX_INSTANCES: '1'
+  _MIN_INSTANCES: '0'
+  _REGION: us-central1
+  _SERVICE_NAME: <add>
+  _TRAFFIC_TO_LATEST: 'false'
