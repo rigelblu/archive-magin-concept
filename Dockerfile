@@ -33,7 +33,7 @@ ARG NODE_ENV
 WORKDIR /usr/src/app
 COPY --from=deps-builder /usr/src/app/node_modules ./node_modules
 COPY . .
-RUN yarn build:ssg
+RUN yarn build:prod
 
 # TODO:enable steps once we have unit tests
 # COPY jest.config.js ./
@@ -59,4 +59,4 @@ USER app
 COPY --chown=app --from=runner-ssg-multi-layer  /usr/src/app .
 
 EXPOSE 8080
-CMD ["yarn", "prod"]
+CMD exec yarn prod
