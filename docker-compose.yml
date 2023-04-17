@@ -3,7 +3,7 @@
 
 version: '3'
 services:
-  rb-site:
+  mgn-concept:
     build:
       args:
         - 'NEXT_PUBLIC_ANALYTICS_ID'
