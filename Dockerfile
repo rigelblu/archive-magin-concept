@@ -26,7 +26,9 @@ RUN yarn install --production --frozen-lockfile
 # Stage: Builder using SSG (server-side generated)
 FROM node:16-alpine AS builder-ssg
 
-ARG NODE_ENV NEXT_PUBLIC_ANALYTICS_ID NEXT_PUBLIC_STRIPE_PAYMENT_URL
+ARG NEXT_PUBLIC_ANALYTICS_ID
+ARG NEXT_PUBLIC_STRIPE_PAYMENT_URL
+ARG NODE_ENV
 
 WORKDIR /usr/src/app
 COPY --from=deps-builder /usr/src/app/node_modules ./node_modules
