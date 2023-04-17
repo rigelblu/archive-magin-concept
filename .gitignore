@@ -3,7 +3,6 @@
 .next
 .stylelintcache
 build
-docker
 
 # configs
 next-env.d.ts
@@ -13,8 +12,10 @@ node_modules
 
 # misc
 .DS_Store
+# misc
 .env
 .env.development
+.env.local
 .env.production
 .favorites.json
 .vscode
