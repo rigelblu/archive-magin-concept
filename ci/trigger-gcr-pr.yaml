@@ -1,22 +1,22 @@
 # Copyright rigélblu inc.
 # All rights reserved.
 
-description: mgn / magin concept / gcr / pull request
+description: <domain> / <app> / gcr / pull request
 filename: ci/cloudbuild.yaml
 github:
-  name: magin-concept
+  name: <add>
   owner: rigelblu
   pullRequest:
     branch: .*
     commentControl: COMMENTS_ENABLED
-name: trigger-gcr-pr
+name: gcr-pr
 substitutions:
   _ARTIFACT: us-central1-docker.pkg.dev
   _DEPLOY_TAG: pull-request
   _ENV_ANALYTICS_ID: ''
+  _ENV_NODE_ENV: ''
   _MAX_INSTANCES: '1'
   _MIN_INSTANCES: '0'
-  _NODE_ENV: development
   _REGION: us-central1
-  _SERVICE_NAME: mgn-concept
+  _SERVICE_NAME: <add>
   _TRAFFIC_TO_LATEST: 'false'

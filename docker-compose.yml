@@ -3,14 +3,16 @@
 
 version: '3'
 services:
-  rb-site:
+  mgn-concept:
     build:
       args:
-        - 'NEXT_PUBLIC_ANALYTICS_ID'
-        - 'NEXT_PUBLIC_STRIPE_PAYMENT_URL'
+        NEXT_PUBLIC_ANALYTICS_ID: ${NEXT_PUBLIC_ANALYTICS_ID}
+        NEXT_PUBLIC_STRIPE_PAYMENT_URL: ${NEXT_PUBLIC_STRIPE_PAYMENT_URL}
+        NODE_ENV: ${NODE_ENV}
       context: .
       target: runner-ssg
-    env_file: .env.development
+    env_file:
+      - .env.development
     image: mgn-concept
     ports:
       - '8080:8080'

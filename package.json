@@ -1,5 +1,5 @@
 {
-  "name": "magin-concept",
+  "name": "@rigelblu/magin-concept",
   "private": true,
   "version": "0.1.0",
   "homepage": "https://magin.blue",
@@ -8,8 +8,10 @@
   "license": "MIT",
   "scripts": {
     "clean": "yarn next:clean",
-    "build:ssg": "yarn next:build:ssg",
-    "start": "source .env .env.development && next dev -p 3000",
+    "build": "astro build",
+    "build:ssg": "next build && next export -o build",
+    "build:prod": "next build",
+    "start": "source .env.development && next dev -p 3000",
     "prod": "node server.js",
     "test": "echo TODO:INIT test placeholder",
     "lint-staged": "lint-staged",
@@ -18,8 +20,6 @@
     "lint:next": "next lint",
     "lint:style": "stylelint --allow-empty-input --cache --max-warnings=0",
     "next:clean": "rimraf .next build",
-    "next:build": "next build",
-    "next:build:ssg": "yarn next:build && next export -o build",
     "prettier": "prettier --write --ignore-unknown",
     "prettier:check": "prettier --check --ignore-unknown",
     "prepare": "husky install"

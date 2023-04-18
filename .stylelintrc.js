@@ -11,7 +11,7 @@ module.exports = {
     'scss/at-import-partial-extension': null,
     'scss/at-rule-no-unknown': [
       true,
-      { ignoreAtRules: ['tailwind', 'apply', 'variants', 'responsive', 'screen'] },
+      { ignoreAtRules: ['apply', 'responsive', 'screen', 'tailwind', 'variants'] },
     ],
     'scss/double-slash-comment-empty-line-before': null,
     'selector-pseudo-class-no-unknown': [true, { ignorePseudoClasses: ['global'] }],

@@ -14,5 +14,5 @@ app.use(express.static('build'));
 // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
 app.listen(PORT, HOST, () => {
   // eslint-disable-next-line no-console
-  console.log('listening on port', PORT);
+  console.log(`listening on port http://localhost:${PORT}`);
 });

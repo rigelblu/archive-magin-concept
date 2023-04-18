@@ -31,9 +31,12 @@ steps:
       - 'NEXT_PUBLIC_ANALYTICS_ID'
       - '--build-arg'
       - 'NEXT_PUBLIC_STRIPE_PAYMENT_URL'
+      - 'NODE_ENV'
+      - '--build-arg'
     env:
-      - 'NEXT_PUBLIC_ANALYTICS_ID=${_ENV_NEXT_PUBLIC_ANALYTICS_ID}'
-      - 'NEXT_PUBLIC_STRIPE_PAYMENT_URL=${_ENV_NEXT_PUBLIC_STRIPE_PAYMENT_URL}'
+      - 'NEXT_PUBLIC_ANALYTICS_ID=${_ENV_ANALYTICS_ID}'
+      - 'NEXT_PUBLIC_STRIPE_PAYMENT_URL=${_ENV_STRIPE_PAYMENT_URL}'
+      - 'NODE_ENV=${_ENV_NODE_ENV}'
 
   # 2. Push container to registery
   - name: 'gcr.io/cloud-builders/docker'

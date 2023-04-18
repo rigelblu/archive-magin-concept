@@ -3,7 +3,6 @@
 .next
 .stylelintcache
 build
-docker
 
 # configs
 jest.config.js
