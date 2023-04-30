@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "clean": "yarn next:clean",
-    "build": "astro build",
+    "build": "next build",
     "build:ssg": "next build && next export -o build",
     "dev": "next dev -p 3000",
     "start": "node server.js",
