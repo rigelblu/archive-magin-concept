@@ -7,7 +7,7 @@
 # Stage: Deps builder
 FROM node:16-alpine AS deps-builder
 
-# Install packages required by node-sass
+# WORKAROUND: Install packages required by node-sass
 RUN apk update && apk add yarn python3 g++ make && rm -rf /var/cache/apk/*
 
 WORKDIR /usr/src/app
