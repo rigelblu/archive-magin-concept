@@ -14,6 +14,7 @@ export default function Home() {
   return (
     <MainLayout
       bodyClassName='h-screen flex flex-col'
+      canvasClassName='bg-yellow-rb-200'
       className='flex flex-1 flex-col items-center justify-center py-1'
     >
       <div className='mgn-home flex flex-1 flex-col items-center justify-center'>
