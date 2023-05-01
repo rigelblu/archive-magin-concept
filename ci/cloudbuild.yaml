@@ -31,8 +31,8 @@ steps:
       - 'NEXT_PUBLIC_ANALYTICS_ID'
       - '--build-arg'
       - 'NEXT_PUBLIC_STRIPE_PAYMENT_URL'
-      - 'NODE_ENV'
       - '--build-arg'
+      - 'NODE_ENV'
     env:
       - 'NEXT_PUBLIC_ANALYTICS_ID=${_ENV_ANALYTICS_ID}'
       - 'NEXT_PUBLIC_STRIPE_PAYMENT_URL=${_ENV_STRIPE_PAYMENT_URL}'
