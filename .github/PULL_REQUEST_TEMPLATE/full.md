@@ -1,10 +1,12 @@
-# What
+# What changed - describe what changes you made
 
-Describe what changes you made
+# Why it's needed - describe your reason for the changes
 
-# Why
+# Checklist
 
-Describe your reason for the changes
+[✔︎⏭️❌] I have added enough test cases
+
+Legend: ✔︎ (done), ⏭️ (skipped), ❌ (not done)
 
 # Checklist
 
