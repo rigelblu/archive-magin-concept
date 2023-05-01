@@ -33,15 +33,16 @@ export default function Home() {
 
         {/* Try magin */}
         <Button
-          label='Try magin'
-          tooltip='Coming soon...'
-          tooltipOptions={{ position: 'bottom' }}
           className='mgn-cta-primary'
+          disabled={!featureFlagOnClick}
+          label='Try magin'
           // REFACTOR: disable through eslintrc
           // eslint-disable-next-line @typescript-eslint/no-misused-promises
           onClick={() => {
             if (featureFlagOnClick) router.push('/try-magin/1');
           }}
+          tooltip={!featureFlagOnClick ? 'Coming soon...' : ''}
+          tooltipOptions={{ position: 'bottom', showOnDisabled: true }}
         />
       </div>
 
