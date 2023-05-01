@@ -34,14 +34,14 @@ export default function Home() {
         {/* Try magin */}
         <Button
           className='mgn-cta-primary'
-          disabled={!featureFlag.home.tryMagin}
+          disabled={!featureFlag.home.tryMaginEnabled}
           label='Try magin'
           // REFACTOR: disable through eslintrc
           // eslint-disable-next-line @typescript-eslint/no-misused-promises
           onClick={() => {
-            if (featureFlag.home.tryMagin) router.push('/try-magin/1');
+            if (featureFlag.home.tryMaginEnabled) router.push('/try-magin/1');
           }}
-          tooltip={!featureFlag.home.tryMagin ? 'Coming soon...' : ''}
+          tooltip={!featureFlag.home.tryMaginEnabled ? 'Coming soon...' : ''}
           tooltipOptions={{ position: 'bottom', showOnDisabled: true }}
         />
       </div>

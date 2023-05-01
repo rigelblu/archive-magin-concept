@@ -26,10 +26,10 @@ export default function MarginPreview() {
   const locale = Locale as LocaleType;
 
   return (
-    <MainLayout className='mgn-try-magin bg-white' layoutKind='app'>
+    <MainLayout canvasClassName='bg-black' className='mgn-try-magin bg-white' layoutKind='app'>
       {/* REFACTOR: convert into component, accept 4 children elements */}
       <div
-        className={`${styles['mgn-preview']} flex h-screen flex-col items-center justify-center`}
+        className={`${styles['mgn-preview']} flex h-screen flex-col items-center justify-center bg-neutral-950`}
       >
         <div className='mgn-step flex	w-full flex-1 flex-col justify-between bg-yellow-rb-200 sm:max-h-[51rem] sm:max-w-[25rem]'>
           <div className='mgn-step-top col max-h-for-screen flex flex-1 flex-col justify-center'>
