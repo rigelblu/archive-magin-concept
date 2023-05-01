@@ -6,10 +6,10 @@ import { useRouter } from 'next/router';
 import IconGithub from '@/assets/common/icons/github-mark.svg';
 import MainLayout from '@/layouts/MainLayout';
 
+import featureFlag from '@/data/featureFlags';
+
 export default function Home() {
   const router = useRouter();
-  // REFACTOR: load value from json file
-  const featureFlagOnClick = false;
 
   return (
     <MainLayout
@@ -34,14 +34,14 @@ export default function Home() {
         {/* Try magin */}
         <Button
           className='mgn-cta-primary'
-          disabled={!featureFlagOnClick}
+          disabled={!featureFlag.home.tryMagin}
           label='Try magin'
           // REFACTOR: disable through eslintrc
           // eslint-disable-next-line @typescript-eslint/no-misused-promises
           onClick={() => {
-            if (featureFlagOnClick) router.push('/try-magin/1');
+            if (featureFlag.home.tryMagin) router.push('/try-magin/1');
           }}
-          tooltip={!featureFlagOnClick ? 'Coming soon...' : ''}
+          tooltip={!featureFlag.home.tryMagin ? 'Coming soon...' : ''}
           tooltipOptions={{ position: 'bottom', showOnDisabled: true }}
         />
       </div>
