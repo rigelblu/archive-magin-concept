@@ -6,14 +6,15 @@ import { useRouter } from 'next/router';
 import IconGithub from '@/assets/common/icons/github-mark.svg';
 import MainLayout from '@/layouts/MainLayout';
 
+import featureFlag from '@/data/featureFlags';
+
 export default function Home() {
   const router = useRouter();
-  // REFACTOR: load value from json file
-  const featureFlagOnClick = false;
 
   return (
     <MainLayout
       bodyClassName='h-screen flex flex-col'
+      canvasClassName='bg-yellow-rb-200'
       className='flex flex-1 flex-col items-center justify-center py-1'
     >
       <div className='mgn-home flex flex-1 flex-col items-center justify-center'>
@@ -32,15 +33,16 @@ export default function Home() {
 
         {/* Try magin */}
         <Button
-          label='Try magin'
-          tooltip='Coming soon...'
-          tooltipOptions={{ position: 'bottom' }}
           className='mgn-cta-primary'
+          disabled={!featureFlag.home.tryMagin}
+          label='Try magin'
           // REFACTOR: disable through eslintrc
           // eslint-disable-next-line @typescript-eslint/no-misused-promises
           onClick={() => {
-            if (featureFlagOnClick) router.push('/try-magin/1');
+            if (featureFlag.home.tryMagin) router.push('/try-magin/1');
           }}
+          tooltip={!featureFlag.home.tryMagin ? 'Coming soon...' : ''}
+          tooltipOptions={{ position: 'bottom', showOnDisabled: true }}
         />
       </div>
 

@@ -7,7 +7,7 @@
 # Stage: Deps builder
 FROM node:16-alpine AS deps-builder
 
-# Install packages required by node-sass
+# WORKAROUND: Install packages required by node-sass
 RUN apk update && apk add yarn python3 g++ make && rm -rf /var/cache/apk/*
 
 WORKDIR /usr/src/app
@@ -33,7 +33,7 @@ ARG NODE_ENV
 WORKDIR /usr/src/app
 COPY --from=deps-builder /usr/src/app/node_modules ./node_modules
 COPY . .
-RUN yarn build:prod
+RUN yarn build:ssg
 
 # TODO:enable steps once we have unit tests
 # COPY jest.config.js ./
@@ -59,4 +59,4 @@ USER app
 COPY --chown=app --from=runner-ssg-multi-layer  /usr/src/app .
 
 EXPOSE 8080
-CMD exec yarn prod
+CMD exec yarn start
