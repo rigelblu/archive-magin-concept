@@ -33,7 +33,7 @@ ARG NODE_ENV
 WORKDIR /usr/src/app
 COPY --from=deps-builder /usr/src/app/node_modules ./node_modules
 COPY . .
-RUN yarn build
+RUN yarn build:ssg
 
 # TODO:enable steps once we have unit tests
 # COPY jest.config.js ./
