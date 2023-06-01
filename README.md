@@ -14,21 +14,32 @@ Learn to watch a novel like a Pixar&#8482; director.
 
 ## Getting Started
 
-### Run locally
+### Set up dot env files
 
 ```sh
-# in warp, press ctrl+r
-workflows: donenv-setup
-yarn start
+cp .env.example .env.development
+cp .env.example .env.production
 ```
+
+### Run locally
 
 ```sh
 set -a
 source .env.developement
+pnpm dev
 ```
 
 ### Run in docker
 
 ```sh
 docker-compose up --build
+```
+
+### Run on google cloud run
+
+```sh
+# edit .env.development with your values for
+PROJECT_ID='abc-123'
+REGION='region-name'
+SERVICE='service-name'
 ```
