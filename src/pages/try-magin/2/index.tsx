@@ -8,6 +8,8 @@ import GuideMessage from '@/components/GuideMessage';
 import Navigation from '@/components/Navigation/Navigation';
 import MainLayout from '@/layouts/MainLayout';
 
+import IconGithub from '@/assets/common/icons/arrow-up.svg';
+
 // OPTIMIZE: read based on language
 import Locale from '@/locales/en.json';
 
@@ -32,8 +34,9 @@ export default function MarginPreview() {
             <Book maginPreviewStep={2} showPageControls={false} className='' />
           </div>
 
-          <div className='mgn-step-middle'>
+          <div className='mgn-step-middle flex flex-col items-center'>
             {/* REFACTOR: make content an optional parameter */}
+            <IconGithub className='w-16' />
             <GuideMessage className='font-bold'>{locale.guide.step2_read}</GuideMessage>
           </div>
 
