@@ -27,6 +27,7 @@ export default function Page(props: Props) {
   );
 
   const contentMaginPreviewStep3 = (
+    // REFACTOR: add shot number
     <>
       <Scene sceneNum={1} className='pl-2'>
         <p>"What's two plus two?"</p>
