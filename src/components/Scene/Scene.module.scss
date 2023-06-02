@@ -1,7 +1,12 @@
 // Copyright rigélblu inc.
 // All rights reserved.
 
-.scene {
+.mgn-scene {
+  p {
+    margin-bottom: 0.1rem;
+    text-indent: 0.9rem !important;
+  }
+
   // FIXME: make colors pass contrast accessibility
   &-blue {
     border-left: solid blue;
