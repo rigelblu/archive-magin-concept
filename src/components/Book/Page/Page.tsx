@@ -17,6 +17,12 @@ export default function Page(props: Props) {
     <Scene sceneNum={1} className='pl-2'>
       <p>"What's two plus two?"</p>
       <p>Something about the question irritates me. I'm tired. I drift back to sleep.</p>
+      <p>A few minutes pass, then I hear it again.</p>
+      <p>"What's two plus two?"</p>
+      <p>
+        The soft, feminine voice lacks emotion and the pronunciation is identical to the previous
+        time she said it. It's a computer. A computer is hassling me. I'm even more irritated now.
+      </p>
     </Scene>
   );
 
