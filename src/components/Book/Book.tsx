@@ -1,5 +1,7 @@
 // Copyright rigélblu inc.
 // All rights reserved.
+import Locale from '@/locales/en.json';
+
 import PageControl from '../PageControl/PageControl';
 import Page from './Page/Page';
 
@@ -19,7 +21,10 @@ export default function Book(props: Props) {
         <PageControl action='prev' onClick={onClick} className='px-1' isShown={false} />
       )}
 
-      <Page maginPreviewStep={maginPreviewStep} />
+      <div>
+        <h2 className='my-2 text-2xs text-center text-gray-500'>{Locale.book.title}</h2>
+        <Page maginPreviewStep={maginPreviewStep} />
+      </div>
 
       {showPageControls && <PageControl action='next' onClick={onClick} className='px-1' />}
     </div>
