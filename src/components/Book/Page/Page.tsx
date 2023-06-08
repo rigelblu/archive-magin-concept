@@ -1,6 +1,6 @@
 // Copyright rigélblu inc.
 // All rights reserved.
-import Scene from '@/components/Scene/Scene';
+import SceneMarker from '@/components/SceneMarker/SceneMarker';
 import styles from './Page.module.scss';
 
 interface Props {
@@ -14,7 +14,7 @@ export default function Page(props: Props) {
   // REFACTOR: step 2, 3, etc into an array
   // REFACTOR: import content from a file
   const contentMaginPreviewStep2 = (
-    <Scene sceneNum={1} className='pl-2'>
+    <SceneMarker sceneNum={1} className='pl-2'>
       <h3 className='my-2 text-lg'>Chapter 1</h3>
       <p>"What's two plus two?"</p>
       <p>Something about the question irritates me. I'm tired. I drift back to sleep.</p>
@@ -24,17 +24,17 @@ export default function Page(props: Props) {
         The soft, feminine voice lacks emotion and the pronunciation is identical to the previous
         time she said it. It's a computer. A computer is hassling me. I'm even more irritated now.
       </p>
-    </Scene>
+    </SceneMarker>
   );
 
   const contentMaginPreviewStep3 = (
     // REFACTOR: add shot number
     <>
-      <Scene sceneNum={1} className='pl-2'>
+      <SceneMarker sceneNum={1} className='pl-2'>
         <p>"What's two plus two?"</p>
         <p>Something about the question irritates me. I'm tired. I drift back to sleep.</p>
-      </Scene>
-      <Scene sceneNum={2} className='pl-2'>
+      </SceneMarker>
+      <SceneMarker sceneNum={2} className='pl-2'>
         <p>A few minutes pass, then I hear it again.</p>
         <p>"What's two plus two?"</p>
         <p>
@@ -46,7 +46,7 @@ export default function Page(props: Props) {
           response in my opinion—but I failed to speak.
         </p>
         <p>"Incorrect," says the computer. "What's two plus two?"</p>
-      </Scene>
+      </SceneMarker>
     </>
   );
 
@@ -54,12 +54,12 @@ export default function Page(props: Props) {
     <>
       {/* REFACTOR: accept the content from a parameter */}
       <p>Chapter 1</p>
-      <Scene sceneNum={1} className='pl-2'>
+      <SceneMarker sceneNum={1} className='pl-2'>
         <p>"What's two plus two?"</p>
         <p>Something about the question irritates me. I'm tired. I drift back to sleep.</p>
-      </Scene>
+      </SceneMarker>
 
-      <Scene sceneNum={2} className='pl-2'>
+      <SceneMarker sceneNum={2} className='pl-2'>
         <p>A few minutes pass, then I hear it again.</p>
         <p>"What's two plus two?"</p>
         <p>
@@ -71,9 +71,9 @@ export default function Page(props: Props) {
           response in my opinion—but I failed to speak.
         </p>
         <p>"Incorrect," says the computer. "What's two plus two?"</p>
-      </Scene>
+      </SceneMarker>
 
-      <Scene sceneNum={3} className='pl-2'>
+      <SceneMarker sceneNum={3} className='pl-2'>
         <p>Time for an experiment. I'll try to say hello.</p>
         <p>"Hlllch?" I say.</p>
         <p>"Incorrect. What's two plus two?"</p>
@@ -82,7 +82,7 @@ export default function Page(props: Props) {
           can't hear anything other than the computer. I can't even feel. No, that's not true. I
           feel something. I'm lying down. I'm on something soft. A bed.
         </p>
-      </Scene>
+      </SceneMarker>
     </>
   );
 

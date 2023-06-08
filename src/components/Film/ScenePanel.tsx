@@ -1,7 +1,7 @@
 // Copyright rigélblu inc.
 // All rights reserved.
 import Image from 'next/image';
-import Scene from '@/components/Scene/Scene';
+import SceneMarker from '@/components/SceneMarker/SceneMarker';
 
 interface Props {
   className?: string;
@@ -12,7 +12,7 @@ export default function ScenePanel(props: Props) {
 
   return (
     <div className={`mgn-scenepanel ${className}`}>
-      <Scene sceneNum={1}>
+      <SceneMarker sceneNum={1}>
         {/* OPTIMIZE: load image cdn */}
         {/* TODO: load image based on selected scene */}
         <Image
@@ -22,7 +22,7 @@ export default function ScenePanel(props: Props) {
           width={330}
           height={270}
         />
-      </Scene>
+      </SceneMarker>
     </div>
   );
 }
