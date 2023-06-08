@@ -7,11 +7,11 @@ interface Props {
   className?: string;
 }
 
-export default function Storyboard(props: Props) {
+export default function ScenePanel(props: Props) {
   const { className = '' } = props;
 
   return (
-    <div className={`mgn-storyboard ${className}`}>
+    <div className={`mgn-scenepanel ${className}`}>
       <Scene sceneNum={1}>
         {/* OPTIMIZE: load image cdn */}
         {/* TODO: load image based on selected scene */}
