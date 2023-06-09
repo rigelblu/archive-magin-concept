@@ -3,9 +3,9 @@
 import Image from 'next/image';
 import SceneMarker from '@/components/SceneMarker/SceneMarker';
 
-interface Props {
+type Props = {
   className?: string;
-}
+};
 
 export default function ScenePanel(props: Props) {
   const { className = '' } = props;
