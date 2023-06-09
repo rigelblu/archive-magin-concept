@@ -8,6 +8,9 @@
     "prev": "Previous Scene",
     "next": "Next Scene"
   },
+  "film": {
+    "scene": "SCENE"
+  },
   "general": {
     "magin": "magin",
     "comingSoon": "coming soon"
