@@ -9,21 +9,12 @@ import Navigation from '@/components/Navigation/Navigation';
 import MainLayout from '@/layouts/MainLayout';
 
 // OPTIMIZE: read based on language
-import Locale from '@/locales/en.json';
+import locale from '@/locales/en.json';
 
 import styles from '../try-magin.module.scss';
 
-// REFACTOR: move into LocaleType.ts file
-interface LocalePropType {
-  [key: string]: string;
-}
-interface LocaleType {
-  [key: string]: LocalePropType;
-}
-
 export default function MarginPreview() {
   const router = useRouter();
-  const locale = Locale as LocaleType;
 
   return (
     <MainLayout canvasClassName='bg-black' className='mgn-try-magin bg-white' layoutKind='app'>

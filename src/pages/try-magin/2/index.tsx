@@ -2,28 +2,17 @@
 // All rigts reserve
 import { useRouter } from 'next/router';
 import Image from 'next/image';
-
 import Book from '@/components/Book/Book';
 import GuideMessage from '@/components/GuideMessage';
 import Navigation from '@/components/Navigation/Navigation';
 import MainLayout from '@/layouts/MainLayout';
-
 import IconGithub from '@/assets/common/icons/arrow-up.svg';
 
 // OPTIMIZE: read based on language
-import Locale from '@/locales/en.json';
-
-// REFACTOR: move into LocaleType.ts file
-interface LocalePropType {
-  [key: string]: string;
-}
-interface LocaleType {
-  [key: string]: LocalePropType;
-}
+import locale from '@/locales/en.json';
 
 export default function MarginPreview() {
   const router = useRouter();
-  const locale = Locale as LocaleType;
 
   return (
     <MainLayout canvasClassName='bg-black' className='mgn-try-magin bg-white' layoutKind='app'>

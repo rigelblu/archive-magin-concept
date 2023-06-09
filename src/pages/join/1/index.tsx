@@ -3,12 +3,11 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Button } from 'primereact/button';
-
 import Navigation from '@/components/Navigation/Navigation';
 import MainLayout from '@/layouts/MainLayout';
 
 // REFACTOR: read based on language
-import Locale from '@/locales/en.json';
+import locale from '@/locales/en.json';
 
 // REFACTOR: move into LocaleType.ts file
 interface LocalePropType {
@@ -23,7 +22,6 @@ const stripePaymentUrl = process.env.NEXT_PUBLIC_STRIPE_PAYMENT_URL || '/error';
 
 export default function JoinMagin() {
   const router = useRouter();
-  const locale = Locale as LocaleType;
 
   // OPTIMIZE: external feature flags settings
   const flagIsJoinEnabled = true;
