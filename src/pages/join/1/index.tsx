@@ -9,14 +9,6 @@ import MainLayout from '@/layouts/MainLayout';
 // REFACTOR: read based on language
 import locale from '@/locales/en.json';
 
-// REFACTOR: move into LocaleType.ts file
-interface LocalePropType {
-  [key: string]: string;
-}
-interface LocaleType {
-  [key: string]: LocalePropType;
-}
-
 // REFACTOR: move into a helper function
 const stripePaymentUrl = process.env.NEXT_PUBLIC_STRIPE_PAYMENT_URL || '/error';
 
