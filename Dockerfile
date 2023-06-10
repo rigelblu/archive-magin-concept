@@ -11,7 +11,7 @@ FROM node:16-alpine AS deps-builder
 RUN apk update && apk add yarn python3 g++ make && rm -rf /var/cache/apk/*
 
 WORKDIR /usr/src/app
-COPY package.json yarn.lock ./
+COPY package.json pnpm-lock.yaml ./
 RUN yarn install --frozen-lockfile
 
 # ----------
@@ -19,7 +19,7 @@ RUN yarn install --frozen-lockfile
 FROM node:16-alpine AS deps-runner
 
 WORKDIR /usr/src/app
-COPY package.json yarn.lock ./
+COPY package.json pnpm-lock.yaml ./
 RUN yarn install --production --frozen-lockfile
 
 # ----------
