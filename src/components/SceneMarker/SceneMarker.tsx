@@ -1,6 +1,6 @@
 // Copyright rigélblu inc.
 // All rights reserved.
-import styles from './Scene.module.scss';
+import styles from './SceneMarker.module.scss';
 
 interface Props {
   children: React.ReactNode;
@@ -8,7 +8,8 @@ interface Props {
   className?: string;
 }
 
-export default function Scene(props: Props) {
+// REFACTOR: rename to SceneIndicator
+export default function SceneMarker(props: Props) {
   const { children, sceneNum, className = '' } = props;
   console.log('sceneNum', JSON.stringify(sceneNum, null, 2));
 
@@ -30,7 +31,7 @@ export default function Scene(props: Props) {
 
   // TODO: make scene accessible
   return (
-    <div className={`${styles['mgn-scene']} my-1 border-left-2 ${sceneColor} ${className}`}>
+    <div className={`${styles['mgn-scenemarker']} my-1 border-left-2 ${sceneColor} ${className}`}>
       {children}
     </div>
   );

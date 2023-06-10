@@ -1,6 +1,7 @@
 // Copyright rigélblu inc.
 // All rights reserved.
-import Locale from '@/locales/en.json';
+// OPTIMIZE: read based on language
+import locale from '@/locales/en.json';
 
 import PageControl from '../PageControl/PageControl';
 import Page from './Page/Page';
@@ -22,7 +23,7 @@ export default function Book(props: Props) {
       )}
 
       <div>
-        <h2 className='my-2 text-2xs text-center text-gray-500'>{Locale.book.title}</h2>
+        <h2 className='my-2 text-2xs text-center text-gray-500'>{locale.book.title}</h2>
         <Page maginPreviewStep={maginPreviewStep} />
       </div>
 
