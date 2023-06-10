@@ -14,8 +14,4 @@ node_modules
 .env.production
 .favorites.json
 .vscode
-yarn.lock
-
-# package logs
-yarn-debug.log*
-yarn-error.log*
+pnpm-lock.yaml

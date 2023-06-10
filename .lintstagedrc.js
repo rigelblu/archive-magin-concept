@@ -1,7 +1,7 @@
 module.exports = {
-  '**/*.{html,js,jsx,json,md,ts,tsx}': 'yarn lint:next',
-  '**/*.{css,scss}': 'yarn lint:style',
-  '**/*': 'yarn prettier',
+  '**/*.{html,js,jsx,json,md,ts,tsx}': 'pnpm lint:next',
+  '**/*.{css,scss}': 'pnpm lint:style',
+  '**/*': 'pnpm prettier',
 };
 
 // Required by NextJS

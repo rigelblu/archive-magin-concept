@@ -22,9 +22,5 @@ CHANGELOG.md
 Makefile
 README.md
 
-# package logs
-yarn-debug.log*
-yarn-error.log*
-
 # testing
 coverage
