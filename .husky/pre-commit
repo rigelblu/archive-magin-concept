@@ -11,4 +11,4 @@ if [ "$BRANCH" = "main" ]; then
   exit 1
 fi
 
-yarn lint-staged
+pnpm lint-staged

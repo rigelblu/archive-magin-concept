@@ -18,7 +18,7 @@ FILES+=( "docker-compose.yml" "Dockerfile" "next-env.d.ts" "next.config.js" "pac
 FILES+=( "postcss.config.js" "server.js" "tailwind.config.js" "tsconfig*" "tsconfigs/*" "pnpm-lock.yaml" )
 
 if [ git diff --cached --quiet -- $FILES ]; then
-  yarn build
+  pnpm build
 fi
 
 if [ git diff --cached --quiet -- Dockerfile ]; then
@@ -26,4 +26,4 @@ if [ git diff --cached --quiet -- Dockerfile ]; then
 fi
 
 # TODO: enable once we add unit tests
-yarn test
+pnpm test

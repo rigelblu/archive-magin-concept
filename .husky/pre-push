@@ -7,5 +7,5 @@
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
 
 if [ "$BRANCH" = "main" ]; then
-  yarn build:ssg
+  pnpm build:ssg
 fi
