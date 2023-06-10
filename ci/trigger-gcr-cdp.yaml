@@ -1,7 +1,7 @@
 # Copyright rigélblu inc.
 # All rights reserved.
 
-description: <domain> / <app>/ gcr / continuous delivery + release
+description: mgn / concept / gcr / continuous delivery + release
 filename: ci/cloudbuild.yaml
 github:
   name: <add>

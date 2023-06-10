@@ -1,7 +1,7 @@
 # Copyright rigélblu inc.
 # All rights reserved.
 
-description: <domain> / <app> / gcr / manual branch
+description: mgn / concept / gcr / manual branch
 gitFileSource:
   path: ci/cloudbuild.yaml
   repoType: GITHUB
