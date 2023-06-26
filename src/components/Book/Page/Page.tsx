@@ -3,7 +3,6 @@
 import { useRef, useEffect } from 'react';
 import Typed from 'typed.js';
 import SceneMarker from '@/components/SceneMarker/SceneMarker';
-import styles from './Page.module.scss';
 
 interface Props {
   className?: string;
