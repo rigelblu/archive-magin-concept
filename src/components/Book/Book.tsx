@@ -4,7 +4,7 @@
 import locale from '@/locales/en.json';
 
 import PageControl from '../PageControl/PageControl';
-import Page from './Page/Page';
+import Page from './Page';
 
 interface Props {
   className?: string;
