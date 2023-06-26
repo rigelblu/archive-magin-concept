@@ -13,7 +13,7 @@ interface Props {
 export default function Page(props: Props) {
   const { className = '', maginPreviewStep = null } = props;
   const refTyped = useRef(null);
-  const typeSpeed = 0;
+  const typeSpeed = 40;
 
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
