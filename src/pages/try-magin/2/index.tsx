@@ -1,6 +1,7 @@
 // Copyright rigélblu inc.
 // All rigts reserve
 import { useRouter } from 'next/router';
+import { useState } from 'react';
 import Image from 'next/image';
 import Book from '@/components/Book/Book';
 import GuideMessage from '@/components/GuideMessage';
@@ -13,6 +14,7 @@ import locale from '@/locales/en.json';
 
 export default function MarginPreview() {
   const router = useRouter();
+  const [isBookDisplayed] = useState(true);
 
   return (
     <MainLayout canvasClassName='bg-black' className='mgn-try-magin bg-white' layoutKind='app'>
@@ -32,36 +34,39 @@ export default function MarginPreview() {
           <div className='mgn-step-bottom flex flex-1 items-center'>
             {/* TODO: show on a 5 second delay */}
             {/* OPTIMIZE: figure out how to allow \n in the string and convert in to <br /> */}
+            {!isBookDisplayed && (
+              <div className='flex flex-col items-center'>
+                <Image
+                  src='/assets/common/images/movie-screen.webp'
+                  alt='people in a theatre watching a movie'
+                  className='w-20rem h-auto !object-scale-down'
+                  width='640'
+                  height='364'
+                />
+              </div>
+            )}
             {/* <GuideMessage className='font-bold'>{locale.guide.step2_movieSceen}</GuideMessage> */}
-
-            <div className='flex flex-col items-center'>
-              <Image
-                src='/assets/common/images/movie-screen.webp'
-                alt='people in a theatre watching a movie'
-                className='w-20rem h-auto !object-scale-down'
-                width='640'
-                height='364'
-              />
-            </div>
           </div>
 
           {/* REFACTOR: use next layout */}
-          <Navigation
-            left={{
-              className: 'mgn-cta-secondary',
-              label: locale.navigation.back,
-              onClick: () => {
-                router.push('/try-magin/1');
-              },
-            }}
-            right={{
-              className: 'mgn-cta-primary',
-              label: locale.guide.step2_showMe,
-              onClick: () => {
-                router.push('/try-magin/3');
-              },
-            }}
-          />
+          {!isBookDisplayed && (
+            <Navigation
+              left={{
+                className: 'mgn-cta-secondary',
+                label: locale.navigation.back,
+                onClick: () => {
+                  router.push('/try-magin/1');
+                },
+              }}
+              right={{
+                className: 'mgn-cta-primary',
+                label: locale.guide.step2_showMe,
+                onClick: () => {
+                  router.push('/try-magin/3');
+                },
+              }}
+            />
+          )}
         </div>
       </div>
     </MainLayout>

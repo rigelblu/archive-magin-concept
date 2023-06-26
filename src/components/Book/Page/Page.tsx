@@ -44,7 +44,7 @@ export default function Page(props: Props) {
       <span ref={refTyped}>
         {/* OPTIMIZE: create function to increase pause on every period, question, etc */}
         {/* FIXME: typed.js intermittenly prints ^{typedPuncationMarkPause} instead of pausing.
-                   It also creates a jitter sometimes, where you can see "<" for a split second.
+                  It also creates a jitter sometimes, where you can see "<" for a split second.
                   Removing from code until we find a fix. */}
         <span id='typed-strings'>
           <p>
