@@ -1,5 +1,7 @@
 // Copyright rigélblu inc.
 // All rights reserved.
+import { useRef, useEffect } from 'react';
+import Typed from 'typed.js';
 import SceneMarker from '@/components/SceneMarker/SceneMarker';
 import styles from './Page.module.scss';
 
@@ -10,20 +12,53 @@ interface Props {
 
 export default function Page(props: Props) {
   const { className = '', maginPreviewStep = null } = props;
+  const refTyped = useRef(null);
+  const typeSpeed = 0;
+
+  useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
+    const typed = new Typed('#typed', {
+      fadeOut: true,
+      loop: false,
+      stringsElement: '#typed-strings',
+      typeSpeed,
+
+      onComplete: (self) => {
+        const cursor = document.querySelector('.typed-cursor') as HTMLElement;
+        if (cursor) cursor.style.display = 'none';
+      },
+    });
+
+    return () => {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
+      typed.destroy();
+    };
+  }, []);
 
   // REFACTOR: step 2, 3, etc into an array
   // REFACTOR: import content from a file
   const contentMaginPreviewStep2 = (
     <SceneMarker sceneNum={1} className='pl-2'>
       <h3 className='my-2 text-lg'>Chapter 1</h3>
-      <p>"What's two plus two?"</p>
-      <p>Something about the question irritates me. I'm tired. I drift back to sleep.</p>
-      <p>A few minutes pass, then I hear it again.</p>
-      <p>"What's two plus two?"</p>
-      <p>
-        The soft, feminine voice lacks emotion and the pronunciation is identical to the previous
-        time she said it. It's a computer. A computer is hassling me. I'm even more irritated now.
-      </p>
+
+      <span ref={refTyped} id='typed-strings'>
+        {/* OPTIMIZE: create function to increase pause on every period, question, etc */}
+        {/* FIXME: typed.js intermittenly prints ^{typedPuncationMarkPause} instead of pausing.
+                   It also creates a jitter sometimes, where you can see "<" for a split second.
+                  Removing from code until we find a fix. */}
+        <span>
+          <p>"What's two plus two?</p>
+          <p>Something about the question irritates me. I'm tired. I drift back to sleep.</p>
+          <p>A few minutes pass, then I hear it again.</p>
+          <p>"What's two plus two?"</p>
+          <p>
+            The soft, feminine voice lacks emotion and the pronunciation is identical to the
+            previous time she said it. It's a computer. A computer is hassling me. I'm even more
+            irritated now.
+          </p>
+        </span>
+      </span>
+      <span id='typed' />
     </SceneMarker>
   );
 
