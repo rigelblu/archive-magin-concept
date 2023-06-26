@@ -41,17 +41,21 @@ export default function Page(props: Props) {
     <SceneMarker sceneNum={1} className='pl-2'>
       <h3 className='my-2 text-lg'>Chapter 1</h3>
 
-      <span ref={refTyped} id='typed-strings'>
+      <span ref={refTyped}>
         {/* OPTIMIZE: create function to increase pause on every period, question, etc */}
         {/* FIXME: typed.js intermittenly prints ^{typedPuncationMarkPause} instead of pausing.
                    It also creates a jitter sometimes, where you can see "<" for a split second.
                   Removing from code until we find a fix. */}
-        <span>
-          <p>"What's two plus two?</p>
-          <p>Something about the question irritates me. I'm tired. I drift back to sleep.</p>
-          <p>A few minutes pass, then I hear it again.</p>
-          <p>"What's two plus two?"</p>
+        <span id='typed-strings'>
           <p>
+            "What's two plus two?
+            <br />
+            Something about the question irritates me. I'm tired. I drift back to sleep.
+            <br />
+            A few minutes pass, then I hear it again.
+            <br />
+            "What's two plus two?"
+            <br />
             The soft, feminine voice lacks emotion and the pronunciation is identical to the
             previous time she said it. It's a computer. A computer is hassling me. I'm even more
             irritated now.
