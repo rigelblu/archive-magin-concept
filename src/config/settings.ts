@@ -4,9 +4,10 @@ export enum MODE {
 }
 
 const settings = {
-  mode: MODE.DEBUG,
+  mode: MODE.INFO,
   page: {
     typingSpeed: 30,
   },
+  guidedMessage_DurationSecs: 2000,
 };
 export default settings;
