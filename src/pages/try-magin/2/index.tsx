@@ -44,7 +44,7 @@ export default function MarginPreview() {
             {/* TODO: show on a 5 second delay */}
             {/* OPTIMIZE: figure out how to allow \n in the string and convert in to <br /> */}
             {isBookDisplayed && (
-              <div className='flex flex-col items-center'>
+              <div className='flex flex-col items-center transition-opacity animate-fadeIn'>
                 <Image
                   src='/assets/common/images/movie-screen.webp'
                   alt='people in a theatre watching a movie'
