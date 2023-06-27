@@ -4,7 +4,7 @@
 import locale from '@/locales/en.json';
 
 import PageControl from '../PageControl/PageControl';
-import Page from './Page/Page';
+import Page from './Page';
 
 interface Props {
   className?: string;
@@ -17,12 +17,12 @@ export default function Book(props: Props) {
   const onClick = () => console.log('prev/next click');
 
   return (
-    <div className={`mgn-book flex ${className}`}>
+    <div className={`mgn-book flex w-full ${className}`}>
       {showPageControls && (
         <PageControl action='prev' onClick={onClick} className='px-1' isShown={false} />
       )}
 
-      <div>
+      <div className='w-full'>
         <h2 className='my-2 text-2xs text-center text-gray-500'>{locale.book.title}</h2>
         <Page maginPreviewStep={maginPreviewStep} />
       </div>

@@ -1,7 +1,8 @@
 // Copyright rigélblu inc.
 // All rights reserved.
+import { useRef, useEffect } from 'react';
+import Typed from 'typed.js';
 import SceneMarker from '@/components/SceneMarker/SceneMarker';
-import styles from './Page.module.scss';
 
 interface Props {
   className?: string;
@@ -10,19 +11,63 @@ interface Props {
 
 export default function Page(props: Props) {
   const { className = '', maginPreviewStep = null } = props;
+  const refTyped = useRef(null);
+  const typeSpeed = 40;
+
+  // eslint-disable-next-line consistent-return
+  useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
+    if (maginPreviewStep === 2) {
+      const typed = new Typed('#typed', {
+        fadeOut: true,
+        loop: false,
+        stringsElement: '#typed-strings',
+        typeSpeed,
+
+        onComplete: (self) => {
+          const cursor = document.querySelector('.typed-cursor') as HTMLElement;
+          if (cursor) cursor.style.display = 'none';
+        },
+      });
+
+      return () => {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
+        typed.destroy();
+      };
+    }
+  }, [maginPreviewStep]);
 
   // REFACTOR: step 2, 3, etc into an array
   // REFACTOR: import content from a file
   const contentMaginPreviewStep2 = (
     <SceneMarker sceneNum={1} className='pl-2'>
       <h3 className='my-2 text-lg'>Chapter 1</h3>
-      <p>"What's two plus two?"</p>
-      <p>Something about the question irritates me. I'm tired. I drift back to sleep.</p>
-      <p>A few minutes pass, then I hear it again.</p>
-      <p>"What's two plus two?"</p>
+
+      <span ref={refTyped}>
+        {/* OPTIMIZE: create function to increase pause on every period, question, etc */}
+        {/* FIXME: typed.js intermittenly prints ^{typedPuncationMarkPause} instead of pausing.
+                  It also creates a jitter sometimes, where you can see "<" for a split second.
+                  Removing from code until we find a fix. */}
+        <span id='typed-strings'>
+          {/* HACK: Had to use &nbsp instead of using css to text-indent due to limitation of typed.js */}
+          <span>
+            What's two plus two?
+            <br />
+            &nbsp;&nbsp;&nbsp;Something about the question irritates me. I'm tired. I drift back to
+            sleep.
+            <br />
+            &nbsp;&nbsp;&nbsp;A few minutes pass, then I hear it again.
+            <br />
+            &nbsp;&nbsp;&nbsp;"What's two plus two?"
+            <br />
+            &nbsp;&nbsp;&nbsp;The soft, feminine voice lacks emotion and the pronunciation is
+            identical to the previous time she said it. It's a computer. A computer is hassling me.
+            I'm even more irritated now.
+          </span>
+        </span>
+      </span>
       <p>
-        The soft, feminine voice lacks emotion and the pronunciation is identical to the previous
-        time she said it. It's a computer. A computer is hassling me. I'm even more irritated now.
+        <span id='typed' />
       </p>
     </SceneMarker>
   );
@@ -99,8 +144,8 @@ export default function Page(props: Props) {
   }
 
   return (
-    <div className={`${styles['mgn-page']} flex flex-1 ${className}`}>
-      <div className='w-full flex-1 overflow-hidden bg-[#f8f1e3] text-left font-theano text-sm text-black'>
+    <div className={`mgn-page flex flex-1 ${className}`}>
+      <div className='flex-1 overflow-hidden bg-[#f8f1e3] text-left font-theano text-sm text-black'>
         {content}
       </div>
     </div>
