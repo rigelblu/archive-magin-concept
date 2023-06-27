@@ -36,7 +36,12 @@ export default function MarginPreview() {
             {/* REFACTOR: make content an optional parameter */}
             <IconGithub className='w-16' />
             {!isBookDisplayed && (
-              <GuideMessage className='font-bold'>{locale.guide.step2_guidedMessage[0]}</GuideMessage>
+              <GuideMessage className='font-bold'>
+                {locale.guide.step2_guidedMessage[0]}
+              </GuideMessage>
+            )}
+            {isBookDisplayed && (
+              <GuideMessage className='font-bold' messages={locale.guide.step2_guidedMessage} />
             )}
           </div>
 
