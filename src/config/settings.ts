@@ -1,6 +1,6 @@
 export enum MODE {
   DEBUG,
-  NORMAL,
+  INFO,
 }
 
 const settings = {
