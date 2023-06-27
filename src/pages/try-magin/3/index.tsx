@@ -23,7 +23,7 @@ export default function MarginPreview() {
         className={`${styles['mgn-preview']} flex h-screen flex-col items-center justify-center bg-neutral-950`}
       >
         <div className='mgn-step flex	w-full flex-1 flex-col justify-between bg-yellow-rb-200 sm:max-h-[51rem] sm:max-w-[25rem]'>
-          <div className='mgn-step-top col max-h-for-screen flex flex-1 flex-col justify-center'>
+          <div className='mgn-step-top col max-h-for-screen flex flex-1 flex-col justify-start'>
             <Book maginPreviewStep={3} showPageControls className='flex-1 overflow-hidden' />
           </div>
 
