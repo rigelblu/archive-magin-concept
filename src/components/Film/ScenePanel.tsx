@@ -15,7 +15,7 @@ export default function ScenePanel(props: Props) {
   const sceneNum = 1;
 
   return (
-    <div className={`mgn-scenepanel outline rounded-lg p-2 w-full ${className}`}>
+    <div className={`mgn-scenepanel outline rounded-lg p-1 mb-2 w-full ${className}`}>
       {/* OPTIMIZE: find better font */}
       <div className='text-2xs'>
         {locale.film.scene}: {sceneNum}
@@ -27,7 +27,7 @@ export default function ScenePanel(props: Props) {
         <Image
           src='/assets/common/images/storyboard-panel-1.webp'
           alt='An overhead, close up shot of a tired person lying down, head falling asleep with eyes slightly open and irritated in a very dark room.'
-          className='h-auto mx-auto !object-scale-down'
+          className='w-auto h-auto mx-auto !object-scale-down'
           width={330}
           height={270}
         />
