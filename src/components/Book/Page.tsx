@@ -12,7 +12,7 @@ interface Props {
 export default function Page(props: Props) {
   const { className = '', maginPreviewStep = null } = props;
   const refTyped = useRef(null);
-  const typeSpeed = 40;
+  const typeSpeed = 33;
 
   // eslint-disable-next-line consistent-return
   useEffect(() => {
