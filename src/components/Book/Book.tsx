@@ -8,7 +8,7 @@ import Page from './Page';
 
 interface Props {
   className?: string;
-  maginPreviewStep?: number | null;
+  maginPreviewStep?: number | null; // REFACTOR: create a seperate component, that wraps this one
   showPageControls?: boolean;
 }
 
