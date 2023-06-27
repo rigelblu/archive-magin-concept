@@ -21,7 +21,7 @@ export default function MarginPreview() {
       {/* REFACTOR: convert into component, accept 4 children elements */}
       <div className='mgn-preview flex h-screen flex-col items-center justify-center bg-neutral-950'>
         {/* HACK: have to use fixed rem for max height and width due to mobile browsers */}
-        <div className='mgn-step flex w-full flex-1 flex-col justify-between bg-yellow-rb-200 sm:max-h-[51rem] sm:max-w-[25rem]'>
+        <div className='mgn-step flex w-full flex-1 flex-col justify-between bg-yellow-rb-200 sm:max-h-[51rem] sm:max-w-[25rem] p-2'>
           {/* HACK: have to use fixed rem for height due to mobile browsers */}
           <div className='mgn-step-top col flex flex-col justify-start h-[30rem]'>
             <Book
@@ -53,7 +53,7 @@ export default function MarginPreview() {
                 <Image
                   src='/assets/common/images/movie-screen.webp'
                   alt='people in a theatre watching a movie'
-                  className='w-20rem h-auto !object-scale-down'
+                  className='w-auto h-auto !object-scale-down pb-2'
                   width='640'
                   height='364'
                 />

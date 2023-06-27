@@ -31,7 +31,7 @@ export default function Book(props: Props) {
       )}
 
       <div className='w-full'>
-        <h2 className='my-2 text-2xs text-center text-gray-500'>{locale.book.title}</h2>
+        <h2 className='mb-2 text-2xs text-center text-gray-500'>{locale.book.title}</h2>
         <Page
           maginPreviewStep={maginPreviewStep}
           onTypingComplete={onTypingComplete}

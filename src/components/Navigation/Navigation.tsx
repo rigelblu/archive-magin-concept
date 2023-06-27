@@ -15,7 +15,7 @@ export default function Navigation(props: Props) {
 
   // OPTIMIZE: generalize to accept any # of objects
   return (
-    <div className={`mgn-navigation flex p-2 ${className}`}>
+    <div className={`mgn-navigation flex ${className}`}>
       {left && (
         <Button className={`text-center ${left.className}`} onClick={left.onClick}>
           {left.label}
