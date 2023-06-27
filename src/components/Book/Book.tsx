@@ -2,15 +2,12 @@
 // All rights reserved.
 // OPTIMIZE: read based on language
 import locale from '@/locales/en.json';
-
-import PageControl from '../PageControl/PageControl';
 import Page from './Page';
 
 interface Props {
   className?: string;
   maginPreviewStep?: number | null; // REFACTOR: create a seperate component, that wraps this one
   onTypingComplete?: () => void;
-  showPageControls?: boolean;
   useTypingAnimation?: boolean;
 }
 
@@ -19,17 +16,11 @@ export default function Book(props: Props) {
     className = '',
     maginPreviewStep = null,
     onTypingComplete = undefined,
-    showPageControls = true,
     useTypingAnimation = false,
   } = props;
-  const onClick = () => console.log('prev/next click');
 
   return (
-    <div className={`mgn-book flex w-full ${className}`}>
-      {showPageControls && (
-        <PageControl action='prev' onClick={onClick} className='px-1' isShown={false} />
-      )}
-
+    <div className={`mgn-book flex w-full flex-1 ${className}`}>
       <div className='w-full'>
         <h2 className='mb-2 text-2xs text-center text-gray-500'>{locale.book.title}</h2>
         <Page
@@ -38,8 +29,6 @@ export default function Book(props: Props) {
           useTypingAnimation={useTypingAnimation}
         />
       </div>
-
-      {showPageControls && <PageControl action='next' onClick={onClick} className='px-1' />}
     </div>
   );
 }

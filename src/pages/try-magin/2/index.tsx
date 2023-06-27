@@ -27,7 +27,6 @@ export default function MarginPreview() {
             <Book
               maginPreviewStep={2}
               onTypingComplete={() => setBookDisplayed(true)}
-              showPageControls={false}
               useTypingAnimation={!isBookDisplayed}
             />
           </div>
