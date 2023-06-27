@@ -14,7 +14,7 @@ import locale from '@/locales/en.json';
 
 export default function MarginPreview() {
   const router = useRouter();
-  const [isBookDisplayed] = useState(true);
+  const [isBookDisplayed, setBookDisplayed] = useState(false);
 
   return (
     <MainLayout canvasClassName='bg-black' className='mgn-try-magin bg-white' layoutKind='app'>
@@ -24,7 +24,11 @@ export default function MarginPreview() {
         <div className='mgn-step flex w-full flex-1 flex-col justify-between bg-yellow-rb-200 sm:max-h-[51rem] sm:max-w-[25rem]'>
           {/* HACK: have to use fixed rem for height due to mobile browsers */}
           <div className='mgn-step-top col flex flex-col justify-start h-[30rem]'>
-            <Book maginPreviewStep={2} showPageControls={false} />
+            <Book
+              maginPreviewStep={2}
+              showPageControls={false}
+              onPageFinishTyping={() => setBookDisplayed(true)}
+            />
           </div>
 
           <div className='mgn-step-middle flex flex-col items-center'>
@@ -36,7 +40,7 @@ export default function MarginPreview() {
           <div className='mgn-step-bottom flex flex-1 items-center'>
             {/* TODO: show on a 5 second delay */}
             {/* OPTIMIZE: figure out how to allow \n in the string and convert in to <br /> */}
-            {!isBookDisplayed && (
+            {isBookDisplayed && (
               <div className='flex flex-col items-center'>
                 <Image
                   src='/assets/common/images/movie-screen.webp'
@@ -51,7 +55,7 @@ export default function MarginPreview() {
           </div>
 
           {/* REFACTOR: use next layout */}
-          {!isBookDisplayed && (
+          {isBookDisplayed && (
             <Navigation
               left={{
                 className: 'mgn-cta-secondary',

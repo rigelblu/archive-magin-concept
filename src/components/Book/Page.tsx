@@ -7,10 +7,11 @@ import SceneMarker from '@/components/SceneMarker/SceneMarker';
 interface Props {
   className?: string;
   maginPreviewStep?: number | null;
+  onPageFinishTyping?: () => void;
 }
 
 export default function Page(props: Props) {
-  const { className = '', maginPreviewStep = null } = props;
+  const { className = '', maginPreviewStep = null, onPageFinishTyping = undefined } = props;
   const refTyped = useRef(null);
   const typeSpeed = 33;
 
@@ -27,6 +28,7 @@ export default function Page(props: Props) {
         onComplete: (self) => {
           const cursor = document.querySelector('.typed-cursor') as HTMLElement;
           if (cursor) cursor.style.display = 'none';
+          if (onPageFinishTyping !== undefined) onPageFinishTyping();
         },
       });
 
@@ -34,7 +36,7 @@ export default function Page(props: Props) {
         typed.destroy();
       };
     }
-  }, [maginPreviewStep]);
+  }, [maginPreviewStep, onPageFinishTyping]);
 
   // REFACTOR: step 2, 3, etc into an array
   // REFACTOR: import content from a file
