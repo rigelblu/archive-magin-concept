@@ -14,25 +14,28 @@ export default function Page(props: Props) {
   const refTyped = useRef(null);
   const typeSpeed = 40;
 
+  // eslint-disable-next-line consistent-return
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
-    const typed = new Typed('#typed', {
-      fadeOut: true,
-      loop: false,
-      stringsElement: '#typed-strings',
-      typeSpeed,
+    if (maginPreviewStep === 2) {
+      const typed = new Typed('#typed', {
+        fadeOut: true,
+        loop: false,
+        stringsElement: '#typed-strings',
+        typeSpeed,
 
-      onComplete: (self) => {
-        const cursor = document.querySelector('.typed-cursor') as HTMLElement;
-        if (cursor) cursor.style.display = 'none';
-      },
-    });
+        onComplete: (self) => {
+          const cursor = document.querySelector('.typed-cursor') as HTMLElement;
+          if (cursor) cursor.style.display = 'none';
+        },
+      });
 
-    return () => {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-      typed.destroy();
-    };
-  }, []);
+      return () => {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
+        typed.destroy();
+      };
+    }
+  }, [maginPreviewStep]);
 
   // REFACTOR: step 2, 3, etc into an array
   // REFACTOR: import content from a file
