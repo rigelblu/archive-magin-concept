@@ -4,6 +4,8 @@ import { useRef, useEffect } from 'react';
 import Typed from 'typed.js';
 import SceneMarker from '@/components/SceneMarker/SceneMarker';
 
+import settings, { MODE } from '@/config/settings';
+
 interface Props {
   className?: string;
   maginPreviewStep?: number | null;
@@ -19,7 +21,7 @@ export default function Page(props: Props) {
     useTypingAnimation = false,
   } = props;
   const refTyped = useRef(null);
-  const typeSpeed = 30;
+  const typingSpeed = settings.mode !== MODE.DEBUG ? settings.typingSpeed : 0;
 
   // eslint-disable-next-line consistent-return
   useEffect(() => {
@@ -29,7 +31,7 @@ export default function Page(props: Props) {
         fadeOut: true,
         loop: false,
         stringsElement: '#typed-strings',
-        typeSpeed,
+        typeSpeed: typingSpeed,
 
         onComplete: (self) => {
           const cursor = document.querySelector('.typed-cursor') as HTMLElement;
