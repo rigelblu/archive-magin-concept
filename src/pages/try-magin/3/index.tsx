@@ -22,8 +22,10 @@ export default function MarginPreview() {
       <div
         className={`${styles['mgn-preview']} flex h-screen flex-col items-center justify-center bg-neutral-950`}
       >
+        {/* HACK: have to use fixed rem for max height and width due to mobile browsers */}
         <div className='mgn-step flex	w-full flex-1 flex-col justify-between bg-yellow-rb-200 sm:max-h-[51rem] sm:max-w-[25rem]'>
-          <div className='mgn-step-top col max-h-for-screen flex flex-1 flex-col justify-start'>
+          {/* HACK: have to use fixed rem for height due to mobile browsers */}
+          <div className='mgn-step-top col max-h-for-screen flex flex-col justify-start h-[30rem]'>
             <Book maginPreviewStep={3} showPageControls className='flex-1 overflow-hidden' />
           </div>
 
