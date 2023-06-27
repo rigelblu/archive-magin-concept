@@ -3,8 +3,7 @@
 
 .mgn-scenemarker {
   p {
-    margin-bottom: 0.1rem;
-    text-indent: 0.9rem !important;
+    @apply mb-[0.1rem] indent-3.5;
   }
 
   // FIXME: make colors pass contrast accessibility
