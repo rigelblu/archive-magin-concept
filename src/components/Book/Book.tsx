@@ -11,14 +11,16 @@ interface Props {
   maginPreviewStep?: number | null; // REFACTOR: create a seperate component, that wraps this one
   onTypingComplete?: () => void;
   showPageControls?: boolean;
+  useTypingAnimation?: boolean;
 }
 
 export default function Book(props: Props) {
   const {
     className = '',
-    onTypingComplete = undefined,
     maginPreviewStep = null,
+    onTypingComplete = undefined,
     showPageControls = true,
+    useTypingAnimation = false,
   } = props;
   const onClick = () => console.log('prev/next click');
 
@@ -30,7 +32,11 @@ export default function Book(props: Props) {
 
       <div className='w-full'>
         <h2 className='my-2 text-2xs text-center text-gray-500'>{locale.book.title}</h2>
-        <Page maginPreviewStep={maginPreviewStep} onTypingComplete={onTypingComplete} />
+        <Page
+          maginPreviewStep={maginPreviewStep}
+          onTypingComplete={onTypingComplete}
+          useTypingAnimation={useTypingAnimation}
+        />
       </div>
 
       {showPageControls && <PageControl action='next' onClick={onClick} className='px-1' />}

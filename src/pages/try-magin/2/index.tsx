@@ -26,8 +26,9 @@ export default function MarginPreview() {
           <div className='mgn-step-top col flex flex-col justify-start h-[30rem]'>
             <Book
               maginPreviewStep={2}
+              onTypingComplete={() => setBookDisplayed(true)}
               showPageControls={false}
-              onPageFinishTyping={() => setBookDisplayed(true)}
+              useTypingAnimation={!isBookDisplayed}
             />
           </div>
 
