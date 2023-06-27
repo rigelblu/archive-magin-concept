@@ -17,7 +17,7 @@ export default function ScenePanel(props: Props) {
   return (
     <div className={`mgn-scenepanel outline rounded-lg p-2 w-full ${className}`}>
       {/* OPTIMIZE: find better font */}
-      <div className='text-xs'>
+      <div className='text-2xs'>
         {locale.film.scene}: {sceneNum}
       </div>
       <hr className='border-1 border-black my-1 py-1' />
