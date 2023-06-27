@@ -21,7 +21,7 @@ export default function Page(props: Props) {
     useTypingAnimation = false,
   } = props;
   const refTyped = useRef(null);
-  const typingSpeed = settings.mode !== MODE.DEBUG ? settings.typingSpeed : 0;
+  const typingSpeed = settings.mode !== MODE.DEBUG ? settings.page.typingSpeed : 0;
 
   // eslint-disable-next-line consistent-return
   useEffect(() => {

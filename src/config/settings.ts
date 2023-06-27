@@ -5,6 +5,8 @@ export enum MODE {
 
 const settings = {
   mode: MODE.DEBUG,
-  typingSpeed: 30,
+  page: {
+    typingSpeed: 30,
+  },
 };
 export default settings;
