@@ -36,11 +36,11 @@ export default function MarginPreview() {
             <IconGithub className='w-16' />
             {!isBookDisplayed && (
               <GuideMessage className='font-bold'>
-                {locale.guide.step2_guidedMessage[0]}
+                {locale.guide.step2a_guidedMessage[0]}
               </GuideMessage>
             )}
             {isBookDisplayed && (
-              <GuideMessage className='font-bold' messages={locale.guide.step2_guidedMessage} />
+              <GuideMessage className='font-bold' messages={locale.guide.step2a_guidedMessage} />
             )}
           </div>
 
