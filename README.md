@@ -21,6 +21,11 @@ cp .env.example .env.development
 cp .env.example .env.production
 ```
 
+## Adjust feature flags and settings
+
+- [Feature Flags](src/config/featureFlags.ts)
+- [Settings](src/config/settings.ts)
+
 ### Run locally
 
 ```sh

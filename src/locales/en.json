@@ -18,11 +18,17 @@
   "guide": {
     "step1_maginPresents": "magin presents",
     "step1_watchNovel": "Watch Novel",
-    "step2_read": "read this scene",
-    "step2_movieSceen": "imagine you heard a character say this on a movie screen",
+    "step2_guidedMessage": [
+      "read the scene",
+      "and now imagine",
+      "you're in a movie theater",
+      "you hear the character say ⤴",
+      "what would it look like",
+      "on the movie screen?"
+    ],
     "step2_whatWould": "what would it look like?",
     "step2_showMe": "Show Me",
-    "step3_1": "let’s watch the next scene",
+    "step3_1": "let's watch the next scene",
     "step3_2": "tap the arrow on the right"
   },
   "join": {

@@ -4,38 +4,65 @@ import { useRef, useEffect } from 'react';
 import Typed from 'typed.js';
 import SceneMarker from '@/components/SceneMarker/SceneMarker';
 
+import settings, { MODE } from '@/config/settings';
+
 interface Props {
   className?: string;
   maginPreviewStep?: number | null;
+  onTypingComplete?: () => void;
+  useTypingAnimation?: boolean;
 }
 
 export default function Page(props: Props) {
-  const { className = '', maginPreviewStep = null } = props;
+  const {
+    className = '',
+    maginPreviewStep = null,
+    onTypingComplete = undefined,
+    useTypingAnimation = false,
+  } = props;
   const refTyped = useRef(null);
-  const typeSpeed = 33;
+  const typingSpeed = settings.mode !== MODE.DEBUG ? settings.page.typingSpeed : 0;
 
   // eslint-disable-next-line consistent-return
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
-    if (maginPreviewStep === 2) {
+    if (useTypingAnimation && maginPreviewStep === 2) {
       const typed = new Typed('#typed', {
         fadeOut: true,
         loop: false,
         stringsElement: '#typed-strings',
-        typeSpeed,
+        typeSpeed: typingSpeed,
 
         onComplete: (self) => {
           const cursor = document.querySelector('.typed-cursor') as HTMLElement;
           if (cursor) cursor.style.display = 'none';
+          if (onTypingComplete !== undefined) onTypingComplete();
         },
       });
 
       return () => {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
         typed.destroy();
       };
     }
-  }, [maginPreviewStep]);
+  }, [maginPreviewStep, onTypingComplete, typingSpeed, useTypingAnimation]);
+
+  // HACK: Had to use &nbsp instead of using css to text-indent due to limitation of typed.js
+  // OPTIMIZE: make typing animation work for any page content
+  const typedText = (
+    <span>
+      What's two plus two?
+      <br />
+      &nbsp;&nbsp;&nbsp;Something about the question irritates me. I'm tired. I drift back to sleep.
+      <br />
+      &nbsp;&nbsp;&nbsp;A few minutes pass, then I hear it again.
+      <br />
+      &nbsp;&nbsp;&nbsp;"What's two plus two?"
+      <br />
+      &nbsp;&nbsp;&nbsp;The soft, feminine voice lacks emotion and the pronunciation is identical to
+      the previous time she said it. It's a computer. A computer is hassling me. I'm even more
+      irritated now.
+    </span>
+  );
 
   // REFACTOR: step 2, 3, etc into an array
   // REFACTOR: import content from a file
@@ -43,31 +70,18 @@ export default function Page(props: Props) {
     <SceneMarker sceneNum={1} className='pl-2'>
       <h3 className='my-2 text-lg'>Chapter 1</h3>
 
-      <span ref={refTyped}>
-        {/* OPTIMIZE: create function to increase pause on every period, question, etc */}
-        {/* FIXME: typed.js intermittenly prints ^{typedPuncationMarkPause} instead of pausing.
-                  It also creates a jitter sometimes, where you can see "<" for a split second.
-                  Removing from code until we find a fix. */}
-        <span id='typed-strings'>
-          {/* HACK: Had to use &nbsp instead of using css to text-indent due to limitation of typed.js */}
-          <span>
-            What's two plus two?
-            <br />
-            &nbsp;&nbsp;&nbsp;Something about the question irritates me. I'm tired. I drift back to
-            sleep.
-            <br />
-            &nbsp;&nbsp;&nbsp;A few minutes pass, then I hear it again.
-            <br />
-            &nbsp;&nbsp;&nbsp;"What's two plus two?"
-            <br />
-            &nbsp;&nbsp;&nbsp;The soft, feminine voice lacks emotion and the pronunciation is
-            identical to the previous time she said it. It's a computer. A computer is hassling me.
-            I'm even more irritated now.
-          </span>
-        </span>
-      </span>
       <p>
-        <span id='typed' />
+        <span ref={refTyped}>
+          {/* OPTIMIZE: create function to increase pause on every period, question, etc */}
+          {/* FIXME: typed.js intermittenly prints ^{typedPuncationMarkPause} instead of pausing.
+                     It also creates a jitter sometimes, where you can see "<" for a split second.
+                     Removing from code until we find a fix. */}
+          {/* HACK: typed.js is inserting style when dynimically removing id, preventing the text
+                    from display when useTypingAnimation is false. */}
+          {useTypingAnimation && <span id='typed-strings'>{typedText}</span>}
+          {!useTypingAnimation && <span>{typedText}</span>}
+        </span>
+        {useTypingAnimation && <span id='typed' />}
       </p>
     </SceneMarker>
   );

@@ -16,6 +16,9 @@ module.exports = {
     },
 
     extend: {
+      animation: {
+        fadeIn: 'fadeIn 1s ease-in',
+      },
       colors: {
         'blue-rb-100': '#f4faff',
         'blue-rb-400': '#e4f2ff',
@@ -24,13 +27,19 @@ module.exports = {
       },
       fontFamily: { theano: ['Theano Old Style'] },
       fontSize: { xs: '0.875rem', '2xs': '0.75rem' },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: 0 },
+          '100%': { opacity: 1 },
+        },
+      },
       screens: {
         'iphone-se': { raw: '(max-height: 667px)' },
 
         'iphone-11': { raw: '(max-height: 896px)' },
         'iphone-11-pro': { raw: '(max-height: 812px)' },
         'iphone-11-pro-max': { raw: '(max-height: 896px)' },
-        
+
         'iphone-12': { raw: '(max-height: 844px)' },
         'iphone-12-pro': { raw: '(max-height: 926px)' },
         'iphone-12-mini': { raw: '(max-height: 780px)' },

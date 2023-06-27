@@ -14,7 +14,7 @@ import locale from '@/locales/en.json';
 
 export default function MarginPreview() {
   const router = useRouter();
-  const [isBookDisplayed] = useState(true);
+  const [isBookDisplayed, setBookDisplayed] = useState(false);
 
   return (
     <MainLayout canvasClassName='bg-black' className='mgn-try-magin bg-white' layoutKind='app'>
@@ -24,20 +24,32 @@ export default function MarginPreview() {
         <div className='mgn-step flex w-full flex-1 flex-col justify-between bg-yellow-rb-200 sm:max-h-[51rem] sm:max-w-[25rem]'>
           {/* HACK: have to use fixed rem for height due to mobile browsers */}
           <div className='mgn-step-top col flex flex-col justify-start h-[30rem]'>
-            <Book maginPreviewStep={2} showPageControls={false} />
+            <Book
+              maginPreviewStep={2}
+              onTypingComplete={() => setBookDisplayed(true)}
+              showPageControls={false}
+              useTypingAnimation={!isBookDisplayed}
+            />
           </div>
 
           <div className='mgn-step-middle flex flex-col items-center'>
             {/* REFACTOR: make content an optional parameter */}
             <IconGithub className='w-16' />
-            <GuideMessage className='font-bold'>{locale.guide.step2_read}</GuideMessage>
+            {!isBookDisplayed && (
+              <GuideMessage className='font-bold'>
+                {locale.guide.step2_guidedMessage[0]}
+              </GuideMessage>
+            )}
+            {isBookDisplayed && (
+              <GuideMessage className='font-bold' messages={locale.guide.step2_guidedMessage} />
+            )}
           </div>
 
           <div className='mgn-step-bottom flex flex-1 items-center'>
             {/* TODO: show on a 5 second delay */}
             {/* OPTIMIZE: figure out how to allow \n in the string and convert in to <br /> */}
-            {!isBookDisplayed && (
-              <div className='flex flex-col items-center'>
+            {isBookDisplayed && (
+              <div className='flex flex-col items-center transition-opacity animate-fadeIn'>
                 <Image
                   src='/assets/common/images/movie-screen.webp'
                   alt='people in a theatre watching a movie'
@@ -51,7 +63,7 @@ export default function MarginPreview() {
           </div>
 
           {/* REFACTOR: use next layout */}
-          {!isBookDisplayed && (
+          {isBookDisplayed && (
             <Navigation
               left={{
                 className: 'mgn-cta-secondary',

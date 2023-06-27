@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import IconGithub from '@/assets/common/icons/github-mark.svg';
 import MainLayout from '@/layouts/MainLayout';
 
-import featureFlag from '@/data/featureFlags';
+import featureFlag from '@/src/config/featureFlags';
 
 export default function Home() {
   const router = useRouter();

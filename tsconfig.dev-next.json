@@ -9,7 +9,7 @@
     "paths": {
       "@/assets/*": ["public/assets/*"],
       "@/components/*": ["src/components/*"],
-      "@/data/*": ["src/data/*"],
+      "@/config/*": ["src/config/*"],
       "@/layouts/*": ["src/layouts/*"],
       "@/locales/*": ["src/locales/*"],
       "@/src/*": ["src/*"],
