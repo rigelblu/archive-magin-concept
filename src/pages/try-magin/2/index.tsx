@@ -35,7 +35,9 @@ export default function MarginPreview() {
           <div className='mgn-step-middle flex flex-col items-center'>
             {/* REFACTOR: make content an optional parameter */}
             <IconGithub className='w-16' />
-            <GuideMessage className='font-bold'>{locale.guide.step2_read}</GuideMessage>
+            {!isBookDisplayed && (
+              <GuideMessage className='font-bold'>{locale.guide.step2_guidedMessage[0]}</GuideMessage>
+            )}
           </div>
 
           <div className='mgn-step-bottom flex flex-1 items-center'>

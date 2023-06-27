@@ -18,8 +18,7 @@
   "guide": {
     "step1_maginPresents": "magin presents",
     "step1_watchNovel": "Watch Novel",
-    "step2_read": "read this scene",
-    "step2_movieSceen": [
+    "step2_guidedMessage": [
       "read this scene",
       "and imagine",
       "you're at a movie theater",
