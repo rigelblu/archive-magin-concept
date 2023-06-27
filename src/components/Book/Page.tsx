@@ -49,18 +49,20 @@ export default function Page(props: Props) {
                   It also creates a jitter sometimes, where you can see "<" for a split second.
                   Removing from code until we find a fix. */}
         <span id='typed-strings'>
+          {/* HACK: Had to use &nbsp instead of using css to text-indent due to limitation of typed.js */}
           <p>
-            "What's two plus two?
+            &nbsp;&nbsp;&nbsp;What's two plus two?
             <br />
-            Something about the question irritates me. I'm tired. I drift back to sleep.
+            &nbsp;&nbsp;&nbsp;Something about the question irritates me. I'm tired. I drift back to
+            sleep.
             <br />
-            A few minutes pass, then I hear it again.
+            &nbsp;&nbsp;&nbsp;A few minutes pass, then I hear it again.
             <br />
-            "What's two plus two?"
+            &nbsp;&nbsp;&nbsp;"What's two plus two?"
             <br />
-            The soft, feminine voice lacks emotion and the pronunciation is identical to the
-            previous time she said it. It's a computer. A computer is hassling me. I'm even more
-            irritated now.
+            &nbsp;&nbsp;&nbsp;The soft, feminine voice lacks emotion and the pronunciation is
+            identical to the previous time she said it. It's a computer. A computer is hassling me.
+            I'm even more irritated now.
           </p>
         </span>
       </span>
