@@ -44,7 +44,7 @@ export default function Page(props: Props) {
         typed.destroy();
       };
     }
-  }, [maginPreviewStep, onTypingComplete, useTypingAnimation]);
+  }, [maginPreviewStep, onTypingComplete, typingSpeed, useTypingAnimation]);
 
   // HACK: Had to use &nbsp instead of using css to text-indent due to limitation of typed.js
   // OPTIMIZE: make typing animation work for any page content
