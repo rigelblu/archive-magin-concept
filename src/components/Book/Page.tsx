@@ -50,8 +50,8 @@ export default function Page(props: Props) {
                   Removing from code until we find a fix. */}
         <span id='typed-strings'>
           {/* HACK: Had to use &nbsp instead of using css to text-indent due to limitation of typed.js */}
-          <p>
-            &nbsp;&nbsp;&nbsp;What's two plus two?
+          <span>
+            What's two plus two?
             <br />
             &nbsp;&nbsp;&nbsp;Something about the question irritates me. I'm tired. I drift back to
             sleep.
@@ -63,10 +63,12 @@ export default function Page(props: Props) {
             &nbsp;&nbsp;&nbsp;The soft, feminine voice lacks emotion and the pronunciation is
             identical to the previous time she said it. It's a computer. A computer is hassling me.
             I'm even more irritated now.
-          </p>
+          </span>
         </span>
       </span>
-      <span id='typed' />
+      <p>
+        <span id='typed' />
+      </p>
     </SceneMarker>
   );
 
