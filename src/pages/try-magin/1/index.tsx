@@ -48,7 +48,7 @@ export default function MarginPreview() {
           {/* REFACTOR: into top, middle, button div elements, put the guide message into the bottom */}
           <GuideMessage className='flex max-h-[32rem] flex-1 items-end justify-center sm:max-h-[40rem]'>
             <h2 className='text-blue-rb-600'>
-              {locale.guide.step1_maginPresents}
+              {locale.guide.tryMagin1_maginPresents}
               <br />
               <span className='animation text-black' ref={bookTitleRef}>
                 {locale.book.title}
@@ -68,7 +68,7 @@ export default function MarginPreview() {
             }}
             right={{
               className: 'mgn-cta-primary',
-              label: locale.guide.step1_watchNovel,
+              label: locale.guide.tryMagin1_watchNovel,
               onClick: () => {
                 router.push('/try-magin/2');
               },

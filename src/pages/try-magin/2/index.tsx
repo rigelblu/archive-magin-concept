@@ -36,11 +36,14 @@ export default function MarginPreview() {
             <IconGithub className='w-16' />
             {!isBookDisplayed && (
               <GuideMessage className='font-bold'>
-                {locale.guide.step2a_guidedMessage[0]}
+                {locale.guide.tryMagin2a_guidedMessage[0]}
               </GuideMessage>
             )}
             {isBookDisplayed && (
-              <GuideMessage className='font-bold' messages={locale.guide.step2a_guidedMessage} />
+              <GuideMessage
+                className='font-bold'
+                messages={locale.guide.tryMagin2a_guidedMessage}
+              />
             )}
           </div>
 
@@ -73,7 +76,7 @@ export default function MarginPreview() {
               }}
               right={{
                 className: 'mgn-cta-primary',
-                label: locale.guide.step2a_showMe,
+                label: locale.guide.tryMagin2a_showMe,
                 onClick: () => {
                   router.push('/try-magin/3');
                 },

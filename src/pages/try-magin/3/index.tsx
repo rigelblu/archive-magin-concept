@@ -34,12 +34,11 @@ export default function MarginPreview() {
               {/* TODO: show on a 5 second delay */}
               {/* OPTIMIZE: figure out how to allow \n in the string and convert in to <br /> */}
               {/* OPTIMIZE: create a component to cycle through the array with a delay */}
-              {locale.guide.step3_1} <br />
-              {locale.guide.step3_2} <br />
+              {locale.guide.tryMagin3_guidedMessage} <br />
             </GuideMessage>
           </div>
 
-          <div className='mgn-step-bottom max-h-for-screen flex flex-1 items-center'>
+          <div className='mgn-step-bottom max-h-for-screen flex flex-1 items-center animate-fadeIn'>
             <Film className='flex-1' />
           </div>
 
@@ -54,7 +53,7 @@ export default function MarginPreview() {
             }}
             right={{
               className: 'mgn-cta-primary',
-              label: locale.guide.step2_showMe,
+              label: locale.guide.tryMagin3_nextScene,
               onClick: () => {
                 router.push('/join/1');
               },
