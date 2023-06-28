@@ -6,12 +6,13 @@ import settings from '@/config/settings';
 interface Props {
   children?: React.ReactNode; // TODO: deprecate
   className?: string;
-  messages?: string[]; // TODO: make required
+  messages?: string | string[]; // TODO: make required
 }
 
 export default function GuideMessage(props: Props) {
-  const { children = undefined, className = '', messages = [''] } = props;
+  const { children = undefined, className = '', messages = '' } = props;
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
+  const singleMessage = typeof messages === 'string';
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -33,8 +34,13 @@ export default function GuideMessage(props: Props) {
   // OPTIMIZE: make color a parm
   return (
     <div className={`mgn-guide p-1 text-center text-blue-rb-600 ${className}`}>
-      {messages.length === 1 && messages[0]}
-      {messages[currentMessageIndex]}
+      {singleMessage && messages}
+      {!singleMessage && (
+        <>
+          {messages.length === 1 && messages[0]}
+          {messages[currentMessageIndex]}
+        </>
+      )}
       {children}
     </div>
   );

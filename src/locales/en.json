@@ -16,9 +16,9 @@
     "comingSoon": "coming soon"
   },
   "guide": {
-    "step1_maginPresents": "magin presents",
-    "step1_watchNovel": "Watch Novel",
-    "step2_guidedMessage": [
+    "tryMagin1_maginPresents": "magin presents",
+    "tryMagin1_watchNovel": "Watch Novel",
+    "tryMagin2a_guidedMessage": [
       "read the scene",
       "and now imagine",
       "you're in a movie theater",
@@ -26,10 +26,11 @@
       "what would it look like",
       "on the movie screen?"
     ],
-    "step2_whatWould": "what would it look like?",
-    "step2_showMe": "Show Me",
-    "step3_1": "let's watch the next scene",
-    "step3_2": "tap the arrow on the right"
+    "tryMagin2a_showMe": "Show Me",
+    "tryMagin2b_guidedMessage": "a director might imagine it as",
+    "tryMagin2b_nextScene": "Next Scene",
+    "tryMagin4_1": "let's watch the next scene",
+    "tryMagin4_2": "tap the arrow on the right"
   },
   "join": {
     "step1_wantMore": "Want to see more",

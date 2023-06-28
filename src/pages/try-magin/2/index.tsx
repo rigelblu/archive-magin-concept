@@ -4,10 +4,11 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import Image from 'next/image';
 import Book from '@/components/Book/Book';
+import Film from '@/components/Film/Film';
 import GuideMessage from '@/components/GuideMessage';
 import Navigation from '@/components/Navigation/Navigation';
 import MainLayout from '@/layouts/MainLayout';
-import IconGithub from '@/assets/common/icons/arrow-up.svg';
+import IconUpArrow from '@/assets/common/icons/arrow-up.svg';
 
 // OPTIMIZE: read based on language
 import locale from '@/locales/en.json';
@@ -15,6 +16,7 @@ import locale from '@/locales/en.json';
 export default function MarginPreview() {
   const router = useRouter();
   const [isBookDisplayed, setBookDisplayed] = useState(false);
+  const [onNextScene, setNextScene] = useState(false);
 
   return (
     <MainLayout canvasClassName='bg-black' className='mgn-try-magin bg-white' layoutKind='app'>
@@ -33,22 +35,37 @@ export default function MarginPreview() {
 
           <div className='mgn-step-middle flex flex-col items-center'>
             {/* REFACTOR: make content an optional parameter */}
-            <IconGithub className='w-16' />
-            {!isBookDisplayed && (
-              <GuideMessage className='font-bold'>
-                {locale.guide.step2_guidedMessage[0]}
-              </GuideMessage>
+            {/* REFACTOR: make this cleaner */}
+            {!isBookDisplayed && !onNextScene && (
+              <>
+                <IconUpArrow className='w-16' />
+                <GuideMessage className='font-bold'>
+                  {locale.guide.tryMagin2a_guidedMessage[0]}
+                </GuideMessage>
+              </>
             )}
-            {isBookDisplayed && (
-              <GuideMessage className='font-bold' messages={locale.guide.step2_guidedMessage} />
+            {isBookDisplayed && !onNextScene && (
+              <>
+                <IconUpArrow className='w-16' />
+                <GuideMessage
+                  className='font-bold'
+                  messages={locale.guide.tryMagin2a_guidedMessage}
+                />
+              </>
+            )}
+            {isBookDisplayed && onNextScene && (
+              <GuideMessage
+                className='font-bold'
+                messages={locale.guide.tryMagin2b_guidedMessage}
+              />
             )}
           </div>
 
           <div className='mgn-step-bottom flex flex-1 items-center'>
             {/* TODO: show on a 5 second delay */}
             {/* OPTIMIZE: figure out how to allow \n in the string and convert in to <br /> */}
-            {isBookDisplayed && (
-              <div className='flex flex-col items-center transition-opacity animate-fadeIn'>
+            {isBookDisplayed && !onNextScene && (
+              <div className='flex flex-col items-center animate-fadeIn'>
                 <Image
                   src='/assets/common/images/movie-screen.webp'
                   alt='people in a theatre watching a movie'
@@ -58,11 +75,16 @@ export default function MarginPreview() {
                 />
               </div>
             )}
+            {isBookDisplayed && onNextScene && (
+              <div className='mgn-step-bottom max-h-for-screen flex flex-1 items-center animate-fadeIn'>
+                <Film className='flex-1' />
+              </div>
+            )}
             {/* <GuideMessage className='font-bold'>{locale.guide.step2_movieSceen}</GuideMessage> */}
           </div>
 
-          {/* REFACTOR: use next layout */}
-          {isBookDisplayed && (
+          {/* REFACTOR: make this cleaner */}
+          {isBookDisplayed && !onNextScene && (
             <Navigation
               left={{
                 className: 'mgn-cta-secondary',
@@ -73,7 +95,25 @@ export default function MarginPreview() {
               }}
               right={{
                 className: 'mgn-cta-primary',
-                label: locale.guide.step2_showMe,
+                label: locale.guide.tryMagin2a_showMe,
+                onClick: () => {
+                  setNextScene(true);
+                },
+              }}
+            />
+          )}
+          {isBookDisplayed && onNextScene && (
+            <Navigation
+              left={{
+                className: 'mgn-cta-secondary',
+                label: locale.navigation.back,
+                onClick: () => {
+                  router.push('/try-magin/1');
+                },
+              }}
+              right={{
+                className: 'mgn-cta-primary',
+                label: locale.guide.tryMagin2b_nextScene,
                 onClick: () => {
                   router.push('/try-magin/3');
                 },
