@@ -6,7 +6,7 @@ import settings from '@/config/settings';
 interface Props {
   children?: React.ReactNode; // TODO: deprecate
   className?: string;
-  messages?: string[]; // TODO: make required
+  messages?: string | string[]; // TODO: make required
 }
 
 export default function GuideMessage(props: Props) {
