@@ -26,8 +26,9 @@
       "what would it look like",
       "on the movie screen?"
     ],
-    "step2_whatWould": "what would it look like?",
-    "step2_showMe": "Show Me",
+    "step2a_showMe": "Show Me",
+    "step2b_guidedMessage": "a director might imagine it as",
+    "step2b_nextScene": "Next Scene",
     "step3_1": "let's watch the next scene",
     "step3_2": "tap the arrow on the right"
   },
