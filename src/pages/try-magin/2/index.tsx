@@ -7,7 +7,7 @@ import Book from '@/components/Book/Book';
 import GuideMessage from '@/components/GuideMessage';
 import Navigation from '@/components/Navigation/Navigation';
 import MainLayout from '@/layouts/MainLayout';
-import IconGithub from '@/assets/common/icons/arrow-up.svg';
+import IconUpArrow from '@/assets/common/icons/arrow-up.svg';
 
 // OPTIMIZE: read based on language
 import locale from '@/locales/en.json';
@@ -15,6 +15,7 @@ import locale from '@/locales/en.json';
 export default function MarginPreview() {
   const router = useRouter();
   const [isBookDisplayed, setBookDisplayed] = useState(false);
+  const [onNextScene, setNextScene] = useState(false);
 
   return (
     <MainLayout canvasClassName='bg-black' className='mgn-try-magin bg-white' layoutKind='app'>
@@ -33,7 +34,7 @@ export default function MarginPreview() {
 
           <div className='mgn-step-middle flex flex-col items-center'>
             {/* REFACTOR: make content an optional parameter */}
-            <IconGithub className='w-16' />
+            <IconUpArrow className='w-16' />
             {!isBookDisplayed && (
               <GuideMessage className='font-bold'>
                 {locale.guide.tryMagin2a_guidedMessage[0]}
