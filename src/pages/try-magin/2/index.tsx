@@ -48,7 +48,7 @@ export default function MarginPreview() {
             {/* TODO: show on a 5 second delay */}
             {/* OPTIMIZE: figure out how to allow \n in the string and convert in to <br /> */}
             {isBookDisplayed && (
-              <div className='flex flex-col items-center transition-opacity animate-fadeIn'>
+              <div className='flex flex-col items-center animate-fadeIn'>
                 <Image
                   src='/assets/common/images/movie-screen.webp'
                   alt='people in a theatre watching a movie'
@@ -73,7 +73,7 @@ export default function MarginPreview() {
               }}
               right={{
                 className: 'mgn-cta-primary',
-                label: locale.guide.step2_showMe,
+                label: locale.guide.step2a_showMe,
                 onClick: () => {
                   router.push('/try-magin/3');
                 },
