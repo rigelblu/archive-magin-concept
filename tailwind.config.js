@@ -17,7 +17,7 @@ module.exports = {
 
     extend: {
       animation: {
-        fadeIn: 'fadeIn 1s ease-in',
+        fadeIn: 'fadeIn ease-in 1s',
       },
       colors: {
         'blue-rb-100': '#f4faff',
