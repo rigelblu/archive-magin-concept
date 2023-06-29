@@ -40,6 +40,7 @@ export default function MarginPreview() {
               <>
                 <IconUpArrow className='w-16' />
                 <GuideMessage className='font-bold'>
+                  {/* eslint-disable-next-line @typescript-eslint/no-unsafe-member-access */}
                   {locale.guide.tryMagin2a_guidedMessage[0]}
                 </GuideMessage>
               </>
@@ -49,6 +50,7 @@ export default function MarginPreview() {
                 <IconUpArrow className='w-16' />
                 <GuideMessage
                   className='font-bold'
+                  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                   messages={locale.guide.tryMagin2a_guidedMessage}
                 />
               </>
@@ -56,6 +58,7 @@ export default function MarginPreview() {
             {isBookDisplayed && onNextScene && (
               <GuideMessage
                 className='font-bold'
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                 messages={locale.guide.tryMagin2b_guidedMessage}
               />
             )}
