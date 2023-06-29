@@ -19,13 +19,13 @@ export default function PageControl(props: Props) {
   // TODO: style chevron in blue-rb-600 and background in blue-rb-lighter
   return (
     <Button
-      className={`mgn-page-control p-button-text h-4 max-w-max ${className}`}
+      className={`mgn-page-control ${className}`}
       aria-label={action}
       disabled={!isShown}
       onClick={onClick}
     >
-      {isShown && action === 'prev' && <IconArrowLeft className='w-auto h-auto' />}
-      {isShown && action === 'next' && <IconArrowRight className='w-auto h-auto' />}
+      {isShown && action === 'prev' && <IconArrowLeft className='w-3' />}
+      {isShown && action === 'next' && <IconArrowRight className='w-3' />}
     </Button>
   );
 }
