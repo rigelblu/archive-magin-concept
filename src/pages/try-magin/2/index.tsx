@@ -98,6 +98,7 @@ export default function MarginPreview() {
               }}
               right={{
                 className: 'mgn-cta-primary',
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                 label: locale.guide.tryMagin2a_showMe,
                 onClick: () => {
                   setNextScene(true);
@@ -116,6 +117,7 @@ export default function MarginPreview() {
               }}
               right={{
                 className: 'mgn-cta-primary',
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                 label: locale.guide.tryMagin2b_nextScene,
                 onClick: () => {
                   router.push('/try-magin/3');
