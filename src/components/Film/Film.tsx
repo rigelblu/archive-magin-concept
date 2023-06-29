@@ -3,9 +3,9 @@
 import PageControl from '@/components/PageControl/PageControl';
 import ScenePanel from './ScenePanel';
 
-interface Props {
+type Props = {
   className?: string;
-}
+};
 
 export default function Film(props: Props) {
   const { className = '' } = props;
