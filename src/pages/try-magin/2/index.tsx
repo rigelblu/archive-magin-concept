@@ -83,7 +83,6 @@ export default function MarginPreview() {
                 <Film className='flex-1' />
               </div>
             )}
-            {/* <GuideMessage className='font-bold'>{locale.guide.step2_movieSceen}</GuideMessage> */}
           </div>
 
           {/* REFACTOR: make this cleaner */}
