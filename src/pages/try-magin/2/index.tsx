@@ -83,7 +83,7 @@ export default function MarginPreview() {
                 <Film
                   className='flex-1'
                   onNext={() => {
-                    setNextScene(true);
+                    router.push('/try-magin/3');
                   }}
                   onPrev={() => {}}
                   showPrev={false}
