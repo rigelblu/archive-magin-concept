@@ -40,6 +40,7 @@ export default function MarginPreview() {
               <>
                 <IconUpArrow className='w-16' />
                 <GuideMessage className='font-bold'>
+                  {/* eslint-disable-next-line @typescript-eslint/no-unsafe-member-access */}
                   {locale.guide.tryMagin2a_guidedMessage[0]}
                 </GuideMessage>
               </>
@@ -49,6 +50,7 @@ export default function MarginPreview() {
                 <IconUpArrow className='w-16' />
                 <GuideMessage
                   className='font-bold'
+                  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                   messages={locale.guide.tryMagin2a_guidedMessage}
                 />
               </>
@@ -56,6 +58,7 @@ export default function MarginPreview() {
             {isBookDisplayed && onNextScene && (
               <GuideMessage
                 className='font-bold'
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                 messages={locale.guide.tryMagin2b_guidedMessage}
               />
             )}
@@ -77,10 +80,17 @@ export default function MarginPreview() {
             )}
             {isBookDisplayed && onNextScene && (
               <div className='mgn-step-bottom max-h-for-screen flex flex-1 items-center animate-fadeIn'>
-                <Film className='flex-1' />
+                <Film
+                  className='flex-1'
+                  onNext={() => {
+                    router.push('/try-magin/3');
+                  }}
+                  onPrev={() => {}}
+                  showPrev={false}
+                  showNext
+                />
               </div>
             )}
-            {/* <GuideMessage className='font-bold'>{locale.guide.step2_movieSceen}</GuideMessage> */}
           </div>
 
           {/* REFACTOR: make this cleaner */}
@@ -95,6 +105,7 @@ export default function MarginPreview() {
               }}
               right={{
                 className: 'mgn-cta-primary',
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                 label: locale.guide.tryMagin2a_showMe,
                 onClick: () => {
                   setNextScene(true);
@@ -113,6 +124,7 @@ export default function MarginPreview() {
               }}
               right={{
                 className: 'mgn-cta-primary',
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                 label: locale.guide.tryMagin2b_nextScene,
                 onClick: () => {
                   router.push('/try-magin/3');
