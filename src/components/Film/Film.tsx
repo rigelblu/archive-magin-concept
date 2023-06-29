@@ -7,6 +7,7 @@ type Props = {
   className?: string;
   onNext: () => void;
   onPrev: () => void;
+  // REFACTOR: make showPrev showNext on by default. Make it optional to turn off
   showPrev: boolean;
   showNext: boolean;
 };
