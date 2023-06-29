@@ -24,6 +24,7 @@ export default function PageControl(props: Props) {
       disabled={!isShown}
       onClick={onClick}
     >
+      {!isShown && <span className='w-3' />}
       {isShown && action === 'prev' && <IconArrowLeft className='w-3' />}
       {isShown && action === 'next' && <IconArrowRight className='w-3' />}
     </Button>
