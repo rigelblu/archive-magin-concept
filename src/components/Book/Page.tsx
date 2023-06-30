@@ -88,20 +88,21 @@ export default function Page(props: Props) {
     </>
   );
 
-  const contentScene2 = (
+  const contentScene1and2 = (
     // REFACTOR: add shot number
     <>
-      <SceneMarker className='pl-2'>
+      <div className='pl-2'>
         <p>"What's two plus two?"</p>
         <p>Something about the question irritates me. I'm tired. I drift back to sleep.</p>
-      </SceneMarker>
-      <SceneMarker className='pl-2'>
         <p>A few minutes pass, then I hear it again.</p>
         <p>"What's two plus two?"</p>
         <p>
           The soft, feminine voice lacks emotion and the pronunciation is identical to the previous
           time she said it. It's a computer. A computer is hassling me. I'm even more irritated now.
         </p>
+      </div>
+
+      <SceneMarker>
         <p>
           "Lrmln," I say. I'm surprised. I meant to say "Leave me alone"—a completely reasonable
           response in my opinion—but I failed to speak.
@@ -155,8 +156,8 @@ export default function Page(props: Props) {
     case 1:
       content = contentScene1;
       break;
-    case 3:
-      content = contentScene2;
+    case 2:
+      content = contentScene1and2;
       break;
     default:
       content = contentScene3;
