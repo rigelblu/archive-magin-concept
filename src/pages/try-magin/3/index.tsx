@@ -1,7 +1,6 @@
 // Copyright rigélblu inc.
 // All rigts reserve
 import { useRouter } from 'next/router';
-import { useState } from 'react';
 
 import Book from '@/components/Book/Book';
 import Film from '@/components/Film/Film';
@@ -16,7 +15,6 @@ import styles from '../try-magin.module.scss';
 
 export default function MarginPreview() {
   const router = useRouter();
-  const [sceneNum, setSceneNum] = useState(2);
 
   return (
     <MainLayout canvasClassName='bg-black' className='mgn-try-magin bg-white' layoutKind='app'>
