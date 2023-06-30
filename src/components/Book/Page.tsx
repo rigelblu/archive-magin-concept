@@ -49,6 +49,7 @@ export default function Page(props: Props) {
 
   // HACK: Had to use &nbsp instead of using css to text-indent due to limitation of typed.js
   // OPTIMIZE: make typing animation work for any page content
+  // OPTIMIZE: move content into data file / firebase
   const contentScene1Typed = (
     <span>
       &nbsp;What's two plus two?
