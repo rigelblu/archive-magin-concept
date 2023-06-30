@@ -8,15 +8,15 @@ import locale from '@/locales/en.json';
 
 type Props = {
   className?: string;
-  sceneNum: number;
+  scene: number;
 };
 
 export default function ScenePanel(props: Props) {
-  const { className = '', sceneNum } = props;
+  const { className = '', scene } = props;
   let src = '';
   let alt = '';
 
-  switch (sceneNum) {
+  switch (scene) {
     case 1:
       src = '/assets/common/images/storyboard-panel-1.webp';
       alt =
@@ -33,7 +33,7 @@ export default function ScenePanel(props: Props) {
     <div className={`mgn-scenepanel outline rounded-lg p-1 mb-2 w-full ${className}`}>
       {/* OPTIMIZE: find better font */}
       <div className='text-2xs'>
-        {locale.film.scene}: {sceneNum}
+        {locale.film.scene}: {scene}
       </div>
       <hr className='border-1 border-black my-1 py-1' />
       <SceneMarker>

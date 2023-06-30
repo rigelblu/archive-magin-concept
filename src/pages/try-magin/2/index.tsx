@@ -16,7 +16,7 @@ import locale from '@/locales/en.json';
 export default function MarginPreview() {
   const router = useRouter();
   const [isBookDisplayed, setBookDisplayed] = useState(false);
-  const [sceneNum, setSceneNum] = useState(0);
+  const [scene, setScene] = useState(0);
 
   return (
     <MainLayout canvasClassName='bg-black' className='mgn-try-magin bg-white' layoutKind='app'>
@@ -28,7 +28,7 @@ export default function MarginPreview() {
           <div className='mgn-step-top col flex flex-col justify-start h-[30rem]'>
             <Book
               onTypingComplete={() => setBookDisplayed(true)}
-              sceneNum={sceneNum}
+              scene={scene}
               useTypingAnimation={!isBookDisplayed}
             />
           </div>
@@ -36,7 +36,7 @@ export default function MarginPreview() {
           <div className='mgn-step-middle flex flex-col items-center'>
             {/* REFACTOR: make content an optional parameter */}
             {/* REFACTOR: make this cleaner */}
-            {!isBookDisplayed && sceneNum === 0 && (
+            {!isBookDisplayed && scene === 0 && (
               <>
                 <IconUpArrow className='w-16' />
                 <GuideMessage className='font-bold'>
@@ -45,7 +45,7 @@ export default function MarginPreview() {
                 </GuideMessage>
               </>
             )}
-            {isBookDisplayed && sceneNum === 0 && (
+            {isBookDisplayed && scene === 0 && (
               <>
                 <IconUpArrow className='w-16' />
                 <GuideMessage
@@ -55,7 +55,7 @@ export default function MarginPreview() {
                 />
               </>
             )}
-            {isBookDisplayed && sceneNum !== 0 && (
+            {isBookDisplayed && scene !== 0 && (
               <GuideMessage
                 className='font-bold'
                 // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
@@ -67,7 +67,7 @@ export default function MarginPreview() {
           <div className='mgn-step-bottom flex flex-1 items-center'>
             {/* TODO: show on a 5 second delay */}
             {/* OPTIMIZE: figure out how to allow \n in the string and convert in to <br /> */}
-            {isBookDisplayed && sceneNum === 0 && (
+            {isBookDisplayed && scene === 0 && (
               <div className='flex flex-col items-center animate-fadeIn'>
                 <Image
                   src='/assets/common/images/movie-screen.webp'
@@ -78,7 +78,7 @@ export default function MarginPreview() {
                 />
               </div>
             )}
-            {isBookDisplayed && sceneNum !== 0 && (
+            {isBookDisplayed && scene !== 0 && (
               <div className='mgn-step-bottom max-h-for-screen flex flex-1 items-center animate-fadeIn'>
                 <Film
                   className='flex-1'
@@ -86,7 +86,7 @@ export default function MarginPreview() {
                     router.push('/try-magin/3');
                   }}
                   onPrev={() => {}}
-                  sceneNum={sceneNum}
+                  scene={scene}
                   showPrev={false}
                   showNext
                 />
@@ -95,7 +95,7 @@ export default function MarginPreview() {
           </div>
 
           {/* REFACTOR: make this cleaner */}
-          {isBookDisplayed && sceneNum === 0 && (
+          {isBookDisplayed && scene === 0 && (
             <Navigation
               left={{
                 className: 'mgn-cta-secondary',
@@ -109,12 +109,12 @@ export default function MarginPreview() {
                 // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                 label: locale.guide.tryMagin2a_showMe,
                 onClick: () => {
-                  setSceneNum(sceneNum + 1);
+                  setScene(scene + 1);
                 },
               }}
             />
           )}
-          {isBookDisplayed && sceneNum !== 0 && (
+          {isBookDisplayed && scene !== 0 && (
             <Navigation
               left={{
                 className: 'mgn-cta-secondary',
