@@ -36,6 +36,9 @@ if ! git diff --cached --quiet -- ci/cloudbuild; then
   gcloud builds submit --config ci/cloudbuild .
 fi
 
-# TODO: in the future, only run integration tests
-pnpm lint
+# Run lint if a build wasn't already triggered
+if git diff --cached --quiet -- "${FILES[@]}" ; then
+  pnpm lint
+fi
+
 pnpm test
