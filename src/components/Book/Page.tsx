@@ -51,7 +51,7 @@ export default function Page(props: Props) {
   // OPTIMIZE: make typing animation work for any page content
   const contentScene1Typed = (
     <span>
-      What's two plus two?
+      &nbsp;What's two plus two?
       <br />
       &nbsp;&nbsp;&nbsp;Something about the question irritates me. I'm tired. I drift back to sleep.
       <br />
