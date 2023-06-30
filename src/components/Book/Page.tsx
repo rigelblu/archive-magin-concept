@@ -69,7 +69,7 @@ export default function Page(props: Props) {
   // REFACTOR: step 2, 3, etc into an array
   // REFACTOR: import content from a file
   const contentScene1 = (
-    <SceneMarker className='pl-2'>
+    <>
       <h3 className='my-2 text-lg'>Chapter 1</h3>
 
       <p>
@@ -81,11 +81,11 @@ export default function Page(props: Props) {
           {/* HACK: typed.js is inserting style when dynimically removing id, preventing the text
                     from display when useTypingAnimation is false. */}
           {useTypingAnimation && <span id='typed-strings'>{contentScene1Typed}</span>}
-          {!useTypingAnimation && <span>{contentScene1Typed}</span>}
+          {!useTypingAnimation && <SceneMarker className='pl-2'>{contentScene1Typed}</SceneMarker>}
         </span>
-        {useTypingAnimation && <span id='typed' />}
+        {useTypingAnimation && <span id='typed' className='pl-2' />}
       </p>
-    </SceneMarker>
+    </>
   );
 
   const contentScene2 = (
