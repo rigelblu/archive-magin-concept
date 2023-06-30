@@ -13,7 +13,7 @@ export default function SceneMarker(props: Props) {
 
   return (
     <div
-      className={`${styles['mgn-scenemarker']} my-1 border-left-2 border-l-blue-rb-600 ${className}`}
+      className={`${styles['mgn-scenemarker']} pl-1 border-l-2 border-l-blue-rb-600 ${className}`}
     >
       {children}
     </div>
