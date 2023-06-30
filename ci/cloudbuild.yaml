@@ -69,3 +69,7 @@ steps:
         then
           gcloud run services update-traffic ${_SERVICE_NAME} --region ${_REGION} --to-latest
         fi
+
+tags:
+  - '${_SERVICE_NAME}'
+  - '${_TRIGGER_REASON}'
