@@ -3,7 +3,7 @@
 import { useRouter } from 'next/router';
 
 import Book from '@/components/Book/Book';
-// import Film from '@/components/Film/Film';
+import Film from '@/components/Film/Film';
 import GuideMessage from '@/components/GuideMessage';
 import Navigation from '@/components/Navigation/Navigation';
 import MainLayout from '@/layouts/MainLayout';
@@ -30,38 +30,43 @@ export default function MarginPreview() {
           </div>
 
           <div className='mgn-step-middle'>
-            <GuideMessage className='font-bold'>
-              {/* TODO: show on a 5 second delay */}
-              {/* OPTIMIZE: figure out how to allow \n in the string and convert in to <br /> */}
-              {/* OPTIMIZE: create a component to cycle through the array with a delay */}
-              {locale.guide.tryMagin4_1} <br />
-            </GuideMessage>
+            {/* TODO: show on a 5 second delay */}
+            {/* OPTIMIZE: figure out how to allow \n in the string and convert in to <br /> */}
+            {/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */}
+            <GuideMessage className='font-bold' messages={locale.guide.tryMagin3a_guidedMessage} />
           </div>
 
           <div className='mgn-step-bottom max-h-for-screen flex flex-1 items-center animate-fadeIn'>
-            {/* HACK: temporarily disable */}
-            {/* <Film className='flex-1' /> */}
+            <Film
+              className='flex-1'
+              onNext={() => {
+                router.push('/try-magin/3');
+              }}
+              onPrev={() => {}}
+              showPrev
+              showNext
+            />
           </div>
 
           {/* HACK: temporarily disable */}
-          {false && (
-            <Navigation
-              left={{
-                className: 'mgn-cta-secondary',
-                label: locale.navigation.back,
-                onClick: () => {
-                  router.push('/try-magin/2');
-                },
-              }}
-              right={{
-                className: 'mgn-cta-primary',
-                label: locale.guide.tryMagin4_2,
-                onClick: () => {
-                  router.push('/join/1');
-                },
-              }}
-            />
-          )}
+
+          <Navigation
+            left={{
+              className: 'mgn-cta-secondary',
+              label: locale.navigation.back,
+              onClick: () => {
+                router.push('/try-magin/2');
+              },
+            }}
+            right={{
+              className: 'mgn-cta-primary',
+              // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+              label: locale.guide.tryMagin3a_nextScene,
+              onClick: () => {
+                router.push('/join/1');
+              },
+            }}
+          />
         </div>
       </div>
     </MainLayout>

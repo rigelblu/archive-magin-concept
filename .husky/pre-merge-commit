@@ -4,26 +4,41 @@
 
 . "$(dirname -- "$0")/_/husky.sh"
 
+set -a
+. ./.env.development
+set +a
+
 # Require pull request
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
+PROTECTED_BRANCH="main"
 
-if [ "$BRANCH" = "main" ]; then
+if [ "$BRANCH" = "$PROTECTED_BRANCH" ]; then
   echo "You can't merge directly to main branch. Submit a pull request"
   exit 1
 fi
 
-# Trigger builds
+# Conditionally trigger builds
+# TODO: in the future, only run these CI/CD system
 FILES=( ".dockerignore" ".eslint*" ".linkstagerc.js" ".stylelintrc.js" "additional.d.ts" )
 FILES+=( "docker-compose.yml" "Dockerfile" "next-env.d.ts" "next.config.js" "package.json" )
 FILES+=( "postcss.config.js" "server.js" "tailwind.config.js" "tsconfig*" "tsconfigs/*" "pnpm-lock.yaml" )
 
-if [ git diff --cached --quiet -- $FILES ]; then
+if ! git diff --cached --quiet -- "${FILES[@]}"; then
   pnpm build
 fi
 
-if [ git diff --cached --quiet -- Dockerfile ]; then
+if ! git diff --cached --quiet -- Dockerfile; then
   docker-compose build; docker-compose up -d
 fi
 
-# TODO: enable once we add unit tests
+if ! git diff --cached --quiet -- ci/cloudbuild; then
+  gcloud config set project $PROJECT_ID
+  gcloud builds submit --config ci/cloudbuild .
+fi
+
+# Run lint if a build wasn't already triggered
+if git diff --cached --quiet -- "${FILES[@]}" ; then
+  pnpm lint
+fi
+
 pnpm test

@@ -5,8 +5,9 @@
 . "$(dirname "$0")/_/husky.sh"
 
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
+PROTECTED_BRANCH="main"
 
-if [ "$BRANCH" = "main" ]; then
+if [ "$BRANCH" = "$PROTECTED_BRANCH" ]; then
   echo "You can't commit directly to main branch"
   exit 1
 fi

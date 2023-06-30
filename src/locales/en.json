@@ -9,7 +9,8 @@
     "next": "Next Scene"
   },
   "film": {
-    "scene": "SCENE"
+    "scene": "SCENE",
+    "currentScene": "Current Scene"
   },
   "general": {
     "magin": "magin",
@@ -29,8 +30,13 @@
     "tryMagin2a_showMe": "Show Me",
     "tryMagin2b_guidedMessage": "a director might imagine it as",
     "tryMagin2b_nextScene": "Next Scene",
-    "tryMagin4_1": "let's watch the next scene",
-    "tryMagin4_2": "tap the arrow on the right"
+    "tryMagin3a_guidedMessage": [
+      "the blue line indicates the current scene",
+      "when you're ready",
+      "to watch the next scene",
+      "tap the arrow on the right"
+    ],
+    "tryMagin3a_nextScene": "Next Scene"
   },
   "join": {
     "step1_wantMore": "Want to see more",

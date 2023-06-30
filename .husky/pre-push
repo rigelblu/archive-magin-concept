@@ -4,8 +4,13 @@
 
 . "$(dirname "$0")/_/husky.sh"
 
-BRANCH=$(git rev-parse --abbrev-ref HEAD)
+set -e
 
-if [ "$BRANCH" = "main" ]; then
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+PROTECTED_BRANCH="main"
+
+if [ "$BRANCH" = "$PROTECTED_BRANCH" ]; then
+  pnpm lint
+  pnpm test
   pnpm build:ssg
 fi
