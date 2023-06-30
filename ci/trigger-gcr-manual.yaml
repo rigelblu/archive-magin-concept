@@ -22,6 +22,4 @@ substitutions:
   _REGION: us-central1
   _SERVICE_NAME: <add>
   _TRAFFIC_TO_LATEST: 'false'
-tags:
-  - magin-public-site
-  - branch-manual
+  _TRIGGER_REASON: branch-manual

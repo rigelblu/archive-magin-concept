@@ -19,6 +19,4 @@ substitutions:
   _REGION: us-central1
   _SERVICE_NAME: mgn-public-site
   _TRAFFIC_TO_LATEST: 'false'
-tags:
-  - magin-public-site
-  - continuous-delivery-release
+  _TRIGGER_REASON: continuous-delivery-release
