@@ -8,11 +8,11 @@ import locale from '@/locales/en.json';
 
 type Props = {
   className?: string;
+  sceneNum: number;
 };
 
 export default function ScenePanel(props: Props) {
-  const { className = '' } = props;
-  const sceneNum = 1;
+  const { className = '', sceneNum } = props;
 
   return (
     <div className={`mgn-scenepanel outline rounded-lg p-1 mb-2 w-full ${className}`}>
