@@ -13,6 +13,21 @@ type Props = {
 
 export default function ScenePanel(props: Props) {
   const { className = '', sceneNum } = props;
+  let src = '';
+  let alt = '';
+
+  switch (sceneNum) {
+    case 1:
+      src = '/assets/common/images/storyboard-panel-1.webp';
+      alt =
+        'An overhead, close up shot of a tired person lying down, head falling asleep with eyes slightly open and irritated in a very dark room.';
+      break;
+    case 2:
+      src = '/assets/common/images/storyboard-panel-2.webp';
+      alt = 'close up, head shot person trying to talk';
+      break;
+    default:
+  }
 
   return (
     <div className={`mgn-scenepanel outline rounded-lg p-1 mb-2 w-full ${className}`}>
@@ -25,8 +40,8 @@ export default function ScenePanel(props: Props) {
         {/* OPTIMIZE: load image cdn */}
         {/* OPTIMIZE: create SceneImage component, accept alt and src props */}
         <Image
-          src='/assets/common/images/storyboard-panel-1.webp'
-          alt='An overhead, close up shot of a tired person lying down, head falling asleep with eyes slightly open and irritated in a very dark room.'
+          src={src}
+          alt={alt}
           className='w-auto h-auto mx-auto !object-scale-down'
           width={330}
           height={270}
