@@ -1,3 +1,6 @@
+# Copyright rigélblu inc.
+# All rights reserved.
+
 approvalConfig:
   approvalRequired: true
 description: mgn / concept / gcr / pull-request
@@ -7,15 +10,18 @@ github:
   owner: rigelblu
   pullRequest:
     branch: .*
-    commentControl: COMMENTS_ENABLED
+    commentControl: COMMENTS_ENABLED_FOR_EXTERNAL_CONTRIBUTORS_ONLY
 name: mgn-site-gcr-pr
 substitutions:
   _ARTIFACT: us-central1-docker.pkg.dev
   _DEPLOY_TAG: staging
-  _ENV_ANALYTICS_ID: ''
-  _ENV_NODE_ENV: ''
+  _ENV_ANALYTICS_ID: G-867B5HDFZ4
+  _ENV_NODE_ENV: production
   _MAX_INSTANCES: '1'
   _MIN_INSTANCES: '0'
   _REGION: us-central1
   _SERVICE_NAME: mgn-public-site
   _TRAFFIC_TO_LATEST: 'false'
+tags:
+  - magin-public-site
+  - pull-request
