@@ -27,8 +27,8 @@ export default function MarginPreview() {
           {/* HACK: have to use fixed rem for height due to mobile browsers */}
           <div className='mgn-step-top col flex flex-col justify-start h-[30rem]'>
             <Book
-              maginPreviewStep={2}
               onTypingComplete={() => setBookDisplayed(true)}
+              sceneNum={sceneNum}
               useTypingAnimation={!isBookDisplayed}
             />
           </div>

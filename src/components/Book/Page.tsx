@@ -8,16 +8,16 @@ import settings, { MODE } from '@/config/settings';
 
 interface Props {
   className?: string;
-  maginPreviewStep?: number | null;
   onTypingComplete?: () => void;
+  sceneNum: number;
   useTypingAnimation?: boolean;
 }
 
 export default function Page(props: Props) {
   const {
     className = '',
-    maginPreviewStep = null,
     onTypingComplete = undefined,
+    sceneNum,
     useTypingAnimation = false,
   } = props;
   const refTyped = useRef(null);
@@ -26,7 +26,8 @@ export default function Page(props: Props) {
   // eslint-disable-next-line consistent-return
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
-    if (useTypingAnimation && maginPreviewStep === 2) {
+    // HACk: typing animation is only supported on the first scene since typed.js doesn't support multiple <p> strings
+    if (useTypingAnimation && sceneNum === 0) {
       const typed = new Typed('#typed', {
         fadeOut: true,
         loop: false,
@@ -44,11 +45,11 @@ export default function Page(props: Props) {
         typed.destroy();
       };
     }
-  }, [maginPreviewStep, onTypingComplete, typingSpeed, useTypingAnimation]);
+  }, [onTypingComplete, sceneNum, typingSpeed, useTypingAnimation]);
 
   // HACK: Had to use &nbsp instead of using css to text-indent due to limitation of typed.js
   // OPTIMIZE: make typing animation work for any page content
-  const typedText = (
+  const contentScene1Typed = (
     <span>
       What's two plus two?
       <br />
@@ -66,34 +67,34 @@ export default function Page(props: Props) {
 
   // REFACTOR: step 2, 3, etc into an array
   // REFACTOR: import content from a file
-  const contentMaginPreviewStep2 = (
-    <SceneMarker sceneNum={1} className='pl-2'>
+  const contentScene1 = (
+    <SceneMarker className='pl-2'>
       <h3 className='my-2 text-lg'>Chapter 1</h3>
 
       <p>
         <span ref={refTyped}>
           {/* OPTIMIZE: create function to increase pause on every period, question, etc */}
           {/* FIXME: typed.js intermittenly prints ^{typedPuncationMarkPause} instead of pausing.
-                     It also creates a jitter sometimes, where you can see "<" for a split second.
-                     Removing from code until we find a fix. */}
+                    It also creates a jitter sometimes, where you can see "<" for a split second.
+                    Removing from code until we find a fix. */}
           {/* HACK: typed.js is inserting style when dynimically removing id, preventing the text
                     from display when useTypingAnimation is false. */}
-          {useTypingAnimation && <span id='typed-strings'>{typedText}</span>}
-          {!useTypingAnimation && <span>{typedText}</span>}
+          {useTypingAnimation && <span id='typed-strings'>{contentScene1Typed}</span>}
+          {!useTypingAnimation && <span>{contentScene1Typed}</span>}
         </span>
         {useTypingAnimation && <span id='typed' />}
       </p>
     </SceneMarker>
   );
 
-  const contentMaginPreviewStep3 = (
+  const contentScene2 = (
     // REFACTOR: add shot number
     <>
-      <SceneMarker sceneNum={1} className='pl-2'>
+      <SceneMarker className='pl-2'>
         <p>"What's two plus two?"</p>
         <p>Something about the question irritates me. I'm tired. I drift back to sleep.</p>
       </SceneMarker>
-      <SceneMarker sceneNum={2} className='pl-2'>
+      <SceneMarker className='pl-2'>
         <p>A few minutes pass, then I hear it again.</p>
         <p>"What's two plus two?"</p>
         <p>
@@ -109,16 +110,16 @@ export default function Page(props: Props) {
     </>
   );
 
-  const projectHailMary = (
+  const contentScene3 = (
     <>
       {/* REFACTOR: accept the content from a parameter */}
       <p>Chapter 1</p>
-      <SceneMarker sceneNum={1} className='pl-2'>
+      <SceneMarker className='pl-2'>
         <p>"What's two plus two?"</p>
         <p>Something about the question irritates me. I'm tired. I drift back to sleep.</p>
       </SceneMarker>
 
-      <SceneMarker sceneNum={2} className='pl-2'>
+      <SceneMarker className='pl-2'>
         <p>A few minutes pass, then I hear it again.</p>
         <p>"What's two plus two?"</p>
         <p>
@@ -132,7 +133,7 @@ export default function Page(props: Props) {
         <p>"Incorrect," says the computer. "What's two plus two?"</p>
       </SceneMarker>
 
-      <SceneMarker sceneNum={3} className='pl-2'>
+      <SceneMarker className='pl-2'>
         <p>Time for an experiment. I'll try to say hello.</p>
         <p>"Hlllch?" I say.</p>
         <p>"Incorrect. What's two plus two?"</p>
@@ -146,15 +147,18 @@ export default function Page(props: Props) {
   );
 
   let content: React.ReactElement;
-  switch (maginPreviewStep) {
-    case 2:
-      content = contentMaginPreviewStep2;
+  switch (sceneNum) {
+    case 0:
+      content = contentScene1;
+      break;
+    case 1:
+      content = contentScene1;
       break;
     case 3:
-      content = contentMaginPreviewStep3;
+      content = contentScene2;
       break;
     default:
-      content = projectHailMary;
+      content = contentScene3;
   }
 
   return (

@@ -6,16 +6,16 @@ import Page from './Page';
 
 interface Props {
   className?: string;
-  maginPreviewStep?: number | null; // REFACTOR: create a seperate component, that wraps this one
   onTypingComplete?: () => void;
+  sceneNum: number;
   useTypingAnimation?: boolean;
 }
 
 export default function Book(props: Props) {
   const {
     className = '',
-    maginPreviewStep = null,
     onTypingComplete = undefined,
+    sceneNum,
     useTypingAnimation = false,
   } = props;
 
@@ -24,8 +24,8 @@ export default function Book(props: Props) {
       <div className='w-full'>
         <h2 className='mb-2 text-2xs text-center text-gray-500'>{locale.book.title}</h2>
         <Page
-          maginPreviewStep={maginPreviewStep}
           onTypingComplete={onTypingComplete}
+          sceneNum={sceneNum}
           useTypingAnimation={useTypingAnimation}
         />
       </div>
