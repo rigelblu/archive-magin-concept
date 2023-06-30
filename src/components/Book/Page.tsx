@@ -114,14 +114,11 @@ export default function Page(props: Props) {
 
   const contentScene3 = (
     <>
-      {/* REFACTOR: accept the content from a parameter */}
-      <p>Chapter 1</p>
-      <SceneMarker className='pl-2'>
+      <div className='pl-2'>
+        <p>Chapter 1</p>
         <p>"What's two plus two?"</p>
         <p>Something about the question irritates me. I'm tired. I drift back to sleep.</p>
-      </SceneMarker>
 
-      <SceneMarker className='pl-2'>
         <p>A few minutes pass, then I hear it again.</p>
         <p>"What's two plus two?"</p>
         <p>
@@ -133,7 +130,7 @@ export default function Page(props: Props) {
           response in my opinion—but I failed to speak.
         </p>
         <p>"Incorrect," says the computer. "What's two plus two?"</p>
-      </SceneMarker>
+      </div>
 
       <SceneMarker className='pl-2'>
         <p>Time for an experiment. I'll try to say hello.</p>
