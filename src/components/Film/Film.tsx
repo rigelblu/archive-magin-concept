@@ -7,7 +7,7 @@ type Props = {
   className?: string;
   onNext: () => void;
   onPrev: () => void;
-  sceneNum: number;
+  sceneNum: number; // TODO: show PageControls based on first and last scene number
   // REFACTOR: make showPrev showNext on by default. Make it optional to turn off
   showPrev: boolean;
   showNext: boolean;

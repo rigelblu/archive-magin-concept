@@ -21,7 +21,7 @@ export default function ScenePanel(props: Props) {
         {locale.film.scene}: {sceneNum}
       </div>
       <hr className='border-1 border-black my-1 py-1' />
-      <SceneMarker sceneNum={sceneNum}>
+      <SceneMarker>
         {/* OPTIMIZE: load image cdn */}
         {/* OPTIMIZE: create SceneImage component, accept alt and src props */}
         <Image
