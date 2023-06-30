@@ -87,8 +87,6 @@ export default function MarginPreview() {
                   }}
                   onPrev={() => {}}
                   scene={scene}
-                  showPrev={false}
-                  showNext
                 />
               </div>
             )}
