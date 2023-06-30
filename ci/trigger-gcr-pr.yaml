@@ -14,7 +14,7 @@ github:
 name: mgn-site-gcr-pr
 substitutions:
   _ARTIFACT: us-central1-docker.pkg.dev
-  _DEPLOY_TAG: staging
+  _DEPLOY_TAG: pull-request
   _ENV_ANALYTICS_ID: G-867B5HDFZ4
   _ENV_NODE_ENV: production
   _MAX_INSTANCES: '1'
@@ -22,6 +22,4 @@ substitutions:
   _REGION: us-central1
   _SERVICE_NAME: mgn-public-site
   _TRAFFIC_TO_LATEST: 'false'
-tags:
-  - magin-public-site
-  - pull-request
+  _TRIGGER_REASON: pull-request

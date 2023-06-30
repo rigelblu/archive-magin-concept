@@ -11,7 +11,7 @@ github:
 name: mgn-site-gcr-tag
 substitutions:
   _ARTIFACT: us-central1-docker.pkg.dev
-  _DEPLOY_TAG: branch-tagged
+  _DEPLOY_TAG: branch-tag
   _ENV_ANALYTICS_ID: G-VSBDW9PNSD
   _ENV_NODE_ENV: production
   _MAX_INSTANCES: '1'
@@ -19,6 +19,4 @@ substitutions:
   _REGION: us-central1
   _SERVICE_NAME: mgn-public-site
   _TRAFFIC_TO_LATEST: 'false'
-tags:
-  - magin-public-site
-  - branch-tagged
+  _TRIGGER_REASON: branch-tag
