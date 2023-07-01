@@ -63,6 +63,17 @@ export default function Page(props: Props) {
     </div>,
   ];
 
+  // REFACTOR: add shot number
+  function getContent(sceneStart: number, sceneEnd: number, sceneCurrent: number): React.ReactNode {
+    const content = [...contentScenes];
+    content[sceneCurrent] = <SceneMarker>{content[sceneCurrent]}</SceneMarker>;
+
+    const chapter = [content[0]];
+    const pageContent = content.slice(sceneStart, sceneEnd + 1);
+
+    return <>{chapter.concat(pageContent)}</>;
+  }
+  
   // HACK: Had to use &nbsp instead of using css to text-indent due to limitation of typed.js, could to str replace too
   // OPTIMIZE: make typing animation work for any page content
   // OPTIMIZE: move content into data file / firebase
@@ -127,17 +138,6 @@ export default function Page(props: Props) {
       };
     }
   }, [onTypingComplete, sceneCurrent, typingSpeed, useTypingAnimation]);
-
-  // REFACTOR: add shot number
-  function getContent(sceneStart: number, sceneEnd: number, sceneCurrent: number): React.ReactNode {
-    const content = [...contentScenes];
-    content[sceneCurrent] = <SceneMarker>{content[sceneCurrent]}</SceneMarker>;
-
-    const chapter = [content[0]];
-    const pageContent = content.slice(sceneStart, sceneEnd + 1);
-
-    return <>{chapter.concat(pageContent)}</>;
-  }
 
   let content: React.ReactNode;
   switch (sceneCurrent) {
