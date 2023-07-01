@@ -30,8 +30,9 @@ export default function Page(props: Props) {
   const contentScenes = [
     // FIXME: add key
     // eslint-disable-next-line react/jsx-key
-    <h3 className='my-2 text-lg'>Chapter 1</h3>,
-    <>
+    <h3 className='my-2 pl-2 text-lg'>Chapter 1</h3>,
+    // eslint-disable-next-line react/jsx-key
+    <div className='pl-2'>
       <p>"What's two plus two?"</p>
       <p>Something about the question irritates me. I'm tired. I drift back to sleep.</p>
       <p>A few minutes pass, then I hear it again.</p>
@@ -40,15 +41,17 @@ export default function Page(props: Props) {
         The soft, feminine voice lacks emotion and the pronunciation is identical to the previous
         time she said it. It's a computer. A computer is hassling me. I'm even more irritated now.
       </p>
-    </>,
-    <>
+    </div>,
+    // eslint-disable-next-line react/jsx-key
+    <div className='pl-2'>
       <p>
         "Lrmln," I say. I'm surprised. I meant to say "Leave me alone"—a completely reasonable
         response in my opinion—but I failed to speak.
       </p>
       <p>"Incorrect," says the computer. "What's two plus two?"</p>
-    </>,
-    <>
+    </div>,
+    // eslint-disable-next-line react/jsx-key
+    <div className='pl-2'>
       <p>Time for an experiment. I'll try to say hello.</p>
       <p>"Hlllch?" I say.</p>
       <p>"Incorrect. What's two plus two?"</p>
@@ -57,7 +60,7 @@ export default function Page(props: Props) {
         can't hear anything other than the computer. I can't even feel. No, that's not true. I feel
         something. I'm lying down. I'm on something soft. A bed.
       </p>
-    </>,
+    </div>,
   ];
 
   // HACK: Had to use &nbsp instead of using css to text-indent due to limitation of typed.js, could to str replace too
@@ -128,7 +131,7 @@ export default function Page(props: Props) {
   // REFACTOR: add shot number
   function getContent(sceneStart: number, sceneEnd: number, sceneCurrent: number): React.ReactNode {
     const content = [...contentScenes];
-    content[sceneCurrent] = <SceneMarker className='pl-2'>{content[sceneCurrent]}</SceneMarker>;
+    content[sceneCurrent] = <SceneMarker>{content[sceneCurrent]}</SceneMarker>;
 
     const chapter = [content[0]];
     const pageContent = content.slice(sceneStart, sceneEnd + 1);

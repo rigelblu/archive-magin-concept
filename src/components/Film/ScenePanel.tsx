@@ -42,7 +42,7 @@ export default function ScenePanel(props: Props) {
         <Image
           src={src}
           alt={alt}
-          className='w-auto h-auto mx-auto !object-scale-down'
+          className='w-auto h-auto pl-2 mx-auto !object-scale-down'
           width={330}
           height={270}
         />
