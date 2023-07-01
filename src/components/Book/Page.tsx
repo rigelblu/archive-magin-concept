@@ -67,11 +67,11 @@ export default function Page(props: Props) {
   function getContent(
     sceneStart: number,
     sceneEnd: number,
-    sceneCurrent: number,
+    sceneCurrent: number | undefined = undefined,
     includeHeader = true
   ): React.ReactNode {
     const content = [...contentScenes];
-    content[sceneCurrent] = <SceneMarker>{content[sceneCurrent]}</SceneMarker>;
+    if (sceneCurrent) content[sceneCurrent] = <SceneMarker>{content[sceneCurrent]}</SceneMarker>;
 
     const chapter = includeHeader ? [content[0]] : [];
     const pageContent = content.slice(sceneStart, sceneEnd + 1);
@@ -147,7 +147,7 @@ export default function Page(props: Props) {
   switch (sceneCurrent) {
     case 0:
       if (useTypingAnimation) content = <div className='pl-2'>{contentTyped}</div>;
-      if (!useTypingAnimation) content = getContent(sceneStart, sceneEnd, sceneCurrent);
+      if (!useTypingAnimation) content = getContent(sceneStart, sceneEnd);
       break;
     case 1:
       content = getContent(sceneStart, sceneEnd, sceneCurrent);
