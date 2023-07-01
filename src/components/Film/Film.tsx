@@ -23,7 +23,7 @@ export default function Film(props: Props) {
         action='prev'
         onClick={onPrev}
         className='px-1'
-        isShown={!hidePrev && scene > 0}
+        isShown={!hidePrev && scene > 1}
       />
       <ScenePanel scene={scene} />
       <PageControl
