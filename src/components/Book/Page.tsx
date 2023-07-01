@@ -150,11 +150,7 @@ export default function Page(props: Props) {
       if (!useTypingAnimation) content = getContent(sceneStart, sceneEnd);
       break;
     case 1:
-      content = getContent(sceneStart, sceneEnd, sceneCurrent);
-      break;
     case 2:
-      content = getContent(sceneStart, sceneEnd, sceneCurrent);
-      break;
     case 3:
       content = getContent(sceneStart, sceneEnd, sceneCurrent);
       break;
