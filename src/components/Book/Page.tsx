@@ -88,7 +88,7 @@ export default function Page(props: Props) {
       <span id='typed-strings' ref={refTyped}>
         <span>
           <span className={classP}>
-            <span className={classIndent}>What's</span> plus two?"
+            <span className={classIndent}>"What's</span> two plus two?"
           </span>
           <br />
 
