@@ -3,8 +3,8 @@
 import { useRef, useEffect } from 'react';
 import Typed from 'typed.js';
 import SceneMarker from '@/components/SceneMarker/SceneMarker';
-
 import settings, { MODE } from '@/config/settings';
+import styles from './Page.module.scss';
 
 type Props = {
   className?: string;
@@ -156,7 +156,7 @@ export default function Page(props: Props) {
   }
 
   return (
-    <div className={`mgn-page flex flex-1 ${className}`}>
+    <div className={`${styles['mgn-page']} flex flex-1 ${className}`}>
       <div className='flex-1 overflow-hidden bg-[#f8f1e3] text-left font-theano text-sm text-black'>
         {content}
       </div>
