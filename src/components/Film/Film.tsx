@@ -7,20 +7,32 @@ type Props = {
   className?: string;
   onNext: () => void;
   onPrev: () => void;
+  scene: number; // TODO: show PageControls based on first and last scene number
   // REFACTOR: make showPrev showNext on by default. Make it optional to turn off
-  showPrev: boolean;
-  showNext: boolean;
+  hideNext?: boolean;
+  hidePrev?: boolean;
 };
 
 export default function Film(props: Props) {
-  const { className = '', onNext, onPrev, showPrev, showNext } = props;
+  const { className = '', hideNext = false, hidePrev = false, onNext, onPrev, scene } = props;
 
   return (
     // REFACTOR: move px-2 to global, align with book
     <div className={`mgn-film flex items-center justify-between ${className}`}>
-      <PageControl action='prev' onClick={onPrev} className='px-1' isShown={showPrev} />
-      <ScenePanel />
-      <PageControl action='next' onClick={onNext} className='px-1' isShown={showNext} />
+      <PageControl
+        action='prev'
+        onClick={onPrev}
+        className='px-1'
+        isShown={!hidePrev && scene > 1}
+      />
+      <ScenePanel scene={scene} />
+      <PageControl
+        action='next'
+        onClick={onNext}
+        className='px-1'
+        // HACK: temporarily make 2, should be 3
+        isShown={!hideNext && scene < 2}
+      />
     </div>
   );
 }

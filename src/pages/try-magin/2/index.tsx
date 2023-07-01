@@ -16,7 +16,9 @@ import locale from '@/locales/en.json';
 export default function MarginPreview() {
   const router = useRouter();
   const [isBookDisplayed, setBookDisplayed] = useState(false);
-  const [onNextScene, setNextScene] = useState(false);
+  const [scene, setScene] = useState(0);
+  const startScene = 1;
+  const endScene = 1;
 
   return (
     <MainLayout canvasClassName='bg-black' className='mgn-try-magin bg-white' layoutKind='app'>
@@ -27,8 +29,10 @@ export default function MarginPreview() {
           {/* HACK: have to use fixed rem for height due to mobile browsers */}
           <div className='mgn-step-top col flex flex-col justify-start h-[30rem]'>
             <Book
-              maginPreviewStep={2}
               onTypingComplete={() => setBookDisplayed(true)}
+              sceneCurrent={scene}
+              sceneEnd={endScene}
+              sceneStart={startScene}
               useTypingAnimation={!isBookDisplayed}
             />
           </div>
@@ -36,7 +40,7 @@ export default function MarginPreview() {
           <div className='mgn-step-middle flex flex-col items-center'>
             {/* REFACTOR: make content an optional parameter */}
             {/* REFACTOR: make this cleaner */}
-            {!isBookDisplayed && !onNextScene && (
+            {!isBookDisplayed && scene === 0 && (
               <>
                 <IconUpArrow className='w-16' />
                 <GuideMessage className='font-bold'>
@@ -45,7 +49,7 @@ export default function MarginPreview() {
                 </GuideMessage>
               </>
             )}
-            {isBookDisplayed && !onNextScene && (
+            {isBookDisplayed && scene === 0 && (
               <>
                 <IconUpArrow className='w-16' />
                 <GuideMessage
@@ -55,7 +59,7 @@ export default function MarginPreview() {
                 />
               </>
             )}
-            {isBookDisplayed && onNextScene && (
+            {isBookDisplayed && scene !== 0 && (
               <GuideMessage
                 className='font-bold'
                 // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
@@ -67,7 +71,7 @@ export default function MarginPreview() {
           <div className='mgn-step-bottom flex flex-1 items-center'>
             {/* TODO: show on a 5 second delay */}
             {/* OPTIMIZE: figure out how to allow \n in the string and convert in to <br /> */}
-            {isBookDisplayed && !onNextScene && (
+            {isBookDisplayed && scene === 0 && (
               <div className='flex flex-col items-center animate-fadeIn'>
                 <Image
                   src='/assets/common/images/movie-screen.webp'
@@ -78,7 +82,7 @@ export default function MarginPreview() {
                 />
               </div>
             )}
-            {isBookDisplayed && onNextScene && (
+            {isBookDisplayed && scene !== 0 && (
               <div className='mgn-step-bottom max-h-for-screen flex flex-1 items-center animate-fadeIn'>
                 <Film
                   className='flex-1'
@@ -86,15 +90,14 @@ export default function MarginPreview() {
                     router.push('/try-magin/3');
                   }}
                   onPrev={() => {}}
-                  showPrev={false}
-                  showNext
+                  scene={scene}
                 />
               </div>
             )}
           </div>
 
           {/* REFACTOR: make this cleaner */}
-          {isBookDisplayed && !onNextScene && (
+          {isBookDisplayed && scene === 0 && (
             <Navigation
               left={{
                 className: 'mgn-cta-secondary',
@@ -108,12 +111,12 @@ export default function MarginPreview() {
                 // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                 label: locale.guide.tryMagin2a_showMe,
                 onClick: () => {
-                  setNextScene(true);
+                  setScene(scene + 1);
                 },
               }}
             />
           )}
-          {isBookDisplayed && onNextScene && (
+          {isBookDisplayed && scene !== 0 && (
             <Navigation
               left={{
                 className: 'mgn-cta-secondary',

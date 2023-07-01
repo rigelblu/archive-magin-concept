@@ -1,25 +1,12 @@
 // Copyright rigélblu inc.
 // All rights reserved.
 
-.mgn-scenemarker {
-  p {
-    @apply mb-[0.1rem] indent-3.5;
-  }
+.mgn-scenemarker::before {
+  @apply bg-blue-rb-600;
 
-  // FIXME: make colors pass contrast accessibility
-  &-blue {
-    border-left: solid blue;
-  }
-
-  &-green {
-    border-left: dotted green;
-  }
-
-  &-orange {
-    border-left: dashed orange;
-  }
-
-  &-black {
-    border-left: solid black;
-  }
+  content: '';
+  position: absolute;
+  width: 2px;
+  top: 0;
+  bottom: 0;
 }

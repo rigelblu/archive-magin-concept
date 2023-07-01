@@ -8,26 +8,41 @@ import locale from '@/locales/en.json';
 
 type Props = {
   className?: string;
+  scene: number;
 };
 
 export default function ScenePanel(props: Props) {
-  const { className = '' } = props;
-  const sceneNum = 1;
+  const { className = '', scene } = props;
+  let src = '';
+  let alt = '';
+
+  switch (scene) {
+    case 1:
+      src = '/assets/common/images/storyboard-panel-1.webp';
+      alt =
+        'An overhead, close up shot of a tired person lying down, head falling asleep with eyes slightly open and irritated in a very dark room.';
+      break;
+    case 2:
+      src = '/assets/common/images/storyboard-panel-2.webp';
+      alt = 'close up, head shot person trying to talk';
+      break;
+    default:
+  }
 
   return (
     <div className={`mgn-scenepanel outline rounded-lg p-1 mb-2 w-full ${className}`}>
       {/* OPTIMIZE: find better font */}
       <div className='text-2xs'>
-        {locale.film.scene}: {sceneNum}
+        {locale.film.scene}: {scene}
       </div>
       <hr className='border-1 border-black my-1 py-1' />
-      <SceneMarker sceneNum={sceneNum}>
+      <SceneMarker>
         {/* OPTIMIZE: load image cdn */}
         {/* OPTIMIZE: create SceneImage component, accept alt and src props */}
         <Image
-          src='/assets/common/images/storyboard-panel-1.webp'
-          alt='An overhead, close up shot of a tired person lying down, head falling asleep with eyes slightly open and irritated in a very dark room.'
-          className='w-auto h-auto mx-auto !object-scale-down'
+          src={src}
+          alt={alt}
+          className='w-auto h-auto pl-2 mx-auto !object-scale-down'
           width={330}
           height={270}
         />
