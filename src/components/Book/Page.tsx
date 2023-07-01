@@ -32,7 +32,7 @@ export default function Page(props: Props) {
     // eslint-disable-next-line react/jsx-key
     <h3 className='my-2 pl-2 text-lg'>Chapter 1</h3>,
     // eslint-disable-next-line react/jsx-key
-    <div className='pl-2'>
+    <section className='pl-2'>
       <p>"What's two plus two?"</p>
       <p>Something about the question irritates me. I'm tired. I drift back to sleep.</p>
       <p>A few minutes pass, then I hear it again.</p>
@@ -41,17 +41,17 @@ export default function Page(props: Props) {
         The soft, feminine voice lacks emotion and the pronunciation is identical to the previous
         time she said it. It's a computer. A computer is hassling me. I'm even more irritated now.
       </p>
-    </div>,
+    </section>,
     // eslint-disable-next-line react/jsx-key
-    <div className='pl-2'>
+    <section className='pl-2'>
       <p>
         "Lrmln," I say. I'm surprised. I meant to say "Leave me alone"—a completely reasonable
         response in my opinion—but I failed to speak.
       </p>
       <p>"Incorrect," says the computer. "What's two plus two?"</p>
-    </div>,
+    </section>,
     // eslint-disable-next-line react/jsx-key
-    <div className='pl-2'>
+    <section className='pl-2'>
       <p>Time for an experiment. I'll try to say hello.</p>
       <p>"Hlllch?" I say.</p>
       <p>"Incorrect. What's two plus two?"</p>
@@ -60,47 +60,63 @@ export default function Page(props: Props) {
         can't hear anything other than the computer. I can't even feel. No, that's not true. I feel
         something. I'm lying down. I'm on something soft. A bed.
       </p>
-    </div>,
+    </section>,
   ];
 
-  // HACK: Had to use &nbsp instead of using css to text-indent due to limitation of typed.js, could to str replace too
-  // OPTIMIZE: make typing animation work for any page content
-  // OPTIMIZE: move content into data file / firebase
-  const contentIntroTyped = (
-    <span>
-      &nbsp;What's two plus two?
-      <br />
-      &nbsp;&nbsp;&nbsp;Something about the question irritates me. I'm tired. I drift back to sleep.
-      <br />
-      &nbsp;&nbsp;&nbsp;A few minutes pass, then I hear it again.
-      <br />
-      &nbsp;&nbsp;&nbsp;"What's two plus two?"
-      <br />
-      &nbsp;&nbsp;&nbsp;The soft, feminine voice lacks emotion and the pronunciation is identical to
-      the previous time she said it. It's a computer. A computer is hassling me. I'm even more
-      irritated now.
-    </span>
-  );
+  // REFACTOR: add shot number
+  function getContent(
+    sceneStart: number,
+    sceneEnd: number,
+    sceneCurrent: number | undefined = undefined,
+    includeHeader = true
+  ): React.ReactNode {
+    const content = [...contentScenes];
+    if (sceneCurrent) content[sceneCurrent] = <SceneMarker>{content[sceneCurrent]}</SceneMarker>;
 
-  // REFACTOR: step 2, 3, etc into an array
+    const chapter = includeHeader ? [content[0]] : [];
+    const pageContent = <>{content.slice(sceneStart, sceneEnd + 1)}</>;
+
+    return <>{chapter.concat(pageContent)}</>;
+  }
+
   // REFACTOR: import content from a file
-  const contentIntro = (
+  // BUG: leading-7 (line-height) doesn't apply to spans. Not an easy fix
+  const classIndent = 'inline-block indent-3.5';
+  const classP = 'inline leading-7 mb-[0.1rem]';
+  const contentTyped = (
     <>
-      {contentScenes[0]}
+      <h3 className='my-2 text-lg'>Chapter 1</h3>
+      <span id='typed-strings' ref={refTyped}>
+        <span>
+          <span className={classP}>
+            <span className={classIndent}>"What's</span> two plus two?"
+          </span>
+          <br />
 
-      <p>
-        <span ref={refTyped}>
-          {/* OPTIMIZE: create function to increase pause on every period, question, etc */}
-          {/* FIXME: typed.js intermittenly prints ^{typedPuncationMarkPause} instead of pausing.
-                    It also creates a jitter sometimes, where you can see "<" for a split second.
-                    Removing from code until we find a fix. */}
-          {/* HACK: typed.js is inserting style when dynimically removing id, preventing the text
-                    from display when useTypingAnimation is false. */}
-          {useTypingAnimation && <span id='typed-strings'>{contentIntroTyped}</span>}
-          {!useTypingAnimation && contentIntroTyped}
+          <span className={classP}>
+            <span className={classIndent}>Something</span> about the question irritates me. I'm
+            tired. I drift back to sleep.
+          </span>
+          <br />
+
+          <span className={classP}>
+            <span className={classIndent}>A</span> few minutes pass, then I hear it again.
+          </span>
+          <br />
+
+          <span className={classP}>
+            <span className={classIndent}>"What's</span> two plus two?"
+          </span>
+          <br />
+
+          <span className={classP}>
+            <span className={classIndent}>The</span> soft, feminine voice lacks emotion and the
+            pronunciation is identical to the previous time she said it. It's a computer. A computer
+            is hassling me. I'm even more irritated now.
+          </span>
         </span>
-        {useTypingAnimation && <span id='typed' className='pl-2' />}
-      </p>
+      </span>
+      {useTypingAnimation && <span id='typed' className='' />}
     </>
   );
 
@@ -128,28 +144,14 @@ export default function Page(props: Props) {
     }
   }, [onTypingComplete, sceneCurrent, typingSpeed, useTypingAnimation]);
 
-  // REFACTOR: add shot number
-  function getContent(sceneStart: number, sceneEnd: number, sceneCurrent: number): React.ReactNode {
-    const content = [...contentScenes];
-    content[sceneCurrent] = <SceneMarker>{content[sceneCurrent]}</SceneMarker>;
-
-    const chapter = [content[0]];
-    const pageContent = content.slice(sceneStart, sceneEnd + 1);
-
-    return <>{chapter.concat(pageContent)}</>;
-  }
-
   let content: React.ReactNode;
   switch (sceneCurrent) {
     case 0:
-      content = <div className='pl-2'>{contentIntro}</div>;
+      if (useTypingAnimation) content = <div className='pl-2'>{contentTyped}</div>;
+      if (!useTypingAnimation) content = getContent(sceneStart, sceneEnd);
       break;
     case 1:
-      content = getContent(sceneStart, sceneEnd, sceneCurrent);
-      break;
     case 2:
-      content = getContent(sceneStart, sceneEnd, sceneCurrent);
-      break;
     case 3:
       content = getContent(sceneStart, sceneEnd, sceneCurrent);
       break;
