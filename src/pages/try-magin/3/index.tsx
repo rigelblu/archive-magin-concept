@@ -58,7 +58,6 @@ export default function MarginPreview() {
           </div>
 
           {/* HACK: temporarily disable */}
-
           <Navigation
             left={{
               className: 'mgn-cta-secondary',
