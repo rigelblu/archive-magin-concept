@@ -1,8 +1,12 @@
 // Copyright rigélblu inc.
 // All rights reserved.
 
-.mgn-scenemarker {
-  p {
-    @apply mb-[0.1rem] indent-3.5;
-  }
+.mgn-scenemarker::before {
+  @apply bg-blue-rb-600;
+
+  content: '';
+  position: absolute;
+  width: 2px;
+  top: 0;
+  bottom: 0;
 }
