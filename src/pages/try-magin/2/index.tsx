@@ -17,6 +17,8 @@ export default function MarginPreview() {
   const router = useRouter();
   const [isBookDisplayed, setBookDisplayed] = useState(false);
   const [scene, setScene] = useState(0);
+  const startScene = 1;
+  const endScene = 1;
 
   return (
     <MainLayout canvasClassName='bg-black' className='mgn-try-magin bg-white' layoutKind='app'>
@@ -28,7 +30,9 @@ export default function MarginPreview() {
           <div className='mgn-step-top col flex flex-col justify-start h-[30rem]'>
             <Book
               onTypingComplete={() => setBookDisplayed(true)}
-              scene={scene}
+              sceneCurrent={scene}
+              sceneEnd={endScene}
+              sceneStart={startScene}
               useTypingAnimation={!isBookDisplayed}
             />
           </div>

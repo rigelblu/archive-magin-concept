@@ -6,51 +6,64 @@ import SceneMarker from '@/components/SceneMarker/SceneMarker';
 
 import settings, { MODE } from '@/config/settings';
 
-interface Props {
+type Props = {
   className?: string;
   onTypingComplete?: () => void;
-  sceneNum: number;
+  sceneCurrent: number;
+  sceneEnd: number;
+  sceneStart: number;
   useTypingAnimation?: boolean;
-}
+};
 
 export default function Page(props: Props) {
   const {
     className = '',
     onTypingComplete = undefined,
-    sceneNum,
+    sceneCurrent,
+    sceneEnd,
+    sceneStart,
     useTypingAnimation = false,
   } = props;
   const refTyped = useRef(null);
   const typingSpeed = settings.mode !== MODE.DEBUG ? settings.page.typingSpeed : 0;
 
-  // eslint-disable-next-line consistent-return
-  useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
-    // HACk: typing animation is only supported on the first scene since typed.js doesn't support multiple <p> strings
-    if (useTypingAnimation && sceneNum === 0) {
-      const typed = new Typed('#typed', {
-        fadeOut: true,
-        loop: false,
-        stringsElement: '#typed-strings',
-        typeSpeed: typingSpeed,
+  const contentScenes = [
+    // FIXME: add key
+    // eslint-disable-next-line react/jsx-key
+    <h3 className='my-2 text-lg'>Chapter 1</h3>,
+    <>
+      <p>"What's two plus two?"</p>
+      <p>Something about the question irritates me. I'm tired. I drift back to sleep.</p>
+      <p>A few minutes pass, then I hear it again.</p>
+      <p>"What's two plus two?"</p>
+      <p>
+        The soft, feminine voice lacks emotion and the pronunciation is identical to the previous
+        time she said it. It's a computer. A computer is hassling me. I'm even more irritated now.
+      </p>
+    </>,
+    <>
+      <p>
+        "Lrmln," I say. I'm surprised. I meant to say "Leave me alone"—a completely reasonable
+        response in my opinion—but I failed to speak.
+      </p>
+      <p>"Incorrect," says the computer. "What's two plus two?"</p>
+    </>,
+    <>
+      <p>Time for an experiment. I'll try to say hello.</p>
+      <p>"Hlllch?" I say.</p>
+      <p>"Incorrect. What's two plus two?"</p>
+      <p>
+        What's going on? I want to find out, but I don't have much to work with. I can't see. I
+        can't hear anything other than the computer. I can't even feel. No, that's not true. I feel
+        something. I'm lying down. I'm on something soft. A bed.
+      </p>
+    </>,
+  ];
 
-        onComplete: (self) => {
-          const cursor = document.querySelector('.typed-cursor') as HTMLElement;
-          if (cursor) cursor.style.display = 'none';
-          if (onTypingComplete !== undefined) onTypingComplete();
-        },
-      });
-
-      return () => {
-        typed.destroy();
-      };
-    }
-  }, [onTypingComplete, sceneNum, typingSpeed, useTypingAnimation]);
-
-  // HACK: Had to use &nbsp instead of using css to text-indent due to limitation of typed.js
+  // HACK: Had to use &nbsp instead of using css to text-indent due to limitation of typed.js, could to str replace too
   // OPTIMIZE: make typing animation work for any page content
   // OPTIMIZE: move content into data file / firebase
-  const contentScene1Typed = (
+  const contentIntroTyped = (
     <span>
       &nbsp;What's two plus two?
       <br />
@@ -68,9 +81,9 @@ export default function Page(props: Props) {
 
   // REFACTOR: step 2, 3, etc into an array
   // REFACTOR: import content from a file
-  const contentScene1 = (
+  const contentIntro = (
     <>
-      <h3 className='my-2 text-lg'>Chapter 1</h3>
+      {contentScenes[0]}
 
       <p>
         <span ref={refTyped}>
@@ -80,84 +93,66 @@ export default function Page(props: Props) {
                     Removing from code until we find a fix. */}
           {/* HACK: typed.js is inserting style when dynimically removing id, preventing the text
                     from display when useTypingAnimation is false. */}
-          {useTypingAnimation && <span id='typed-strings'>{contentScene1Typed}</span>}
-          {!useTypingAnimation && <SceneMarker className='pl-2'>{contentScene1Typed}</SceneMarker>}
+          {useTypingAnimation && <span id='typed-strings'>{contentIntroTyped}</span>}
+          {!useTypingAnimation && contentIntroTyped}
         </span>
         {useTypingAnimation && <span id='typed' className='pl-2' />}
       </p>
     </>
   );
 
-  const contentScene1and2 = (
-    // REFACTOR: add shot number
-    <>
-      <div className='pl-2'>
-        <p>"What's two plus two?"</p>
-        <p>Something about the question irritates me. I'm tired. I drift back to sleep.</p>
-        <p>A few minutes pass, then I hear it again.</p>
-        <p>"What's two plus two?"</p>
-        <p>
-          The soft, feminine voice lacks emotion and the pronunciation is identical to the previous
-          time she said it. It's a computer. A computer is hassling me. I'm even more irritated now.
-        </p>
-      </div>
+  // eslint-disable-next-line consistent-return
+  useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
+    // HACk: typing animation is only supported on the first scene since typed.js doesn't support multiple <p> strings
+    if (useTypingAnimation && sceneCurrent === 0) {
+      const typed = new Typed('#typed', {
+        fadeOut: true,
+        loop: false,
+        stringsElement: '#typed-strings',
+        typeSpeed: typingSpeed,
 
-      <SceneMarker>
-        <p>
-          "Lrmln," I say. I'm surprised. I meant to say "Leave me alone"—a completely reasonable
-          response in my opinion—but I failed to speak.
-        </p>
-        <p>"Incorrect," says the computer. "What's two plus two?"</p>
-      </SceneMarker>
-    </>
-  );
+        onComplete: (self) => {
+          const cursor = document.querySelector('.typed-cursor') as HTMLElement;
+          if (cursor) cursor.style.display = 'none';
+          if (onTypingComplete !== undefined) onTypingComplete();
+        },
+      });
 
-  const contentScene3 = (
-    <>
-      <div className='pl-2'>
-        <p>Chapter 1</p>
-        <p>"What's two plus two?"</p>
-        <p>Something about the question irritates me. I'm tired. I drift back to sleep.</p>
+      return () => {
+        typed.destroy();
+      };
+    }
+  }, [onTypingComplete, sceneCurrent, typingSpeed, useTypingAnimation]);
 
-        <p>A few minutes pass, then I hear it again.</p>
-        <p>"What's two plus two?"</p>
-        <p>
-          The soft, feminine voice lacks emotion and the pronunciation is identical to the previous
-          time she said it. It's a computer. A computer is hassling me. I'm even more irritated now.
-        </p>
-        <p>
-          "Lrmln," I say. I'm surprised. I meant to say "Leave me alone"—a completely reasonable
-          response in my opinion—but I failed to speak.
-        </p>
-        <p>"Incorrect," says the computer. "What's two plus two?"</p>
-      </div>
+  // REFACTOR: add shot number
+  function getContent(sceneStart: number, sceneEnd: number, sceneCurrent: number): React.ReactNode {
+    const content = [...contentScenes];
+    content[sceneCurrent] = <SceneMarker className='pl-2'>{content[sceneCurrent]}</SceneMarker>;
 
-      <SceneMarker className='pl-2'>
-        <p>Time for an experiment. I'll try to say hello.</p>
-        <p>"Hlllch?" I say.</p>
-        <p>"Incorrect. What's two plus two?"</p>
-        <p>
-          What's going on? I want to find out, but I don't have much to work with. I can't see. I
-          can't hear anything other than the computer. I can't even feel. No, that's not true. I
-          feel something. I'm lying down. I'm on something soft. A bed.
-        </p>
-      </SceneMarker>
-    </>
-  );
+    const chapter = [content[0]];
+    const pageContent = content.slice(sceneStart, sceneEnd + 1);
 
-  let content: React.ReactElement;
-  switch (sceneNum) {
+    return <>{chapter.concat(pageContent)}</>;
+  }
+
+  let content: React.ReactNode;
+  switch (sceneCurrent) {
     case 0:
-      content = contentScene1;
+      content = <div className='pl-2'>{contentIntro}</div>;
       break;
     case 1:
-      content = contentScene1;
+      content = getContent(sceneStart, sceneEnd, sceneCurrent);
       break;
     case 2:
-      content = contentScene1and2;
+      content = getContent(sceneStart, sceneEnd, sceneCurrent);
+      break;
+    case 3:
+      content = getContent(sceneStart, sceneEnd, sceneCurrent);
       break;
     default:
-      content = contentScene3;
+      content = <div />;
+      console.error('scene not available');
   }
 
   return (
