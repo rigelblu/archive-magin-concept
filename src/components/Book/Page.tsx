@@ -74,18 +74,18 @@ export default function Page(props: Props) {
     if (sceneCurrent) content[sceneCurrent] = <SceneMarker>{content[sceneCurrent]}</SceneMarker>;
 
     const chapter = includeHeader ? [content[0]] : [];
-    const pageContent = content.slice(sceneStart, sceneEnd + 1);
+    const pageContent = <>{content.slice(sceneStart, sceneEnd + 1)}</>;
 
     return <>{chapter.concat(pageContent)}</>;
   }
 
   // REFACTOR: import content from a file
   const classIndent = 'inline-block indent-3.5';
-  const classP = 'inline mb-[0.1rem]';
+  const classP = 'inline leading-7 mb-[0.1rem]';
   const contentTyped = (
     <>
       <h3 className='my-2 text-lg'>Chapter 1</h3>
-      <span ref={refTyped} id='typed-strings'>
+      <span id='typed-strings' ref={refTyped}>
         <span>
           <span className={classP}>
             <span className={classIndent}>What's</span> plus two?"
