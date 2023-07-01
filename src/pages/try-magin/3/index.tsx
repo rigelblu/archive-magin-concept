@@ -58,23 +58,25 @@ export default function MarginPreview() {
           </div>
 
           {/* HACK: temporarily disable */}
-          <Navigation
-            left={{
-              className: 'mgn-cta-secondary',
-              label: locale.navigation.back,
-              onClick: () => {
-                router.push('/try-magin/2');
-              },
-            }}
-            right={{
-              className: 'mgn-cta-primary',
-              // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-              label: locale.guide.tryMagin3a_nextScene,
-              onClick: () => {
-                setScene(scene + 1);
-              },
-            }}
-          />
+          {false && (
+            <Navigation
+              left={{
+                className: 'mgn-cta-secondary',
+                label: locale.navigation.back,
+                onClick: () => {
+                  router.push('/try-magin/2');
+                },
+              }}
+              right={{
+                className: 'mgn-cta-primary',
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+                label: locale.guide.tryMagin3a_nextScene,
+                onClick: () => {
+                  setScene(scene + 1);
+                },
+              }}
+            />
+          )}
         </div>
       </div>
     </MainLayout>

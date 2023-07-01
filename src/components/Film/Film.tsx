@@ -30,7 +30,8 @@ export default function Film(props: Props) {
         action='next'
         onClick={onNext}
         className='px-1'
-        isShown={!hideNext && scene < 3}
+        // HACK: temporarily make 2, should be 3
+        isShown={!hideNext && scene < 2}
       />
     </div>
   );
