@@ -1,7 +1,7 @@
 // Copyright rigélblu inc.
 // All rigts reserve
 import { useRouter } from 'next/router';
-
+import { useState } from 'react';
 import Book from '@/components/Book/Book';
 import Film from '@/components/Film/Film';
 import GuideMessage from '@/components/GuideMessage';
@@ -15,6 +15,9 @@ import styles from '../try-magin.module.scss';
 
 export default function MarginPreview() {
   const router = useRouter();
+  const [scene, setScene] = useState(2);
+  const startScene = 1;
+  const endScene = 2;
 
   return (
     <MainLayout canvasClassName='bg-black' className='mgn-try-magin bg-white' layoutKind='app'>
@@ -26,7 +29,12 @@ export default function MarginPreview() {
         <div className='mgn-step flex	w-full flex-1 flex-col justify-between bg-yellow-rb-200 sm:max-h-[51rem] sm:max-w-[25rem] p-2'>
           {/* HACK: have to use fixed rem for height due to mobile browsers */}
           <div className='mgn-step-top col max-h-for-screen flex flex-col justify-start h-[30rem]'>
-            <Book maginPreviewStep={3} className='flex-1 overflow-hidden' />
+            <Book
+              className='flex-1 overflow-hidden'
+              sceneCurrent={scene}
+              sceneEnd={endScene}
+              sceneStart={startScene}
+            />
           </div>
 
           <div className='mgn-step-middle'>
@@ -40,11 +48,12 @@ export default function MarginPreview() {
             <Film
               className='flex-1'
               onNext={() => {
-                router.push('/try-magin/3');
+                setScene(scene + 1);
               }}
-              onPrev={() => {}}
-              showPrev
-              showNext
+              onPrev={() => {
+                setScene(scene - 1);
+              }}
+              scene={scene}
             />
           </div>
 
@@ -63,7 +72,7 @@ export default function MarginPreview() {
               // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
               label: locale.guide.tryMagin3a_nextScene,
               onClick: () => {
-                router.push('/join/1');
+                setScene(scene + 1);
               },
             }}
           />
