@@ -44,7 +44,7 @@ export default function MarginPreview() {
             <GuideMessage className='font-bold' messages={locale.guide.tryMagin3a_guidedMessage} />
           </div>
 
-          <div className='mgn-step-bottom max-h-for-screen flex flex-1 items-center animate-fadeIn'>
+          <div className='mgn-step-bottom max-h-for-screen flex flex-1 items-center animate-delayFadeIn'>
             <Film
               className='flex-1'
               onNext={() => {
