@@ -3,6 +3,21 @@
 
 .mgn-preview {
   :global {
+    .h-book {
+      // TODO: add iphone, ipad, android phones
+      @apply lg:max-h-[30rem];
+    }
+
+    .h-guided-message {
+      // TODO: add iphone, ipad, android phones
+      @apply lg:min-h-[1rem];
+    }
+
+    .h-film {
+      // TODO: add iphone, ipad, android phones
+      @apply lg:max-h-[15.1rem];
+    }
+
     .max-h-for-screen {
       // Calculation: (screen  - status bar - navigation bar) / 1rem in px * percent
       @apply iphone-se:max-h-[13rem]; // (667 - 44 - 140) / 16 * 0.45
@@ -15,7 +30,7 @@
       @apply iphone-12-pro:max-h-[20rem]; // (926 - 47 - 140) / 16 * 0.45
       @apply iphone-12-mini:max-h-[16rem]; // (780 - 44 - 140) / 16 * 0.45
 
-      @apply lg:max-h-[26rem]; // (1024 / 16 * 0.45) - 2
+      @apply lg:max-h-[30rem]; // (1024 / 16 * 0.45) - 2
       // TODO: add ipad, android phones
     }
   }
