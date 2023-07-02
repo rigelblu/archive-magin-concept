@@ -30,13 +30,17 @@ export default function ScenePanel(props: Props) {
   }
 
   return (
-    <div className={`mgn-scenepanel outline rounded-lg p-1 mb-2 w-full ${className}`}>
+    <div
+      className={`mgn-scenepanel flex flex-col justify-between outline rounded-lg p-1 w-full ${className}`}
+    >
       {/* OPTIMIZE: find better font */}
       <div className='text-2xs'>
         {locale.film.scene}: {scene}
       </div>
-      <hr className='border-1 border-black my-1 py-1' />
-      <SceneMarker>
+
+      <hr className='border-1 border-black my-1' />
+
+      <SceneMarker className='my-1'>
         {/* OPTIMIZE: load image cdn */}
         {/* OPTIMIZE: create SceneImage component, accept alt and src props */}
         <Image
