@@ -10,7 +10,6 @@ import MainLayout from '@/layouts/MainLayout';
 
 // OPTIMIZE: read based on language
 import locale from '@/locales/en.json';
-
 import styles from '../try-magin.module.scss';
 
 export default function MarginPreview() {
