@@ -5,17 +5,17 @@
   :global {
     .h-book {
       // TODO: add iphone, ipad, android phones
-      @apply lg:max-h-[30rem];
+      @apply lg:max-h-[30rem] h-[30rem];
     }
 
     .h-guided-message {
       // TODO: add iphone, ipad, android phones
-      @apply lg:min-h-[1rem];
+      @apply lg:min-h-[1rem] h-[1rem];
     }
 
     .h-film {
       // TODO: add iphone, ipad, android phones
-      @apply lg:max-h-[15.1rem];
+      @apply lg:max-h-[15.1rem] h-[15.1rem];
     }
 
     .max-h-for-screen {
