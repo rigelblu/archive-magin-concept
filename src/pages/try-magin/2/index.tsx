@@ -86,7 +86,7 @@ export default function MarginPreview() {
               </div>
             )}
             {isBookDisplayed && scene !== 0 && (
-              <div className='mgn-step-bottom max-h-for-screen flex flex-1 items-center animate-fadeIn'>
+              <div className='mgn-step-bottom animate-delayFadeIn h-film flex items-end max-h-for-screen'>
                 <Film
                   className='flex-1'
                   onNext={() => {
