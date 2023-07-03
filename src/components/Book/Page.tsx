@@ -82,7 +82,7 @@ export default function Page(props: Props) {
   // REFACTOR: import content from a file
   // BUG: leading-7 (line-height) doesn't apply to spans. Not an easy fix
   const classIndent = 'inline-block indent-3.5';
-  const classP = 'inline leading-3 mb-[0.1rem]';
+  const classP = 'inline leading-7 mb-[0.1rem]';
   const contentTyped = (
     <>
       <h3 className='my-2 text-lg'>Chapter 1</h3>
