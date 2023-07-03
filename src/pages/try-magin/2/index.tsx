@@ -30,7 +30,7 @@ export default function MarginPreview() {
         {/* HACK: have to use fixed rem for max height and width due to mobile browsers */}
         <div className='mgn-step flex w-full flex-1 flex-col justify-between bg-yellow-rb-200 sm:max-h-[51rem] sm:max-w-[25rem] p-2'>
           {/* HACK: have to use fixed rem for height due to mobile browsers */}
-          <div className='mgn-step-top col flex flex-col justify-start h-[30rem]'>
+          <div className='mgn-step-top col flex flex-col h-book justify-start max-h-for-screen'>
             <Book
               onTypingComplete={() => setBookDisplayed(true)}
               sceneCurrent={scene}
