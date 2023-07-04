@@ -13,18 +13,21 @@ type Props = {
 
 export default function ScenePanel(props: Props) {
   const { className = '', scene } = props;
-  let src = '';
-  let alt = '';
+  const img = { src: '', alt: '', width: 0, height: 0 };
 
   switch (scene) {
     case 1:
-      src = '/assets/common/images/storyboard-panel-1.webp';
-      alt =
+      img.src = '/assets/common/images/storyboard-panel-1.webp';
+      img.alt =
         'An overhead, close up shot of a tired person lying down, head falling asleep with eyes slightly open and irritated in a very dark room.';
+      img.width = 607;
+      img.height = 362;
       break;
     case 2:
-      src = '/assets/common/images/storyboard-panel-2.webp';
-      alt = 'close up, head shot person trying to talk';
+      img.src = '/assets/common/images/storyboard-panel-2.webp';
+      img.alt = 'close up, head shot person trying to talk';
+      img.width = 612;
+      img.height = 365;
       break;
     default:
   }
@@ -44,11 +47,11 @@ export default function ScenePanel(props: Props) {
         {/* OPTIMIZE: load image cdn */}
         {/* OPTIMIZE: create SceneImage component, accept alt and src props */}
         <Image
-          src={src}
-          alt={alt}
+          src={img.src}
+          alt={img.alt}
           className='mx-auto h-auto w-auto !object-scale-down pl-2'
-          width={330}
-          height={270}
+          width={img.width}
+          height={img.height}
         />
       </SceneMarker>
     </div>
