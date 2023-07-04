@@ -7,8 +7,10 @@
     .mgn-step {
       @apply max-h-[55rem];                                                 // xl and default: max(1024 / 16, 55) = 55
 
+      // Max Width
       @apply sm:max-w-[25rem];                                              // 640w
 
+      // Max Height
       @apply sm-h:max-h-[30rem];                                            // 480 / 16 = 30
       @apply md-h:max-h-[37.5rem];                                          // 600 / 16 = 37.5
       @apply lg-h:max-h-[48rem];                                            // 768 / 16 = 48
