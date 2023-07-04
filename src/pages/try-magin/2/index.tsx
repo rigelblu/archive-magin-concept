@@ -71,7 +71,7 @@ export default function MarginPreview() {
             )}
           </div>
 
-          <div className='mgn-step-bottom flex flex-1 items-end justify-center'>
+          <div className='mgn-step-bottom h-film flex flex-1 items-end justify-center'>
             {/* TODO: show on a 5 second delay */}
             {/* OPTIMIZE: figure out how to allow \n in the string and convert in to <br /> */}
             {isBookDisplayed && scene === 0 && (
@@ -86,16 +86,14 @@ export default function MarginPreview() {
               </div>
             )}
             {isBookDisplayed && scene !== 0 && (
-              <div className='mgn-step-bottom h-film flex animate-delayFadeIn items-end'>
-                <Film
-                  className='flex-1'
-                  onNext={() => {
-                    router.push('/try-magin/3');
-                  }}
-                  onPrev={() => {}}
-                  scene={scene}
-                />
-              </div>
+              <Film
+                className='animate-delayFadeIn'
+                onNext={() => {
+                  router.push('/try-magin/3');
+                }}
+                onPrev={() => {}}
+                scene={scene}
+              />
             )}
           </div>
 
