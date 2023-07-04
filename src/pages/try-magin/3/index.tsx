@@ -43,7 +43,6 @@ export default function MarginPreview() {
 
           <div className='mgn-step-bottom h-film flex animate-delayFadeIn items-end'>
             <Film
-              className='flex-1'
               onNext={() => {
                 setScene(scene + 1);
               }}
