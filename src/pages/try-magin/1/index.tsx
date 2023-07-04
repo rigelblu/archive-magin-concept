@@ -10,6 +10,7 @@ import MainLayout from '@/layouts/MainLayout';
 
 // REFACTOR: read based on language
 import locale from '@/locales/en.json';
+import styles from '../try-magin.module.scss';
 
 export default function MarginPreview() {
   const router = useRouter();
@@ -43,8 +44,10 @@ export default function MarginPreview() {
   return (
     <MainLayout canvasClassName='bg-black' className='mgn-try-magin bg-white' layoutKind='app'>
       {/* REFACTOR: convert into component, accept 4 children elements */}
-      <div className='mgn-preview flex h-screen flex-col items-center justify-center bg-neutral-950'>
-        <div className='mgn-step flex w-full flex-1 flex-col justify-between bg-yellow-rb-200 sm:max-h-[51rem] sm:max-w-[25rem] p-2'>
+      <div
+        className={`${styles['mgn-preview']} flex h-screen flex-col items-center justify-center bg-neutral-950 `}
+      >
+        <div className='mgn-step flex w-full flex-1 flex-col justify-between bg-yellow-rb-200 p-2 '>
           {/* REFACTOR: into top, middle, button div elements, put the guide message into the bottom */}
           <GuideMessage className='flex max-h-[32rem] flex-1 items-end justify-center sm:max-h-[40rem]'>
             <h2 className='text-blue-rb-600'>

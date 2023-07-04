@@ -25,28 +25,23 @@ export default function MarginPreview() {
         className={`${styles['mgn-preview']} flex h-screen flex-col items-center justify-center bg-neutral-950`}
       >
         {/* HACK: have to use fixed rem for max height and width due to mobile browsers */}
-        <div className='mgn-step flex	w-full flex-1 flex-col justify-between bg-yellow-rb-200 sm:max-h-[51rem] sm:max-w-[25rem] p-2'>
+        <div className='mgn-step flex	w-full flex-1 flex-col justify-between bg-yellow-rb-200 p-2'>
           {/* HACK: have to use fixed rem for height due to mobile browsers */}
-          <div className='mgn-step-top col flex flex-col h-book justify-start max-h-for-screen'>
-            <Book
-              className='flex-1'
-              sceneCurrent={scene}
-              sceneEnd={endScene}
-              sceneStart={startScene}
-            />
+          <div className='mgn-step-top col h-book max-h-for-screen flex flex-col justify-start'>
+            <Book sceneCurrent={scene} sceneEnd={endScene} sceneStart={startScene} />
           </div>
 
-          <div className='mgn-step-middle flex flex-1 h-guided-message justify-center pt-1 overflow-hidden'>
+          <div className='mgn-step-middle h-guided-message flex flex-1 justify-center overflow-hidden pt-1'>
             {/* TODO: show on a 5 second delay */}
             {/* OPTIMIZE: figure out how to allow \n in the string and convert in to <br /> */}
             {/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */}
             <GuideMessage
-              className='flex font-bold items-center'
+              className='flex items-center font-bold'
               messages={locale.guide.tryMagin3a_guidedMessage}
             />
           </div>
 
-          <div className='mgn-step-bottom animate-delayFadeIn h-film flex items-end max-h-for-screen'>
+          <div className='mgn-step-bottom h-film max-h-for-screen flex animate-delayFadeIn items-end'>
             <Film
               className='flex-1'
               onNext={() => {
