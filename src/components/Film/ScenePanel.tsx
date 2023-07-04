@@ -34,7 +34,7 @@ export default function ScenePanel(props: Props) {
 
   return (
     <div
-      className={`mgn-scenepanel mb-0.5 flex w-full flex-col justify-between rounded-lg p-1 outline ${className}`}
+      className={`mgn-scenepanel mb-0.5 flex h-full w-full flex-col justify-between rounded-lg p-1 outline ${className}`}
     >
       {/* OPTIMIZE: find better font */}
       <div className='text-2xs'>
@@ -43,16 +43,10 @@ export default function ScenePanel(props: Props) {
 
       <hr className='border-1 my-1 border-black' />
 
-      <SceneMarker className='my-1'>
+      <SceneMarker className='my-1 h-full'>
         {/* OPTIMIZE: load image cdn */}
         {/* OPTIMIZE: create SceneImage component, accept alt and src props */}
-        <Image
-          src={img.src}
-          alt={img.alt}
-          className='mx-auto h-auto w-auto !object-scale-down pl-2'
-          width={img.width}
-          height={img.height}
-        />
+        <Image src={img.src} alt={img.alt} className='mx-auto !object-scale-down pl-2' fill />
       </SceneMarker>
     </div>
   );

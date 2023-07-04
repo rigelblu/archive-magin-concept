@@ -18,7 +18,7 @@ export default function Film(props: Props) {
 
   return (
     // REFACTOR: move px-2 to global, align with book
-    <div className={`mgn-film flex items-center justify-between ${className}`}>
+    <div className={`mgn-film flex h-full flex-1 items-center justify-between ${className}`}>
       <PageControl
         action='prev'
         onClick={onPrev}

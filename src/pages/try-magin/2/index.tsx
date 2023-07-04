@@ -40,7 +40,7 @@ export default function MarginPreview() {
             />
           </div>
 
-          <div className='mgn-step-middle h-guided-message flex flex-1 flex-col items-center justify-center pt-1'>
+          <div className='mgn-step-middle h-guided-message flex flex-col items-center justify-center pt-1'>
             {/* REFACTOR: make content an optional parameter */}
             {/* REFACTOR: make this cleaner */}
             {!isBookDisplayed && scene === 0 && (

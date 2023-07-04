@@ -31,7 +31,7 @@ export default function MarginPreview() {
             <Book sceneCurrent={scene} sceneEnd={endScene} sceneStart={startScene} />
           </div>
 
-          <div className='mgn-step-middle h-guided-message flex flex-1 justify-center overflow-hidden pt-1'>
+          <div className='mgn-step-middle h-guided-message flex justify-center overflow-hidden pt-1'>
             {/* TODO: show on a 5 second delay */}
             {/* OPTIMIZE: figure out how to allow \n in the string and convert in to <br /> */}
             {/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */}
