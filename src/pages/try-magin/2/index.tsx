@@ -80,8 +80,8 @@ export default function MarginPreview() {
                   src='/assets/common/images/movie-screen.webp'
                   alt='people in a theatre watching a movie'
                   className='h-auto w-auto !object-scale-down'
-                  width='640'
-                  height='364'
+                  width='555'
+                  height='332'
                 />
               </div>
             )}
