@@ -34,7 +34,7 @@ export default function ScenePanel(props: Props) {
 
   return (
     <div
-      className={`mgn-scenepanel flex w-full flex-col justify-between rounded-lg p-1 outline ${className}`}
+      className={`mgn-scenepanel mb-0.5 flex w-full flex-col justify-between rounded-lg p-1 outline ${className}`}
     >
       {/* OPTIMIZE: find better font */}
       <div className='text-2xs'>
