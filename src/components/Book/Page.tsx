@@ -28,11 +28,10 @@ export default function Page(props: Props) {
   const typingSpeed = settings.mode !== MODE.DEBUG ? settings.page.typingSpeed : 0;
 
   const contentScenes = [
-    // FIXME: add key
-    // eslint-disable-next-line react/jsx-key
-    <h3 className='my-2 pl-2 text-lg'>Chapter 1</h3>,
-    // eslint-disable-next-line react/jsx-key
-    <section className='pl-2'>
+    <h3 key='header' className='my-2 pl-2 text-lg'>
+      Chapter 1
+    </h3>,
+    <section key='scene-1' className='pl-2'>
       <p>"What's two plus two?"</p>
       <p>Something about the question irritates me. I'm tired. I drift back to sleep.</p>
       <p>A few minutes pass, then I hear it again.</p>
@@ -42,16 +41,14 @@ export default function Page(props: Props) {
         time she said it. It's a computer. A computer is hassling me. I'm even more irritated now.
       </p>
     </section>,
-    // eslint-disable-next-line react/jsx-key
-    <section className='pl-2'>
+    <section key='scene-2' className='pl-2'>
       <p>
         "Lrmln," I say. I'm surprised. I meant to say "Leave me alone"—a completely reasonable
         response in my opinion—but I failed to speak.
       </p>
       <p>"Incorrect," says the computer. "What's two plus two?"</p>
     </section>,
-    // eslint-disable-next-line react/jsx-key
-    <section className='pl-2'>
+    <section key='scene-3' className='pl-2'>
       <p>Time for an experiment. I'll try to say hello.</p>
       <p>"Hlllch?" I say.</p>
       <p>"Incorrect. What's two plus two?"</p>
@@ -71,10 +68,13 @@ export default function Page(props: Props) {
     includeHeader = true
   ): React.ReactNode {
     const content = [...contentScenes];
-    if (sceneCurrent) content[sceneCurrent] = <SceneMarker>{content[sceneCurrent]}</SceneMarker>;
+    if (sceneCurrent)
+      content[sceneCurrent] = (
+        <SceneMarker key={`currentScene-${sceneCurrent}`}>{content[sceneCurrent]}</SceneMarker>
+      );
 
     const chapter = includeHeader ? [content[0]] : [];
-    const pageContent = <>{content.slice(sceneStart, sceneEnd + 1)}</>;
+    const pageContent = <div key='pageContent'>{content.slice(sceneStart, sceneEnd + 1)}</div>;
 
     return <>{chapter.concat(pageContent)}</>;
   }
