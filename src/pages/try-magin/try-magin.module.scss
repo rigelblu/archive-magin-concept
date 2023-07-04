@@ -84,44 +84,37 @@
 
     // prettier-ignore
     .h-film {
-      @apply h-[15.1rem] max-h-[15.1rem];
-      // TODO: add iphone, ipad, android phones
-    }
-
-    // prettier-ignore
-    .max-h-for-screen {
       // Base for calculating all other screen sizes
       // Calculation: (screen  - status bar - navigation bar) / (1rem in px) x (percent)]
 
       // Desktop
-      @apply sm-h:max-h-[14rem];                                            // 480 / 16 * 0.47 = 14
-      @apply md-h:max-h-[18rem];                                            // 600 / 16 * 0.47 = 18
-      @apply lg-h:max-h-[23rem];                                            // 768 / 16 * 0.47 = 23
-      @apply xl-h:max-h-[30rem];                                            // 1024 / 16 * 0.47 = 30
+      @apply max-h-[17rem] h-[17rem];                                       // default and xl+: 55 * 0.3 = 17
+      @apply sm-h:max-h-[9rem] sm-h:h-[9rem];                               // 30 * 0.3 = 9
+      @apply md-h:max-h-[11rem] md-h:h-[11rem];                             // 37.5 * 0.3 = 11
+      @apply lg-h:max-h-[14rem] lg-h:h-[14rem];                             // 48 * 0.3 = 14
 
       .device-apple {
-        @apply iphone-se:max-h-[11rem];                                     // (568 - 44 - 140) / 16 * 0.47 = 11
-        @apply iphone-8:max-h-[14rem];                                      // (667 - 44 - 140) / 16 * 0.47 = 14
-        @apply iphone-8-plus:max-h-[16rem];                                 // (736 - 44 - 140) / 16 * 0.47 = 16
+        @apply iphone-se:max-h-[10rem] iphone-se:h-[10rem];                 // 35.5 * 0.3 = 10
+        @apply iphone-8:max-h-[12rem] iphone-8:h-[12rem];                   // 41.6875 * 0.3 = 12
+        @apply iphone-8-plus:max-h-[14rem] iphone-8-plus:h-[14rem];         // 46 * 0.3 = 14
 
-        @apply iphone-11:max-h-[21rem];                                     // (896 - 48 - 140) / 16 * 0.47 = 21
-        @apply iphone-11-pro:max-h-[18rem];                                 // (812 - 48 - 140) / 16 * 0.47 = 18
-        @apply iphone-11-pro-max:max-h-[21rem];                             // (896 - 48 - 140) / 16 * 0.47 = 21
+        @apply iphone-11:max-h-[17rem] iphone-11:h-[17rem];                 // 56 * 0.3 = 17
+        @apply iphone-11-pro:max-h-[15rem] iphone-11-pro:h-[15rem];         // 50.75 * 0.3 = 15
+        @apply iphone-11-pro-max:max-h-[17rem] iphone-11-pro-max:h-[17rem]; // 56 * 0.3 = 17
 
-        @apply iphone-12:max-h-[19rem];                                     // (844 - 47 - 140) / 16 * 0.47 = 19
-        @apply iphone-12-pro:max-h-[22rem];                                 // (926 - 47 - 140) / 16 * 0.47 = 22
-        @apply iphone-12-mini:max-h-[18rem];                                // (780 - 44 - 140) / 16 * 0.47 = 18
+        @apply iphone-12:max-h-[16rem] iphone-12:h-[16rem];                 // 52.75 * 0.3 = 16
+        @apply iphone-12-pro:max-h-[17rem] iphone-12-pro:h-[17rem];         // 57.875 * 0.3 = 17
+        @apply iphone-12-mini:max-h-[17rem] iphone-12-mini:h-[17rem];       // 56 * 0.3 = 17
 
-        @apply ipad-mini:max-h-[17rem];                                     // (768 - 47 - 140) / 16 * 0.47 = 17
-        @apply ipad-pro:max-h-[19rem];                                      // (834 - 47 - 140) / 16 * 0.47 = 19
+        @apply ipad-mini:max-h-[14rem] ipad-mini:h-[14rem];                 // 48 * 0.3 = 14
+        @apply ipad-pro:max-h-[15rem] ipad-pro:h-[15rem];                   // 52.125 * 0.3 = 15
       }
 
       .device-android {
-        @apply pixel-5:max-h-[20rem];                                       // (851 - 47 - 140) / 16 * 0.47 = 20
-        @apply galaxy-a:max-h-[21rem];                                      // (914 - 47 - 140) / 16 * 0.47 = 21
-        @apply galaxy-8plus:max-h-[16rem];                                  // (740 - 47 - 140) / 16 * 0.47 = 16
-        @apply galaxy-s20-ultra:max-h-[21rem];                              // (915 - 47 - 140) / 16 * 0.47 = 21
+        @apply pixel-5:max-h-[16rem] pixel-5:h-[16rem];                     // 53.1875 * 0.3 = 16
+        @apply galaxy-a:max-h-[17rem] galaxy-a:h-[17rem];                   // 57.125 * 0.3 = 17
+        @apply galaxy-8plus:max-h-[14rem] galaxy-8plus:h-[14rem];           // 46.25 * 0.3 = 14
+        @apply galaxy-s20-ultra:max-h-[17rem] galaxy-s20-ultra:h-[17rem];   // 57.1875 * 0.3 = 17
       }
     }
-  }
 }

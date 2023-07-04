@@ -30,7 +30,7 @@ export default function MarginPreview() {
         {/* HACK: have to use fixed rem for max height and width due to mobile browsers */}
         <div className='mgn-step flex w-full flex-1 flex-col justify-between bg-yellow-rb-200 p-2'>
           {/* HACK: have to use fixed rem for height due to mobile browsers */}
-          <div className='mgn-step-top col h-book max-h-for-screen flex flex-col justify-start'>
+          <div className='mgn-step-top col h-book flex flex-col justify-start'>
             <Book
               onTypingComplete={() => setBookDisplayed(true)}
               sceneCurrent={scene}
@@ -86,7 +86,7 @@ export default function MarginPreview() {
               </div>
             )}
             {isBookDisplayed && scene !== 0 && (
-              <div className='mgn-step-bottom h-film max-h-for-screen flex animate-delayFadeIn items-end'>
+              <div className='mgn-step-bottom h-film flex animate-delayFadeIn items-end'>
                 <Film
                   className='flex-1'
                   onNext={() => {
