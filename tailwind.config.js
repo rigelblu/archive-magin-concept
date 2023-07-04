@@ -40,6 +40,7 @@ module.exports = {
         },
       },
       screens: {
+        // iPhone
         'iphone-se': { raw: '(max-height: 667px)' },
 
         'iphone-11': { raw: '(max-height: 896px)' },
@@ -49,7 +50,8 @@ module.exports = {
         'iphone-12': { raw: '(max-height: 844px)' },
         'iphone-12-pro': { raw: '(max-height: 926px)' },
         'iphone-12-mini': { raw: '(max-height: 780px)' },
-        // TODO: add ipad, android phones
+
+        // TODO: add iPad, android phones
       },
     },
   },
