@@ -25,7 +25,7 @@
         @apply iphone-12-mini:max-h-[48.75rem];                             // 780 / 16 = 48.75
 
         @apply ipad-mini:max-h-[55rem];                                     // max(1024 / 16, 55) = 55
-        @apply ipad-air:max-h-[55rem];                                      // max(1180 / 16, 55) = 55
+        
         @apply ipad-pro:max-h-[55rem];                                      // max(1366 / 16, 55) = 55
       }
 
@@ -58,7 +58,7 @@
         @apply iphone-12-mini:max-h-[18rem] iphone-12-mini:h-[18rem];       // (780 - 44 - 140) / 16 * 0.47 = 18
 
         @apply ipad-mini:max-h-[25rem] ipad-mini:h-[19rem];                 // (1024 - 47 - 140) / 16 * 0.47 = 25
-        @apply ipad-air:max-h-[29rem] ipad-air:h-[19rem];                   // (1180 - 47 - 140) / 16 * 0.47 = 29
+        
         @apply ipad-pro:max-h-[35rem] ipad-pro:h-[19rem];                   // (1366 - 47 - 140) / 16 * 0.47 = 35
       }
 
@@ -102,7 +102,7 @@
         @apply iphone-12-mini:max-h-[18rem];                                // (780 - 44 - 140) / 16 * 0.47 = 18
 
         @apply ipad-mini:max-h-[25rem];                                     // (1024 - 47 - 140) / 16 * 0.47 = 25
-        @apply ipad-air:max-h-[29rem];                                      // (1180 - 47 - 140) / 16 * 0.47 = 29
+        
         @apply ipad-pro:max-h-[34rem];                                      // (1366 - 47 - 140) / 16 * 0.47 = 34
       }
 

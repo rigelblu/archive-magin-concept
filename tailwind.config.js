@@ -59,8 +59,8 @@ module.exports = {
 
         // iPad
         'ipad-mini': { raw: '(max-height: 1024x)' },
-        'ipad-air': { raw: '(max-height: 1180px)' },
         'ipad-pro': { raw: '(max-height: 1366px)' },
+        // ipad air is same as mini
 
         // Android
         'pixel-5': { raw: '(max-height: 851px)' },
