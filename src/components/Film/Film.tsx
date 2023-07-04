@@ -25,7 +25,9 @@ export default function Film(props: Props) {
         className='px-1'
         isShown={!hidePrev && scene > 1}
       />
+
       <ScenePanel scene={scene} />
+
       <PageControl
         action='next'
         onClick={onNext}
