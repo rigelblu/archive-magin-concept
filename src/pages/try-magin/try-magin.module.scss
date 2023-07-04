@@ -10,7 +10,6 @@
 
       // Desktop
       @apply max-h-[55rem];                                                 // default and xl+: max(1024 / 16, 55) = 55
-
       @apply sm-h:max-h-[30rem];                                            // 480 / 16 = 30
       @apply md-h:max-h-[37.5rem];                                          // 600 / 16 = 37.5
       @apply lg-h:max-h-[48rem];                                            // 768 / 16 = 48
@@ -47,7 +46,6 @@
 
       // Desktop
       @apply max-h-[30rem] h-[30rem];                                       // default and xl+: 1024 / 16 * 0.47 = 30
-
       @apply sm-h:max-h-[14rem] sm-h:h-[14rem];                             // 480 / 16 * 0.47 = 14
       @apply md-h:max-h-[18rem] md-h:h-[18rem];                             // 600 / 16 * 0.47 = 18
       @apply lg-h:max-h-[23rem] lg-h:h-[23rem];                             // 768 / 16 * 0.47 = 23
