@@ -1,6 +1,6 @@
 // Copyright rigélblu inc.
 // All rights reserved.
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import Header from './Header';
 import Footer from './Footer';
@@ -36,6 +36,19 @@ export default function MainLayout(props: Props) {
     default:
       break;
   }
+
+  useEffect(() => {
+    const devices = [
+      { userAgent: 'iPhone|iPad', class: 'device-apple' },
+      { userAgent: 'Android', class: 'device-android' },
+    ];
+
+    devices.forEach((device) => {
+      if (new RegExp(device.userAgent, 'i').test(navigator.userAgent)) {
+        document.body.classList.add(device.class);
+      }
+    });
+  }, []);
 
   return (
     <div className={`mgn-canvas ${canvasClassName}`}>
