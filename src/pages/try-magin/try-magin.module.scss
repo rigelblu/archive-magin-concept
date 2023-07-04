@@ -15,6 +15,8 @@
 
       .device-apple {
         @apply iphone-se:max-h-[35.5rem];                                   // 568 / 16 = 35.5
+        @apply iphone-8:max-h-[41.6875rem];                                 // 667 / 16 = 41.6875
+        @apply iphone-8-plus:max-h-[46rem];                                 // 736 / 16 = 46
 
         @apply iphone-11:max-h-[56rem];                                     // 896 / 16 = 56
         @apply iphone-11-pro:max-h-[50.75rem];                              // 812 / 16 = 50.75
@@ -47,7 +49,8 @@
 
       .device-apple {
         @apply iphone-se:max-h-[11rem] iphone-se:h-[11rem];                 // (568 - 44 - 140) / 16 * 0.47 = 11
-        @apply iphone-se:max-h-[14rem] iphone-se:h-[14rem];                 // (667 - 44 - 140) / 16 * 0.47 = 14
+        @apply iphone-8:max-h-[14rem] iphone-8:h-[14rem];                   // (667 - 44 - 140) / 16 * 0.47 = 14
+        @apply iphone-8-plus:max-h-[16rem] iphone-8-plus:h-[16rem];         // (736 - 44 - 140) / 16 * 0.47 = 16
 
         @apply iphone-11:max-h-[21rem] iphone-11:h-[21rem];                 // (896 - 48 - 140) / 16 * 0.47 = 21
         @apply iphone-11-pro:max-h-[18rem] iphone-11-pro:h-[18rem];         // (812 - 48 - 140) / 16 * 0.47 = 18
@@ -91,6 +94,8 @@
 
       .device-apple {
         @apply iphone-se:max-h-[11rem];                                     // (568 - 44 - 140) / 16 * 0.47 = 11
+        @apply iphone-8:max-h-[14rem];                                      // (667 - 44 - 140) / 16 * 0.47 = 14
+        @apply iphone-8-plus:max-h-[16rem];                                 // (736 - 44 - 140) / 16 * 0.47 = 16
 
         @apply iphone-11:max-h-[21rem];                                     // (896 - 48 - 140) / 16 * 0.47 = 21
         @apply iphone-11-pro:max-h-[18rem];                                 // (812 - 48 - 140) / 16 * 0.47 = 18
