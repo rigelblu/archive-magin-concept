@@ -26,7 +26,7 @@ export default function Book(props: Props) {
   return (
     <div className={`mgn-book flex w-full flex-1 ${className}`}>
       <div className='w-full'>
-        <h2 className='mb-2 text-2xs text-center text-gray-500'>{locale.book.title}</h2>
+        <h2 className='mb-2 text-center text-2xs text-gray-500'>{locale.book.title}</h2>
         <Page
           onTypingComplete={onTypingComplete}
           sceneCurrent={sceneCurrent}

@@ -161,7 +161,7 @@ export default function Page(props: Props) {
 
   return (
     <div className={`${styles['mgn-page']} flex flex-1 ${className}`}>
-      <div className='flex-1 overflow-hidden leading-3 bg-[#f8f1e3] text-left font-theano text-sm text-black'>
+      <div className='flex-1 overflow-hidden bg-[#f8f1e3] text-left font-theano text-sm leading-3 text-black'>
         {content}
       </div>
     </div>

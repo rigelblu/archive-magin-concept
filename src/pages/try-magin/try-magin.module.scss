@@ -9,12 +9,12 @@
     }
 
     .h-guided-message {
-      @apply lg:min-h-[1rem] h-[1rem];
+      @apply h-[1rem] lg:min-h-[1rem];
       // TODO: add iphone, ipad, android phones
     }
 
     .h-film {
-      @apply lg:max-h-[15.1rem] h-[15.1rem];
+      @apply h-[15.1rem] lg:max-h-[15.1rem];
       // TODO: add iphone, ipad, android phones
     }
 
