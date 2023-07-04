@@ -46,10 +46,11 @@
       // Calculation: (screen  - status bar - navigation bar) / (1rem in px) x (percent)]
 
       // Desktop
+      @apply max-h-[30rem] h-[30rem];                                       // default and xl+: 1024 / 16 * 0.47 = 30
+
       @apply sm-h:max-h-[14rem] sm-h:h-[14rem];                             // 480 / 16 * 0.47 = 14
       @apply md-h:max-h-[18rem] md-h:h-[18rem];                             // 600 / 16 * 0.47 = 18
       @apply lg-h:max-h-[23rem] lg-h:h-[23rem];                             // 768 / 16 * 0.47 = 23
-      @apply xl-h:max-h-[30rem] xl-h:h-[30rem];                             // 1024 / 16 * 0.47 = 30
 
       .device-apple {
         @apply iphone-se:max-h-[11rem] iphone-se:h-[11rem];                 // (568 - 44 - 140) / 16 * 0.47 = 11
