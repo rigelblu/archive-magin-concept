@@ -40,6 +40,12 @@ module.exports = {
         },
       },
       screens: {
+        // Desktop
+        'sm-h': { raw: '(max-height: 480px)' },
+        'md-h': { raw: '(max-height: 600px)' },
+        'lg-h': { raw: '(max-height: 768px)' },
+        'xl-h': { raw: '(max-height: 1024px)' },
+
         // iPhone
         'iphone-se': { raw: '(max-height: 667px)' },
 
@@ -51,7 +57,16 @@ module.exports = {
         'iphone-12-pro': { raw: '(max-height: 926px)' },
         'iphone-12-mini': { raw: '(max-height: 780px)' },
 
-        // TODO: add iPad, android phones
+        // iPad
+        'ipad-mini': { raw: '(max-height: 1024x)' },
+        'ipad-air': { raw: '(max-height: 1180px)' },
+        'ipad-pro': { raw: '(max-height: 1366px)' },
+
+        // Android
+        'pixel-5': { raw: '(max-height: 851px)' },
+        'galaxy-a': { raw: '(max-height: 914px)' },
+        'galaxy-8plus': { raw: '(max-height: 740px)' },
+        'galaxy-s20-ultra': { raw: '(max-height: 915px)' },
       },
     },
   },
