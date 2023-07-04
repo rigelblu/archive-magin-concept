@@ -81,7 +81,7 @@ export default function Page(props: Props) {
 
   // REFACTOR: import content from a file
   const classIndent = 'inline-block indent-3.5';
-  const classP = 'inline leading-7 mb-[0.1rem]';
+  const classP = 'inline content-text';
   const contentTyped = (
     <>
       <h3 className='my-2 text-lg'>Chapter 1</h3>
@@ -161,9 +161,7 @@ export default function Page(props: Props) {
 
   return (
     <div className={`${styles['mgn-page']} flex flex-1 ${className}`}>
-      <div className='flex-1 overflow-hidden bg-[#f8f1e3] text-left font-theano text-sm leading-3 text-black'>
-        {content}
-      </div>
+      <div className='mgn-content content-text flex-1 overflow-hidden bg-[#f8f1e3]'>{content}</div>
     </div>
   );
 }
