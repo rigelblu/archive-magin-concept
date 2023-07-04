@@ -61,7 +61,7 @@ export default function MarginPreview() {
 
           {/* HACK: temporarily disable */}
           <Navigation
-            className='pt-2'
+            className='mt-2'
             left={{
               className: 'mgn-cta-secondary',
               label: locale.navigation.back,

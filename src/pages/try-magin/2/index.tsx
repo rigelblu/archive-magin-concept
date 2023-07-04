@@ -102,7 +102,7 @@ export default function MarginPreview() {
           {/* REFACTOR: make this cleaner */}
           {isBookDisplayed && scene === 0 && (
             <Navigation
-              className='pt-2'
+              className='mt-2'
               left={{
                 className: 'mgn-cta-secondary',
                 label: locale.navigation.back,
@@ -122,6 +122,7 @@ export default function MarginPreview() {
           )}
           {isBookDisplayed && scene !== 0 && (
             <Navigation
+              className='mt-2'
               left={{
                 className: 'mgn-cta-secondary',
                 label: locale.navigation.back,
