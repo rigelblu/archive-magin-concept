@@ -47,7 +47,9 @@ module.exports = {
         'xl-h': { raw: '(max-height: 1024px)' },
 
         // iPhone
-        'iphone-se': { raw: '(max-height: 667px)' },
+        'iphone-se': { raw: '(max-height: 568px)' },
+        'iphone-8': { raw: '(max-height: 667px)' },
+        'iphone-8-plus': { raw: '(max-height: 736px)' },
 
         'iphone-11': { raw: '(max-height: 896px)' },
         'iphone-11-pro': { raw: '(max-height: 812px)' },
@@ -58,8 +60,8 @@ module.exports = {
         'iphone-12-mini': { raw: '(max-height: 780px)' },
 
         // iPad
-        'ipad-mini': { raw: '(max-height: 1024x)' },
-        'ipad-pro': { raw: '(max-height: 1366px)' },
+        'ipad-mini': { raw: '(max-height: 768px)' },
+        'ipad-pro': { raw: '(max-height: 834px)' },
         // ipad air is same as mini
 
         // Android
