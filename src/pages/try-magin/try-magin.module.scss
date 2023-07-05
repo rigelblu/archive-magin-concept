@@ -14,8 +14,7 @@
       @apply sm-min-h:max-h-[30rem];                                                  // 480 / 16 = 30
       @apply md-min-h:max-h-[37.5rem];                                                // 600 / 16 = 37.5
 
-      // FIXME: `:global .device-ios .mgn-step` doesn't work
-
+      // FIXME: `:global .device-ios` doesn't work
       @apply iphone-11-min-h:max-h-[56rem];                                           // 896 / 16 = 56
       @apply iphone-11-pro-min-h:max-h-[50.75rem];                                    // 812 / 16 = 50.75
       @apply iphone-11-promax-min-h:max-h-[56rem];                                    // 896 / 16 = 56
@@ -27,7 +26,7 @@
       @apply ipad-mini-min-h:max-h-[48rem];                                           // max(768 / 16, 55) = 48
       @apply ipad-pro-min-h:max-h-[52.125rem];                                        // max(834 / 16, 55) = 52.125
 
-      // FIXME: `:global .device-android .mgn-step` doesn't work
+      // FIXME: `:global .device-android` doesn't work
       @apply pixel-5-min-h:max-h-[53.1875rem];                                        // 851 / 16 = 53.1875
       @apply galaxy-a-min-h:max-h-[57.125rem];                                        // 914 / 16 = 57.125
       @apply galaxy-8plus-min-h:max-h-[46.25rem];                                     // 740 / 16 = 46.25
@@ -44,8 +43,7 @@
       @apply md-min-h:max-h-[18rem] md-min-h:h-[18rem];                               // (600 - 44 - 140 - 32) / 16 * 0.77 = 18
       @apply lg-min-h:max-h-[23rem] lg-min-h:h-[23rem];                               // (768 - 44 - 140 - 32) / 16 * 0.77 = 23
 
-      // FIXME: `:global .device-ios .h-book` doesn't work
-
+      // FIXME: `:global .device-ios` doesn't work
       @apply iphone-11-min-h:max-h-[33rem] iphone-11-min-h:h-[33rem];                 // (896 - 48 - 140 - 32) / 16 * 0.77 = 33
       @apply iphone-11-pro-min-h:max-h-[28rem] iphone-11-pro-min-h:h-[28rem];         // (812 - 48 - 140 - 32) / 16 * 0.77 = 28
       @apply iphone-11-promax-min-h:max-h-[33rem] iphone-11-promax-min-h:h-[33rem];   // (896 - 48 - 140 - 32) / 16 * 0.77 = 33
@@ -57,7 +55,7 @@
       @apply ipad-mini-min-h:max-h-[26rem] ipad-mini-min-h:h-[26rem];                 // (768 - 47 - 140 - 32) / 16 * 0.77 = 26
       @apply ipad-pro-min-h:max-h-[30rem] ipad-pro-min-h:h-[30rem];                   // (834 - 47 - 140 - 32) / 16 * 0.77 = 30
 
-      // FIXME: `:global .device-android .h-book` doesn't work
+      // FIXME: `:global .device-android` doesn't work
       @apply pixel-5-min-h:max-h-[30rem] pixel-5-min-h:h-[30rem];                     // (851 - 47 - 140 - 32) / 16 * 0.77 = 30
       @apply galaxy-a-min-h:max-h-[33rem] galaxy-a-min-h:h-[33rem];                   // (914 - 47 - 140 - 32) / 16 * 0.77 = 33
       @apply galaxy-8plus-min-h:max-h-[25rem] galaxy-8plus-min-h:h-[25rem];           // (740 - 47 - 140 - 32) / 16 * 0.77 = 25
@@ -80,8 +78,7 @@
       @apply md-min-h:max-h-[5.5rem] md-min-h:h-[5.5rem];                             // (600 - 44 - 140 - 32) / 16 * 0.23 = 5.5
       @apply lg-min-h:max-h-[8rem] lg-min-h:h-[8rem];                                 // (768 - 44 - 140 - 32) / 16 * 0.23 = 8
 
-      // FIXME: `:global .device-ios .h-film` doesn't work
-
+      // FIXME: `:global .device-ios` doesn't work
       @apply iphone-11-min-h:max-h-[9.5rem] iphone-11-min-h:h-[9.5rem];               // (896 - 48 - 140 - 32) / 16 * 0.23 = 9.5
       @apply iphone-11-pro-min-h:max-h-[8.5rem] iphone-11-pro-min-h:h-[8.5rem];       // (812 - 48 - 140 - 32) / 16 * 0.23 = 8.5
       @apply iphone-11-promax-min-h:max-h-[9.5rem] iphone-11-promax-min-h:h-[9.5rem]; // (896 - 48 - 140 - 32) / 16 * 0.23 = 9.5
@@ -93,7 +90,7 @@
       @apply ipad-mini-min-h:max-h-[7.5rem] ipad-mini-min-h:h-[7.5rem];               // (768 - 47 - 140 - 32) / 16 * 0.23 = 7.5
       @apply ipad-pro-min-h:max-h-[8.5rem] ipad-pro-min-h:h-[8.5rem];                 // (834 - 47 - 140 - 32) / 16 * 0.23 = 8.5
 
-      // FIXME: `:global .device-apple .h-fulm` doesn't work
+      // FIXME: `:global .device-apple` doesn't work
       @apply pixel-5-min-h:max-h-[9rem] pixel-5-min-h:h-[9rem];                       // (851 - 47 - 140 - 32) / 16 * 0.23 = 9
       @apply galaxy-a-min-h:max-h-[10rem] galaxy-a-min-h:h-[10rem];                   // (914 - 47 - 140 - 32) / 16 * 0.23 = 10
       @apply galaxy-8plus-min-h:max-h-[7.5rem] galaxy-8plus-min-h:h-[7.5rem];         // (740 - 47 - 140 - 32) / 16 * 0.23 = 7.5
