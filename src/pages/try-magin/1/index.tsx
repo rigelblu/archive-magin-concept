@@ -50,7 +50,7 @@ export default function MarginPreview() {
         <div className='mgn-step flex w-full flex-1 flex-col justify-between bg-yellow-rb-200 p-2 '>
           {/* REFACTOR: into top, middle, button div elements, put the guide message into the bottom */}
           <GuideMessage className='flex max-h-[32rem] flex-1 items-end justify-center sm:max-h-[40rem]'>
-            <h2 className='text-blue-rb-600'>
+            <h2 className='text-blue-rb-600 sm-h:text-lg md-h:text-xl'>
               {locale.guide.tryMagin1_maginPresents}
               <br />
               <span className='animation text-black' ref={bookTitleRef}>
