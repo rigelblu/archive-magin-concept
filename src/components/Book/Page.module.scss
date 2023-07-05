@@ -3,12 +3,6 @@
 
 .mgn-page {
   :global {
-    .mgn-content {
-      p {
-        @apply mb-[0.1rem] indent-3.5;
-      }
-    }
-
     .content-text * {
       // Desktop
       @apply font-theano text-xs leading-5; // default / sm / md
@@ -37,6 +31,24 @@
       @apply galaxy-a:text-sm;
       @apply galaxy-8plus:text-sm;
       @apply galaxy-s20-ultra:text-sm;
+    }
+
+    .mgn-content {
+      p {
+        @apply indent-3.5;
+      }
+
+      &.typing-not-used * {
+        p {
+          @apply mb-[0.1rem];
+        }
+      }
+
+      &.typing-used * {
+        p {
+          @apply mb-0;
+        }
+      }
     }
   }
 }

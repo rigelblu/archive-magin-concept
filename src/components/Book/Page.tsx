@@ -12,6 +12,7 @@ type Props = {
   sceneCurrent: number;
   sceneEnd: number;
   sceneStart: number;
+  styleTypedNonTypedSame: boolean;
   useTypingAnimation?: boolean;
 };
 
@@ -22,6 +23,7 @@ export default function Page(props: Props) {
     sceneCurrent,
     sceneEnd,
     sceneStart,
+    styleTypedNonTypedSame,
     useTypingAnimation = false,
   } = props;
   const refTyped = useRef(null);
@@ -159,9 +161,11 @@ export default function Page(props: Props) {
       console.error('scene not available');
   }
 
+  const typingNotUsed = !styleTypedNonTypedSame ? 'typing-not-used' : 'typing-used';
+
   return (
     <div className={`${styles['mgn-page']} flex h-full flex-1 ${className}`}>
-      <div className='mgn-content content-text h-full flex-1 overflow-y-auto bg-[#f8f1e3]'>
+      <div className={`mgn-content content-text h-full flex-1 overflow-y-auto bg-[#f8f1e3] ${typingNotUsed}`}>
         {content}
       </div>
     </div>

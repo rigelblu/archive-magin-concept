@@ -37,6 +37,7 @@ export default function MarginPreview() {
               sceneEnd={endScene}
               sceneStart={startScene}
               useTypingAnimation={!isBookDisplayed}
+              styleTypedNonTypedSame
             />
           </div>
 

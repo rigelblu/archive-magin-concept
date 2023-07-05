@@ -10,6 +10,7 @@ type Props = {
   sceneCurrent: number;
   sceneEnd: number;
   sceneStart: number;
+  styleTypedNonTypedSame?: boolean;
   useTypingAnimation?: boolean;
 };
 
@@ -20,6 +21,7 @@ export default function Book(props: Props) {
     sceneCurrent,
     sceneStart,
     sceneEnd,
+    styleTypedNonTypedSame = false,
     useTypingAnimation = false,
   } = props;
 
@@ -33,6 +35,7 @@ export default function Book(props: Props) {
           sceneEnd={sceneEnd}
           sceneStart={sceneStart}
           useTypingAnimation={useTypingAnimation}
+          styleTypedNonTypedSame={styleTypedNonTypedSame}
         />
       </div>
     </div>
