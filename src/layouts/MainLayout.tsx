@@ -39,7 +39,7 @@ export default function MainLayout(props: Props) {
 
   useEffect(() => {
     const devices = [
-      { userAgent: 'iPhone|iPad', class: 'device-apple' },
+      { userAgent: 'iPhone|iPad', class: 'device-ios' },
       { userAgent: 'Android', class: 'device-android' },
     ];
 
