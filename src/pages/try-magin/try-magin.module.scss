@@ -15,6 +15,10 @@
       @apply md-min-h:max-h-[37.5rem];                                                // 600 / 16 = 37.5
 
       // FIXME: `:global .device-ios` doesn't work
+      @apply iphone-se-min-h:max-h-[35.5rem];                                         // 568 / 16 = 35.5
+      @apply iphone-8-min-h:max-h-[41.6875rem];                                       // 667 / 16 = 41.6875
+      @apply iphone-8-plus-min-h:max-h-[46rem];                                       // 736 / 16 = 46
+
       @apply iphone-11-min-h:max-h-[56rem];                                           // 896 / 16 = 56
       @apply iphone-11-pro-min-h:max-h-[50.75rem];                                    // 812 / 16 = 50.75
       @apply iphone-11-promax-min-h:max-h-[56rem];                                    // 896 / 16 = 56
@@ -44,6 +48,10 @@
       @apply lg-min-h:max-h-[23rem] lg-min-h:h-[23rem];                               // (768 - 44 - 140 - 32) / 16 * 0.77 = 23
 
       // FIXME: `:global .device-ios` doesn't work
+      @apply iphone-se-min-h:max-h-[17rem] iphone-se-min-h:h-[17rem];                 // (568 - 44 - 140 - 32) / 16 * 0.77 = 17
+      @apply iphone-8-min-h:max-h-[22rem] iphone-8-min-h:h-[22rem];                   // (667 - 44 - 140 - 32) / 16 * 0.77 = 22
+      @apply iphone-8-plus-min-h:max-h-[25rem] iphone-8-plus-min-h:h-[25rem];         // (736 - 44 - 140 - 32) / 16 * 0.77 = 25
+
       @apply iphone-11-min-h:max-h-[33rem] iphone-11-min-h:h-[33rem];                 // (896 - 48 - 140 - 32) / 16 * 0.77 = 33
       @apply iphone-11-pro-min-h:max-h-[28rem] iphone-11-pro-min-h:h-[28rem];         // (812 - 48 - 140 - 32) / 16 * 0.77 = 28
       @apply iphone-11-promax-min-h:max-h-[33rem] iphone-11-promax-min-h:h-[33rem];   // (896 - 48 - 140 - 32) / 16 * 0.77 = 33
@@ -79,6 +87,10 @@
       @apply lg-min-h:max-h-[8rem] lg-min-h:h-[8rem];                                 // (768 - 44 - 140 - 32) / 16 * 0.23 = 8
 
       // FIXME: `:global .device-ios` doesn't work
+      @apply iphone-se-min-h:max-h-[5rem] iphone-se-min-h:h-[5rem];                   // (568 - 44 - 140 - 32) / 16 * 0.23 = 5
+      @apply iphone-8-min-h:max-h-[6.5rem] iphone-8-min-h:h-[6.5rem];                 // (667 - 44 - 140 - 32) / 16 * 0.23 = 6.5
+      @apply iphone-8-plus-min-h:max-h-[7.5rem] iphone-8-plus-min-h:h-[7.5rem];       // (736 - 44 - 140 - 32) / 16 * 0.23 = 7.5
+
       @apply iphone-11-min-h:max-h-[9.5rem] iphone-11-min-h:h-[9.5rem];               // (896 - 48 - 140 - 32) / 16 * 0.23 = 9.5
       @apply iphone-11-pro-min-h:max-h-[8.5rem] iphone-11-pro-min-h:h-[8.5rem];       // (812 - 48 - 140 - 32) / 16 * 0.23 = 8.5
       @apply iphone-11-promax-min-h:max-h-[9.5rem] iphone-11-promax-min-h:h-[9.5rem]; // (896 - 48 - 140 - 32) / 16 * 0.23 = 9.5
@@ -90,7 +102,7 @@
       @apply ipad-mini-min-h:max-h-[7.5rem] ipad-mini-min-h:h-[7.5rem];               // (768 - 47 - 140 - 32) / 16 * 0.23 = 7.5
       @apply ipad-pro-min-h:max-h-[8.5rem] ipad-pro-min-h:h-[8.5rem];                 // (834 - 47 - 140 - 32) / 16 * 0.23 = 8.5
 
-      // FIXME: `:global .device-apple` doesn't work
+      // FIXME: `:global .device-ios` doesn't work
       @apply pixel-5-min-h:max-h-[9rem] pixel-5-min-h:h-[9rem];                       // (851 - 47 - 140 - 32) / 16 * 0.23 = 9
       @apply galaxy-a-min-h:max-h-[10rem] galaxy-a-min-h:h-[10rem];                   // (914 - 47 - 140 - 32) / 16 * 0.23 = 10
       @apply galaxy-8plus-min-h:max-h-[7.5rem] galaxy-8plus-min-h:h-[7.5rem];         // (740 - 47 - 140 - 32) / 16 * 0.23 = 7.5
