@@ -41,34 +41,59 @@ module.exports = {
       },
       screens: {
         // Desktop
-        'sm-h': { raw: '(min-height: 480px)' },
-        'md-h': { raw: '(min-height: 600px)' },
-        'lg-h': { raw: '(min-height: 768px)' },
-        'xl-h': { raw: '(min-height: 1024px)' },
+        'sm-min-h': { raw: '(min-height: 480px)' },
+        'md-min-h': { raw: '(min-height: 600px)' },
+        'lg-min-h': { raw: '(min-height: 768px)' },
+        'xl-min-h': { raw: '(min-height: 1024px)' },
+
+        'sm-max-h': { raw: '(max-height: 480px)' },
+        'md-max-h': { raw: '(max-height: 600px)' },
+        'lg-max-h': { raw: '(max-height: 768px)' },
+        'xl-max-h': { raw: '(max-height: 1024px)' },
 
         // iPhone
-        'iphone-se': { raw: '(min-height: 568px)' },
-        'iphone-8': { raw: '(min-height: 667px)' },
-        'iphone-8-plus': { raw: '(min-height: 736px)' },
+        'iphone-se-min-h': { raw: '(min-height: 568px)' },
+        'iphone-8-min-h': { raw: '(min-height: 667px)' },
+        'iphone-8-plus-min-h': { raw: '(min-height: 736px)' },
 
-        'iphone-11': { raw: '(min-height: 896px)' },
-        'iphone-11-pro': { raw: '(min-height: 812px)' },
-        'iphone-11-pro-max': { raw: '(min-height: 896px)' },
+        'iphone-se-max-h': { raw: '(max-height: 568px)' },
+        'iphone-8-max-h': { raw: '(max-height: 667px)' },
+        'iphone-8-plus-max-h': { raw: '(max-height: 736px)' },
 
-        'iphone-12': { raw: '(min-height: 844px)' },
-        'iphone-12-pro': { raw: '(min-height: 926px)' },
-        'iphone-12-mini': { raw: '(min-height: 780px)' },
+        'iphone-11-min-h': { raw: '(min-height: 896px)' },
+        'iphone-11-pro-min-h': { raw: '(min-height: 812px)' },
+        'iphone-11-promax-min-h': { raw: '(min-height: 896px)' },
+
+        'iphone-11-max-h': { raw: '(max-height: 896px)' },
+        'iphone-11-pro-max-h': { raw: '(max-height: 812px)' },
+        'iphone-11-promax-max-h': { raw: '(max-height: 896px)' },
+
+        'iphone-12-min-h': { raw: '(min-height: 844px)' },
+        'iphone-12-pro-min-h': { raw: '(min-height: 926px)' },
+        'iphone-12-mini-min-h': { raw: '(min-height: 780px)' },
+
+        'iphone-12-max-h': { raw: '(max-height: 844px)' },
+        'iphone-12-pro-max-h': { raw: '(max-height: 926px)' },
+        'iphone-12-mini-max-h': { raw: '(max-height: 780px)' },
 
         // iPad
-        'ipad-mini': { raw: '(min-height: 768px)' },
-        'ipad-pro': { raw: '(min-height: 834px)' },
+        'ipad-mini-min-h': { raw: '(min-height: 768px)' },
+        'ipad-pro-min-h': { raw: '(min-height: 834px)' },
         // ipad air is same as mini
 
+        'ipad-mini-max-h': { raw: '(max-height: 768px)' },
+        'ipad-pro-max-h': { raw: '(max-height: 834px)' },
+
         // Android
-        'pixel-5': { raw: '(min-height: 851px)' },
-        'galaxy-a': { raw: '(min-height: 914px)' },
-        'galaxy-8plus': { raw: '(min-height: 740px)' },
-        'galaxy-s20-ultra': { raw: '(min-height: 915px)' },
+        'pixel-5-min-h': { raw: '(min-height: 851px)' },
+        'galaxy-a-min-h': { raw: '(min-height: 914px)' },
+        'galaxy-8plus-min-h': { raw: '(min-height: 740px)' },
+        'galaxy-s20-ultra-min-h': { raw: '(min-height: 915px)' },
+
+        'pixel-5-max-h': { raw: '(max-height: 851px)' },
+        'galaxy-a-max-h': { raw: '(max-height: 914px)' },
+        'galaxy-8plus-max-h': { raw: '(max-height: 740px)' },
+        'galaxy-s20-ultra-max-h': { raw: '(max-height: 915px)' },
       },
     },
   },

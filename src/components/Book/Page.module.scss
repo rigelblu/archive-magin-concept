@@ -6,31 +6,31 @@
     .content-text * {
       // Desktop
       @apply font-theano text-xs leading-5; // default / sm / md
-      @apply lg-h:text-sm lg-h:leading-7;
+      @apply lg-min-h:text-sm lg-min-h:leading-7;
 
       // Apple devices
-      @apply iphone-se:leading-5 iphone-8:leading-5 iphone-8-plus:leading-5;
+      @apply iphone-se-min-h:leading-5 iphone-8-min-h:leading-5 iphone-8-plus-min-h:leading-5;
 
-      @apply iphone-se:text-xs;
-      @apply iphone-8:text-xs;
-      @apply iphone-8-plus:text-xs;
+      @apply iphone-se-min-h:text-xs;
+      @apply iphone-8-min-h:text-xs;
+      @apply iphone-8-plus-min-h:text-xs;
 
-      @apply iphone-11:text-sm;
-      @apply iphone-11-pro:text-sm;
-      @apply iphone-11-pro-max:text-sm;
+      @apply iphone-11-min-h:text-sm;
+      @apply iphone-11-pro-min-h:text-sm;
+      @apply iphone-11-promax-min-h:text-sm;
 
-      @apply iphone-12:text-sm;
-      @apply iphone-12-pro:text-sm;
-      @apply iphone-12-mini:text-sm;
+      @apply iphone-12-min-h:text-sm;
+      @apply iphone-12-pro-min-h:text-sm;
+      @apply iphone-12-mini-min-h:text-sm;
 
-      @apply ipad-mini:text-sm;
-      @apply ipad-pro:text-sm;
+      @apply ipad-mini-min-h:text-sm;
+      @apply ipad-pro-min-h:text-sm;
 
       // Adnroid devices
-      @apply pixel-5:text-sm;
-      @apply galaxy-a:text-sm;
-      @apply galaxy-8plus:text-sm;
-      @apply galaxy-s20-ultra:text-sm;
+      @apply pixel-5-min-h:text-sm;
+      @apply galaxy-a-min-h:text-sm;
+      @apply galaxy-8plus-min-h:text-sm;
+      @apply galaxy-s20-ultra-min-h:text-sm;
     }
 
     .mgn-content {
