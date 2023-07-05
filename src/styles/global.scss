@@ -15,15 +15,15 @@ body {
 }
 
 h1 {
-  @apply text-2xl font-bold;
+  @apply text-lg font-bold lg-h:text-2xl;
 }
 
 h2 {
-  @apply text-xl font-bold;
+  @apply text-base font-bold lg-h:text-xl;
 }
 
 h3 {
-  @apply text-lg font-bold;
+  @apply text-base font-bold lg-h:text-lg;
 }
 
 h4 {
