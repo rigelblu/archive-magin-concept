@@ -6,7 +6,7 @@
 .mgn-preview {
   // ----------
   // mgn-step
-  .mgn-step {
+  :global .mgn-step {
     // Max Width
     @apply sm:max-w-[25rem];                                                        // 640w
 
@@ -42,7 +42,7 @@
 
   // ----------
   // h-book
-  .h-book {
+  :global .h-book {
     // Base for calculating all other screen sizes
     // Calculation: (screen  - status bar - navigation bar) / (1rem in px) x (percent)]
 
@@ -79,7 +79,7 @@
 
   // ----------
   // h-guided-message
-  .h-guided-message {
+  :global .h-guided-message {
     // TODO: h-[1rem] hides up arrow on try-magin/2. Check if we still need this
     // @apply h-[1rem] lg:min-h-[3rem];
     // TODO: add iphone, ipad, android phones
@@ -87,7 +87,7 @@
 
   // ----------
   // h-film
-  .h-film {
+  :global .h-film {
     // Base for calculating all other screen sizes
     // Calculation: (screen  - status bar - navigation bar) / (1rem in px) x (percent)]
 
