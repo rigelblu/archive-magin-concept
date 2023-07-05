@@ -11,10 +11,8 @@
 
     .content-text * {
       // Desktop
-      @apply font-theano text-sm leading-7; // default and xl+
-      @apply sm-h:text-xs;
-      @apply md-h:text-xs;
-      @apply lg-h:text-xs;
+      @apply font-theano text-xs leading-5; // default / sm / md
+      @apply lg-h:text-sm lg-h:leading-7;
 
       // Apple devices
       @apply iphone-se:leading-5 iphone-8:leading-5 iphone-8-plus:leading-5;
