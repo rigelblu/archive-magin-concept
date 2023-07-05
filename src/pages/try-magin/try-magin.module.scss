@@ -7,13 +7,13 @@
     // prettier-ignore
     .mgn-step {
       // Max Width
-      @apply sm:max-w-[25rem];                                              // 640w
+      @apply sm:max-w-[25rem];                                            // 640w
 
       // Desktop
-      @apply max-h-[55rem];                                                 // default and xl+: max(1024 / 16, 55) = 55
-      @apply sm-h:max-h-[30rem];                                            // 480 / 16 = 30
-      @apply md-h:max-h-[37.5rem];                                          // 600 / 16 = 37.5
-      @apply lg-h:max-h-[48rem];                                            // 768 / 16 = 48
+      @apply max-h-[55rem];                                               // default and xl+: max(1024 / 16, 55) = 55
+      @apply sm-h:max-h-[30rem];                                          // 480 / 16 = 30
+      @apply md-h:max-h-[37.5rem];                                        // 600 / 16 = 37.5
+      @apply lg-h:max-h-[48rem];                                          // 768 / 16 = 48
 
       // Apple devices
       @apply iphone-se:max-h-[35.5rem];                                   // 568 / 16 = 35.5
@@ -30,7 +30,7 @@
 
       @apply ipad-mini:max-h-[48rem];                                     // max(768 / 16, 55) = 48
       @apply ipad-pro:max-h-[52.125rem];                                  // max(834 / 16, 55) = 52.125
-      
+
       // Android devices
       @apply pixel-5:max-h-[53.1875rem];                                  // 851 / 16 = 53.1875
       @apply galaxy-a:max-h-[57.125rem];                                  // 914 / 16 = 57.125
@@ -44,10 +44,10 @@
       // Calculation: (screen  - status bar - navigation bar) / (1rem in px) x (percent)]
 
       // Desktop
-      @apply max-h-[30rem] h-[30rem];                                       // default and xl+: 1024 / 16 * 0.47 = 30
-      @apply sm-h:max-h-[14rem] sm-h:h-[14rem];                             // 480 / 16 * 0.47 = 14
-      @apply md-h:max-h-[18rem] md-h:h-[18rem];                             // 600 / 16 * 0.47 = 18
-      @apply lg-h:max-h-[23rem] lg-h:h-[23rem];                             // 768 / 16 * 0.47 = 23
+      @apply max-h-[30rem] h-[30rem];                                     // default and xl+: 1024 / 16 * 0.47 = 30
+      @apply sm-h:max-h-[14rem] sm-h:h-[14rem];                           // 480 / 16 * 0.47 = 14
+      @apply md-h:max-h-[18rem] md-h:h-[18rem];                           // 600 / 16 * 0.47 = 18
+      @apply lg-h:max-h-[23rem] lg-h:h-[23rem];                           // 768 / 16 * 0.47 = 23
 
       // Apple devices
       @apply iphone-se:max-h-[11rem] iphone-se:h-[11rem];                 // (568 - 44 - 140) / 16 * 0.47 = 11
@@ -64,7 +64,7 @@
 
       @apply ipad-mini:max-h-[17rem] ipad-mini:h-[17rem];                 // (768 - 47 - 140) / 16 * 0.47 = 17
       @apply ipad-pro:max-h-[19rem] ipad-pro:h-[19rem];                   // (834 - 47 - 140) / 16 * 0.47 = 19
-      
+
       // Android devices
       @apply pixel-5:max-h-[20rem] pixel-5:h-[19rem];                     // (851 - 47 - 140) / 16 * 0.47 = 20
       @apply galaxy-a:max-h-[21rem] galaxy-a:h-[19rem];                   // (914 - 47 - 140) / 16 * 0.47 = 21
@@ -84,10 +84,10 @@
       // Calculation: (screen  - status bar - navigation bar) / (1rem in px) x (percent)]
 
       // Desktop
-      @apply max-h-[17rem] h-[17rem];                                       // default and xl+: 55 * 0.3 = 17
-      @apply sm-h:max-h-[9rem] sm-h:h-[9rem];                               // 30 * 0.3 = 9
-      @apply md-h:max-h-[11rem] md-h:h-[11rem];                             // 37.5 * 0.3 = 11
-      @apply lg-h:max-h-[14rem] lg-h:h-[14rem];                             // 48 * 0.3 = 14
+      @apply max-h-[17rem] h-[17rem];                                     // default and xl+: 55 * 0.3 = 17
+      @apply sm-h:max-h-[9rem] sm-h:h-[9rem];                             // 30 * 0.3 = 9
+      @apply md-h:max-h-[11rem] md-h:h-[11rem];                           // 37.5 * 0.3 = 11
+      @apply lg-h:max-h-[14rem] lg-h:h-[14rem];                           // 48 * 0.3 = 14
 
       // Apple devices
       @apply iphone-se:max-h-[10rem] iphone-se:h-[10rem];                 // 35.5 * 0.3 = 10
@@ -103,7 +103,7 @@
       @apply iphone-12-mini:max-h-[17rem] iphone-12-mini:h-[17rem];       // 56 * 0.3 = 17
 
       @apply ipad-mini:max-h-[14rem] ipad-mini:h-[14rem];                 // 48 * 0.3 = 14
-      @apply ipad-pro:max-h-[15rem] ipad-pro:h-[15rem];                   // 52.125 * 0.3 = 15      
+      @apply ipad-pro:max-h-[15rem] ipad-pro:h-[15rem];                   // 52.125 * 0.3 = 15
 
       // Android devices
       @apply pixel-5:max-h-[16rem] pixel-5:h-[16rem];                     // 53.1875 * 0.3 = 16
