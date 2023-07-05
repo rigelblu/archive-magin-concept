@@ -4,14 +4,14 @@
 import locale from '@/locales/en.json';
 import Page from './Page';
 
-interface Props {
+type Props = {
   className?: string;
   onTypingComplete?: () => void;
   sceneCurrent: number;
   sceneEnd: number;
   sceneStart: number;
   useTypingAnimation?: boolean;
-}
+};
 
 export default function Book(props: Props) {
   const {
