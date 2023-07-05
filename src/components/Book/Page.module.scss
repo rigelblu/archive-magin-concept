@@ -9,7 +9,7 @@
       }
     }
 
-    .content-text {
+    .content-text * {
       // Desktop
       @apply font-theano text-sm leading-7; // default and xl+
       @apply sm-h:text-xs;
