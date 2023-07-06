@@ -10,9 +10,9 @@
       @apply sm:max-w-[25rem];                                                        // 640w
 
       // Desktop
-      @apply max-h-[48rem];                                                           // default and lg+: max(1024 / 16, 48) = 48
       @apply sm-min-h:max-h-[30rem];                                                  // 480 / 16 = 30
       @apply md-min-h:max-h-[37.5rem];                                                // 600 / 16 = 37.5
+      @apply lg:max-h-[48rem];                                                           // default and lg+: max(1024 / 16, 48) = 48
 
       // FIXME: `:global .device-ios` doesn't work, so have to include it each dom element
       &.device-ios {
