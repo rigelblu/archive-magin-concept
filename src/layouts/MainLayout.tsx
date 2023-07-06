@@ -2,6 +2,7 @@
 // All rights reserved.
 import React, { useEffect } from 'react';
 
+import getDeviceClasses from '@/src/helpers/deviceClasses';
 import Header from './Header';
 import Footer from './Footer';
 
@@ -38,16 +39,8 @@ export default function MainLayout(props: Props) {
   }
 
   useEffect(() => {
-    const devices = [
-      { userAgent: 'iPhone|iPad', class: 'device-ios' },
-      { userAgent: 'Android', class: 'device-android' },
-    ];
-
-    devices.forEach((device) => {
-      if (new RegExp(device.userAgent, 'i').test(navigator.userAgent)) {
-        document.body.classList.add(device.class);
-      }
-    });
+    const deviceClasses = getDeviceClasses(navigator);
+    if (deviceClasses) document.body.classList.add(deviceClasses);
   }, []);
 
   return (
