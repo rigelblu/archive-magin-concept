@@ -11,5 +11,5 @@ type Props = {
 export default function SceneMarker(props: Props) {
   const { children, className = '' } = props;
 
-  return <div className={`${styles['mgn-scenemarker']} relative ${className}`}>{children}</div>;
+  return <div className={`${styles['mgn-scenemarker']} ${className}`}>{children}</div>;
 }
