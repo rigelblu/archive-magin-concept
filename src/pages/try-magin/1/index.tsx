@@ -48,17 +48,20 @@ export default function MarginPreview() {
         className={`${styles['mgn-preview']} flex h-screen flex-col items-center justify-center bg-neutral-950 `}
       >
         <div className='mgn-step flex w-full flex-1 flex-col justify-between bg-yellow-rb-200 p-2 '>
-          {/* REFACTOR: into top, middle, button div elements, put the guide message into the bottom */}
-          <GuideMessage className='flex max-h-[32rem] flex-1 items-end justify-center sm:max-h-[40rem]'>
-            <h2 className='md-min-h:text-xl text-blue-rb-600 sm-min-h:text-lg'>
-              {locale.guide.tryMagin1_maginPresents}
-              <br />
-              <span className='animation text-black' ref={bookTitleRef}>
-                {locale.book.title}
-              </span>
-              <br />
-            </h2>
-          </GuideMessage>
+          {/* OPTIMIZE: adjust for each device screen */}
+          <div className='mgn-story flex max-h-[32rem] flex-1 flex-col justify-end sm:max-h-[40rem]'>
+            {/* REFACTOR: into top, middle, button div elements, put the guide message into the bottom */}
+            <GuideMessage className='mx-auto'>
+              <h2 className='text-blue-rb-600 sm-min-h:text-lg md-min-h:text-xl'>
+                {locale.guide.tryMagin1_maginPresents}
+                <br />
+                <span className='animation text-black' ref={bookTitleRef}>
+                  {locale.book.title}
+                </span>
+                <br />
+              </h2>
+            </GuideMessage>
+          </div>
 
           {/* REFACTOR: use next layout */}
           <Navigation

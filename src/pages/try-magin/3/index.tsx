@@ -26,31 +26,33 @@ export default function MarginPreview() {
       >
         {/* HACK: have to use fixed rem for max height and width due to mobile browsers */}
         <div className='mgn-step flex	w-full flex-1 flex-col justify-between bg-yellow-rb-200 p-2'>
-          {/* HACK: have to use fixed rem for height due to mobile browsers */}
-          <div className='mgn-step-top col h-book flex flex-col justify-start'>
-            <Book sceneCurrent={scene} sceneEnd={endScene} sceneStart={startScene} />
-          </div>
+          <div className='mgn-story flex w-full flex-1 flex-col justify-between'>
+            {/* HACK: have to use fixed rem for height due to mobile browsers */}
+            <div className='mgn-step-top col h-book flex flex-col justify-start'>
+              <Book sceneCurrent={scene} sceneEnd={endScene} sceneStart={startScene} />
+            </div>
 
-          <div className='mgn-step-middle h-guided-message flex justify-center overflow-hidden pt-1'>
-            {/* TODO: show on a 5 second delay */}
-            {/* OPTIMIZE: figure out how to allow \n in the string and convert in to <br /> */}
-            {/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */}
-            <GuideMessage
-              className='flex items-center font-bold'
-              messages={locale.guide.tryMagin3a_guidedMessage}
-            />
-          </div>
+            <div className='mgn-step-middle h-guided-message flex justify-center overflow-hidden pt-1'>
+              {/* TODO: show on a 5 second delay */}
+              {/* OPTIMIZE: figure out how to allow \n in the string and convert in to <br /> */}
+              {/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */}
+              <GuideMessage
+                className='flex items-center font-bold'
+                messages={locale.guide.tryMagin3a_guidedMessage}
+              />
+            </div>
 
-          <div className='mgn-step-bottom h-film flex animate-delayFadeIn items-end'>
-            <Film
-              onNext={() => {
-                setScene(scene + 1);
-              }}
-              onPrev={() => {
-                setScene(scene - 1);
-              }}
-              scene={scene}
-            />
+            <div className='mgn-step-bottom h-film flex animate-delayFadeIn items-end'>
+              <Film
+                onNext={() => {
+                  setScene(scene + 1);
+                }}
+                onPrev={() => {
+                  setScene(scene - 1);
+                }}
+                scene={scene}
+              />
+            </div>
           </div>
 
           {/* HACK: temporarily disable */}
