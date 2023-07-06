@@ -51,6 +51,7 @@ module.exports = {
         'lg-max-h': { raw: '(max-height: 768px)' },
         'xl-max-h': { raw: '(max-height: 1024px)' },
 
+        // FIXME: can't use min/max height due to nav/status bar ios and android devices
         // iPhone
         'iphone-se-min-h': { raw: '(min-height: 568px)' },
         'iphone-8-min-h': { raw: '(min-height: 667px)' },
