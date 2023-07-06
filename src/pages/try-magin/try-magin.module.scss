@@ -7,12 +7,12 @@
   :global {
     .mgn-step {
       // Max Width
-      @apply sm:max-w-[25rem];                                                        // 640w
+      @apply sm:max-w-[25rem];                                                          // 640w
 
       // Desktop
-      @apply sm-min-h:max-h-[30rem];                                                  // 480 / 16 = 30
-      @apply md-min-h:max-h-[37.5rem];                                                // 600 / 16 = 37.5
-      @apply lg:max-h-[48rem];                                                           // default and lg+: max(1024 / 16, 48) = 48
+      @apply sm-min-h:max-h-[30rem];                                                    // 480 / 16 = 30
+      @apply md-min-h:max-h-[37.5rem];                                                  // 600 / 16 = 37.5
+      @apply lg:max-h-[48rem];                                                          // default and lg+: max(1024 / 16, 48) = 48
 
       // FIXME: `:global .device-ios` doesn't work, so have to include it each dom element
       &.device-ios {
@@ -45,10 +45,10 @@
       // Calculation: round up [(screen - browser status bar - browser nav bar - magin nav section) / (1rem in px) x (percent)]
 
       // Desktop, can ignore browser bars
-      @apply max-h-[48rem] h-[48rem];                                                 // default and xl+: (1024 - 32) / 16 * 0.77 = 48
-      @apply sm-min-h:max-h-[22rem] sm-min-h:h-[22rem];                               // (480 - 32) / 16 * 0.77 = 22
-      @apply md-min-h:max-h-[27rem] md-min-h:h-[27rem];                               // (600 - 32) / 16 * 0.77 = 27
-      @apply lg-min-h:max-h-[35rem] lg-min-h:h-[35rem];                               // (768 - 32) / 16 * 0.77 = 35
+      @apply max-h-[48rem] h-[48rem];                                                   // default and xl+: (1024 - 32) / 16 * 0.77 = 48
+      @apply sm-min-h:max-h-[22rem] sm-min-h:h-[22rem];                                 // (480 - 32) / 16 * 0.77 = 22
+      @apply md-min-h:max-h-[27rem] md-min-h:h-[27rem];                                 // (600 - 32) / 16 * 0.77 = 27
+      @apply lg-min-h:max-h-[35rem] lg-min-h:h-[35rem];                                 // (768 - 32) / 16 * 0.77 = 35
 
       &.device-ios {
         @apply iphone-se-min-h:max-h-[17rem] iphone-se-min-h:h-[17rem];                 // (568 - 44 - 140 - 32) / 16 * 0.77 = 17
@@ -86,10 +86,10 @@
       // Calculation: round down nearest half [screen  - browser status bar - browser nav bar - magin nav section - guided section) / (1rem in px]
 
       // Desktop, can ignore browser bars
-      @apply max-h-[14rem] h-[14rem];                                                 // default and xl+: (1024 - 32) / 16 * 0.23 = 14
-      @apply sm-min-h:max-h-[6.5rem] sm-min-h:h-[6.5rem];                             // (480 - 32) / 16 * 0.23 = 6.5
-      @apply md-min-h:max-h-[8rem] md-min-h:h-[8rem];                                 // (600 - 32) / 16 * 0.23 = 8
-      @apply lg-min-h:max-h-[10.5rem] lg-min-h:h-[10.5rem];                           // (768 - 32) / 16 * 0.23 = 10.5
+      @apply max-h-[14rem] h-[14rem];                                                   // default and xl+: (1024 - 32) / 16 * 0.23 = 14
+      @apply sm-min-h:max-h-[6.5rem] sm-min-h:h-[6.5rem];                               // (480 - 32) / 16 * 0.23 = 6.5
+      @apply md-min-h:max-h-[8rem] md-min-h:h-[8rem];                                   // (600 - 32) / 16 * 0.23 = 8
+      @apply lg-min-h:max-h-[10.5rem] lg-min-h:h-[10.5rem];                             // (768 - 32) / 16 * 0.23 = 10.5
 
       &.device-ios {
         @apply iphone-se-min-h:max-h-[5rem] iphone-se-min-h:h-[5rem];                   // (568 - 44 - 140 - 32) / 16 * 0.23 = 5
