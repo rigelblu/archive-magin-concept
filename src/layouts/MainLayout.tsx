@@ -5,13 +5,13 @@ import React, { useEffect } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 
-interface Props {
+type Props = {
   children: React.ReactNode;
   canvasClassName?: string;
   bodyClassName?: string;
   className?: string;
   layoutKind?: string;
-}
+};
 
 export default function MainLayout(props: Props) {
   const {
