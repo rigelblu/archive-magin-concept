@@ -1,7 +1,7 @@
 // Copyright rigélblu inc.
 // All rigts reserve
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Book from '@/components/Book/Book';
 import Film from '@/components/Film/Film';
@@ -12,6 +12,7 @@ import IconUpArrow from '@/assets/common/icons/arrow-up.svg';
 
 // OPTIMIZE: read based on language
 import locale from '@/locales/en.json';
+import getDeviceClasses from '@/src/helpers/deviceClasses';
 import styles from '../try-magin.module.scss';
 
 export default function MarginPreview() {
@@ -20,6 +21,11 @@ export default function MarginPreview() {
   const [scene, setScene] = useState(0);
   const startScene = 1;
   const endScene = 1;
+  const [deviceClasses, setDeviceClasses] = useState('');
+
+  useEffect(() => {
+    setDeviceClasses(getDeviceClasses(navigator));
+  }, []);
 
   return (
     <MainLayout canvasClassName='bg-black' className='mgn-try-magin bg-white' layoutKind='app'>
@@ -28,10 +34,12 @@ export default function MarginPreview() {
         className={`${styles['mgn-preview']} flex h-screen flex-col items-center justify-center bg-neutral-950`}
       >
         {/* HACK: have to use fixed rem for max height and width due to mobile browsers */}
-        <div className='mgn-step flex w-full flex-1 flex-col justify-between bg-yellow-rb-200 p-2'>
+        <div
+          className={`mgn-step ${deviceClasses} flex w-full flex-1 flex-col justify-between bg-yellow-rb-200 p-2`}
+        >
           {/* HACK: have to use fixed rem for height due to mobile browsers */}
           <div className='mgn-story flex w-full flex-1 flex-col justify-between'>
-            <div className='mgn-step-top h-book flex flex-col justify-start'>
+            <div className={`mgn-step-top ${deviceClasses} h-book flex flex-col justify-start`}>
               <Book
                 onTypingComplete={() => setBookDisplayed(true)}
                 sceneCurrent={scene}
@@ -42,7 +50,9 @@ export default function MarginPreview() {
               />
             </div>
 
-            <div className='mgn-step-middle h-guided-message flex flex-col items-center justify-center pt-1'>
+            <div
+              className={`mgn-step-middle ${deviceClasses} h-guided-message flex flex-col items-center justify-center pt-1`}
+            >
               {/* REFACTOR: make content an optional parameter */}
               {/* REFACTOR: make this cleaner */}
               {!isBookDisplayed && scene === 0 && (
@@ -73,7 +83,9 @@ export default function MarginPreview() {
               )}
             </div>
 
-            <div className='mgn-step-bottom h-film flex flex-1 items-end justify-center'>
+            <div
+              className={`mgn-step-bottom ${deviceClasses} h-film flex flex-1 items-end justify-center`}
+            >
               {/* TODO: show on a 5 second delay */}
               {/* OPTIMIZE: figure out how to allow \n in the string and convert in to <br /> */}
               {isBookDisplayed && scene === 0 && (
