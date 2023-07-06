@@ -1,17 +1,18 @@
 // Copyright rigélblu inc.
 // All rights reserved.
-import React from 'react';
+import React, { useEffect } from 'react';
 
+import getDeviceClasses from '@/src/helpers/deviceClasses';
 import Header from './Header';
 import Footer from './Footer';
 
-interface Props {
+type Props = {
   children: React.ReactNode;
   canvasClassName?: string;
   bodyClassName?: string;
   className?: string;
   layoutKind?: string;
-}
+};
 
 export default function MainLayout(props: Props) {
   const {
@@ -36,6 +37,11 @@ export default function MainLayout(props: Props) {
     default:
       break;
   }
+
+  useEffect(() => {
+    const deviceClasses = getDeviceClasses(navigator);
+    if (deviceClasses) document.body.classList.add(deviceClasses);
+  }, []);
 
   return (
     <div className={`mgn-canvas ${canvasClassName}`}>

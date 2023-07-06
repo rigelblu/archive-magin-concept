@@ -13,39 +13,40 @@ type Props = {
 
 export default function ScenePanel(props: Props) {
   const { className = '', scene } = props;
-  let src = '';
-  let alt = '';
+  const img = { src: '', alt: '', width: 0, height: 0 };
 
   switch (scene) {
     case 1:
-      src = '/assets/common/images/storyboard-panel-1.webp';
-      alt =
+      img.src = '/assets/common/images/storyboard-panel-1.webp';
+      img.alt =
         'An overhead, close up shot of a tired person lying down, head falling asleep with eyes slightly open and irritated in a very dark room.';
+      img.width = 607;
+      img.height = 362;
       break;
     case 2:
-      src = '/assets/common/images/storyboard-panel-2.webp';
-      alt = 'close up, head shot person trying to talk';
+      img.src = '/assets/common/images/storyboard-panel-2.webp';
+      img.alt = 'close up, head shot person trying to talk';
+      img.width = 612;
+      img.height = 365;
       break;
     default:
   }
 
   return (
-    <div className={`mgn-scenepanel outline rounded-lg p-1 mb-2 w-full ${className}`}>
+    <div
+      className={`mgn-scenepanel mb-0.5 flex h-full w-full flex-col justify-between rounded-lg p-1 outline ${className}`}
+    >
       {/* OPTIMIZE: find better font */}
       <div className='text-2xs'>
         {locale.film.scene}: {scene}
       </div>
-      <hr className='border-1 border-black my-1 py-1' />
-      <SceneMarker>
+
+      <hr className='border-1 my-1 border-black' />
+
+      <SceneMarker className='relative my-1 h-full'>
         {/* OPTIMIZE: load image cdn */}
         {/* OPTIMIZE: create SceneImage component, accept alt and src props */}
-        <Image
-          src={src}
-          alt={alt}
-          className='w-auto h-auto pl-2 mx-auto !object-scale-down'
-          width={330}
-          height={270}
-        />
+        <Image src={img.src} alt={img.alt} className='mx-auto !object-scale-down pl-2' fill />
       </SceneMarker>
     </div>
   );

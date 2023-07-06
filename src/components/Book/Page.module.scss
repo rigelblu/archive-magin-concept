@@ -2,7 +2,53 @@
 // All rights reserved.
 
 .mgn-page {
-  p {
-    @apply indent-3.5 mb-[0.1rem];
+  :global {
+    .content-text * {
+      // Desktop
+      @apply font-theano text-xs leading-5; // default / sm / md
+      @apply lg-min-h:text-sm lg-min-h:leading-7;
+
+      // Apple devices
+      @apply iphone-se-min-h:leading-5 iphone-8-min-h:leading-5 iphone-8-plus-min-h:leading-5;
+
+      @apply iphone-se-min-h:text-xs;
+      @apply iphone-8-min-h:text-xs;
+      @apply iphone-8-plus-min-h:text-xs;
+
+      @apply iphone-11-min-h:text-sm;
+      @apply iphone-11-pro-min-h:text-sm;
+      @apply iphone-11-promax-min-h:text-sm;
+
+      @apply iphone-12-min-h:text-sm;
+      @apply iphone-12-pro-min-h:text-sm;
+      @apply iphone-12-mini-min-h:text-sm;
+
+      @apply ipad-mini-min-h:text-sm;
+      @apply ipad-pro-min-h:text-sm;
+
+      // Android devices
+      @apply pixel-5-min-h:text-sm;
+      @apply galaxy-a-min-h:text-sm;
+      @apply galaxy-8plus-min-h:text-sm;
+      @apply galaxy-s20-ultra-min-h:text-sm;
+    }
+
+    .mgn-content {
+      p {
+        @apply indent-3.5;
+      }
+
+      &.typing-not-used * {
+        p {
+          @apply mb-[0.1rem];
+        }
+      }
+
+      &.typing-used * {
+        p {
+          @apply mb-0;
+        }
+      }
+    }
   }
 }

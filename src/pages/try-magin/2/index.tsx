@@ -1,7 +1,7 @@
 // Copyright rigélblu inc.
 // All rigts reserve
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Book from '@/components/Book/Book';
 import Film from '@/components/Film/Film';
@@ -12,6 +12,8 @@ import IconUpArrow from '@/assets/common/icons/arrow-up.svg';
 
 // OPTIMIZE: read based on language
 import locale from '@/locales/en.json';
+import getDeviceClasses from '@/src/helpers/deviceClasses';
+import styles from '../try-magin.module.scss';
 
 export default function MarginPreview() {
   const router = useRouter();
@@ -19,86 +21,100 @@ export default function MarginPreview() {
   const [scene, setScene] = useState(0);
   const startScene = 1;
   const endScene = 1;
+  const [deviceClasses, setDeviceClasses] = useState('');
+
+  useEffect(() => {
+    setDeviceClasses(getDeviceClasses(navigator));
+  }, []);
 
   return (
     <MainLayout canvasClassName='bg-black' className='mgn-try-magin bg-white' layoutKind='app'>
       {/* REFACTOR: convert into component, accept 4 children elements */}
-      <div className='mgn-preview flex h-screen flex-col items-center justify-center bg-neutral-950'>
+      <div
+        className={`${styles['mgn-preview']} flex h-screen flex-col items-center justify-center bg-neutral-950`}
+      >
         {/* HACK: have to use fixed rem for max height and width due to mobile browsers */}
-        <div className='mgn-step flex w-full flex-1 flex-col justify-between bg-yellow-rb-200 sm:max-h-[51rem] sm:max-w-[25rem] p-2'>
+        <div
+          className={`mgn-step ${deviceClasses} flex w-full flex-1 flex-col justify-between bg-yellow-rb-200 p-2`}
+        >
           {/* HACK: have to use fixed rem for height due to mobile browsers */}
-          <div className='mgn-step-top col flex flex-col justify-start h-[30rem]'>
-            <Book
-              onTypingComplete={() => setBookDisplayed(true)}
-              sceneCurrent={scene}
-              sceneEnd={endScene}
-              sceneStart={startScene}
-              useTypingAnimation={!isBookDisplayed}
-            />
-          </div>
-
-          <div className='mgn-step-middle flex flex-col items-center'>
-            {/* REFACTOR: make content an optional parameter */}
-            {/* REFACTOR: make this cleaner */}
-            {!isBookDisplayed && scene === 0 && (
-              <>
-                <IconUpArrow className='w-16' />
-                <GuideMessage className='font-bold'>
-                  {/* eslint-disable-next-line @typescript-eslint/no-unsafe-member-access */}
-                  {locale.guide.tryMagin2a_guidedMessage[0]}
-                </GuideMessage>
-              </>
-            )}
-            {isBookDisplayed && scene === 0 && (
-              <>
-                <IconUpArrow className='w-16' />
-                <GuideMessage
-                  className='font-bold'
-                  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-                  messages={locale.guide.tryMagin2a_guidedMessage}
-                />
-              </>
-            )}
-            {isBookDisplayed && scene !== 0 && (
-              <GuideMessage
-                className='font-bold'
-                // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-                messages={locale.guide.tryMagin2b_guidedMessage}
+          <div className='mgn-story flex w-full flex-1 flex-col justify-between'>
+            <div className={`mgn-step-top ${deviceClasses} h-book flex flex-col justify-start`}>
+              <Book
+                onTypingComplete={() => setBookDisplayed(true)}
+                sceneCurrent={scene}
+                sceneEnd={endScene}
+                sceneStart={startScene}
+                useTypingAnimation={!isBookDisplayed}
+                styleTypedNonTypedSame
               />
-            )}
-          </div>
+            </div>
 
-          <div className='mgn-step-bottom flex flex-1 items-center'>
-            {/* TODO: show on a 5 second delay */}
-            {/* OPTIMIZE: figure out how to allow \n in the string and convert in to <br /> */}
-            {isBookDisplayed && scene === 0 && (
-              <div className='flex flex-col items-center animate-fadeIn'>
-                <Image
-                  src='/assets/common/images/movie-screen.webp'
-                  alt='people in a theatre watching a movie'
-                  className='w-auto h-auto !object-scale-down pb-2'
-                  width='640'
-                  height='364'
+            <div
+              className={`mgn-step-middle ${deviceClasses} h-guided-message flex flex-col items-center justify-center pt-1`}
+            >
+              {/* REFACTOR: make content an optional parameter */}
+              {/* REFACTOR: make this cleaner */}
+              {!isBookDisplayed && scene === 0 && (
+                <>
+                  <IconUpArrow className='my-1 w-16' />
+                  <GuideMessage className='my-1 font-bold'>
+                    {/* eslint-disable-next-line @typescript-eslint/no-unsafe-member-access */}
+                    {locale.guide.tryMagin2a_guidedMessage[0]}
+                  </GuideMessage>
+                </>
+              )}
+              {isBookDisplayed && scene === 0 && (
+                <>
+                  <IconUpArrow className='my-1 w-16' />
+                  <GuideMessage
+                    className='my-1 font-bold'
+                    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+                    messages={locale.guide.tryMagin2a_guidedMessage}
+                  />
+                </>
+              )}
+              {isBookDisplayed && scene !== 0 && (
+                <GuideMessage
+                  className='my-1 font-bold'
+                  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+                  messages={locale.guide.tryMagin2b_guidedMessage}
                 />
-              </div>
-            )}
-            {isBookDisplayed && scene !== 0 && (
-              <div className='mgn-step-bottom max-h-for-screen flex flex-1 items-center animate-fadeIn'>
+              )}
+            </div>
+
+            <div
+              className={`mgn-step-bottom ${deviceClasses} h-film flex flex-1 items-end justify-center`}
+            >
+              {/* TODO: show on a 5 second delay */}
+              {/* OPTIMIZE: figure out how to allow \n in the string and convert in to <br /> */}
+              {isBookDisplayed && scene === 0 && (
+                <div className='relative flex h-full w-full animate-fadeIn flex-col items-center'>
+                  <Image
+                    src='/assets/common/images/movie-screen.webp'
+                    alt='people in a theatre watching a movie'
+                    className='h-auto w-auto !object-scale-down'
+                    fill
+                  />
+                </div>
+              )}
+              {isBookDisplayed && scene !== 0 && (
                 <Film
-                  className='flex-1'
+                  className='animate-delayFadeIn'
                   onNext={() => {
                     router.push('/try-magin/3');
                   }}
                   onPrev={() => {}}
                   scene={scene}
                 />
-              </div>
-            )}
+              )}
+            </div>
           </div>
 
           {/* REFACTOR: make this cleaner */}
           {isBookDisplayed && scene === 0 && (
             <Navigation
+              className='mt-2'
               left={{
                 className: 'mgn-cta-secondary',
                 label: locale.navigation.back,
@@ -118,6 +134,7 @@ export default function MarginPreview() {
           )}
           {isBookDisplayed && scene !== 0 && (
             <Navigation
+              className='mt-2'
               left={{
                 className: 'mgn-cta-secondary',
                 label: locale.navigation.back,

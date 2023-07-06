@@ -1,7 +1,7 @@
 // Copyright rigélblu inc.
 // All rigts reserve
 import anime from 'animejs';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 
 import GuideMessage from '@/components/GuideMessage';
@@ -10,13 +10,18 @@ import MainLayout from '@/layouts/MainLayout';
 
 // REFACTOR: read based on language
 import locale from '@/locales/en.json';
+import getDeviceClasses from '@/src/helpers/deviceClasses';
+import styles from '../try-magin.module.scss';
 
 export default function MarginPreview() {
   const router = useRouter();
   const bookTitleRef = useRef<HTMLSpanElement | null>(null);
+  const [deviceClasses, setDeviceClasses] = useState('');
 
   // REFACTOR: move into a helper function
   useEffect(() => {
+    setDeviceClasses(getDeviceClasses(navigator));
+
     const bookTitle = bookTitleRef.current;
     if (!bookTitle) throw Error('bookTitle is not assigned');
     else if (!bookTitle.textContent) throw Error('bookTitle.textContext is not assigned');
@@ -43,22 +48,30 @@ export default function MarginPreview() {
   return (
     <MainLayout canvasClassName='bg-black' className='mgn-try-magin bg-white' layoutKind='app'>
       {/* REFACTOR: convert into component, accept 4 children elements */}
-      <div className='mgn-preview flex h-screen flex-col items-center justify-center bg-neutral-950'>
-        <div className='mgn-step flex w-full flex-1 flex-col justify-between bg-yellow-rb-200 sm:max-h-[51rem] sm:max-w-[25rem] p-2'>
-          {/* REFACTOR: into top, middle, button div elements, put the guide message into the bottom */}
-          <GuideMessage className='flex max-h-[32rem] flex-1 items-end justify-center sm:max-h-[40rem]'>
-            <h2 className='text-blue-rb-600'>
-              {locale.guide.tryMagin1_maginPresents}
-              <br />
-              <span className='animation text-black' ref={bookTitleRef}>
-                {locale.book.title}
-              </span>
-              <br />
-            </h2>
-          </GuideMessage>
+      <div
+        className={`${styles['mgn-preview']} flex h-screen flex-col items-center justify-center bg-neutral-950 `}
+      >
+        <div
+          className={`mgn-step ${deviceClasses} flex w-full flex-1 flex-col justify-between bg-yellow-rb-200 p-2`}
+        >
+          {/* OPTIMIZE: adjust for each device screen */}
+          <div className='mgn-story flex max-h-[32rem] flex-1 flex-col justify-end sm:max-h-[40rem]'>
+            {/* REFACTOR: into top, middle, button div elements, put the guide message into the bottom */}
+            <GuideMessage className={`${deviceClasses} mx-auto`}>
+              <h2 className='text-blue-rb-600 sm-min-h:text-lg md-min-h:text-xl'>
+                {locale.guide.tryMagin1_maginPresents}
+                <br />
+                <span className='animation text-black' ref={bookTitleRef}>
+                  {locale.book.title}
+                </span>
+                <br />
+              </h2>
+            </GuideMessage>
+          </div>
 
           {/* REFACTOR: use next layout */}
           <Navigation
+            className='mt-2'
             left={{
               className: 'mgn-cta-secondary',
               label: locale.navigation.returnHome,

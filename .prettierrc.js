@@ -3,6 +3,8 @@ module.exports = {
   bracketSpacing: true,
   bracketSameLine: false,
   jsxSingleQuote: true,
+  plugins: ['prettier-plugin-tailwindcss'],
+  pluginSearchDirs: false,
   printWidth: 100,
   quoteProps: 'as-needed',
   semi: true,
