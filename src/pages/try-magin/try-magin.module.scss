@@ -45,7 +45,6 @@
       // Calculation: round up [(screen - browser status bar - browser nav bar - magin nav section) / (1rem in px) x (percent)]
 
       // Desktop, can ignore browser bars
-      @apply max-h-[48rem] h-[48rem];                                                   // default and xl+: (1024 - 32) / 16 * 0.77 = 48
       @apply sm-min-h:max-h-[22rem] sm-min-h:h-[22rem];                                 // (480 - 32) / 16 * 0.77 = 22
       @apply md-min-h:max-h-[27rem] md-min-h:h-[27rem];                                 // (600 - 32) / 16 * 0.77 = 27
       @apply lg-min-h:max-h-[35rem] lg-min-h:h-[35rem];                                 // (768 - 32) / 16 * 0.77 = 35
@@ -86,7 +85,6 @@
       // Calculation: round down nearest half [screen  - browser status bar - browser nav bar - magin nav section - guided section) / (1rem in px]
 
       // Desktop, can ignore browser bars
-      @apply max-h-[14rem] h-[14rem];                                                   // default and xl+: (1024 - 32) / 16 * 0.23 = 14
       @apply sm-min-h:max-h-[6.5rem] sm-min-h:h-[6.5rem];                               // (480 - 32) / 16 * 0.23 = 6.5
       @apply md-min-h:max-h-[8rem] md-min-h:h-[8rem];                                   // (600 - 32) / 16 * 0.23 = 8
       @apply lg-min-h:max-h-[10.5rem] lg-min-h:h-[10.5rem];                             // (768 - 32) / 16 * 0.23 = 10.5
