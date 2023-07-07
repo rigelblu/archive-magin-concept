@@ -1,8 +1,7 @@
 // Copyright rigélblu inc.
 // All rights reserved.
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
-import getDeviceClasses from '@/src/helpers/deviceClasses';
 import Header from './Header';
 import Footer from './Footer';
 
@@ -38,10 +37,16 @@ export default function MainLayout(props: Props) {
       break;
   }
 
+  const [windowHeight, setWindowHeight] = useState(0);
   useEffect(() => {
-    const deviceClasses = getDeviceClasses(navigator);
-    if (deviceClasses) document.body.classList.add(deviceClasses);
-  }, []);
+    const handleResize = () => {
+      setWindowHeight(window.innerHeight);
+      console.log(windowHeight);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [windowHeight]);
 
   return (
     <div className={`mgn-canvas ${canvasClassName}`}>
