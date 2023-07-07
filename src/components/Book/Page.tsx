@@ -69,11 +69,19 @@ export default function Page(props: Props) {
     sceneCurrent: number | undefined = undefined,
     includeHeader = true
   ): React.ReactNode {
-    const content = [...contentScenes];
-    if (sceneCurrent)
-      content[sceneCurrent] = (
-        <SceneMarker key={`currentScene-${sceneCurrent}`}>{content[sceneCurrent]}</SceneMarker>
-      );
+    const content = [
+      ...contentScenes.map((scene, index) => {
+        if (index !== sceneCurrent) {
+          return (
+            <div key={scene.key} className='border-l-2 border-transparent'>
+              {scene}
+            </div>
+          );
+        }
+
+        return <SceneMarker key={scene.key}>{scene}</SceneMarker>;
+      }),
+    ];
 
     const chapter = includeHeader ? [content[0]] : [];
     const pageContent = <div key='pageContent'>{content.slice(sceneStart, sceneEnd + 1)}</div>;
@@ -164,9 +172,9 @@ export default function Page(props: Props) {
   const typingNotUsed = !styleTypedNonTypedSame ? 'typing-not-used' : 'typing-used';
 
   return (
-    <div className={`${styles['mgn-page']} flex w-full flex-1 ${className}`}>
+    <div className={`${styles['mgn-page']} flex w-full flex-1 flex-col ${className}`}>
       <div
-        className={`mgn-content content-text w-full flex-1 overflow-y-auto bg-[#f8f1e3] ${typingNotUsed}`}
+        className={`mgn-content content-text  w-full overflow-y-auto bg-[#f8f1e3] ${typingNotUsed}`}
       >
         {content}
       </div>

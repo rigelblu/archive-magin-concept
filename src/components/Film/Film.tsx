@@ -18,23 +18,27 @@ export default function Film(props: Props) {
 
   return (
     // REFACTOR: move px-2 to global, align with book
-    <div className={`mgn-film flex h-full flex-1 items-center justify-between ${className}`}>
-      <PageControl
-        action='prev'
-        onClick={onPrev}
-        className='px-1'
-        isShown={!hidePrev && scene > 1}
-      />
+    <div
+      className={`mgn-film flex w-full flex-1 flex-col items-center justify-between  ${className}`}
+    >
+      <div className='flex h-full w-full flex-1'>
+        <PageControl
+          action='prev'
+          onClick={onPrev}
+          className='px-1'
+          isShown={!hidePrev && scene > 1}
+        />
 
-      <ScenePanel scene={scene} />
+        <ScenePanel scene={scene} />
 
-      <PageControl
-        action='next'
-        onClick={onNext}
-        className='px-1'
-        // HACK: temporarily make 2, should be 3
-        isShown={!hideNext && scene < 2}
-      />
+        <PageControl
+          action='next'
+          onClick={onNext}
+          className='px-1'
+          // HACK: temporarily make 2, should be 3
+          isShown={!hideNext && scene < 2}
+        />
+      </div>
     </div>
   );
 }
