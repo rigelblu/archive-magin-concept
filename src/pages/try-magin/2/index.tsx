@@ -1,7 +1,7 @@
 // Copyright rigélblu inc.
 // All rigts reserve
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import Book from '@/components/Book/Book';
 import Film from '@/components/Film/Film';
@@ -12,8 +12,6 @@ import IconUpArrow from '@/assets/common/icons/arrow-up.svg';
 
 // OPTIMIZE: read based on language
 import locale from '@/locales/en.json';
-import getDeviceClasses from '@/src/helpers/deviceClasses';
-import styles from '../try-magin.module.scss';
 
 export default function MarginPreview() {
   const router = useRouter();
@@ -21,25 +19,16 @@ export default function MarginPreview() {
   const [scene, setScene] = useState(0);
   const startScene = 1;
   const endScene = 1;
-  const [deviceClasses, setDeviceClasses] = useState('');
-
-  useEffect(() => {
-    setDeviceClasses(getDeviceClasses(navigator));
-  }, []);
 
   return (
     <MainLayout canvasClassName='bg-black' className='mgn-try-magin bg-white' layoutKind='app'>
       {/* REFACTOR: convert into component, accept 4 children elements */}
-      <div
-        className={`${styles['mgn-preview']} flex h-screen flex-col items-center justify-center bg-neutral-950`}
-      >
+      <div className='mgn-preview flex h-screen flex-col items-center justify-center bg-neutral-950'>
         {/* HACK: have to use fixed rem for max height and width due to mobile browsers */}
-        <div
-          className={`mgn-step ${deviceClasses} flex w-full flex-1 flex-col justify-between bg-yellow-rb-200 p-2`}
-        >
+        <div className='mgn-step flex max-h-[48rem] w-full flex-1 flex-col justify-between bg-yellow-rb-200 p-2 sm:max-w-[25rem]'>
           {/* HACK: have to use fixed rem for height due to mobile browsers */}
           <div className='mgn-story flex w-full flex-1 flex-col justify-between'>
-            <div className={`mgn-step-top ${deviceClasses} h-book flex flex-col justify-start`}>
+            <div className='mgn-step-top flex max-h-[60%] flex-1 flex-col justify-start'>
               <Book
                 onTypingComplete={() => setBookDisplayed(true)}
                 sceneCurrent={scene}
@@ -50,9 +39,7 @@ export default function MarginPreview() {
               />
             </div>
 
-            <div
-              className={`mgn-step-middle ${deviceClasses} h-guided-message flex flex-col items-center justify-center pt-1`}
-            >
+            <div className='mgn-step-middle flex flex-col items-center justify-center pt-1'>
               {/* REFACTOR: make content an optional parameter */}
               {/* REFACTOR: make this cleaner */}
               {!isBookDisplayed && scene === 0 && (
@@ -83,31 +70,28 @@ export default function MarginPreview() {
               )}
             </div>
 
-            <div
-              className={`mgn-step-bottom ${deviceClasses} h-film flex flex-1 items-end justify-center`}
-            >
-              {/* TODO: show on a 5 second delay */}
-              {/* OPTIMIZE: figure out how to allow \n in the string and convert in to <br /> */}
-              {isBookDisplayed && scene === 0 && (
-                <div className='relative flex h-full w-full animate-fadeIn flex-col items-center'>
+            <div className='mgn-step-bottom flex max-h-[30%] flex-1 flex-col items-end'>
+              <div className='relative flex w-full flex-1 animate-fadeIn flex-col items-center'>
+                {/* OPTIMIZE: figure out how to allow \n in the string and convert in to <br /> */}
+                {isBookDisplayed && scene === 0 && (
                   <Image
                     src='/assets/common/images/movie-screen.webp'
                     alt='people in a theatre watching a movie'
-                    className='h-auto w-auto !object-scale-down'
+                    className='object-scale-down'
                     fill
                   />
-                </div>
-              )}
-              {isBookDisplayed && scene !== 0 && (
-                <Film
-                  className='animate-delayFadeIn'
-                  onNext={() => {
-                    router.push('/try-magin/3');
-                  }}
-                  onPrev={() => {}}
-                  scene={scene}
-                />
-              )}
+                )}
+                {isBookDisplayed && scene !== 0 && (
+                  <Film
+                    className='animate-delayFadeIn'
+                    onNext={() => {
+                      router.push('/try-magin/3');
+                    }}
+                    onPrev={() => {}}
+                    scene={scene}
+                  />
+                )}
+              </div>
             </div>
           </div>
 

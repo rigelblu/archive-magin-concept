@@ -1,7 +1,7 @@
 // Copyright rigélblu inc.
 // All rigts reserve
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Book from '@/components/Book/Book';
 import Film from '@/components/Film/Film';
 import GuideMessage from '@/components/GuideMessage';
@@ -10,8 +10,6 @@ import MainLayout from '@/layouts/MainLayout';
 
 // OPTIMIZE: read based on language
 import locale from '@/locales/en.json';
-import getDeviceClasses from '@/src/helpers/deviceClasses';
-import styles from '../try-magin.module.scss';
 
 export default function MarginPreview() {
   const router = useRouter();
@@ -20,29 +18,19 @@ export default function MarginPreview() {
   const endScene = 2;
   const [deviceClasses, setDeviceClasses] = useState('');
 
-  useEffect(() => {
-    setDeviceClasses(getDeviceClasses(navigator));
-  }, []);
-
   return (
     <MainLayout canvasClassName='bg-black' className='mgn-try-magin bg-white' layoutKind='app'>
       {/* REFACTOR: convert into component, accept 4 children elements */}
-      <div
-        className={`${styles['mgn-preview']} flex h-screen flex-col items-center justify-center bg-neutral-950`}
-      >
+      <div className='flex h-screen flex-col items-center justify-center bg-neutral-950 sm:max-w-[25rem]'>
         {/* HACK: have to use fixed rem for max height and width due to mobile browsers */}
-        <div
-          className={`mgn-step ${deviceClasses} flex	w-full flex-1 flex-col justify-between bg-yellow-rb-200 p-2`}
-        >
+        <div className='mgn-step flex max-h-[48rem] w-full flex-1 flex-col justify-between bg-yellow-rb-200 p-2 sm:max-w-[25rem]'>
           <div className='mgn-story flex w-full flex-1 flex-col justify-between'>
             {/* HACK: have to use fixed rem for height due to mobile browsers */}
-            <div className={`mgn-step-top ${deviceClasses} col h-book flex flex-col justify-start`}>
+            <div className='mgn-step-top flex max-h-[60%] flex-1 flex-col justify-start'>
               <Book sceneCurrent={scene} sceneEnd={endScene} sceneStart={startScene} />
             </div>
 
-            <div
-              className={`mgn-step-middle ${deviceClasses} h-guided-message flex justify-center overflow-hidden pt-1`}
-            >
+            <div className='mgn-step-middle flex flex-col items-center justify-center pt-1'>
               {/* TODO: show on a 5 second delay */}
               {/* OPTIMIZE: figure out how to allow \n in the string and convert in to <br /> */}
               {/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */}
@@ -52,18 +40,18 @@ export default function MarginPreview() {
               />
             </div>
 
-            <div
-              className={`mgn-step-bottom ${deviceClasses} h-film flex animate-delayFadeIn items-end`}
-            >
-              <Film
-                onNext={() => {
-                  setScene(scene + 1);
-                }}
-                onPrev={() => {
-                  setScene(scene - 1);
-                }}
-                scene={scene}
-              />
+            <div className='mgn-step-bottom flex max-h-[30%] flex-1 flex-col items-end'>
+              <div className='relative flex w-full flex-1 animate-fadeIn flex-col items-center'>
+                <Film
+                  onNext={() => {
+                    setScene(scene + 1);
+                  }}
+                  onPrev={() => {
+                    setScene(scene - 1);
+                  }}
+                  scene={scene}
+                />
+              </div>
             </div>
           </div>
 
