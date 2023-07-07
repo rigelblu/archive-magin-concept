@@ -172,9 +172,9 @@ export default function Page(props: Props) {
   const typingNotUsed = !styleTypedNonTypedSame ? 'typing-not-used' : 'typing-used';
 
   return (
-    <div className={`${styles['mgn-page']} flex w-full flex-1 ${className}`}>
+    <div className={`${styles['mgn-page']} flex w-full flex-1 flex-col ${className}`}>
       <div
-        className={`mgn-content content-text w-full flex-1 overflow-y-auto bg-[#f8f1e3] ${typingNotUsed}`}
+        className={`mgn-content content-text  w-full overflow-y-auto bg-[#f8f1e3] ${typingNotUsed}`}
       >
         {content}
       </div>

@@ -26,18 +26,16 @@ export default function Book(props: Props) {
   } = props;
 
   return (
-    <div className={`mgn-book flex w-full flex-1 ${className}`}>
-      <div className='w-full'>
-        <h2 className='mb-2 text-center text-2xs text-gray-500'>{locale.book.title}</h2>
-        <Page
-          onTypingComplete={onTypingComplete}
-          sceneCurrent={sceneCurrent}
-          sceneEnd={sceneEnd}
-          sceneStart={sceneStart}
-          useTypingAnimation={useTypingAnimation}
-          styleTypedNonTypedSame={styleTypedNonTypedSame}
-        />
-      </div>
+    <div className={`mgn-book flex w-full flex-1 flex-col ${className}`}>
+      <h2 className='mb-2 text-center text-2xs text-gray-500'>{locale.book.title}</h2>
+      <Page
+        onTypingComplete={onTypingComplete}
+        sceneCurrent={sceneCurrent}
+        sceneEnd={sceneEnd}
+        sceneStart={sceneStart}
+        useTypingAnimation={useTypingAnimation}
+        styleTypedNonTypedSame={styleTypedNonTypedSame}
+      />
     </div>
   );
 }
