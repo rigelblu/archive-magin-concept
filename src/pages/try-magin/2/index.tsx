@@ -28,6 +28,7 @@ export default function MarginPreview() {
         <div className='mgn-step flex max-h-[48rem] w-full flex-1 flex-col justify-between bg-yellow-rb-200 p-2 sm:max-w-[25rem]'>
           {/* HACK: have to use fixed rem for height due to mobile browsers */}
           <div className='mgn-story flex w-full flex-1 flex-col justify-between'>
+            {/* // FIXME: max-h isn't applied on iOS mobile safari */}
             <div className='mgn-step-top flex max-h-[60%] flex-1 flex-col justify-start'>
               <Book
                 onTypingComplete={() => setBookDisplayed(true)}
