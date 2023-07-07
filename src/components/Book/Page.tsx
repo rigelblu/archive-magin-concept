@@ -69,11 +69,19 @@ export default function Page(props: Props) {
     sceneCurrent: number | undefined = undefined,
     includeHeader = true
   ): React.ReactNode {
-    const content = [...contentScenes];
-    if (sceneCurrent)
-      content[sceneCurrent] = (
-        <SceneMarker key={`currentScene-${sceneCurrent}`}>{content[sceneCurrent]}</SceneMarker>
-      );
+    const content = [
+      ...contentScenes.map((scene, index) => {
+        if (index !== sceneCurrent) {
+          return (
+            <div key={scene.key} className='border-l-2 border-transparent'>
+              {scene}
+            </div>
+          );
+        }
+
+        return <SceneMarker key={scene.key}>{scene}</SceneMarker>;
+      }),
+    ];
 
     const chapter = includeHeader ? [content[0]] : [];
     const pageContent = <div key='pageContent'>{content.slice(sceneStart, sceneEnd + 1)}</div>;
