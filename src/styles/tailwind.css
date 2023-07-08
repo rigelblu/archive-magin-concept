@@ -1,11 +1,21 @@
-/*
- * Copyright rigélblu inc.
- * All rights reserved.
- */
-
-/* TODO: determine if we'll use the compponent styles */
+/* Copyright rigélblu inc.
+ * All rights reserved. */
 
 @tailwind base;
+@tailwind components;
 @tailwind utilities;
 
-/* @tailwind components; */
+@layer components {
+  .animate-shadow {
+    animation: shadow-pulse 2s cubic-bezier(0.4, 0, 0.2, 1) 2s forwards;
+  }
+
+  @keyframes shadow-pulse {
+    0% {
+      box-shadow: 0 0 #0000;
+    }
+    100% {
+      box-shadow: 0 4px 14px 0 #0080ff, 0 6px 20px 0 #0080ff; /* color: blue-rb */
+    }
+  }
+}
