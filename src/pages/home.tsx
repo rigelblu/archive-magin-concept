@@ -33,7 +33,7 @@ export default function Home() {
         {/* Try magin */}
         <Button
           className='mgn-cta-primary'
-          disabled={!featureFlag.home.tryMaginEnabled}
+          disabled={!featureFlag.home.enableTryMagin}
           label='Try magin'
           // REFACTOR: disable through eslintrc
           // eslint-disable-next-line @typescript-eslint/no-misused-promises
