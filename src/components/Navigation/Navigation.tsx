@@ -1,6 +1,7 @@
 // Copyright rigélblu inc.
 // All rights reserved.
 import { Button } from 'primereact/button';
+import Cue from '@/components/Cue';
 
 // REFACTOR: accept enums  for className and translate to proper css class
 type Props = {
@@ -27,9 +28,12 @@ export default function Navigation(props: Props) {
         </Button>
       )}
       {right && (
-        <Button className={`text-center ${right.className}`} onClick={right.onClick}>
-          {right.label}
-        </Button>
+        // OPTIMIZE: make it optional based on prop
+        <Cue>
+          <Button className={`text-center ${right.className}`} onClick={right.onClick}>
+            {right.label}
+          </Button>
+        </Cue>
       )}
     </div>
   );
