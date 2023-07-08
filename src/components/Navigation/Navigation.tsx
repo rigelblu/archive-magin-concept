@@ -12,11 +12,18 @@ type Props = {
 };
 
 export default function Navigation(props: Props) {
-  const { left = null, middle = null, right = null, className = '' } = props;
+  const { left = undefined, middle = null, right = undefined, className = '' } = props;
+
+  let alignClass = '';
+  if (left === undefined && right === undefined && middle !== undefined) {
+    alignClass = 'justify-center';
+  } else if (left !== undefined && right !== undefined) {
+    alignClass = 'justify-between';
+  }
 
   // OPTIMIZE: generalize to accept any # of objects
   return (
-    <div className={`mgn-navigation flex justify-between ${className}`}>
+    <div className={`mgn-navigation flex w-full ${alignClass} ${className}`}>
       {left && (
         <Button className={`text-center ${left.className}`} onClick={left.onClick}>
           {left.label}
