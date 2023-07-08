@@ -23,7 +23,11 @@ module.exports = {
       colors: {
         'blue-rb-100': '#f4faff',
         'blue-rb-400': '#e4f2ff',
+        'blue-rb-500': '#a7d9ff',
         'blue-rb-600': '#0080ff',
+        'blue-rb-700': '#0054a8',
+        'blue-rb-800': '#0e4f8f',
+        'blue-rb-900': '#104070',
         'yellow-rb-200': '#faf8f4',
       },
       fontFamily: { theano: ['Theano Old Style'] },
