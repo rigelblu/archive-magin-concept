@@ -38,9 +38,9 @@ export default function Home() {
           // REFACTOR: disable through eslintrc
           // eslint-disable-next-line @typescript-eslint/no-misused-promises
           onClick={() => {
-            if (featureFlag.home.tryMaginEnabled) router.push('/try-magin/1');
+            if (featureFlag.home.enableTryMagin) router.push('/try-magin/1');
           }}
-          tooltip={!featureFlag.home.tryMaginEnabled ? locale.general.comingSoon : ''}
+          tooltip={!featureFlag.home.enableTryMagin ? locale.general.comingSoon : ''}
           tooltipOptions={{ position: 'bottom', showOnDisabled: true }}
         />
       </div>
