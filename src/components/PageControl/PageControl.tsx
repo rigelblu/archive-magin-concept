@@ -25,6 +25,7 @@ export default function PageControl(props: Props) {
       onClick={onClick}
     >
       {!isShown && <span className='w-3' />}
+      {/* OPTIMIZE: animate-shadow creates a not so good look. Duplicate svg and show it */}
       {isShown && action === 'prev' && <IconArrowLeft className='w-3' />}
       {isShown && action === 'next' && <IconArrowRight className='w-3' />}
     </Button>
