@@ -43,8 +43,8 @@ export default function JoinMagin() {
                       window.location.href = stripePaymentUrl;
                     }
                   }}
-                  tooltip={locale.general.comingSoon}
-                  tooltipOptions={{ position: 'bottom' }}
+                  tooltip={!featureFlag.home.tryMaginEnabled ? locale.general.comingSoon : ''}
+                  tooltipOptions={{ position: 'bottom', showOnDisabled: true }}
                 >
                   {locale.join.step1_join}
                 </Button>
