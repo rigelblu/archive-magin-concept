@@ -11,7 +11,7 @@ import MainLayout from '@/layouts/MainLayout';
 import IconUpArrow from '@/assets/common/icons/arrow-up.svg';
 
 // OPTIMIZE: read based on language
-import locale from '@/locales/en.json';
+import locale from '@/locales/en';
 
 export default function MarginPreview() {
   const router = useRouter();

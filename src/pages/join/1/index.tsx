@@ -7,7 +7,7 @@ import Navigation from '@/components/Navigation/Navigation';
 import MainLayout from '@/layouts/MainLayout';
 import featureFlag, { FeatureFlagEnv } from '@/config/featureFlags';
 import getEnv from '@/helpers/env';
-import locale from '@/locales/en.json'; // REFACTOR: read based on language
+import locale from '@/locales/en'; // REFACTOR: read based on language
 
 // REFACTOR: move into a helper function
 const stripePaymentUrl = process.env.NEXT_PUBLIC_STRIPE_PAYMENT_URL || '/error';
