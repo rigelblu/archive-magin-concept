@@ -1,9 +1,5 @@
-/*
- * Copyright rigélblu inc.
- * All rights reserved.
- */
-
-/* TODO: determine if we'll use the compponent styles */
+/* Copyright rigélblu inc.
+ * All rights reserved. */
 
 @tailwind base;
 @tailwind utilities;
