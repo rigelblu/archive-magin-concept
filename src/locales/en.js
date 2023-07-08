@@ -42,7 +42,7 @@ const locale = {
     tryMagin3a_nextScene: 'Next Scene',
   },
   join: {
-    step1_shapeFuture: ['shape', 'future'],
+    step1_shapeFuture: "shape <span class='text-blue-rb-600'>magin's</span> future",
     step1_become: 'become an',
     step1_planSponsor_name: 'early access sponsor',
     step1_planSponsor_price: '$5',

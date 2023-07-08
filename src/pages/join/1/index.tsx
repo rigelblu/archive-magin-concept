@@ -28,11 +28,8 @@ export default function JoinMagin() {
             {/* HACK: have to use fixed rem for height due to mobile browsers */}
             <div className='flex flex-1 items-center text-center'>
               <div className='w-full'>
-                <h2>
-                  {locale.join.step1_shapeFuture[0]}{' '}
-                  <span className='text-blue-rb-600'>{locale.general.magin}'s </span>
-                  {locale.join.step1_shapeFuture[1]}
-                </h2>
+                {/* eslint-disable-next-line react/no-danger */}
+                <h2 dangerouslySetInnerHTML={{ __html: locale.join.step1_shapeFuture }} />
                 <div className='text-lg font-bold'>{locale.join.step1_become}</div>
 
                 {/* Join */}
@@ -56,7 +53,7 @@ export default function JoinMagin() {
                 </Button>
 
                 {/* What you get */}
-                <div className='mx-5  mt-3 flex justify-center'>
+                <div className='mx-5 mt-3 flex justify-center'>
                   <div className='text-left text-sm'>
                     <p>{locale.join.step1_planSponsor_whatYouGet}</p>
                     <ul className='m-0'>
