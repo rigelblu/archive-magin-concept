@@ -10,10 +10,10 @@ export type FeatureFlagNestedObj = {
 
 const featureFlag: FeatureFlagNestedObj = {
   home: {
-    tryMaginEnabled: true,
+    enableTryMagin: true,
   },
   join: {
-    pay: false,
+    enablePay: false,
     termsConditionsPrivacy: false,
   },
 };

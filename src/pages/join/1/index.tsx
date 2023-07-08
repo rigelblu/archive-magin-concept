@@ -37,6 +37,7 @@ export default function JoinMagin() {
                 </div>
                 <Button
                   className='mgn-cta-primary m-1 text-lg'
+                  disabled={!featureFlag.join.pay}
                   onClick={() => {
                     if (!featureFlag.join.pay) {
                       window.location.href = stripePaymentUrl;
