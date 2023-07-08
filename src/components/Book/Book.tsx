@@ -1,7 +1,7 @@
 // Copyright rigélblu inc.
 // All rights reserved.
 // OPTIMIZE: read based on language
-import locale from '@/locales/en.json';
+import locale from '@/locales/en';
 import Page from './Page';
 
 type Props = {

@@ -4,8 +4,8 @@ import { Button } from 'primereact/button';
 import { useRouter } from 'next/router';
 import IconGithub from '@/assets/common/icons/github-mark.svg';
 import MainLayout from '@/layouts/MainLayout';
-import featureFlag from '@/src/config/featureFlags';
-import locale from '@/locales/en.json'; // REFACTOR: read based on language
+import featureFlag from '@/config/featureFlags';
+import locale from '@/locales/en'; // REFACTOR: read based on language
 
 export default function Home() {
   const router = useRouter();

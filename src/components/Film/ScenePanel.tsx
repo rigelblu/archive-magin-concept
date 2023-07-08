@@ -4,7 +4,7 @@ import Image from 'next/image';
 import SceneMarker from '@/components/SceneMarker/SceneMarker';
 
 // OPTIMIZE: read based on language
-import locale from '@/locales/en.json';
+import locale from '@/locales/en';
 
 type Props = {
   className?: string;
