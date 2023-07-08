@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import IconGithub from '@/assets/common/icons/github-mark.svg';
 import MainLayout from '@/layouts/MainLayout';
 import featureFlag from '@/src/config/featureFlags';
+import locale from '@/locales/en.json'; // REFACTOR: read based on language
 
 export default function Home() {
   const router = useRouter();
@@ -39,7 +40,7 @@ export default function Home() {
           onClick={() => {
             if (featureFlag.home.tryMaginEnabled) router.push('/try-magin/1');
           }}
-          tooltip={!featureFlag.home.tryMaginEnabled ? 'Coming soon...' : ''}
+          tooltip={!featureFlag.home.tryMaginEnabled ? locale.general.comingSoon : ''}
           tooltipOptions={{ position: 'bottom', showOnDisabled: true }}
         />
       </div>
