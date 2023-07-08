@@ -1,7 +1,13 @@
 // Copyright rigélblu inc.
 // All rights reserved.
+
+export type FeatureFlagEnv = {
+  development: boolean;
+  production: boolean;
+};
+
 export type FeatureFlagType = {
-  [key: string]: boolean;
+  [key: string]: boolean | FeatureFlagEnv;
 };
 
 export type FeatureFlagNestedObj = {
@@ -13,7 +19,7 @@ const featureFlag: FeatureFlagNestedObj = {
     enableTryMagin: true,
   },
   join: {
-    enablePay: false,
+    enablePay: { development: true, production: false },
     termsConditionsPrivacy: false,
   },
 };

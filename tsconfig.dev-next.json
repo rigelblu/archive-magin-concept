@@ -10,6 +10,7 @@
       "@/assets/*": ["public/assets/*"],
       "@/components/*": ["src/components/*"],
       "@/config/*": ["src/config/*"],
+      "@/helpers/*": ["src/helpers/*"],
       "@/layouts/*": ["src/layouts/*"],
       "@/locales/*": ["src/locales/*"],
       "@/src/*": ["src/*"],

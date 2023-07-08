@@ -5,7 +5,8 @@ import { useRouter } from 'next/router';
 import { Button } from 'primereact/button';
 import Navigation from '@/components/Navigation/Navigation';
 import MainLayout from '@/layouts/MainLayout';
-import featureFlag from '@/config/featureFlags';
+import featureFlag, { FeatureFlagEnv } from '@/config/featureFlags';
+import getEnv from '@/helpers/env';
 import locale from '@/locales/en.json'; // REFACTOR: read based on language
 
 // REFACTOR: move into a helper function
@@ -13,6 +14,9 @@ const stripePaymentUrl = process.env.NEXT_PUBLIC_STRIPE_PAYMENT_URL || '/error';
 
 export default function JoinMagin() {
   const router = useRouter();
+  const env = getEnv() as keyof FeatureFlagEnv;
+  const enablePay =
+    typeof featureFlag.join.enablePay === 'object' ? featureFlag.join.enablePay[env] : false;
 
   return (
     <MainLayout canvasClassName='bg-black' className='mgn-try-magin bg-white' layoutKind='app'>
@@ -24,7 +28,11 @@ export default function JoinMagin() {
             {/* HACK: have to use fixed rem for height due to mobile browsers */}
             <div className='flex flex-1 items-center text-center'>
               <div className='w-full'>
-                <h2>{locale.join.step1_shapeFuture}</h2>
+                <h2>
+                  {locale.join.step1_shapeFuture[0]}{' '}
+                  <span className='text-blue-rb-600'>{locale.general.magin}'s </span>
+                  {locale.join.step1_shapeFuture[1]}
+                </h2>
                 <div className='text-lg font-bold'>{locale.join.step1_become}</div>
 
                 {/* Join */}
@@ -37,13 +45,11 @@ export default function JoinMagin() {
                 </div>
                 <Button
                   className='mgn-cta-primary m-1 text-lg'
-                  disabled={!featureFlag.join.pay}
+                  disabled={!enablePay}
                   onClick={() => {
-                    if (!featureFlag.join.pay) {
-                      window.location.href = stripePaymentUrl;
-                    }
+                    if (enablePay) window.location.href = stripePaymentUrl;
                   }}
-                  tooltip={!featureFlag.home.tryMaginEnabled ? locale.general.comingSoon : ''}
+                  tooltip={!enablePay ? locale.general.comingSoon : ''}
                   tooltipOptions={{ position: 'bottom', showOnDisabled: true }}
                 >
                   {locale.join.step1_join}
