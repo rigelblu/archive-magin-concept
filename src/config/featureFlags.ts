@@ -12,6 +12,10 @@ const featureFlag: FeatureFlagNestedObj = {
   home: {
     tryMaginEnabled: true,
   },
+  join: {
+    pay: false,
+    termsConditionsPrivacy: false,
+  },
 };
 
 export default featureFlag;
