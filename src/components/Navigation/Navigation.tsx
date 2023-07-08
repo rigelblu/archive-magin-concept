@@ -3,12 +3,12 @@
 import { Button } from 'primereact/button';
 
 // REFACTOR: accept enums  for className and translate to proper css class
-interface Props {
+type Props = {
   left?: { className: string; label: string; onClick: () => void };
   middle?: { className: string; label: string; onClick: () => void };
   right?: { className: string; label: string; onClick: () => void };
   className?: string;
-}
+};
 
 export default function Navigation(props: Props) {
   const { left = null, middle = null, right = null, className = '' } = props;
