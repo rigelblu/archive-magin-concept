@@ -43,7 +43,7 @@ export default function ScenePanel(props: Props) {
 
       <hr className='border-1 my-1 border-black' />
 
-      <SceneMarker className='my-1 flex flex-1 flex-col content-center '>
+      <SceneMarker className='my-1 flex flex-1 flex-col content-center'>
         {/* OPTIMIZE: load image cdn */}
         {/* OPTIMIZE: create SceneImage component, accept alt and src props */}
         <Image src={img.src} alt={img.alt} className='!w-min object-scale-down pl-2' fill />
