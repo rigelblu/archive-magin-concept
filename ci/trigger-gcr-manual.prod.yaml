@@ -1,20 +1,16 @@
-# Copyright rigélblu inc.
-# All rights reserved.
-
 description: mgn / concept / gcr / manual branch
 gitFileSource:
   path: ci/cloudbuild.yaml
-  repoType: GITHUB
+  repository: ''
   revision: refs/heads/main
-  uri: https://github.com/rigelblu/magin-concept
-name: mgn-site-gcr-manual
+name: mgn-site-gcr-manual---prod
+serviceAccount: ''
 sourceToBuild:
   ref: refs/heads/main
-  repoType: GITHUB
-  uri: https://github.com/rigelblu/magin-concept
+  repository: ''
 substitutions:
   _ARTIFACT: us-central1-docker.pkg.dev
-  _DEPLOY_TAG: mgn-public-site/branch-manual
+  _DEPLOY_TAG: staging
   _ENV_ANALYTICS_ID: G-TKT2WEH9ES
   _ENV_NODE_ENV: production
   _MAX_INSTANCES: '1'

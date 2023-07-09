@@ -2,6 +2,9 @@
 # All rights reserved.
 options:
   dynamic_substitutions: true
+  logging: CLOUD_LOGGING_ONLY # Required with non-default google cloud build service account
+
+serviceAccount: projects/rb-prod-356900/serviceAccounts/cloud-build@rb-prod-356900.iam.gserviceaccount.com
 
 substitutions:
   _ARTIFACT: ${_ARTIFACT}
@@ -53,13 +56,24 @@ steps:
       - '${_IMAGE_NAME}:latest'
       - '--region'
       - '${_REGION}'
-      - '--tag=${_DEPLOY_TAG}'
       - '--min-instances=${_MIN_INSTANCES}'
       - '--max-instances=${_MAX_INSTANCES}'
       - '--allow-unauthenticated'
       - '--no-traffic'
 
-  # 4. Sent traffic to latest based on _TRAFFIC_TO_LATEST
+  # 4. Add revision tags
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'gcloud'
+    args:
+      - run
+      - services
+      - update-traffic
+      - ${_SERVICE_NAME}
+      - --region
+      - ${_REGION}
+      - --set-tags=${_DEPLOY_TAG}=LATEST,${_TRIGGER_REASON}=LATEST,${_ENV_NODE_ENV}=LATEST
+
+  # 5. Sent traffic to latest based on _TRAFFIC_TO_LATEST
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: 'bash'
     args:
@@ -70,6 +84,7 @@ steps:
           gcloud run services update-traffic ${_SERVICE_NAME} --region ${_REGION} --to-latest
         fi
 
+# Used to tag cloud builds, so they can be filtered
 tags:
   - '${_SERVICE_NAME}'
   - '${_TRIGGER_REASON}'
