@@ -70,6 +70,7 @@ steps:
           gcloud run services update-traffic ${_SERVICE_NAME} --region ${_REGION} --to-latest
         fi
 
+# Used to tag cloud builds, so they can be filtered
 tags:
   - '${_SERVICE_NAME}'
   - '${_TRIGGER_REASON}'
