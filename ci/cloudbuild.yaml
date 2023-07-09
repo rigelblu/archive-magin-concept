@@ -68,7 +68,7 @@ steps:
       - ${_SERVICE_NAME}
       - --region
       - ${_REGION}
-      - --set-tag=${_DEPLOY_TAG}=LATEST,${_TRIGGER_REASON}=LATEST,${_ENV_NODE_ENV}=LATEST
+      - --set-tags=${_DEPLOY_TAG}=LATEST,${_TRIGGER_REASON}=LATEST,${_ENV_NODE_ENV}=LATEST
 
   # 5. Sent traffic to latest based on _TRAFFIC_TO_LATEST
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
