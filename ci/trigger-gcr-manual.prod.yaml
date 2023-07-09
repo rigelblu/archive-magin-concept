@@ -14,7 +14,7 @@ sourceToBuild:
   uri: https://github.com/rigelblu/magin-concept
 substitutions:
   _ARTIFACT: us-central1-docker.pkg.dev
-  _DEPLOY_TAG: mgn-public-site/branch-manual
+  _DEPLOY_TAG: staging
   _ENV_ANALYTICS_ID: G-TKT2WEH9ES
   _ENV_NODE_ENV: production
   _MAX_INSTANCES: '1'
