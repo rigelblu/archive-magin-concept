@@ -11,9 +11,9 @@ github:
 name: mgn-site-gcr-tag
 substitutions:
   _ARTIFACT: us-central1-docker.pkg.dev
-  _DEPLOY_TAG: branch-tag
-  _ENV_ANALYTICS_ID: G-VSBDW9PNSD
-  _ENV_NODE_ENV: production
+  _DEPLOY_TAG: mgn-public-site/branch-tag
+  _ENV_ANALYTICS_ID: G-867B5HDFZ4
+  _ENV_NODE_ENV: development
   _MAX_INSTANCES: '1'
   _MIN_INSTANCES: '0'
   _REGION: us-central1
