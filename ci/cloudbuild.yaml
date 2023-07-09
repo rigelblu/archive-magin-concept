@@ -64,13 +64,11 @@ steps:
     args:
       - run
       - services
-      - update
+      - update-traffic
       - ${_SERVICE_NAME}
       - --region
       - ${_REGION}
-      - --tag=${_DEPLOY_TAG}
-      - --tag=${_TRIGGER_REASON}
-      - --tag=${_ENV_NODE_ENV}
+      - --set-tag=${_DEPLOY_TAG}=LATEST,${_TRIGGER_REASON}=LATEST,${_ENV_NODE_ENV}=LATEST
 
   # 5. Sent traffic to latest based on _TRAFFIC_TO_LATEST
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
