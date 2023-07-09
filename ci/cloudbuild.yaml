@@ -68,7 +68,6 @@ steps:
       - ${_SERVICE_NAME}
       - --region
       - ${_REGION}
-      - --to-revisions=LATEST
       - --tag=${_DEPLOY_TAG}
       - --tag=${_TRIGGER_REASON}
       - --tag=${_ENV_NODE_ENV}
