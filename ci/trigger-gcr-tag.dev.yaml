@@ -1,14 +1,12 @@
-# Copyright rigélblu inc.
-# All rights reserved.
-
 description: mgn / concept / gcr / tag
 filename: ci/cloudbuild.yaml
-github:
-  name: magin-concept
-  owner: rigelblu
+name: mgn-site-gcr-tag---dev
+repositoryEventConfig:
   push:
     tag: build-branch
-name: mgn-site-gcr-tag
+  repository: ''
+  repositoryType: GITHUB
+serviceAccount: ''
 substitutions:
   _ARTIFACT: us-central1-docker.pkg.dev
   _DEPLOY_TAG: live

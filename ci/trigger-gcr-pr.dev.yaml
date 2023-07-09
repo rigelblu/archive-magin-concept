@@ -1,17 +1,14 @@
-# Copyright rigélblu inc.
-# All rights reserved.
-
-approvalConfig:
-  approvalRequired: true
 description: mgn / concept / gcr / pull-request
 filename: ci/cloudbuild.yaml
-github:
-  name: magin-concept
-  owner: rigelblu
+name: mgn-site-gcr-pr---dev
+repositoryEventConfig:
   pullRequest:
     branch: .*
     commentControl: COMMENTS_ENABLED_FOR_EXTERNAL_CONTRIBUTORS_ONLY
-name: mgn-site-gcr-pr
+  repository: ''
+  repositoryType: GITHUB
+resourceName: ''
+serviceAccount: ''
 substitutions:
   _ARTIFACT: us-central1-docker.pkg.dev
   _DEPLOY_TAG: live
