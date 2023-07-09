@@ -53,13 +53,27 @@ steps:
       - '${_IMAGE_NAME}:latest'
       - '--region'
       - '${_REGION}'
-      - '--tag=${_DEPLOY_TAG}'
       - '--min-instances=${_MIN_INSTANCES}'
       - '--max-instances=${_MAX_INSTANCES}'
       - '--allow-unauthenticated'
       - '--no-traffic'
 
-  # 4. Sent traffic to latest based on _TRAFFIC_TO_LATEST
+  # 4. Add revision tags
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'gcloud'
+    args:
+      - run
+      - services
+      - update
+      - ${_SERVICE_NAME}
+      - --region
+      - ${_REGION}
+      - --to-revisions=LATEST
+      - --tag=${_DEPLOY_TAG}
+      - --tag=${_TRIGGER_REASON}
+      - --tag=${_ENV_NODE_ENV}
+
+  # 5. Sent traffic to latest based on _TRAFFIC_TO_LATEST
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: 'bash'
     args:
