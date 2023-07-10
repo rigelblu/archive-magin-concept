@@ -4,7 +4,7 @@ options:
   dynamic_substitutions: true
   logging: CLOUD_LOGGING_ONLY # Required with non-default google cloud build service account
 
-serviceAccount: projects/rb-prod-356900/serviceAccounts/cloud-build@rb-prod-356900.iam.gserviceaccount.com
+serviceAccount: projects/rb-prod-392317/serviceAccounts/cloud-build@rb-prod-392317.iam.gserviceaccount.com
 
 substitutions:
   _ARTIFACT: ${_ARTIFACT}
