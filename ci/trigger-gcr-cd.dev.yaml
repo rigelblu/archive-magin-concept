@@ -16,6 +16,6 @@ substitutions:
   _MAX_INSTANCES: '1'
   _MIN_INSTANCES: '0'
   _REGION: us-central1
-  _SERVICE_NAME: mgn-public-site
+  _SERVICE_NAME: mgn-site
   _TRAFFIC_TO_LATEST: 'true'
   _TRIGGER_REASON: continuous-delivery
