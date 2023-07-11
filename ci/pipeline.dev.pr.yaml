@@ -1,0 +1,61 @@
+# Copyright rigélblu inc.
+# All rights reserved.
+
+# Buildkite pipeline name: mgn-site / dev / pull-request
+env:
+  ANALYTICS_ID: 'G-867B5HDFZ4'
+  ARTIFACT: 'us-central1-docker.pkg.dev'
+  DEPLOY_TAG: 'live'
+  MIN_INSTANCES: '0'
+  MAX_INSTANCES: '1'
+  NODE_ENV: 'development'
+  PROJECT_ID: ''
+  REGION: 'us-central1'
+  SERVICE_NAME: 'mgn-site'
+  STRIPE_PAYMENT_URL: ''
+  TRAFFIC_TO_LATEST: 'true'
+  TRIGGER_REASON: 'pull-request'
+
+steps:
+  - label: 'Auth artifact registry'
+    command: gcloud auth configure-docker $REGION-docker.pkg.dev --quiet
+    key: auth
+
+  - label: 'Build docker'
+    command: |
+      docker build -t $$IMAGE:latest . --build-arg $ANALYTICS_ID --build-arg $STRIPE_PAYMENT_URL \
+      --build-arg $$NODE_ENV
+    env:
+      IMAGE: $ARTIFACT/$PROJECT_ID/$SERVICE_NAME/$SERVICE_NAME
+    key: build
+    depends_on: auth
+
+  - label: 'Push image'
+    command: docker push $$IMAGE:latest
+    env:
+      IMAGE: $ARTIFACT/$PROJECT_ID/$SERVICE_NAME/$SERVICE_NAME
+    key: push
+    depends_on: build
+
+  - label: 'deploy'
+    command: |
+      gcloud run deploy $SERVICE_NAME \
+      --image $$IMAGE:latest \
+      --region $REGION \
+      --min-instances=$MIN_INSTANCES \
+      --max-instances=$MAX_INSTANCES \
+      --allow-unauthenticated \
+      --no-traffic
+
+      gcloud run services update-traffic $SERVICE_NAME \
+      --region $REGION \
+      --set-tags=$DEPLOY_TAG=LATEST,$TRIGGER_REASON=LATEST,$NODE_ENV=LATEST
+    env:
+      IMAGE: $ARTIFACT/$PROJECT_ID/$SERVICE_NAME/$SERVICE_NAME
+    key: deploy
+    depends_on: push
+
+  - label: 'switch traffic'
+    command: gcloud run services update-traffic $SERVICE_NAME --region $REGION --to-latest
+    if: build.env("TRAFFIC_TO_LATEST") == "true"
+    depends_on: deploy
