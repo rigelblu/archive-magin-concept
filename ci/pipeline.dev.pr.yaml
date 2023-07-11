@@ -2,7 +2,6 @@
 # All rights reserved.
 
 # Buildkite pipeline name: mgn-site / dev / pull-request
-
 env:
   ANALYTICS_ID: 'G-867B5HDFZ4'
   ARTIFACT: 'us-central1-docker.pkg.dev'
