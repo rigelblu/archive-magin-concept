@@ -8,14 +8,14 @@ repositoryEventConfig:
   repositoryType: GITHUB
 serviceAccount: ''
 substitutions:
-  _ARTIFACT: us-central1-docker.pkg.dev
+  _ANALYTICS_ID: ''
   _DEPLOY_TAG: live
-  _ENV_ANALYTICS_ID: G-867B5HDFZ4
-  _ENV_NODE_ENV: development
-  _ENV_STRIPE_PAYMENT_URL: ''
-  _MAX_INSTANCES: '1'
-  _MIN_INSTANCES: '0'
-  _REGION: us-central1
-  _SERVICE_NAME: mgn-public-site
+  _GCP_ARTIFACT: ''
+  _GCP_MAX_INSTANCES: '1'
+  _GCP_MIN_INSTANCES: '0'
+  _GCP_REGION: ''
+  _GCP_SERVICE_NAME: mgn-site
+  _NODE_ENV: development
+  _STRIPE_PAYMENT_URL: ''
   _TRAFFIC_TO_LATEST: 'true'
   _TRIGGER_REASON: continuous-delivery

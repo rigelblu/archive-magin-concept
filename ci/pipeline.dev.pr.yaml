@@ -1,0 +1,59 @@
+# Copyright rigélblu inc.
+# All rights reserved.
+
+# Buildkite pipeline name: mgn-site / dev / pull-request
+env:
+  ANALYTICS_ID: ''
+  DEPLOY_TAG: 'live'
+  GCP_ARTIFACT: ''
+  GCP_MIN_INSTANCES: '0'
+  GCP_MAX_INSTANCES: '1'
+  GCP_PROJECT_ID: ''
+  GCP_REGION: ''
+  GCP_SERVICE_NAME: 'mgn-site'
+  NODE_ENV: 'development'
+  STRIPE_PAYMENT_URL: ''
+  TRIGGER_REASON: 'pull-request'
+
+steps:
+  - label: 'Config & Auth'
+    command: |
+      gcloud beta config set project $GCP_PROJECT_ID
+      gcloud auth configure-docker $GCP_REGION-docker.pkg.dev --quiet
+    key: auth
+
+  - label: 'Build image'
+    command: |
+      docker build -t $$IMAGE:latest . --platform=linux/amd64 --build-arg $ANALYTICS_ID --build-arg $STRIPE_PAYMENT_URL \
+      --build-arg $$NODE_ENV
+    env:
+      IMAGE: $GCP_ARTIFACT/$GCP_PROJECT_ID/$GCP_SERVICE_NAME/$GCP_SERVICE_NAME
+    key: build
+
+  - label: 'Push image'
+    command: docker push $$IMAGE:latest
+    env:
+      IMAGE: $GCP_ARTIFACT/$GCP_PROJECT_ID/$GCP_SERVICE_NAME/$GCP_SERVICE_NAME
+    key: push
+    depends_on: [build, auth]
+
+  - label: 'Deploy image with traffic'
+    command: |
+      gcloud run deploy $GCP_SERVICE_NAME \
+      --image $$IMAGE:latest \
+      --GCP_REGION $GCP_REGION \
+      --min-instances=$GCP_MIN_INSTANCES \
+      --max-instances=$GCP_MAX_INSTANCES \
+      --allow-unauthenticated \
+    env:
+      IMAGE: $GCP_ARTIFACT/$GCP_PROJECT_ID/$GCP_SERVICE_NAME/$GCP_SERVICE_NAME
+    key: deploy
+    depends_on: push
+
+  - label: 'Set revision tags'
+    command: |
+      gcloud run services update-traffic $GCP_SERVICE_NAME \
+      --GCP_REGION $GCP_REGION \
+      --set-tags=$DEPLOY_TAG=LATEST,$TRIGGER_REASON=LATEST,$NODE_ENV=LATEST
+    key: tags
+    depends_on: deploy
