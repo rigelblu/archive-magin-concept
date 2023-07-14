@@ -22,6 +22,7 @@ steps:
       gcloud auth configure-docker $GCP_REGION-docker.pkg.dev --quiet
     key: auth
 
+  # TODO: check if we need to specifiy to use local cache
   - label: 'Build image'
     command: |
       docker build -t $$IMAGE:latest . --platform=linux/amd64 --build-arg $ANALYTICS_ID --build-arg $STRIPE_PAYMENT_URL \
@@ -41,7 +42,7 @@ steps:
     command: |
       gcloud run deploy $GCP_SERVICE_NAME \
       --image $$IMAGE:latest \
-      --GCP_REGION $GCP_REGION \
+      --region $GCP_REGION \
       --min-instances=$GCP_MIN_INSTANCES \
       --max-instances=$GCP_MAX_INSTANCES \
       --allow-unauthenticated \
@@ -53,7 +54,7 @@ steps:
   - label: 'Set revision tags'
     command: |
       gcloud run services update-traffic $GCP_SERVICE_NAME \
-      --GCP_REGION $GCP_REGION \
+      --region $GCP_REGION \
       --set-tags=$DEPLOY_TAG=LATEST,$TRIGGER_REASON=LATEST,$NODE_ENV=LATEST
     key: tags
     depends_on: deploy
