@@ -7,9 +7,9 @@ options:
 serviceAccount: projects/rb-prod-392317/serviceAccounts/cloud-build@rb-prod-392317.iam.gserviceaccount.com
 
 substitutions:
-  _ARTIFACT: ${_ARTIFACT}
-  _IMAGE_NAME: ${_ARTIFACT}/${PROJECT_ID}/${_SERVICE_NAME}/${_SERVICE_NAME}
-  _SERVICE_NAME: ${_SERVICE_NAME}
+  _GCP_ARTIFACT: ${_GCP_ARTIFACT}
+  _IMAGE_NAME: ${_GCP_ARTIFACT}/${PROJECT_ID}/${_GCP_SERVICE_NAME}/${_GCP_SERVICE_NAME}
+  _GCP_SERVICE_NAME: ${_GCP_SERVICE_NAME}
 
 # Build for Google Cloud Run
 steps:
@@ -37,9 +37,9 @@ steps:
       - '--build-arg'
       - 'NODE_ENV'
     env:
-      - 'NEXT_PUBLIC_ANALYTICS_ID=${_ENV_ANALYTICS_ID}'
-      - 'NEXT_PUBLIC_STRIPE_PAYMENT_URL=${_ENV_STRIPE_PAYMENT_URL}'
-      - 'NODE_ENV=${_ENV_NODE_ENV}'
+      - 'NEXT_PUBLIC_ANALYTICS_ID=${_ANALYTICS_ID}'
+      - 'NEXT_PUBLIC_STRIPE_PAYMENT_URL=${_STRIPE_PAYMENT_URL}'
+      - 'NODE_ENV=${_NODE_ENV}'
 
   # 2. Push container to registery
   - name: 'gcr.io/cloud-builders/docker'
@@ -51,13 +51,13 @@ steps:
     args:
       - 'run'
       - 'deploy'
-      - '${_SERVICE_NAME}'
+      - '${_GCP_SERVICE_NAME}'
       - '--image'
       - '${_IMAGE_NAME}:latest'
       - '--region'
-      - '${_REGION}'
-      - '--min-instances=${_MIN_INSTANCES}'
-      - '--max-instances=${_MAX_INSTANCES}'
+      - '${_GCP_REGION}'
+      - '--min-instances=${_GCP_MIN_INSTANCES}'
+      - '--max-instances=${_GCP_MAX_INSTANCES}'
       - '--allow-unauthenticated'
       - '--no-traffic'
 
@@ -68,10 +68,10 @@ steps:
       - run
       - services
       - update-traffic
-      - ${_SERVICE_NAME}
+      - ${_GCP_SERVICE_NAME}
       - --region
-      - ${_REGION}
-      - --set-tags=${_DEPLOY_TAG}=LATEST,${_TRIGGER_REASON}=LATEST,${_ENV_NODE_ENV}=LATEST
+      - ${_GCP_REGION}
+      - --set-tags=${_DEPLOY_TAG}=LATEST,${_TRIGGER_REASON}=LATEST,${_NODE_ENV}=LATEST
 
   # 5. Sent traffic to latest based on _TRAFFIC_TO_LATEST
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
@@ -81,10 +81,10 @@ steps:
       - |
         if [[ "${_TRAFFIC_TO_LATEST}" == "true" ]]
         then
-          gcloud run services update-traffic ${_SERVICE_NAME} --region ${_REGION} --to-latest
+          gcloud run services update-traffic ${_GCP_SERVICE_NAME} --region ${_GCP_REGION} --to-latest
         fi
 
 # Used to tag cloud builds, so they can be filtered
 tags:
-  - '${_SERVICE_NAME}'
+  - '${_GCP_SERVICE_NAME}'
   - '${_TRIGGER_REASON}'

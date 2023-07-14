@@ -44,7 +44,7 @@ docker-compose up --build
 
 ```sh
 # edit .env.development with your values for
-PROJECT_ID='abc-123'
-REGION='region-name'
-SERVICE='service-name'
+GCP_PROJECT_ID='abc-123'
+GCP_REGION='region-name'
+GCP_SERVICE='service-name'
 ```
