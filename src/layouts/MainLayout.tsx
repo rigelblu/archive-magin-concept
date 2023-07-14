@@ -41,7 +41,6 @@ export default function MainLayout(props: Props) {
   useEffect(() => {
     const handleResize = () => {
       setWindowHeight(window.innerHeight);
-      console.log(windowHeight);
     };
 
     window.addEventListener('resize', handleResize);
