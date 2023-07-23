@@ -30,6 +30,7 @@ const locale = {
       'what would it look like',
       'on the movie screen?',
     ],
+    tryMagin_skipAnimation: 'skip animation',
     tryMagin2a_showMe: 'Show Me',
     tryMagin2b_guidedMessage: 'a director might imagine it as',
     tryMagin2b_nextScene: 'Next Scene',

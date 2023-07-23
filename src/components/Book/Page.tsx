@@ -1,12 +1,36 @@
 // Copyright rigélblu inc.
 // All rights reserved.
-import { useRef, useEffect } from 'react';
+import { useEffect, useRef } from 'react';
+import { Button } from 'primereact/button';
 import Typed from 'typed.js';
+
 import SceneMarker from '@/components/SceneMarker/SceneMarker';
 import settings, { MODE } from '@/config/settings';
+import locale from '@/locales/en';
 import styles from './Page.module.scss';
 
-type Props = {
+// ----------
+// SkipAnimationProps
+type SkipAnimationProps = {
+  className?: string;
+  onSkipAnimation: () => void;
+};
+
+function SkipAnimation(props: SkipAnimationProps) {
+  const { className = '', onSkipAnimation } = props;
+
+  return (
+    <Button
+      className={`mgn-skip-animation ${className} my-1 !bg-ivory-300 !text-gray-600`}
+      label={locale.guide.tryMagin_skipAnimation}
+      onClick={onSkipAnimation}
+    />
+  );
+}
+
+// ----------
+// Page
+type PageProps = {
   className?: string;
   onTypingComplete?: () => void;
   sceneCurrent: number;
@@ -16,7 +40,7 @@ type Props = {
   useTypingAnimation?: boolean;
 };
 
-export default function Page(props: Props) {
+export default function Page(props: PageProps) {
   const {
     className = '',
     onTypingComplete = undefined,
@@ -30,6 +54,7 @@ export default function Page(props: Props) {
 
   const refSpanTypedStrings = useRef<HTMLSpanElement | null>(null);
   const refSpanTyped = useRef<HTMLSpanElement | null>(null);
+  const refTyped = useRef<Typed | null>(null);
 
   const contentScenes = [
     <h3 key='header' className='my-2 pl-2'>
@@ -125,6 +150,12 @@ export default function Page(props: Props) {
     </span>
   );
 
+  // FEAT: https://linear.app/rigelblu/issue/MGN-173/step-1-or-see-a-smooth-transition-when-i-click-skip-animation
+  const onSkipAnimation = () => {
+    refTyped.current?.stop();
+    if (onTypingComplete) onTypingComplete();
+  };
+
   // eslint-disable-next-line consistent-return
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
@@ -139,7 +170,7 @@ export default function Page(props: Props) {
     )
       return;
 
-    const typed = new Typed(refSpanTyped.current, {
+    refTyped.current = new Typed(refSpanTyped.current, {
       fadeOut: true,
       loop: false,
       stringsElement: refSpanTypedStrings.current,
@@ -155,7 +186,7 @@ export default function Page(props: Props) {
     // TODO: do later
     // eslint-disable-next-line consistent-return
     return () => {
-      typed.destroy();
+      refTyped.current?.destroy();
     };
   }, [onTypingComplete, sceneCurrent, typingSpeed, useTypingAnimation]);
 
@@ -168,7 +199,10 @@ export default function Page(props: Props) {
             <h3 className='my-2'>Chapter 1</h3>
             <span ref={refSpanTypedStrings}>{contentTyped}</span>
             <span ref={refSpanTyped} />
-
+            <SkipAnimation
+              className='mgn-cta-secondary ml-auto mt-8 block text-center'
+              onSkipAnimation={onSkipAnimation}
+            />
           </div>
         );
       if (!useTypingAnimation)
