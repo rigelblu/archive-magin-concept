@@ -30,7 +30,7 @@ export default function Page(props: Props) {
   const typingSpeed = settings.mode !== MODE.DEBUG ? settings.page.typingSpeed : 0;
 
   const contentScenes = [
-    <h3 key='header' className='my-2 pl-2 text-lg'>
+    <h3 key='header' className='my-2 pl-2'>
       Chapter 1
     </h3>,
     <section key='scene-1' className='pl-2'>
@@ -91,10 +91,10 @@ export default function Page(props: Props) {
 
   // REFACTOR: import content from a file
   const classIndent = 'inline-block indent-3.5';
-  const classP = 'inline content-text';
+  const classP = 'inline content-text-typed';
   const contentTyped = (
     <>
-      <h3 className='my-2 text-lg'>Chapter 1</h3>
+      <h3 className='my-2'>Chapter 1</h3>
       <span id='typed-strings' ref={refTyped}>
         <span>
           <span className={classP}>
@@ -156,8 +156,10 @@ export default function Page(props: Props) {
   let content: React.ReactNode;
   switch (sceneCurrent) {
     case 0:
-      if (useTypingAnimation) content = <div className='pl-2'>{contentTyped}</div>;
-      if (!useTypingAnimation) content = getContent(sceneStart, sceneEnd);
+      if (useTypingAnimation)
+        content = <div className='content-text-typed pl-2'>{contentTyped}</div>;
+      if (!useTypingAnimation)
+        content = <div className='content-text'>{getContent(sceneStart, sceneEnd)}</div>;
       break;
     case 1:
     case 2:
@@ -173,9 +175,7 @@ export default function Page(props: Props) {
 
   return (
     <div className={`${styles['mgn-page']} flex w-full flex-1 flex-col ${className}`}>
-      <div
-        className={`mgn-content content-text  w-full overflow-y-auto bg-[#f8f1e3] ${typingNotUsed}`}
-      >
+      <div className={`mgn-content w-full overflow-y-auto bg-ivory-200 ${typingNotUsed}`}>
         {content}
       </div>
     </div>

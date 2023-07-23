@@ -4,7 +4,7 @@ import MainLayout from '@/layouts/MainLayout';
 
 export default function Terms() {
   return (
-    <MainLayout canvasClassName='bg-yellow-rb-200' className='px-2 py-1'>
+    <MainLayout canvasClassName='bg-ivory-100' className='px-2 py-1'>
       <h1>Terms of Use</h1>
       <h2>OVERVIEW</h2>
       <p>

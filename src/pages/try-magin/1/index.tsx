@@ -44,7 +44,7 @@ export default function MarginPreview() {
     <MainLayout canvasClassName='bg-black' className='mgn-try-magin bg-white' layoutKind='app'>
       {/* REFACTOR: convert into component, accept 4 children elements */}
       <div className='flex h-screen flex-col items-center justify-center bg-neutral-950'>
-        <div className='mgn-step flex max-h-[48rem] w-full flex-1 flex-col justify-between bg-yellow-rb-200 p-2 sm:max-w-[25rem]'>
+        <div className='mgn-step flex max-h-[48rem] w-full flex-1 flex-col justify-between bg-ivory-100 p-2 sm:max-w-[25rem]'>
           {/* OPTIMIZE: adjust for each device screen */}
           <div className='mgn-story flex max-h-[32rem] flex-1 flex-col justify-end sm:max-h-[40rem]'>
             <div className='mgn-step-top flex max-h-[60%] flex-1 flex-col justify-end'>

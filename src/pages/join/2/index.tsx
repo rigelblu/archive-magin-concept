@@ -13,7 +13,7 @@ export default function JoinMagin() {
       {/* REFACTOR: convert into component, accept 4 children elements */}
       <div className='mgn-preview flex h-screen flex-col items-center justify-center bg-neutral-950'>
         {/* HACK: have to use fixed rem for max height and width due to mobile browsers */}
-        <div className='mgn-step flex max-h-[48rem] w-full flex-1 flex-col justify-between bg-yellow-rb-200 p-2 sm:max-w-[25rem]'>
+        <div className='mgn-step flex max-h-[48rem] w-full flex-1 flex-col justify-between bg-ivory-100 p-2 sm:max-w-[25rem]'>
           <div className='mgn-story flex w-full flex-1 flex-col justify-between'>
             {/* HACK: have to use fixed rem for height due to mobile browsers */}
             <div className='flex flex-1 items-center text-center'>
