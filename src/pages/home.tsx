@@ -25,9 +25,8 @@ export default function Home() {
           anything?
         </h1>
         <h2 className='text-center'>
-          Learn to watch a novel <br />
-          like a <span className='text-blue-rb-600'>Pixar</span>
-          <span className='align-text-top text-2xs font-normal'>&#8482;</span> director
+          <span className='text-blue-rb-600'>Learn</span> to watch a novel <br />
+          like a Pixar <span className='align-text-top text-2xs font-normal'>&#8482;</span> director
         </h2>
 
         {/* Try magin */}
