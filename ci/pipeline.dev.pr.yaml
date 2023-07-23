@@ -1,16 +1,16 @@
 # Copyright rigélblu inc.
 # All rights reserved.
 
-# Buildkite pipeline name: mgn-site / dev / pull-request
+# Buildkite pipeline name: mgn-concept / dev / pull-request
 env:
   ANALYTICS_ID: ''
   DEPLOY_TAG: 'live'
-  GCP_ARTIFACT: ''
+  GCP_ARTIFACT: 'us-central1-docker.pkg.dev'
   GCP_MIN_INSTANCES: '0'
   GCP_MAX_INSTANCES: '1'
   GCP_PROJECT_ID: ''
-  GCP_REGION: ''
-  GCP_SERVICE_NAME: 'mgn-site'
+  GCP_REGION: 'us-central1'
+  GCP_SERVICE_NAME: 'mgn-concept'
   NODE_ENV: 'development'
   STRIPE_PAYMENT_URL: ''
   TRIGGER_REASON: 'pull-request'
