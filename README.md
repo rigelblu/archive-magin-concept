@@ -18,6 +18,7 @@ Learn to watch a novel like a Pixar&#8482; director.
 
 ```sh
 cp .env.example .env.development
+cp .env.example .env.local
 cp .env.example .env.production
 ```
 
@@ -46,5 +47,5 @@ docker-compose up --build
 # edit .env.development with your values for
 GCP_PROJECT_ID='abc-123'
 GCP_REGION='region-name'
-GCP_SERVICE='service-name'
+GCP_SERVICE_NAME='service-name'
 ```
