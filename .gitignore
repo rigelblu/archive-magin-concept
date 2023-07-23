@@ -12,10 +12,8 @@ node_modules
 
 # misc
 .DS_Store
-# misc
 .env
-.env.development
-.env.local
-.env.production
+.env.*
+!.env.example
 .favorites.json
 .vscode
