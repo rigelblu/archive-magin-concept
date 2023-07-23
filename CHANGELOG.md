@@ -1,22 +1,29 @@
 # Changelog
 
 Log of every change to this package, in reverse-chronological order (most recent at top).
+**Version format:** {Era} - {Major Release}.{Minor Release}.{Patch}
 
-## 2022.07.25 (v0.1.0) - enable payments
+## Template
 
-- Enabled `Join` with stripe payments
+## YYYY.MM.DD - E - vX.Y.Z
 
-### New Features
+- **New Features**, **Improvements**, **Fixes**, or **Breaking Changes**: description
 
-## 2022.12.25 (v0.0.1) - landing page launch
+---
 
-### New Features
+## 2022.07.14 - 1 - 0.0.4
 
-- `Margin Preview`
-- `Join`
+- **New Features:** terms of use, privacy policy
+- **Improvements:** minor design and copy improvements
 
-## 2022.12.25 (v0.0.1) - landing page launch
+## 2022.07.10 - 1 - 0.0.3
 
-### New Features
+- **New Features:** join with stripe payments
 
-- `Home` show landing page
+## 2022.07.07 - 1 - 0.0.2
+
+- **New Features:** desktop and mobile responsive, final design with animations, visual cues, transitions and user interaction
+
+## 2022.12.25 - 1 - 0.0.1
+
+- **New Features:** landing page, magin preview skeleton
