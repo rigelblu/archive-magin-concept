@@ -1,16 +1,16 @@
 # Copyright rigélblu inc.
 # All rights reserved.
 
-# Buildkite pipeline name: mgn-site / prod / continuous delivery
+# Buildkite pipeline name: mgn-concept / prod / continuous delivery
 env:
   ANALYTICS_ID: ''
   DEPLOY_TAG: 'staging'
-  GCP_ARTIFACT: ''
+  GCP_ARTIFACT: 'us-central1-docker.pkg.dev'
   GCP_MIN_INSTANCES: '0'
   GCP_MAX_INSTANCES: '2'
   GCP_PROJECT_ID: ''
-  GCP_REGION: ''
-  GCP_SERVICE_NAME: 'mgn-site'
+  GCP_REGION: 'us-central1'
+  GCP_SERVICE_NAME: 'mgn-concept'
   NODE_ENV: 'production'
   STRIPE_PAYMENT_URL: ''
   TRAFFIC_TO_LATEST: 'false'

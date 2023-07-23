@@ -5,7 +5,7 @@
 
 # ----------
 # Stage: Base builder
-FROM node:16-alpine AS base
+FROM node:18-slim AS base
 
 RUN npm install -g pnpm
 
@@ -58,7 +58,7 @@ COPY . .
 FROM base AS runner-ssg
 
 WORKDIR /usr/src/app
-RUN adduser -D app && chown -R app ./
+RUN adduser --system --no-create-home --group app && chown -R app ./
 USER app
 
 COPY --chown=app --from=runner-ssg-multi-layer  /usr/src/app .

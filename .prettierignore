@@ -10,8 +10,8 @@ node_modules
 # misc
 .DS_Store
 .env
-.env.development
-.env.production
+.env.*
+!.env.example
 .favorites.json
 .vscode
 pnpm-lock.yaml
