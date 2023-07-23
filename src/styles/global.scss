@@ -8,7 +8,7 @@
 }
 
 body {
-  @apply text-base antialiased;
+  @apply text-sm antialiased;
 
   font-family: 'Helvetica Neue', arial, sans-serif, -apple-system, blinkmacsystemfont, 'Segoe UI',
     roboto;
@@ -31,7 +31,7 @@ h4 {
 }
 
 p {
-  @apply mb-3	leading-7;
+  @apply mb-3 leading-7;
 }
 
 a {
