@@ -1,6 +1,5 @@
-// Copyright rigélblu inc.
-// All rights reserved.
-import PageControl from '@/components/PageControl/PageControl';
+// Copyright rigélblu inc. All rights reserved.
+import SceneControl from '@/components/SceneControl/SceneControl';
 import ScenePanel from './ScenePanel';
 
 type Props = {
@@ -22,7 +21,7 @@ export default function Film(props: Props) {
       className={`mgn-film flex w-full flex-1 flex-col items-center justify-between  ${className}`}
     >
       <div className='flex h-full w-full flex-1'>
-        <PageControl
+        <SceneControl
           action='prev'
           onClick={onPrev}
           className='px-1'
@@ -31,7 +30,7 @@ export default function Film(props: Props) {
 
         <ScenePanel scene={scene} />
 
-        <PageControl
+        <SceneControl
           action='next'
           onClick={onNext}
           className='px-1'
