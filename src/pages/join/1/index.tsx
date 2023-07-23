@@ -57,10 +57,10 @@ export default function JoinMagin() {
                   <div className='text-left text-sm'>
                     <p>{locale.join.step1_planSponsor_whatYouGet}</p>
                     <ul className='m-0'>
-                      <li>{locale.join.step1_planSponsor_whatYouGet1}</li>
-                      <li>{locale.join.step1_planSponsor_whatYouGet2}</li>
-                      <li>{locale.join.step1_planSponsor_whatYouGet3}</li>
-                      <li>{locale.join.step1_planSponsor_whatYouGet4}</li>
+                      <li className='pt-0'>{locale.join.step1_planSponsor_whatYouGet1}</li>
+                      <li className='pt-0'>{locale.join.step1_planSponsor_whatYouGet2}</li>
+                      <li className='pt-0'>{locale.join.step1_planSponsor_whatYouGet3}</li>
+                      <li className='pt-0'>{locale.join.step1_planSponsor_whatYouGet4}</li>
                     </ul>
                   </div>
                 </div>

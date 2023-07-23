@@ -56,27 +56,29 @@ const locale = {
     step2_header: 'Welcome to <span class="text-blue-rb-600">magin</span>!',
     step2_body:
       // eslint-disable-next-line no-multi-str
-      ' \
-      <p>Thank you for being an early access sponsor!!</p> \
-      <br /> \
-      <p>As a reminder, you get</p> \
+      " \
+      <p>Thank you for being an early access sponsor!</p> \
+      <p>We'll send you a welcome email with instructions on how to access your early access within two hours.</p> \
+      \
+      <p class='mb-0'>As a reminder, you get</p> \
       <ul> \
-        <li>One time purchase ー no subscriptions</li> \
-        <li>Free updates for 2 years</li> \
-        <li>Voice in what we add next</li> \
-        <li>Shape the design and experience</li> \
+        <li class='pt-0'>One time purchase ー no subscriptions</li> \
+        <li class='pt-0'>Free updates for <strong>two</strong> years</li> \
+        <li class='pt-0'>Voice in what we add next</li> \
+        <li class='pt-0'>Shape the design and experience</li> \
       </ul> \
       <br /> \
-      <p>Coming next week to subscribers</p> \
+      \
+      <p class='mb-0'>Each week we'll launch</p> \
       <ul> \
-        <li>Learn how to frame your shot</li> \
-        <li>Create and log into your early sponsor account</li> \
-        <li>Get a badge</li> \
+        <li>One feature from our users - based on your feedback and insights</li> \
+        <liOne feature from our vision for magin</li> \
       </ul> \
       <br /> \
+      <p>Access the early access version of magin at <a href='https://ea.magin.blue'>https://ea.magin.blue</a> with your email address.</p> \
       <p>Sincerely,<br /> \
       Tom Hosiawa <br /> \
-      magin Founder & CEO</p>',
+      magin Founder & CEO</p>",
   },
   navigation: {
     back: 'Back',
