@@ -66,13 +66,13 @@ export default function JoinMagin() {
                 </div>
 
                 {/* Legal */}
-                {featureFlag.join.termsConditionsPrivacy && (
+                {featureFlag.join.termsPrivacy && (
                   <div className='mt-3'>
-                    <Link className='text-sm' href='/terms-conditions'>
+                    <Link className='text-sm' href='/terms' target='_blank'>
                       {locale.about.termsConditions}
                     </Link>
                     &nbsp;|&nbsp;
-                    <Link className='text-sm' href='/privacy'>
+                    <Link className='text-sm' href='/privacy' target='_blank'>
                       {locale.about.privacy}
                     </Link>
                   </div>

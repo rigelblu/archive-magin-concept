@@ -20,7 +20,7 @@ const featureFlag: FeatureFlagNestedObj = {
   },
   join: {
     enablePay: { development: true, production: true },
-    termsConditionsPrivacy: false,
+    termsPrivacy: true,
   },
 };
 

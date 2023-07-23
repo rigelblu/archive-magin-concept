@@ -8,18 +8,18 @@
 }
 
 body {
-  @apply text-base antialiased;
+  @apply text-sm antialiased;
 
   font-family: 'Helvetica Neue', arial, sans-serif, -apple-system, blinkmacsystemfont, 'Segoe UI',
     roboto;
 }
 
 h1 {
-  @apply text-lg font-bold lg-min-h:text-2xl;
+  @apply text-lg font-bold lg-min-h:text-xl;
 }
 
 h2 {
-  @apply text-base font-bold lg-min-h:text-xl;
+  @apply text-base font-bold lg-min-h:text-lg;
 }
 
 h3 {
@@ -31,7 +31,7 @@ h4 {
 }
 
 p {
-  @apply mb-3	leading-7;
+  @apply mb-3 leading-7;
 }
 
 a {
