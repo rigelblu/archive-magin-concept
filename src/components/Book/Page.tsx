@@ -26,8 +26,10 @@ export default function Page(props: Props) {
     styleTypedNonTypedSame,
     useTypingAnimation = false,
   } = props;
-  const refTyped = useRef(null);
   const typingSpeed = settings.mode !== MODE.DEBUG ? settings.page.typingSpeed : 0;
+
+  const refSpanTypedStrings = useRef<HTMLSpanElement | null>(null);
+  const refSpanTyped = useRef<HTMLSpanElement | null>(null);
 
   const contentScenes = [
     <h3 key='header' className='my-2 pl-2'>
@@ -93,71 +95,82 @@ export default function Page(props: Props) {
   const classIndent = 'inline-block indent-3.5';
   const classP = 'inline content-text-typed';
   const contentTyped = (
-    <>
-      <h3 className='my-2'>Chapter 1</h3>
-      <span id='typed-strings' ref={refTyped}>
-        <span>
-          <span className={classP}>
-            <span className={classIndent}>"What's</span> two plus two?"
-          </span>
-          <br />
-
-          <span className={classP}>
-            <span className={classIndent}>Something</span> about the question irritates me. I'm
-            tired. I drift back to sleep.
-          </span>
-          <br />
-
-          <span className={classP}>
-            <span className={classIndent}>A</span> few minutes pass, then I hear it again.
-          </span>
-          <br />
-
-          <span className={classP}>
-            <span className={classIndent}>"What's</span> two plus two?"
-          </span>
-          <br />
-
-          <span className={classP}>
-            <span className={classIndent}>The</span> soft, feminine voice lacks emotion and the
-            pronunciation is identical to the previous time she said it. It's a computer. A computer
-            is hassling me. I'm even more irritated now.
-          </span>
-        </span>
+    <span>
+      <span className={classP}>
+        <span className={classIndent}>"What's</span> two plus two?"
       </span>
-      {useTypingAnimation && <span id='typed' className='' />}
-    </>
+      <br />
+
+      <span className={classP}>
+        <span className={classIndent}>Something</span> about the question irritates me. I'm tired. I
+        drift back to sleep.
+      </span>
+      <br />
+
+      <span className={classP}>
+        <span className={classIndent}>A</span> few minutes pass, then I hear it again.
+      </span>
+      <br />
+
+      <span className={classP}>
+        <span className={classIndent}>"What's</span> two plus two?"
+      </span>
+      <br />
+
+      <span className={classP}>
+        <span className={classIndent}>The</span> soft, feminine voice lacks emotion and the
+        pronunciation is identical to the previous time she said it. It's a computer. A computer is
+        hassling me. I'm even more irritated now.
+      </span>
+    </span>
   );
 
   // eslint-disable-next-line consistent-return
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
     // HACk: typing animation is only supported on the first scene since typed.js doesn't support multiple <p> strings
-    if (useTypingAnimation && sceneCurrent === 0) {
-      const typed = new Typed('#typed', {
-        fadeOut: true,
-        loop: false,
-        stringsElement: '#typed-strings',
-        typeSpeed: typingSpeed,
+    if (
+      !useTypingAnimation ||
+      sceneCurrent !== 0 ||
+      !refSpanTyped ||
+      !refSpanTyped.current ||
+      !refSpanTypedStrings ||
+      !refSpanTypedStrings.current
+    )
+      return;
 
-        onComplete: (self) => {
-          const cursor = document.querySelector('.typed-cursor') as HTMLElement;
-          if (cursor) cursor.style.display = 'none';
-          if (onTypingComplete !== undefined) onTypingComplete();
-        },
-      });
+    const typed = new Typed(refSpanTyped.current, {
+      fadeOut: true,
+      loop: false,
+      stringsElement: refSpanTypedStrings.current,
+      typeSpeed: typingSpeed,
 
-      return () => {
-        typed.destroy();
-      };
-    }
+      onComplete: (self) => {
+        const cursor = document.querySelector('.typed-cursor') as HTMLElement;
+        if (cursor) cursor.style.display = 'none';
+        if (onTypingComplete !== undefined) onTypingComplete();
+      },
+    });
+
+    // TODO: do later
+    // eslint-disable-next-line consistent-return
+    return () => {
+      typed.destroy();
+    };
   }, [onTypingComplete, sceneCurrent, typingSpeed, useTypingAnimation]);
 
   let content: React.ReactNode;
   switch (sceneCurrent) {
     case 0:
       if (useTypingAnimation)
-        content = <div className='content-text-typed pl-2'>{contentTyped}</div>;
+        content = (
+          <div className='content-text-typed pl-2'>
+            <h3 className='my-2'>Chapter 1</h3>
+            <span ref={refSpanTypedStrings}>{contentTyped}</span>
+            <span ref={refSpanTyped} />
+
+          </div>
+        );
       if (!useTypingAnimation)
         content = <div className='content-text'>{getContent(sceneStart, sceneEnd)}</div>;
       break;
