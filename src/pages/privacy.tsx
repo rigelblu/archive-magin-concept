@@ -3,7 +3,7 @@ import MainLayout from '@/layouts/MainLayout';
 
 export default function Privacy() {
   return (
-    <MainLayout canvasClassName='bg-yellow-rb-200' className='px-2 py-1'>
+    <MainLayout canvasClassName='bg-ivory-100' className='px-2 py-1'>
       <h1>Privacy Policy</h1>
       <p>Last updated: July 14, 2023</p>
 
