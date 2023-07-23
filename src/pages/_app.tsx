@@ -28,11 +28,11 @@ function HTMLHead() {
       <meta charSet='UTF-8' />
       <meta httpEquiv='X-UA-Compatible' content='IE=edge' />
       <meta name='viewport' content='width=device-width, initial-scale=1' />
-      <link rel='icon' href='/assets/images/favicon/favicon-512.png' />
-      <link rel='apple-touch-icon' href='/assets/images/favicon/apple-touch-icon.png' />
-      <link rel='apple-touch-icon' sizes='180x180' href='/assets/images/favicon/favicon-180.png' />
-      <link rel='apple-touch-icon' sizes='167x167' href='/assets/images/favicon/favicon-167.png' />
-      <link rel='apple-touch-icon' sizes='152x152' href='/assets/images/favicon/favicon-152.png' />
+      <link rel='icon' href='/assets/favicon/favicon-512.png' />
+      <link rel='apple-touch-icon' href='/assets/favicon/apple-touch-icon.png' />
+      <link rel='apple-touch-icon' sizes='180x180' href='/assets/favicon/favicon-180.png' />
+      <link rel='apple-touch-icon' sizes='167x167' href='/assets/favicon/favicon-167.png' />
+      <link rel='apple-touch-icon' sizes='152x152' href='/assets/favicon/favicon-152.png' />
       <link rel='manifest' href='/static/manifest.webmanifest' />
       <meta name='twitter:card' content='summary' />
       <meta name='twitter:site' content='@magin' />
