@@ -1,11 +1,9 @@
-// Copyright rigélblu inc.
-// All rights reserved.
-// TODO: add unit tests
+// Copyright rigélblu inc. All rights reserved.
 
 export default function Footer() {
   return (
     <footer className='flex'>
-      <div className='flex w-full items-center justify-between'>
+      <div className='flex w-full items-center justify-between p-2'>
         <div>
           magin is a product of&nbsp;
           <a href='https://rigelblu.com' rel='noreferrer noopener' target='_blank'>

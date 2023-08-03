@@ -1,9 +1,9 @@
 // Copyright rigélblu inc. All rights reserved.
-import MainLayout from '@/layouts/MainLayout';
+import { SiteLayout } from '@/layouts/Layout';
 
 export default function Privacy() {
   return (
-    <MainLayout canvasClassName='bg-ivory-100' className='px-2 py-1'>
+    <SiteLayout canvasClassName='bg-ivory-100' mainClassName='px-2 py-1'>
       <h1>Privacy Policy</h1>
       <p>Last updated: July 14, 2023</p>
 
@@ -442,6 +442,6 @@ export default function Privacy() {
         would like to exercise any of the rights available to you, please email us at
         magin-support@rigelblu.com.
       </p>
-    </MainLayout>
+    </SiteLayout>
   );
 }

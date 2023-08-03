@@ -1,15 +1,16 @@
-// Copyright rigélblu inc.
-// All rigts reserve
+// Copyright rigélblu inc. All rigts reserve
 import { useRouter } from 'next/router';
-import Navigation from '@/components/Navigation/Navigation';
-import MainLayout from '@/layouts/MainLayout';
-import locale from '@/locales/en'; // REFACTOR: read based on language
+import NavBar from '@/components/NavBar';
+import { AppLayout } from '@/layouts/Layout';
+import locale, { LocaleType } from '@/locales/en';
+
+const t: LocaleType = locale;
 
 export default function JoinMagin() {
   const router = useRouter();
 
   return (
-    <MainLayout canvasClassName='bg-black' className='mgn-try-magin bg-white' layoutKind='app'>
+    <AppLayout canvasClassName='bg-black' mainClassName='mgn-try-magin bg-white'>
       {/* REFACTOR: convert into component, accept 4 children elements */}
       <div className='mgn-preview flex h-screen flex-col items-center justify-center bg-neutral-950'>
         {/* HACK: have to use fixed rem for max height and width due to mobile browsers */}
@@ -21,31 +22,34 @@ export default function JoinMagin() {
                 <h2
                   className='pb-8'
                   // eslint-disable-next-line react/no-danger
-                  dangerouslySetInnerHTML={{ __html: locale.join.step2_header }}
+                  dangerouslySetInnerHTML={{ __html: t.join.step2_header }}
                 />
                 <div className='mx-5 mt-3 flex justify-center'>
                   <div
                     className='text-left text-sm'
                     // eslint-disable-next-line react/no-danger
-                    dangerouslySetInnerHTML={{ __html: locale.join.step2_body }}
+                    dangerouslySetInnerHTML={{ __html: t.join.step2_body }}
                   />
                 </div>
               </div>
             </div>
 
             {/* REFACTOR: use next layout */}
-            <Navigation
-              middle={{
-                className: 'mgn-cta-secondary',
-                label: locale.navigation.returnHome,
-                onClick: () => {
-                  router.push('/');
+            <NavBar
+              items={[
+                {
+                  id: t.navigation.returnHome,
+                  label: t.navigation.returnHome,
+                  onClick: () => {
+                    router.push('/');
+                  },
+                  className: 'mgn-cta-secondary',
                 },
-              }}
+              ]}
             />
           </div>
         </div>
       </div>
-    </MainLayout>
+    </AppLayout>
   );
 }

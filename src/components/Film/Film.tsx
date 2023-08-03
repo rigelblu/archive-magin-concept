@@ -1,43 +1,34 @@
 // Copyright rigélblu inc. All rights reserved.
-import SceneControl from '@/components/SceneControl/SceneControl';
-import ScenePanel from './ScenePanel';
+import SceneControl, { Action } from '@/components/Scene/SceneControl';
+import ScenePanel from '@/components/Scene/ScenePanel';
 
 type Props = {
-  className?: string;
   onNext: () => void;
   onPrev: () => void;
-  scene: number; // TODO: show PageControls based on first and last scene number
-  // REFACTOR: make showPrev showNext on by default. Make it optional to turn off
-  hideNext?: boolean;
+  scene: number;
+  className?: string;
   hidePrev?: boolean;
+  hideNext?: boolean;
 };
 
-export default function Film(props: Props) {
-  const { className = '', hideNext = false, hidePrev = false, onNext, onPrev, scene } = props;
+export default function Film({
+  onNext,
+  onPrev,
+  scene,
+  className = '',
+  hidePrev = false,
+  hideNext = false,
+}: Props) {
+  const showPrev = !hidePrev && scene !== 1;
+  const showNext = !hideNext && scene !== 2; // Temporary, should be adjusted to 3
 
   return (
-    // REFACTOR: move px-2 to global, align with book
-    <div
-      className={`mgn-film flex w-full flex-1 flex-col items-center justify-between  ${className}`}
-    >
-      <div className='flex h-full w-full flex-1'>
-        <SceneControl
-          action='prev'
-          onClick={onPrev}
-          className='px-1'
-          isShown={!hidePrev && scene > 1}
-        />
-
+    <div className={`film flex w-full flex-1 flex-col items-center justify-between ${className}`}>
+      <main className='flex h-full w-full flex-1'>
+        <SceneControl action={Action.Prev} onClick={onPrev} className='px-1' isShown={showPrev} />
         <ScenePanel scene={scene} />
-
-        <SceneControl
-          action='next'
-          onClick={onNext}
-          className='px-1'
-          // HACK: temporarily make 2, should be 3
-          isShown={!hideNext && scene < 2}
-        />
-      </div>
+        <SceneControl action={Action.Next} onClick={onNext} className='px-1' isShown={showNext} />
+      </main>
     </div>
   );
 }

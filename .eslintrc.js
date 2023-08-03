@@ -28,7 +28,7 @@ module.exports = {
     createDefaultProgram: true,
     ecmaFeatures: { jsx: true },
     ecmaVersion: 2020,
-    project: ['./tsconfig.json'],
+    project: ['tsconfig.json'],
     sourceType: 'module',
   },
   plugins: ['@typescript-eslint', 'import', 'jest', 'jsx-a11y', 'react', 'testing-library'],
@@ -75,7 +75,7 @@ module.exports = {
       rules: { '@typescript-eslint/no-floating-promises': 'off' },
     },
     {
-      files: ['tsconfig.json', 'tsconfig.*.json'],
+      files: ['tsconfig.json'],
       rules: {
         'json/*': 'off',
       },

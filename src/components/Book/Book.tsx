@@ -1,39 +1,33 @@
-// Copyright rigélblu inc.
-// All rights reserved.
-// OPTIMIZE: read based on language
-import locale from '@/locales/en';
+// Copyright rigélblu inc. All rights reserved.
+import { SceneRange } from '@/components/Scene/SceneContent';
+import locale, { LocaleType } from '@/locales/en';
 import Page from './Page';
 
+const t: LocaleType = locale;
+
 type Props = {
+  sceneRange: SceneRange;
   className?: string;
+  // REFACTOR: group into type
+  animateTyping?: boolean;
   onTypingComplete?: () => void;
-  sceneCurrent: number;
-  sceneEnd: number;
-  sceneStart: number;
   styleTypedNonTypedSame?: boolean;
-  useTypingAnimation?: boolean;
 };
 
-export default function Book(props: Props) {
-  const {
-    className = '',
-    onTypingComplete = undefined,
-    sceneCurrent,
-    sceneStart,
-    sceneEnd,
-    styleTypedNonTypedSame = false,
-    useTypingAnimation = false,
-  } = props;
-
+export default function Book({
+  sceneRange,
+  className = '',
+  animateTyping = false,
+  onTypingComplete = undefined,
+  styleTypedNonTypedSame = false,
+}: Props) {
   return (
     <div className={`mgn-book flex w-full flex-1 flex-col ${className}`}>
-      <h2 className='mb-2 text-center text-2xs text-gray-500'>{locale.book.title}</h2>
+      <h2 className='mb-2 text-center text-2xs text-gray-500'>{t.book.title}</h2>
       <Page
+        sceneRange={sceneRange}
+        animateTyping={animateTyping}
         onTypingComplete={onTypingComplete}
-        sceneCurrent={sceneCurrent}
-        sceneEnd={sceneEnd}
-        sceneStart={sceneStart}
-        useTypingAnimation={useTypingAnimation}
         styleTypedNonTypedSame={styleTypedNonTypedSame}
       />
     </div>

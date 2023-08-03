@@ -1,4 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-assignment */
+
+// OPTIMIZE: externalize to rb-base-packages
 export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_ANALYTICS_ID;
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages

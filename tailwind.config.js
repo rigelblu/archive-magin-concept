@@ -33,7 +33,6 @@ module.exports = {
         'ivory-300': '#ffeee3',
       },
       fontFamily: { theano: ['Theano Old Style'] },
-      fontSize: { xs: '0.875rem', '2xs': '0.75rem' },
       keyframes: {
         delayFadeIn: {
           '0%': { opacity: 0 },

@@ -1,5 +1,4 @@
-// Copyright rigélblu inc.
-// All rights reserved.
+// Copyright rigélblu inc. All rights reserved.
 
 const devices = [
   { userAgent: 'iPhone|iPad', class: 'device-ios' },

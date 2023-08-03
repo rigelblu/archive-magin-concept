@@ -1,10 +1,15 @@
-// Copyright rigélblu inc.
-// All rights reserved.
+// Copyright rigélblu inc. All rights reserved.
+export enum Env {
+  Dev = 'development',
+  Prod = 'production',
+}
 
-export type FeatureFlagEnv = {
-  development: boolean;
-  production: boolean;
-};
+export enum Page {
+  Home = 'home',
+  Join = 'join',
+}
+
+export type FeatureFlagEnv = Partial<Record<Env, boolean>>;
 
 export type FeatureFlagType = {
   [key: string]: boolean | FeatureFlagEnv;
@@ -15,11 +20,11 @@ export type FeatureFlagNestedObj = {
 };
 
 const featureFlag: FeatureFlagNestedObj = {
-  home: {
+  [Page.Home]: {
     enableTryMagin: true,
   },
-  join: {
-    enablePay: { development: true, production: true },
+  [Page.Join]: {
+    enablePay: { [Env.Dev]: true, [Env.Prod]: true },
     termsPrivacy: true,
   },
 };

@@ -1,5 +1,4 @@
-// Copyright rigélblu inc.
-// All rights reserved.
+// Copyright rigélblu inc. All rights reserved.
 
 {
   "extends": "./tsconfig.base.next.json",

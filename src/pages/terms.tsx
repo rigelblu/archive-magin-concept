@@ -1,10 +1,10 @@
 // Copyright rigélblu inc. All rights reserved.
 import Link from 'next/link';
-import MainLayout from '@/layouts/MainLayout';
+import { SiteLayout } from '@/layouts/Layout';
 
 export default function Terms() {
   return (
-    <MainLayout canvasClassName='bg-ivory-100' className='px-2 py-1'>
+    <SiteLayout canvasClassName='bg-ivory-100' mainClassName='px-2 py-1'>
       <h1>Terms of Use</h1>
       <h2>OVERVIEW</h2>
       <p>
@@ -400,6 +400,6 @@ export default function Terms() {
         <br />
         magin-support@rigelblu.com
       </p>
-    </MainLayout>
+    </SiteLayout>
   );
 }

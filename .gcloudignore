@@ -1,12 +1,16 @@
-.editorconfig
-.env.example
-.git
-.gitignore
-.gitmessage
-.husky
-.prettierignore
-.prettierrc.json
-CHANGELOG.md
-ci
-LICENSE
-README.md
+# build & cache
+.eslintcache
+.next
+.stylelintcache
+
+# dependencies
+node_modules
+
+# misc
+.DS_Store
+.env
+.env.*
+!.env.example
+.favorites.json
+.vscode
+pnpm-lock.yaml
