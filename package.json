@@ -88,7 +88,7 @@
     "rimraf": "^4.4.1",
     "sass": "^1.64.1",
     "stylelint": "^15.10.2",
-    "stylelint-config-prettier-scss": "^0.0.1",
+    "stylelint-config-prettier-scss": "^1.0.0",
     "stylelint-config-standard": "^30.0.1",
     "stylelint-config-standard-scss": "^6.1.0",
     "stylelint-csstree-validator": "^2.1.0",
