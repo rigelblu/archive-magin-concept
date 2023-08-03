@@ -2,7 +2,7 @@
 
 version: '3'
 services:
-  mgn-concept:
+  mgn-site:
     build:
       args:
         NEXT_PUBLIC_ANALYTICS_ID: ${NEXT_PUBLIC_ANALYTICS_ID}
@@ -11,7 +11,7 @@ services:
       context: .
       target: runner-ssg
     env_file:
-      - .env.development
-    image: mgn-concept
+      - .env.local
+    image: mgn-site
     ports:
       - '8080:8080'

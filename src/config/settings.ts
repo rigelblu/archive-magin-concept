@@ -1,13 +1,18 @@
-export enum MODE {
-  DEBUG,
-  INFO,
+// Copyright rigélblu inc. All rights reserved.
+
+export enum Mode {
+  Debug = 'DEBUG',
+  Info = 'INFO',
 }
 
 const settings = {
-  mode: MODE.INFO,
+  mode: Mode.Info,
+
   page: {
-    typingSpeed: 30,
+    typingSpeed: 30, // in milliseconds
   },
-  guidedMessage_DurationSecs: 2000,
+
+  guidedMessageDuration: 2000, // in milliseconds
 };
+
 export default settings;

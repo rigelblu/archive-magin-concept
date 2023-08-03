@@ -1,6 +1,6 @@
-// Copyright rigélblu inc.
-// All rights reserved.
+// Copyright rigélblu inc. All rights reserved.
 
+// OPTIMIZE: read based on language
 const locale = {
   book: {
     title: 'Project Hail Mary',
@@ -17,12 +17,15 @@ const locale = {
   },
   general: {
     magin: 'magin',
+    tagline: 'bringing stories to life',
+    taglineBrowser: 'magin | bringing stories to life',
+    tryMagin: 'Try magin',
     comingSoon: 'coming soon',
   },
   guide: {
     tryMagin1_maginPresents: 'magin presents',
     tryMagin1_watchNovel: 'Watch Novel',
-    tryMagin2a_guidedMessage: [
+    tryMagin2a_guidedMessages: [
       'read the scene',
       'and now imagine',
       "you're in a movie theater",
@@ -34,7 +37,7 @@ const locale = {
     tryMagin2a_showMe: 'Show Me',
     tryMagin2b_guidedMessage: 'a director might imagine it as',
     tryMagin2b_nextScene: 'Next Scene',
-    tryMagin3a_guidedMessage: [
+    tryMagin3a_guidedMessages: [
       'the blue line indicates the current scene',
       "when you're ready",
       'to watch the next scene',
@@ -73,7 +76,7 @@ const locale = {
       <p class='mb-0'>Each week we'll launch</p> \
       <ul> \
         <li>One feature from our users - based on your feedback and insights</li> \
-        <liOne feature from our vision for magin</li> \
+        <li>One feature from our vision for magin</li> \
       </ul> \
       <br /> \
       <p>Access the early access version of magin at <a href='https://ea.magin.blue'>https://ea.magin.blue</a> with your email address.</p> \
@@ -90,6 +93,9 @@ const locale = {
     privacy: 'Privacy',
     termsConditions: 'Terms & Conditions',
   },
-};
+} as const;
+
+type LocaleType = typeof locale;
 
 export default locale;
+export type { LocaleType };

@@ -1,5 +1,4 @@
-// Copyright rigélblu inc.
-// All rights reserved.
+// Copyright rigélblu inc. All rights reserved.
 import Home from './home';
 
 export default function PageRoot() {

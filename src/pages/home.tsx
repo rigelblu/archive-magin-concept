@@ -1,20 +1,21 @@
-// Copyright rigélblu inc.
-// All rights reserved.
+// Copyright rigélblu inc. All rights reserved.
 import { Button } from 'primereact/button';
 import { useRouter } from 'next/router';
 import IconGithub from '@/assets/common/icons/github-mark.svg';
-import MainLayout from '@/layouts/MainLayout';
 import featureFlag from '@/config/featureFlags';
-import locale from '@/locales/en'; // REFACTOR: read based on language
+import { SiteLayout } from '@/layouts/Layout';
+import locale, { LocaleType } from '@/locales/en';
+
+const t: LocaleType = locale;
 
 export default function Home() {
   const router = useRouter();
 
   return (
-    <MainLayout
+    <SiteLayout
       bodyClassName='h-screen flex flex-col'
       canvasClassName='bg-ivory-100'
-      className='flex flex-1 flex-col items-center justify-center py-1'
+      mainClassName='flex flex-1 flex-col items-center justify-center py-1'
     >
       <div className='mgn-home flex flex-1 flex-col items-center justify-center'>
         {/* Tagline */}
@@ -25,23 +26,28 @@ export default function Home() {
           anything?
         </h1>
         <h2 className='text-center'>
-          <span className='text-blue-rb-600'>Learn</span> to watch a novel <br />
-          like a Pixar <span className='align-text-top text-2xs font-normal'>&#8482;</span> director
+          Learn to <span className='text-blue-rb-600'>picture</span> a novel
+          <br /> like you're watching a movie
         </h2>
 
         {/* Try magin */}
         <Button
           className='mgn-cta-primary'
           disabled={!featureFlag.home.enableTryMagin}
-          label='Try magin'
+          label={t.general.tryMagin}
           // REFACTOR: disable through eslintrc
-          // eslint-disable-next-line @typescript-eslint/no-misused-promises
           onClick={() => {
             if (featureFlag.home.enableTryMagin) router.push('/try-magin/1');
           }}
-          tooltip={!featureFlag.home.enableTryMagin ? locale.general.comingSoon : ''}
+          tooltip={!featureFlag.home.enableTryMagin ? t.general.comingSoon : ''}
           tooltipOptions={{ position: 'bottom', showOnDisabled: true }}
         />
+
+        <h3 className='mt-20 text-center text-base font-normal'>
+          Picture stories like a <br className='sm:hidden' />
+          director, writer, and illustrator. <br />
+          Never forget what you read again with magin.
+        </h3>
       </div>
 
       {/* Github */}
@@ -60,6 +66,6 @@ export default function Home() {
           window.location.href = 'https://github.com/rigelblu/magin-concept';
         }}
       />
-    </MainLayout>
+    </SiteLayout>
   );
 }

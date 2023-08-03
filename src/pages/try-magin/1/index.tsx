@@ -1,15 +1,13 @@
-// Copyright rigélblu inc.
-// All rigts reserve
+// Copyright rigélblu inc. All rigts reserve
 import anime from 'animejs';
 import { useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
-
 import GuideMessage from '@/components/GuideMessage';
-import Navigation from '@/components/Navigation/Navigation';
-import MainLayout from '@/layouts/MainLayout';
+import NavBar from '@/components/NavBar';
+import { AppLayout } from '@/layouts/Layout';
+import locale, { LocaleType } from '@/locales/en';
 
-// REFACTOR: read based on language
-import locale from '@/locales/en';
+const t: LocaleType = locale;
 
 export default function MarginPreview() {
   const router = useRouter();
@@ -41,7 +39,7 @@ export default function MarginPreview() {
   }, []);
 
   return (
-    <MainLayout canvasClassName='bg-black' className='mgn-try-magin bg-white' layoutKind='app'>
+    <AppLayout canvasClassName='bg-black' mainClassName='mgn-try-magin bg-white'>
       {/* REFACTOR: convert into component, accept 4 children elements */}
       <div className='flex h-screen flex-col items-center justify-center bg-neutral-950'>
         <div className='mgn-step flex max-h-[48rem] w-full flex-1 flex-col justify-between bg-ivory-100 p-2 sm:max-w-[25rem]'>
@@ -51,10 +49,10 @@ export default function MarginPreview() {
               {/* REFACTOR: into top, middle, button div elements, put the guide message into the bottom */}
               <GuideMessage className=' mx-auto'>
                 <h2 className='text-blue-rb-600 sm-min-h:text-lg md-min-h:text-xl'>
-                  {locale.guide.tryMagin1_maginPresents}
+                  {t.guide.tryMagin1_maginPresents}
                   <br />
                   <span className='animation text-black' ref={bookTitleRef}>
-                    {locale.book.title}
+                    {t.book.title}
                   </span>
                   <br />
                 </h2>
@@ -63,25 +61,30 @@ export default function MarginPreview() {
           </div>
 
           {/* REFACTOR: use next layout */}
-          <Navigation
+          <NavBar
             className='mt-2'
-            left={{
-              className: 'mgn-cta-secondary',
-              label: locale.navigation.returnHome,
-              onClick: () => {
-                router.push('/');
+            items={[
+              {
+                id: t.navigation.returnHome,
+                label: t.navigation.returnHome,
+                onClick: () => {
+                  router.push('/');
+                },
+                className: 'mgn-cta-secondary',
               },
-            }}
-            right={{
-              className: 'mgn-cta-primary',
-              label: locale.guide.tryMagin1_watchNovel,
-              onClick: () => {
-                router.push('/try-magin/2');
+              {
+                id: t.guide.tryMagin1_watchNovel,
+                label: t.guide.tryMagin1_watchNovel,
+                onClick: () => {
+                  router.push('/try-magin/2');
+                },
+                className: 'mgn-cta-primary',
+                focusEffect: true,
               },
-            }}
+            ]}
           />
         </div>
       </div>
-    </MainLayout>
+    </AppLayout>
   );
 }

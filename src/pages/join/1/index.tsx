@@ -1,13 +1,14 @@
-// Copyright rigélblu inc.
-// All rigts reserve
+// Copyright rigélblu inc. All rigts reserve
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Button } from 'primereact/button';
-import Navigation from '@/components/Navigation/Navigation';
-import MainLayout from '@/layouts/MainLayout';
+import NavBar from '@/components/NavBar';
 import featureFlag, { FeatureFlagEnv } from '@/config/featureFlags';
 import getEnv from '@/helpers/env';
-import locale from '@/locales/en'; // REFACTOR: read based on language
+import { AppLayout } from '@/layouts/Layout';
+import locale, { LocaleType } from '@/locales/en';
+
+const t: LocaleType = locale;
 
 // REFACTOR: move into a helper function
 const stripePaymentUrl = process.env.NEXT_PUBLIC_STRIPE_PAYMENT_URL || '/error';
@@ -19,7 +20,7 @@ export default function JoinMagin() {
     typeof featureFlag.join.enablePay === 'object' ? featureFlag.join.enablePay[env] : false;
 
   return (
-    <MainLayout canvasClassName='bg-black' className='mgn-try-magin bg-white' layoutKind='app'>
+    <AppLayout canvasClassName='bg-black' mainClassName='mgn-try-magin bg-white'>
       {/* REFACTOR: convert into component, accept 4 children elements */}
       <div className='mgn-preview flex h-screen flex-col items-center justify-center bg-neutral-950'>
         {/* HACK: have to use fixed rem for max height and width due to mobile browsers */}
@@ -29,15 +30,15 @@ export default function JoinMagin() {
             <div className='flex flex-1 items-center text-center'>
               <div className='w-full'>
                 {/* eslint-disable-next-line react/no-danger */}
-                <h2 dangerouslySetInnerHTML={{ __html: locale.join.step1_shapeFuture }} />
-                <div className='text-lg font-bold'>{locale.join.step1_become}</div>
+                <h2 dangerouslySetInnerHTML={{ __html: t.join.step1_shapeFuture }} />
+                <div className='text-lg font-bold'>{t.join.step1_become}</div>
 
                 {/* Join */}
                 <div className='mt-10 text-2xl font-bold'>
-                  <div className='mb-1 text-base'>{locale.join.step1_planSponsor_name}</div>
+                  <div className='mb-1 text-base'>{t.join.step1_planSponsor_name}</div>
                   <div className='mb-1 text-blue-rb-600'>
-                    {locale.join.step1_planSponsor_price}{' '}
-                    <span className='text-sm'>{locale.join.step1_planSponsor_currencyUSD}</span>
+                    {t.join.step1_planSponsor_price}{' '}
+                    <span className='text-sm'>{t.join.step1_planSponsor_currencyUSD}</span>
                   </div>
                 </div>
                 <Button
@@ -46,21 +47,21 @@ export default function JoinMagin() {
                   onClick={() => {
                     if (enablePay) window.location.href = stripePaymentUrl;
                   }}
-                  tooltip={!enablePay ? locale.general.comingSoon : ''}
+                  tooltip={!enablePay ? t.general.comingSoon : ''}
                   tooltipOptions={{ position: 'bottom', showOnDisabled: true }}
                 >
-                  {locale.join.step1_join}
+                  {t.join.step1_join}
                 </Button>
 
                 {/* What you get */}
                 <div className='mx-5 mt-3 flex justify-center'>
                   <div className='text-left text-sm'>
-                    <p>{locale.join.step1_planSponsor_whatYouGet}</p>
+                    <p>{t.join.step1_planSponsor_whatYouGet}</p>
                     <ul className='m-0'>
-                      <li className='pt-0'>{locale.join.step1_planSponsor_whatYouGet1}</li>
-                      <li className='pt-0'>{locale.join.step1_planSponsor_whatYouGet2}</li>
-                      <li className='pt-0'>{locale.join.step1_planSponsor_whatYouGet3}</li>
-                      <li className='pt-0'>{locale.join.step1_planSponsor_whatYouGet4}</li>
+                      <li className='pt-0'>{t.join.step1_planSponsor_whatYouGet1}</li>
+                      <li className='pt-0'>{t.join.step1_planSponsor_whatYouGet2}</li>
+                      <li className='pt-0'>{t.join.step1_planSponsor_whatYouGet3}</li>
+                      <li className='pt-0'>{t.join.step1_planSponsor_whatYouGet4}</li>
                     </ul>
                   </div>
                 </div>
@@ -69,11 +70,11 @@ export default function JoinMagin() {
                 {featureFlag.join.termsPrivacy && (
                   <div className='mt-3'>
                     <Link className='text-sm' href='/terms' target='_blank'>
-                      {locale.about.termsConditions}
+                      {t.about.termsConditions}
                     </Link>
                     &nbsp;|&nbsp;
                     <Link className='text-sm' href='/privacy' target='_blank'>
-                      {locale.about.privacy}
+                      {t.about.privacy}
                     </Link>
                   </div>
                 )}
@@ -81,18 +82,21 @@ export default function JoinMagin() {
             </div>
 
             {/* REFACTOR: use next layout */}
-            <Navigation
-              middle={{
-                className: 'mgn-cta-secondary',
-                label: locale.navigation.returnHome,
-                onClick: () => {
-                  router.push('/');
+            <NavBar
+              items={[
+                {
+                  id: t.navigation.returnHome,
+                  label: t.navigation.returnHome,
+                  onClick: () => {
+                    router.push('/');
+                  },
+                  className: 'mgn-cta-secondary',
                 },
-              }}
+              ]}
             />
           </div>
         </div>
       </div>
-    </MainLayout>
+    </AppLayout>
   );
 }

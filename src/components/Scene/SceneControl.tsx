@@ -3,9 +3,14 @@ import { Button } from 'primereact/button';
 import IconArrowLeft from '@/assets/common/icons/arrow-left.svg';
 import IconArrowRight from '@/assets/common/icons/arrow-right.svg';
 
+export enum Action {
+  Prev = 'prev',
+  Next = 'next',
+}
+
 type Props = {
   // REFACTOR: improve naming to indicate aria-label
-  action: string;
+  action: Action;
   onClick: () => void;
   isShown?: boolean;
   className?: string;
@@ -14,19 +19,22 @@ type Props = {
 export default function SceneControl(props: Props) {
   const { action, onClick, isShown = true, className = '' } = props;
 
+  // OPTIMIZE: animate-shadow creates a not so good look. Duplicate svg and show it
+  // OPTIMIZE: extract common elements into variables for readability
+  let NavIcon = <span className='w-3' />;
+  if (isShown && action === Action.Prev) NavIcon = <IconArrowLeft className='w-3' />;
+  if (isShown && action === Action.Next) NavIcon = <IconArrowRight className='w-3' />;
+
   // REFACTOR: w-4 is used to prevent Book from shifting
   // TODO: style chevron in blue-rb-600 and background in blue-rb-lighter
   return (
     <Button
-      className={`mgn-page-control ${className}`}
+      className={`mgn-scenecontrol ${className}`}
       aria-label={action}
       disabled={!isShown}
       onClick={onClick}
     >
-      {!isShown && <span className='w-3' />}
-      {/* OPTIMIZE: animate-shadow creates a not so good look. Duplicate svg and show it */}
-      {isShown && action === 'prev' && <IconArrowLeft className='w-3' />}
-      {isShown && action === 'next' && <IconArrowRight className='w-3' />}
+      {NavIcon}
     </Button>
   );
 }

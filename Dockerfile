@@ -39,6 +39,7 @@ WORKDIR /usr/src/app
 COPY --from=deps-builder /usr/src/app/node_modules ./node_modules
 COPY . .
 RUN pnpm build:ssg
+RUN pnpm compile
 
 # TODO:enable steps once we have unit tests
 # COPY jest.config.js ./

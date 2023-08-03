@@ -1,6 +1,23 @@
-// Copyright rigélblu inc.
-// All rights reserved.
+// Copyright rigélblu inc. All rights reserved.
 
 {
-  "extends": "./tsconfig.dev-next.json"
+  "extends": "./tsconfigs/tsconfig.extend.dev-next.json",
+  // arrays parms are copied from base configs since arrays can't be merged
+  "compilerOptions": {
+    "baseUrl": ".",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "paths": {
+      "@/assets/*": ["public/assets/*"],
+      "@/components/*": ["src/components/*"],
+      "@/config/*": ["src/config/*"],
+      "@/data/*": ["src/data/*"],
+      "@/helpers/*": ["src/helpers/*"],
+      "@/layouts/*": ["src/layouts/*"],
+      "@/locales/*": ["src/locales/*"],
+      "@/src/*": ["src/*"],
+      "@/styles/*": ["src/styles/*"]
+    }
+  },
+  "include": ["public", "src", "additional.d.ts"],
+  "exclude": ["node_modules"]
 }

@@ -1,0 +1,12 @@
+// Copyright rigélblu inc. All rights reserved.
+
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "CommonJS",
+    "noEmit": false,
+    "outDir": "./build"
+  },
+  "include": ["src/helpers/loadEnv.ts", "server.ts"],
+  "exclude": ["node_modules"]
+}

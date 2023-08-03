@@ -1,5 +1,4 @@
-// Copyright rigélblu inc.
-// All rights reserved.
+// Copyright rigélblu inc. All rights reserved.
 
 type Props = {
   children: React.ReactNode;
@@ -12,7 +11,7 @@ export default function SceneMarker(props: Props) {
 
   return (
     <div
-      className={`mgn-scenemarker relative flex flex-1 border-l-2 border-l-blue-rb-600 ${className}`}
+      className={`mgn-scenemarker relative flex flex-1 flex-col border-l-2 border-l-blue-rb-600 ${className}`}
     >
       {/* FIXME: image is center-aligned on safari, but border is on far left */}
       {/* FIXME: iamge is left-aligned on chrome */}

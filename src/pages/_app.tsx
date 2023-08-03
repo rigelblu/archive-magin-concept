@@ -1,15 +1,13 @@
-/* eslint-disable @typescript-eslint/restrict-template-expressions */
-// Copyright rigélblu inc.
-// All rights reserved.
+// Copyright rigélblu inc. All rights reserved.
 import Head from 'next/head';
 import Script from 'next/script';
-
 import 'primereact/resources/primereact.css';
-
+import * as gtag from '@/helpers/googleAnalytics';
+import locale, { LocaleType } from '@/locales/en';
 import '@/styles/tailwind.css';
 import '@/styles/global.scss';
 
-import * as gtag from '@/src/helpers/googleAnalytics';
+const t: LocaleType = locale;
 
 function HTMLHead() {
   return (
@@ -36,23 +34,17 @@ function HTMLHead() {
       <link rel='manifest' href='/static/manifest.webmanifest' />
       <meta name='twitter:card' content='summary' />
       <meta name='twitter:site' content='@magin' />
-      <meta name='twitter:title' content='magin' />
-      <meta
-        name='twitter:description'
-        content='magin | learn to watch a novel like a Pixar director'
-      />
+      <meta name='twitter:title' content={t.general.magin} />
+      <meta name='twitter:description' content={t.general.taglineBrowser} />
       <meta name='twitter:image' content='https://magin.blue/static/preview-twitter.png' />
-      <meta property='og:title' content='magin' />
-      <meta
-        property='og:description'
-        content='magin | learn to watch a novel like a Pixar director'
-      />
+      <meta property='og:title' content={t.general.magin} />
+      <meta property='og:description' content={t.general.taglineBrowser} />
       <meta property='og:type' content='website' />
       <meta property='og:url' content='https://magin.blue' />
       <meta property='og:image' content='https://magin.blue/static/preview-ogp.png' />
       <meta property='og:image:alt' content='// FIXME:' />
-      <meta name='description' content='magin | learn to watch a novel like a Pixar director' />
-      <title>magin | learn to watch a novel like a Pixar director</title>
+      <meta name='description' content={t.general.taglineBrowser} />
+      <title>{t.general.taglineBrowser}</title>
     </Head>
   );
 }
@@ -64,14 +56,14 @@ export default function App({ Component, pageProps }: any) {
       {/* Global Site Tag (gtag.js) - Google Analytics */}
       <Script
         strategy='afterInteractive'
-        src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${String(gtag.GA_TRACKING_ID)}`}
       />
       <Script id='gtag-init' strategy='afterInteractive'>
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', '${gtag.GA_TRACKING_ID}', {
+          gtag('config', '${String(gtag.GA_TRACKING_ID)}', {
             page_path: window.location.pathname,
           });
         `}

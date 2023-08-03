@@ -1,6 +1,5 @@
 #!/usr/bin/env sh
-# Copyright rigélblu inc.
-# All rights reserved.
+# Copyright rigélblu inc. All rights reserved.
 
 . "$(dirname -- "$0")/_/husky.sh"
 
@@ -17,23 +16,17 @@ if [ "$BRANCH" = "$PROTECTED_BRANCH" ]; then
   exit 1
 fi
 
-# Conditionally trigger builds
 # TODO: in the future, only run these CI/CD system
 FILES=( ".dockerignore" ".eslint*" ".linkstagerc.js" ".stylelintrc.js" "additional.d.ts" )
 FILES+=( "docker-compose.yml" "Dockerfile" "next-env.d.ts" "next.config.js" "package.json" )
-FILES+=( "postcss.config.js" "server.js" "tailwind.config.js" "tsconfig*" "tsconfigs/*" "pnpm-lock.yaml" )
+FILES+=( "pnpm-lock.yaml" "postcss.config.js" "server.ts" "tailwind.config.js" "tsconfig.json" )
 
 if ! git diff --cached --quiet -- "${FILES[@]}"; then
-  pnpm build
-fi
-
-if ! git diff --cached --quiet -- Dockerfile; then
-  docker-compose build; docker-compose up -d
-fi
-
-# Run lint if a build wasn't already triggered
-if git diff --cached --quiet -- "${FILES[@]}" ; then
-  pnpm lint
+  echo "Build files changes that could affect creating the build"
+  echo "CONSIDER running:"
+  echo "   pnpm build"
+  echo "   pnpm lint"
+  echo "   docker compose up --build"
 fi
 
 pnpm test
