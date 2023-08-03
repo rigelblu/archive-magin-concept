@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 overrides:
   eslint-plugin-react-hooks: 4.6.0
 
@@ -178,8 +182,8 @@ devDependencies:
     specifier: ^0.0.1
     version: 0.0.1(stylelint@15.10.2)
   stylelint-config-standard:
-    specifier: ^30.0.1
-    version: 30.0.1(stylelint@15.10.2)
+    specifier: ^34.0.0
+    version: 34.0.0(stylelint@15.10.2)
   stylelint-config-standard-scss:
     specifier: ^6.1.0
     version: 6.1.0(postcss@8.4.27)(stylelint@15.10.2)
@@ -7661,10 +7665,11 @@ packages:
       stylelint-scss: 4.7.0(stylelint@15.10.2)
     dev: true
 
-  /stylelint-config-recommended@10.0.1(stylelint@15.10.2):
-    resolution: {integrity: sha512-TQ4xQ48tW4QSlODcti7pgSRqBZcUaBzuh0jPpfiMhwJKBPkqzTIAU+IrSWL/7BgXlOM90DjB7YaNgFpx8QWhuA==}
+  /stylelint-config-recommended@13.0.0(stylelint@15.10.2):
+    resolution: {integrity: sha512-EH+yRj6h3GAe/fRiyaoO2F9l9Tgg50AOFhaszyfov9v6ayXJ1IkSHwTxd7lB48FmOeSGDPLjatjO11fJpmarkQ==}
+    engines: {node: ^14.13.1 || >=16.0.0}
     peerDependencies:
-      stylelint: ^15.0.0
+      stylelint: ^15.10.0
     dependencies:
       stylelint: 15.10.2
     dev: true
@@ -7701,13 +7706,14 @@ packages:
       stylelint-config-recommended: 9.0.0(stylelint@15.10.2)
     dev: true
 
-  /stylelint-config-standard@30.0.1(stylelint@15.10.2):
-    resolution: {integrity: sha512-NbeHOmpRQhjZh5XB1B/S4MLRWvz4xxAxeDBjzl0tY2xEcayNhLbaRGF0ZQzq+DQZLCcPpOHeS2Ru1ydbkhkmLg==}
+  /stylelint-config-standard@34.0.0(stylelint@15.10.2):
+    resolution: {integrity: sha512-u0VSZnVyW9VSryBG2LSO+OQTjN7zF9XJaAJRX/4EwkmU0R2jYwmBSN10acqZisDitS0CLiEiGjX7+Hrq8TAhfQ==}
+    engines: {node: ^14.13.1 || >=16.0.0}
     peerDependencies:
-      stylelint: ^15.0.0
+      stylelint: ^15.10.0
     dependencies:
       stylelint: 15.10.2
-      stylelint-config-recommended: 10.0.1(stylelint@15.10.2)
+      stylelint-config-recommended: 13.0.0(stylelint@15.10.2)
     dev: true
 
   /stylelint-csstree-validator@2.1.0(stylelint@15.10.2):
