@@ -1,4 +1,5 @@
 // Copyright rigélblu inc. All rights reserved.
+import React from 'react';
 import clsx, { cmpCls } from '@/lib/clsx-helpers';
 
 type Props = {
@@ -18,7 +19,7 @@ export default function FocusEffect(props: Props) {
         }
 
         const childProps = child.props as { className?: string };
-        return React.cloneElement(child as ReactElement<Record<string, unknown>>, {
+        return React.cloneElement(child as React.ReactElement<Record<string, unknown>>, {
           className: `animate-shadow ${childProps.className || ''}`,
         });
       })}
