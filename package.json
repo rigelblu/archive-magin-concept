@@ -7,7 +7,7 @@
   "author": "rigélblu (https://www.rigelblu.com)",
   "license": "MIT",
   "_moduleAliases": {
-    "@/helpers": "build/src/helpers"
+    "@/lib": "build/src/lib"
   },
   "scripts": {
     "clean": "rimraf build && pnpm next:clean",

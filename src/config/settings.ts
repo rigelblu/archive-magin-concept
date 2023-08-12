@@ -1,11 +1,18 @@
 // Copyright rigélblu inc. All rights reserved.
 
-export enum Mode {
-  Debug = 'DEBUG',
-  Info = 'INFO',
-}
+export const Mode = {
+  Debug: 'Debug',
+  Info: 'Info',
+} as const;
+export type ModeType = (typeof Mode)[keyof typeof Mode];
 
-const settings = {
+export type SettingsType = {
+  mode: ModeType;
+  page: { typingSpeed: number };
+  guidedMessageDuration: number;
+};
+
+const settings: SettingsType = {
   mode: Mode.Info,
 
   page: {

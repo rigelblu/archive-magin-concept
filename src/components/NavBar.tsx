@@ -1,10 +1,12 @@
 // Copyright rigélblu inc. All rights reserved.
-import { Button } from 'primereact/button';
+import clsx, { cmpCls } from '@/lib/clsx-helpers';
+import { CTAButton, CTARoleType } from '@/components/BaseComponents';
 import FocusEffect from '@/components/FocusEffect';
 
 type NavItem = {
   id: string;
   label: string;
+  ctaRole: CTARoleType;
   onClick: () => void;
   className?: string;
   focusEffect?: boolean;
@@ -15,16 +17,21 @@ type Props = {
   className?: string;
 };
 
+// OPTIMiZE: convert items in children of type NavItem, NavButton
 export default function NavBar({ items, className = '' }: Props) {
   const alignClass = items.length === 1 ? 'justify-center' : 'justify-between';
 
   return (
-    <div className={`mgn-navigation flex w-full ${alignClass} ${className}`}>
+    <div className={clsx(cmpCls(NavBar.name), 'flex w-full', alignClass, className)}>
       {items.map((item) => {
         const button = (
-          <Button className={`text-center ${item.className || ''}`} onClick={item.onClick}>
+          <CTAButton
+            role={item.ctaRole}
+            onClick={item.onClick}
+            className={`text-center ${item.className || ''}`}
+          >
             {item.label}
-          </Button>
+          </CTAButton>
         );
 
         return (

@@ -75,7 +75,7 @@ module.exports = {
       rules: { '@typescript-eslint/no-floating-promises': 'off' },
     },
     {
-      files: ['tsconfig.json'],
+      files: ['tsconfig*.json'],
       rules: {
         'json/*': 'off',
       },

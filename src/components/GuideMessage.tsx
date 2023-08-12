@@ -1,5 +1,6 @@
 // Copyright rigélblu inc. All rights reserved.
 import { useEffect, useState } from 'react';
+import clsx, { cmpCls } from '@/lib/clsx-helpers';
 import settings from '@/config/settings';
 
 type Props = {
@@ -36,7 +37,7 @@ export default function GuideMessage({
   // REFACTOR: define standard padding in global.css
   // OPTIMIZE: make color a parm
   return (
-    <div className={`mgn-guide p-1 text-center text-blue-rb-600 ${className}`}>
+    <div className={clsx(cmpCls(GuideMessage.name), 'p-1 text-center text-blue-rb-600', className)}>
       {messages[currentMessageIndex]}
       {children}
     </div>

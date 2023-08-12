@@ -1,4 +1,5 @@
 // Copyright rigélblu inc. All rights reserved.
+import clsx, { cmpCls } from '@/lib/clsx-helpers';
 import SceneContent, { SceneRange } from '@/components/Scene/SceneContent';
 
 type PageProps = {
@@ -17,7 +18,7 @@ export default function Page({
   styleTypedNonTypedSame,
 }: PageProps) {
   return (
-    <div className={`mgn-page flex w-full flex-1 flex-col ${className}`}>
+    <div className={clsx(cmpCls(Page.name), 'flex w-full flex-1 flex-col', className)}>
       <SceneContent
         sceneRange={sceneRange}
         styleTypedNonTypedSame={styleTypedNonTypedSame}

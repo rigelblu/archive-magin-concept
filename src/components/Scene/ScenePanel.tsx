@@ -1,4 +1,5 @@
 // Copyright rigélblu inc. All rights reserved.
+import clsx, { cmpCls } from '@/lib/clsx-helpers';
 import locale, { LocaleType } from '@/locales/en';
 import SceneMarker from '@/components/Scene/SceneMarker';
 import SceneImage from './SceneImage';
@@ -13,7 +14,11 @@ type Props = {
 export default function ScenePanel({ scene, className = '' }: Props) {
   return (
     <div
-      className={`mgn-scenepanel mb-0.5 flex w-full flex-1 flex-col justify-between rounded-lg p-1 outline ${className}`}
+      className={clsx(
+        cmpCls(ScenePanel.name),
+        'mb-0.5 flex w-full flex-1 flex-col justify-between rounded-lg p-1 outline',
+        className
+      )}
     >
       {/* OPTIMIZE: find better font */}
       <div className='text-2xs'>

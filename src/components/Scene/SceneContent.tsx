@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
 /* eslint-disable no-use-before-define */
+import clsx, { cmpCls } from '@/lib/clsx-helpers';
 import { useEffect, useRef } from 'react';
-import { Button } from 'primereact/button';
 import Typed from 'typed.js';
+import { Button } from '@/components/BaseComponents';
 import SceneMarker from '@/components/Scene/SceneMarker';
 import settings, { Mode } from '@/config/settings';
 import bookData, { Book, SceneType } from '@/data/bookData';
@@ -12,7 +13,7 @@ import styles from '@/components/Scene/SceneContent.module.scss';
 export type SceneRange = {
   start: number;
   end: number;
-  current?: number | null;
+  current: number;
 };
 
 const t: LocaleType = locale;
@@ -37,10 +38,11 @@ function SkipAnimation(props: SkipAnimationProps) {
 
   return (
     <Button
-      className={`mgn-skip-animation ${className} my-1 !bg-ivory-300 !text-gray-600`}
-      label={t.guide.tryMagin_skipAnimation}
       onClick={onSkipAnimation}
-    />
+      className={clsx(cmpCls(SkipAnimation.name), 'my-1 !bg-ivory-300 !text-gray-600', className)}
+    >
+      {t.guide.tryMagin_skipAnimation}
+    </Button>
   );
 }
 
@@ -66,7 +68,6 @@ export default function SceneContent({
     // HACk: typing animation is only supported on the first scene since typed.js doesn't support multiple <p> strings
     if (
       !animateTyping ||
-      sceneRange.current !== 0 ||
       !refSpanTyped ||
       !refSpanTyped.current ||
       !refSpanTypedStrings ||
@@ -110,7 +111,7 @@ export default function SceneContent({
           <span ref={refSpanTypedStrings}>{sceneDataToTypedStrings(scenesSlice, sceneRange)}</span>
           <span ref={refSpanTyped} />
           <SkipAnimation
-            className='mgn-cta-secondary ml-auto mt-8 block text-center'
+            className='ml-auto mt-8 block text-center'
             onSkipAnimation={onSkipAnimation}
           />
         </div>
@@ -124,6 +125,7 @@ export default function SceneContent({
   const typingNotUsed = !styleTypedNonTypedSame ? 'typing-not-used' : 'typing-used';
 
   return (
+    //  TODO: add support to not switch to lower case
     <div className={`${styles['mgn-scenecontent']} content-text ${className}`}>
       <div className={`mgn-content w-full overflow-y-auto bg-ivory-200 ${typingNotUsed}`}>
         {content}
@@ -168,12 +170,18 @@ function generateParagraphs(scene: SceneType, isCurrentScene: boolean, isTypedSt
   });
 }
 
-function mapScenes(sceneData: SceneType[], sceneRange: SceneRange, isTypedString: boolean) {
+function mapScenes(
+  sceneData: SceneType[],
+  sceneRange: SceneRange,
+  isTypedString = false,
+  animateTyping = false
+) {
   return sceneData.map((scene, index) => {
     const isCurrentScene = sceneRange.current ? sceneRange.current - 1 === index : false;
     let paragraphs = generateParagraphs(scene, isCurrentScene, isTypedString);
 
-    if (isCurrentScene) paragraphs = [<SceneMarker key='scene-marker'>{paragraphs}</SceneMarker>];
+    if (isCurrentScene && !animateTyping)
+      paragraphs = [<SceneMarker key='scene-marker'>{paragraphs}</SceneMarker>];
 
     const title =
       !isTypedString && scene.title ? (
@@ -194,9 +202,9 @@ function mapScenes(sceneData: SceneType[], sceneRange: SceneRange, isTypedString
 }
 
 function sceneDataToTypedStrings(sceneData: SceneType[], sceneRange: SceneRange) {
-  return mapScenes(sceneData, sceneRange, true);
+  return mapScenes(sceneData, sceneRange, true, true);
 }
 
 function sceneDataToJSX(sceneData: SceneType[], sceneRange: SceneRange) {
-  return mapScenes(sceneData, sceneRange, false);
+  return mapScenes(sceneData, sceneRange);
 }

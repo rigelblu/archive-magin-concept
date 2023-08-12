@@ -1,5 +1,6 @@
 // Copyright rigélblu inc. All rights reserved.
-import React, { ReactElement } from 'react';
+import React from 'react';
+import clsx, { cmpCls } from '@/lib/clsx-helpers';
 
 type Props = {
   children?: React.ReactNode;
@@ -10,7 +11,7 @@ export default function FocusEffect(props: Props) {
   const { className = '', children = undefined } = props;
 
   return (
-    <div className={`${className}`}>
+    <div className={clsx(cmpCls(FocusEffect.name), className)}>
       {React.Children.map(children, (child) => {
         if (!React.isValidElement(child)) {
           console.error(`FocusEffect: invalid child ${JSON.stringify(child, null, 2)}`);
@@ -18,7 +19,7 @@ export default function FocusEffect(props: Props) {
         }
 
         const childProps = child.props as { className?: string };
-        return React.cloneElement(child as ReactElement<Record<string, unknown>>, {
+        return React.cloneElement(child as React.ReactElement<Record<string, unknown>>, {
           className: `animate-shadow ${childProps.className || ''}`,
         });
       })}

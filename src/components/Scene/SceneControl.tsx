@@ -1,16 +1,18 @@
 // Copyright rigélblu inc. All rights reserved.
-import { Button } from 'primereact/button';
+import clsx, { cmpCls } from '@/lib/clsx-helpers';
 import IconArrowLeft from '@/assets/common/icons/arrow-left.svg';
 import IconArrowRight from '@/assets/common/icons/arrow-right.svg';
+import { Button } from '@/components/BaseComponents';
 
-export enum Action {
-  Prev = 'prev',
-  Next = 'next',
-}
+export const Action = {
+  Prev: 'Prev',
+  Next: 'Next',
+} as const;
+export type ActionType = (typeof Action)[keyof typeof Action];
 
 type Props = {
   // REFACTOR: improve naming to indicate aria-label
-  action: Action;
+  action: ActionType;
   onClick: () => void;
   isShown?: boolean;
   className?: string;
@@ -29,10 +31,9 @@ export default function SceneControl(props: Props) {
   // TODO: style chevron in blue-rb-600 and background in blue-rb-lighter
   return (
     <Button
-      className={`mgn-scenecontrol ${className}`}
-      aria-label={action}
-      disabled={!isShown}
       onClick={onClick}
+      className={clsx(cmpCls(SceneControl.name), className)}
+      disabled={!isShown}
     >
       {NavIcon}
     </Button>

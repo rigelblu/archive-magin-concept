@@ -1,15 +1,18 @@
 // Copyright rigélblu inc. All rights reserved.
-export enum Env {
-  Dev = 'development',
-  Prod = 'production',
-}
 
-export enum Page {
-  Home = 'home',
-  Join = 'join',
-}
+export const Env = {
+  Dev: 'development',
+  Prod: 'production',
+} as const;
+export type EnvType = (typeof Env)[keyof typeof Env];
 
-export type FeatureFlagEnv = Partial<Record<Env, boolean>>;
+export const Page = {
+  Home: 'home',
+  Join: 'join',
+} as const;
+export type PageType = (typeof Page)[keyof typeof Page];
+
+export type FeatureFlagEnv = Partial<Record<EnvType, boolean>>;
 
 export type FeatureFlagType = {
   [key: string]: boolean | FeatureFlagEnv;
