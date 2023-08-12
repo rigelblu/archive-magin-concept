@@ -1,10 +1,10 @@
 // Copyright rigélblu inc. All rights reserved.
-import { joinClassesWithComponent } from '@rigelblu/rb-base-packages-join-classes';
+import clsx, { cmpCls } from '@/lib/clsx-helpers';
 import { Link } from '@/components/BaseComponents';
 
 export default function Footer() {
   return (
-    <footer className={joinClassesWithComponent(Footer.name, 'flex')}>
+    <footer className={clsx(cmpCls(Footer.name), 'flex')}>
       <div className='flex w-full items-center justify-between p-2'>
         <div>
           magin is a product of&nbsp;

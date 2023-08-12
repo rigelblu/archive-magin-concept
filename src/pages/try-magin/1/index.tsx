@@ -25,7 +25,6 @@ export default function MarginPreview() {
           onClick: () => {
             router.push('/');
           },
-          className: 'mgn-cta-secondary',
         },
         {
           id: t.guide.maginPresents_watchNovel,

@@ -1,5 +1,5 @@
 // Copyright rigélblu inc. All rights reserved.
-import { joinClassesWithComponent } from '@rigelblu/rb-base-packages-join-classes';
+import clsx, { cmpCls } from '@/lib/clsx-helpers';
 import IconArrowLeft from '@/assets/common/icons/arrow-left.svg';
 import IconArrowRight from '@/assets/common/icons/arrow-right.svg';
 import { Button } from '@/components/BaseComponents';
@@ -31,7 +31,7 @@ export default function SceneControl(props: Props) {
   return (
     <Button
       onClick={onClick}
-      className={joinClassesWithComponent(SceneControl.name, className)}
+      className={clsx(cmpCls(SceneControl.name), className)}
       disabled={!isShown}
     >
       {NavIcon}

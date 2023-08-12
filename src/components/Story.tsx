@@ -1,6 +1,6 @@
 // Copyright rigélblu inc. All rights reserved.
 import { useState } from 'react';
-import { joinClassesWithComponent } from '@rigelblu/rb-base-packages-join-classes';
+import clsx, { cmpCls } from '@/lib/clsx-helpers';
 import { SceneRange } from './Scene/SceneContent';
 import Book from './Book';
 import Film from './Film';
@@ -22,8 +22,8 @@ export default function Story({
 
   return (
     <div
-      className={joinClassesWithComponent(
-        Story.name,
+      className={clsx(
+        cmpCls(Story.name),
         // REFACTOR: accept this as a prop
         'flex w-full flex-1 flex-col justify-between'
       )}
@@ -40,7 +40,7 @@ export default function Story({
         {guidedMessageNode || null}
       </div>
 
-      <div className='mgn-step-bottom flex max-h-[30%] flex-1 flex-col items-end'>
+      <div className='flex max-h-[30%] flex-1 flex-col items-end'>
         {filmEl || (
           <Film
             sceneRange={{ start: sceneRange.start, end: sceneRange.end, current: scene }}

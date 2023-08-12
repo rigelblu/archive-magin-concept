@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
 /* eslint-disable no-use-before-define */
-import { joinClassesWithComponent } from '@rigelblu/rb-base-packages-join-classes';
+import clsx, { cmpCls } from '@/lib/clsx-helpers';
 import { useEffect, useRef } from 'react';
 import Typed from 'typed.js';
 import { Button } from '@/components/BaseComponents';
@@ -39,11 +39,7 @@ function SkipAnimation(props: SkipAnimationProps) {
   return (
     <Button
       onClick={onSkipAnimation}
-      className={joinClassesWithComponent(
-        SkipAnimation.name,
-        'my-1 !bg-ivory-300 !text-gray-600',
-        className
-      )}
+      className={clsx(cmpCls(SkipAnimation.name), 'my-1 !bg-ivory-300 !text-gray-600', className)}
     >
       {t.guide.tryMagin_skipAnimation}
     </Button>
@@ -115,7 +111,7 @@ export default function SceneContent({
           <span ref={refSpanTypedStrings}>{sceneDataToTypedStrings(scenesSlice, sceneRange)}</span>
           <span ref={refSpanTyped} />
           <SkipAnimation
-            className='mgn-cta-secondary ml-auto mt-8 block text-center'
+            className='ml-auto mt-8 block text-center'
             onSkipAnimation={onSkipAnimation}
           />
         </div>

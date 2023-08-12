@@ -1,6 +1,6 @@
 // Copyright rigélblu inc. All rights reserved.
-import { joinClassesWithComponent } from '@rigelblu/rb-base-packages-join-classes';
 import Image from 'next/image';
+import clsx, { cmpCls } from '@/lib/clsx-helpers';
 import bookData, { Book } from '@/data/bookData';
 
 type Props = {
@@ -15,7 +15,7 @@ export default function SceneImage({ scene }: Props) {
     <Image
       src={img.src}
       alt={img.alt}
-      className={joinClassesWithComponent(SceneImage.name, '!w-min object-scale-down pl-2')}
+      className={clsx(cmpCls(SceneImage.name), '!w-min object-scale-down pl-2')}
       fill
     />
   );

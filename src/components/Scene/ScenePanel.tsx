@@ -1,5 +1,5 @@
 // Copyright rigélblu inc. All rights reserved.
-import { joinClassesWithComponent } from '@rigelblu/rb-base-packages-join-classes';
+import clsx, { cmpCls } from '@/lib/clsx-helpers';
 import locale, { LocaleType } from '@/locales/en';
 import SceneMarker from '@/components/Scene/SceneMarker';
 import SceneImage from './SceneImage';
@@ -14,8 +14,8 @@ type Props = {
 export default function ScenePanel({ scene, className = '' }: Props) {
   return (
     <div
-      className={joinClassesWithComponent(
-        ScenePanel.name,
+      className={clsx(
+        cmpCls(ScenePanel.name),
         'mb-0.5 flex w-full flex-1 flex-col justify-between rounded-lg p-1 outline',
         className
       )}

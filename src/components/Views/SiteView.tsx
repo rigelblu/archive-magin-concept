@@ -1,5 +1,5 @@
 // Copyright rigélblu inc. All rights reserved.
-import { joinClasses } from '@rigelblu/rb-base-packages-join-classes';
+import clsx from '@/lib/clsx-helpers';
 import { SiteLayout } from '@/components/Layout';
 
 type Props = {
@@ -21,9 +21,9 @@ function CustomSiteView({
 }: CustomSiteViewProps) {
   return (
     <SiteLayout
-      canvasClassName={joinClasses(canvasClassName, 'bg-ivory-100')}
-      containerClassName={joinClasses(containerClassName, 'mx-auto max-w-4xl')}
-      mainClassName={joinClasses(mainClassName, 'py-1')}
+      canvasClassName={clsx(canvasClassName, 'bg-ivory-100')}
+      containerClassName={clsx(containerClassName, 'mx-auto max-w-4xl')}
+      mainClassName={clsx(mainClassName, 'py-1')}
     >
       {children}
     </SiteLayout>

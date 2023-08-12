@@ -1,6 +1,6 @@
 // Copyright rigélblu inc. All rights reserved.
 import { useRouter } from 'next/router';
-import { joinClassesWithComponent } from '@rigelblu/rb-base-packages-join-classes';
+import clsx, { cmpCls } from '@/lib/clsx-helpers';
 import IconGithub from '@/assets/common/icons/github-mark.svg';
 import { SiteFullScreenView } from '@/components/Views/SiteView';
 import { Button, CTAButton, CTARole } from '@/components/BaseComponents';
@@ -14,12 +14,7 @@ export default function Home() {
 
   return (
     <SiteFullScreenView>
-      <div
-        className={joinClassesWithComponent(
-          Home.name,
-          'flex flex-1 flex-col items-center justify-center'
-        )}
-      >
+      <div className={clsx(cmpCls(Home.name), 'flex flex-1 flex-col items-center justify-center')}>
         {/* Tagline */}
         <h1 className='mb-16 text-center'>
           Have you <span className='text-blue-rb-600'>read a novel</span> <br /> and wondered,

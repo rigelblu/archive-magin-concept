@@ -1,5 +1,5 @@
 // Copyright rigélblu inc. All rights reserved.
-import { joinClassesWithComponent } from '@rigelblu/rb-base-packages-join-classes';
+import clsx, { cmpCls } from '@/lib/clsx-helpers';
 
 type Props = {
   children: React.ReactNode;
@@ -12,8 +12,8 @@ export default function SceneMarker(props: Props) {
 
   return (
     <div
-      className={joinClassesWithComponent(
-        SceneMarker.name,
+      className={clsx(
+        cmpCls(SceneMarker.name),
         'relative flex flex-1 flex-col border-l-2 border-l-blue-rb-600',
         className
       )}

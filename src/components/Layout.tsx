@@ -1,7 +1,7 @@
 // Copyright rigélblu inc. All rights reserved.
 import React, { useEffect, useState } from 'react';
-import { joinClassesWithComponent } from '@rigelblu/rb-base-packages-join-classes';
-import Header from './Header';
+import clsx, { cmpCls } from '@/lib/clsx-helpers';
+import Header from '@/components/Page/Header';
 // import Footer from './Footer';
 
 type LayoutProps = {
@@ -54,7 +54,7 @@ function MainLayout(props: MainLayoutProps) {
   }, [windowHeight]);
 
   return (
-    <div className={joinClassesWithComponent(MainLayout.name, canvasClassName)}>
+    <div className={clsx(cmpCls(MainLayout.name), canvasClassName)}>
       <div className={containerClassName}>
         {layoutType === LayoutType.Site && <Header />}
         <main className={mainClassName}>{children}</main>

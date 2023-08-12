@@ -1,5 +1,5 @@
 // Copyright rigélblu inc. All rights reserved.
-import { joinClassesWithComponent } from '@rigelblu/rb-base-packages-join-classes';
+import clsx, { cmpCls } from '@/lib/clsx-helpers';
 import { CTAButton, CTARole } from '@/components/BaseComponents';
 import FocusEffect from '@/components/FocusEffect';
 
@@ -22,7 +22,7 @@ export default function NavBar({ items, className = '' }: Props) {
   const alignClass = items.length === 1 ? 'justify-center' : 'justify-between';
 
   return (
-    <div className={joinClassesWithComponent(NavBar.name, 'flex w-full', alignClass, className)}>
+    <div className={clsx(cmpCls(NavBar.name), 'flex w-full', alignClass, className)}>
       {items.map((item) => {
         const button = (
           <CTAButton

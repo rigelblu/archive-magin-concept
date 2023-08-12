@@ -1,5 +1,5 @@
 // Copyright rigélblu inc. All rights reserved.
-import { joinClassesWithComponent } from '@rigelblu/rb-base-packages-join-classes';
+import clsx, { cmpCls } from '@/lib/clsx-helpers';
 import { SceneRange } from '@/components/Scene/SceneContent';
 import SceneControl, { Action } from '@/components/Scene/SceneControl';
 import ScenePanel from '@/components/Scene/ScenePanel';
@@ -36,8 +36,8 @@ export default function Film({
 
   return (
     <div
-      className={joinClassesWithComponent(
-        Film.name,
+      className={clsx(
+        cmpCls(Film.name),
         'flex w-full flex-1 flex-col items-center justify-between',
         className
       )}

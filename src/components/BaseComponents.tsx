@@ -1,8 +1,8 @@
 // Copyright rigélblu inc. All rights reserved.
-import joinClasses, { joinClassesWithComponent } from '@rigelblu/rb-base-packages-join-classes';
 import NextLink from 'next/link';
 import { Button as PrimeButton, ButtonProps as PrimeButtonProps } from 'primereact/button';
 import { HTMLAttributes, ReactNode } from 'react';
+import clsx, { cmpCls } from '@/lib/clsx-helpers';
 
 export enum LinkCTA {
   Primary = 'Primary',
@@ -28,12 +28,11 @@ export function Link({
   external = false,
   openInNewWindow: new_window = false,
 }: LinkProps & HTMLAttributes<HTMLAnchorElement>) {
-  const ctaClasses =
-    cta === LinkCTA.Primary ? joinClasses('text-blue-rb-600', className) : className;
+  const ctaClasses = cta === LinkCTA.Primary ? clsx('text-blue-rb-600', className) : className;
 
   return (
     <NextLink
-      className={joinClassesWithComponent(Link.name, ctaClasses)}
+      className={clsx(cmpCls(Link.name), ctaClasses)}
       href={href}
       rel={external ? 'noreferrer noopener' : undefined}
       target={external || new_window ? '_blank' : undefined}
@@ -58,11 +57,7 @@ export function Button({
 }: PrimeButtonProps) {
   return (
     <PrimeButton
-      className={joinClassesWithComponent(
-        Button.name,
-        'rounded border-r-4 border-none px-2 py-1',
-        className
-      )}
+      className={clsx(cmpCls(Button.name), 'rounded border-r-4 border-none px-2 py-1', className)}
       onClick={onClick}
       disabled={disabled}
       icon={icon}
@@ -103,7 +98,7 @@ export function CTAButton({
 
   return (
     <Button
-      className={joinClassesWithComponent(CTAButton.name, ctaClasses[role], className)}
+      className={clsx(cmpCls(CTAButton.name), ctaClasses[role], className)}
       onClick={onClick}
       disabled={disabled}
       icon={icon}

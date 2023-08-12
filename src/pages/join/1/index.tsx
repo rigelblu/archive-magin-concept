@@ -85,7 +85,6 @@ export default function JoinMagin() {
           onClick: () => {
             router.push('/');
           },
-          className: 'mgn-cta-secondary',
         },
       ]}
     />

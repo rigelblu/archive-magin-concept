@@ -1,7 +1,7 @@
 // Copyright rigélblu inc. All rights reserved.
 import anime from 'animejs';
-import { joinClassesWithComponent } from '@rigelblu/rb-base-packages-join-classes';
 import { useEffect, useRef } from 'react';
+import clsx, { cmpCls } from '@/lib/clsx-helpers';
 import locale, { LocaleType } from '@/locales/en';
 import { Book } from '@/data/bookData';
 
@@ -46,8 +46,8 @@ export default function MaginPresents({ book }: Props) {
   return (
     // OPTIMIZE: adjust for each device screen size
     <div
-      className={joinClassesWithComponent(
-        MaginPresents.name,
+      className={clsx(
+        cmpCls(MaginPresents.name),
         'flex max-h-[32rem] flex-1 flex-col justify-end sm:max-h-[40rem]'
       )}
     >
