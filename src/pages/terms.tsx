@@ -1,5 +1,5 @@
 // Copyright rigélblu inc. All rights reserved.
-import Link from 'next/link';
+import { Link } from '@/components/BaseComponents';
 import { SiteLayout } from '@/layouts/Layout';
 
 export default function Terms() {

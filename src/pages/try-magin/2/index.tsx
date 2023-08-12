@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import Image from 'next/image';
 import IconUpArrow from '@/assets/common/icons/arrow-up.svg';
+import { CTARole } from '@/components/BaseComponents';
 import Book from '@/components/Book/Book';
 import Film from '@/components/Film/Film';
 import GuideMessage from '@/components/GuideMessage';
@@ -99,18 +100,18 @@ export default function MarginPreview() {
                 {
                   id: t.navigation.back,
                   label: t.navigation.back,
+                  ctaRole: CTARole.Secondary,
                   onClick: () => {
                     router.push('/try-magin/1');
                   },
-                  className: 'mgn-cta-secondary',
                 },
                 {
                   id: t.guide.tryMagin2a_showMe,
                   label: t.guide.tryMagin2a_showMe,
+                  ctaRole: CTARole.Primary,
                   onClick: () => {
                     setScene(scene + 1);
                   },
-                  className: 'mgn-cta-primary',
                 },
               ]}
             />
@@ -122,18 +123,18 @@ export default function MarginPreview() {
                 {
                   id: t.navigation.back,
                   label: t.navigation.back,
+                  ctaRole: CTARole.Secondary,
                   onClick: () => {
                     router.push('/try-magin/1');
                   },
-                  className: 'mgn-cta-secondary',
                 },
                 {
                   id: t.guide.tryMagin2b_nextScene,
                   label: t.guide.tryMagin2b_nextScene,
+                  ctaRole: CTARole.Primary,
                   onClick: () => {
                     router.push('/try-magin/3');
                   },
-                  className: 'mgn-cta-primary',
                   focusEffect: true,
                 },
               ]}

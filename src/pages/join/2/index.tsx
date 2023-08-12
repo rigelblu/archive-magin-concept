@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import NavBar from '@/components/NavBar';
 import { AppLayout } from '@/layouts/Layout';
 import locale, { LocaleType } from '@/locales/en';
+import { CTARole } from '@/components/BaseComponents';
 
 const t: LocaleType = locale;
 
@@ -40,6 +41,7 @@ export default function JoinMagin() {
                 {
                   id: t.navigation.returnHome,
                   label: t.navigation.returnHome,
+                  ctaRole: CTARole.Primary,
                   onClick: () => {
                     router.push('/');
                   },

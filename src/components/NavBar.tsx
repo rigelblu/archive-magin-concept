@@ -1,10 +1,11 @@
 // Copyright rigélblu inc. All rights reserved.
-import { Button } from 'primereact/button';
+import { CTAButton, CTARole } from '@/components/BaseComponents';
 import FocusEffect from '@/components/FocusEffect';
 
 type NavItem = {
   id: string;
   label: string;
+  ctaRole: CTARole;
   onClick: () => void;
   className?: string;
   focusEffect?: boolean;
@@ -22,9 +23,13 @@ export default function NavBar({ items, className = '' }: Props) {
     <div className={`mgn-navigation flex w-full ${alignClass} ${className}`}>
       {items.map((item) => {
         const button = (
-          <Button className={`text-center ${item.className || ''}`} onClick={item.onClick}>
+          <CTAButton
+            role={item.ctaRole}
+            onClick={item.onClick}
+            className={`text-center ${item.className || ''}`}
+          >
             {item.label}
-          </Button>
+          </CTAButton>
         );
 
         return (

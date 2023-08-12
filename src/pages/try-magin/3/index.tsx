@@ -1,6 +1,7 @@
 // Copyright rigélblu inc. All rigts reserve
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { CTARole } from '@/components/BaseComponents';
 import Book from '@/components/Book/Book';
 import Film from '@/components/Film/Film';
 import GuideMessage from '@/components/GuideMessage';
@@ -58,18 +59,18 @@ export default function MarginPreview() {
               {
                 id: t.navigation.back,
                 label: t.navigation.back,
+                ctaRole: CTARole.Secondary,
                 onClick: () => {
                   router.push('/try-magin/2');
                 },
-                className: 'mgn-cta-secondary',
               },
               {
                 id: t.navigation.next,
                 label: t.navigation.next,
+                ctaRole: CTARole.Primary,
                 onClick: () => {
                   router.push('/join/1');
                 },
-                className: 'mgn-cta-primary',
                 focusEffect: true,
               },
             ]}

@@ -1,7 +1,7 @@
 // Copyright rigélblu inc. All rights reserved.
-import { Button } from 'primereact/button';
 import { useRouter } from 'next/router';
 import IconGithub from '@/assets/common/icons/github-mark.svg';
+import { Button, CTAButton, CTARole } from '@/components/BaseComponents';
 import featureFlag from '@/config/featureFlags';
 import { SiteLayout } from '@/layouts/Layout';
 import locale, { LocaleType } from '@/locales/en';
@@ -31,17 +31,19 @@ export default function Home() {
         </h2>
 
         {/* Try magin */}
-        <Button
-          className='mgn-cta-primary'
-          disabled={!featureFlag.home.enableTryMagin}
-          label={t.general.tryMagin}
-          // REFACTOR: disable through eslintrc
+        <CTAButton
+          role={CTARole.Primary}
           onClick={() => {
+            console.log('a');
             if (featureFlag.home.enableTryMagin) router.push('/try-magin/1');
           }}
+          disabled={!featureFlag.home.enableTryMagin}
+          // REFACTOR: disable through eslintrc
           tooltip={!featureFlag.home.enableTryMagin ? t.general.comingSoon : ''}
           tooltipOptions={{ position: 'bottom', showOnDisabled: true }}
-        />
+        >
+          {t.general.tryMagin}
+        </CTAButton>
 
         <h3 className='mt-20 text-center text-base font-normal'>
           Picture stories like a <br className='sm:hidden' />
@@ -53,19 +55,19 @@ export default function Home() {
       {/* Github */}
       {/* FIXME: remove extra white space below icon */}
       <Button
-        aria-label='magin on GitHub'
-        className='mgn-github m-0 w-max flex-none border-none !bg-[#161b22] p-0.5 pl-2 text-xs text-white'
+        onClick={() => {
+          window.location.href = 'https://github.com/rigelblu/magin-concept';
+        }}
         icon={
           <span className='p-button-icon-right m-0 ml-2 w-8 bg-[#F5F5F5] p-0.5'>
             <IconGithub />
           </span>
         }
         iconPos='right'
-        label='magin on GitHub'
-        onClick={() => {
-          window.location.href = 'https://github.com/rigelblu/magin-concept';
-        }}
-      />
+        className='m-0 w-max flex-none border-none !bg-[#161b22] py-[2px] pl-2 pr-0.5 text-xs text-white'
+      >
+        magin on GitHub
+      </Button>
     </SiteLayout>
   );
 }

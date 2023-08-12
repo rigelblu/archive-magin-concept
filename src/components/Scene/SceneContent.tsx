@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
 /* eslint-disable no-use-before-define */
 import { useEffect, useRef } from 'react';
-import { Button } from 'primereact/button';
 import Typed from 'typed.js';
+import { Button } from '@/components/BaseComponents';
 import SceneMarker from '@/components/Scene/SceneMarker';
 import settings, { Mode } from '@/config/settings';
 import bookData, { Book, SceneType } from '@/data/bookData';
@@ -37,10 +37,11 @@ function SkipAnimation(props: SkipAnimationProps) {
 
   return (
     <Button
-      className={`mgn-skip-animation ${className} my-1 !bg-ivory-300 !text-gray-600`}
-      label={t.guide.tryMagin_skipAnimation}
       onClick={onSkipAnimation}
-    />
+      className={`mgn-skipanimation ${className} my-1 !bg-ivory-300 !text-gray-600`}
+    >
+      {t.guide.tryMagin_skipAnimation}
+    </Button>
   );
 }
 

@@ -2,6 +2,7 @@
 import anime from 'animejs';
 import { useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
+import { CTARole } from '@/components/BaseComponents';
 import GuideMessage from '@/components/GuideMessage';
 import NavBar from '@/components/NavBar';
 import { AppLayout } from '@/layouts/Layout';
@@ -67,6 +68,7 @@ export default function MarginPreview() {
               {
                 id: t.navigation.returnHome,
                 label: t.navigation.returnHome,
+                ctaRole: CTARole.Secondary,
                 onClick: () => {
                   router.push('/');
                 },
@@ -75,10 +77,10 @@ export default function MarginPreview() {
               {
                 id: t.guide.tryMagin1_watchNovel,
                 label: t.guide.tryMagin1_watchNovel,
+                ctaRole: CTARole.Primary,
                 onClick: () => {
                   router.push('/try-magin/2');
                 },
-                className: 'mgn-cta-primary',
                 focusEffect: true,
               },
             ]}

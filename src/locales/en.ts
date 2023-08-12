@@ -79,7 +79,7 @@ const locale = {
         <li>One feature from our vision for magin</li> \
       </ul> \
       <br /> \
-      <p>Access the early access version of magin at <a href='https://ea.magin.blue'>https://ea.magin.blue</a> with your email address.</p> \
+      <p>Access the early access version of magin at <a style='color: #0080ff' href='https://ea.magin.blue'>https://ea.magin.blue</a> with your email address.</p> \
       <p>Sincerely,<br /> \
       Tom Hosiawa <br /> \
       magin Founder & CEO</p>",

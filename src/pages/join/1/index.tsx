@@ -1,7 +1,6 @@
 // Copyright rigélblu inc. All rigts reserve
-import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { Button } from 'primereact/button';
+import { CTAButton, CTARole, Link } from '@/components/BaseComponents';
 import NavBar from '@/components/NavBar';
 import featureFlag, { FeatureFlagEnv } from '@/config/featureFlags';
 import getEnv from '@/helpers/env';
@@ -41,17 +40,18 @@ export default function JoinMagin() {
                     <span className='text-sm'>{t.join.step1_planSponsor_currencyUSD}</span>
                   </div>
                 </div>
-                <Button
-                  className='mgn-cta-primary m-1 text-lg'
-                  disabled={!enablePay}
+                <CTAButton
+                  role={CTARole.Primary}
                   onClick={() => {
                     if (enablePay) window.location.href = stripePaymentUrl;
                   }}
+                  className='m-1 text-lg'
+                  disabled={!enablePay}
                   tooltip={!enablePay ? t.general.comingSoon : ''}
                   tooltipOptions={{ position: 'bottom', showOnDisabled: true }}
                 >
                   {t.join.step1_join}
-                </Button>
+                </CTAButton>
 
                 {/* What you get */}
                 <div className='mx-5 mt-3 flex justify-center'>
@@ -69,11 +69,11 @@ export default function JoinMagin() {
                 {/* Legal */}
                 {featureFlag.join.termsPrivacy && (
                   <div className='mt-3'>
-                    <Link className='text-sm' href='/terms' target='_blank'>
+                    <Link href='/terms' className='text-sm' openInNewWindow>
                       {t.about.termsConditions}
                     </Link>
                     &nbsp;|&nbsp;
-                    <Link className='text-sm' href='/privacy' target='_blank'>
+                    <Link href='/privacy' className='text-sm' openInNewWindow>
                       {t.about.privacy}
                     </Link>
                   </div>
@@ -87,6 +87,7 @@ export default function JoinMagin() {
                 {
                   id: t.navigation.returnHome,
                   label: t.navigation.returnHome,
+                  ctaRole: CTARole.Secondary,
                   onClick: () => {
                     router.push('/');
                   },
