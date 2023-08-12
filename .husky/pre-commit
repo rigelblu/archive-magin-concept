@@ -14,7 +14,7 @@ fi
 # TODO: in the future, only run these CI/CD system
 FILES=( ".dockerignore" ".eslint*" ".linkstagerc.js" ".stylelintrc.js" "additional.d.ts" )
 FILES+=( "docker-compose.yml" "Dockerfile" "next-env.d.ts" "next.config.js" "package.json" )
-FILES+=( "pnpm-lock.yaml" "postcss.config.js" "server.ts" "tailwind.config.js" "tsconfig.json" )
+FILES+=( "pnpm-lock.yaml" "postcss.config.js" "server.ts" "tailwind.config.js" "tsconfig*.json" )
 
 if ! git diff --cached --quiet -- "${FILES[@]}"; then
   echo "Build files changes that could affect creating the build"

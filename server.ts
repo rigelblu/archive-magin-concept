@@ -4,7 +4,7 @@ import express, { Request, Response, NextFunction } from 'express';
 import rateLimit from 'express-rate-limit';
 import helmet from 'helmet';
 import { StatusCodes } from 'http-status-codes';
-import loadEnv from '@/helpers/loadEnv';
+import loadEnv from '@/lib/loadEnv';
 
 loadEnv();
 const app = express();

@@ -11,8 +11,7 @@
       "@/components/*": ["src/components/*"],
       "@/config/*": ["src/config/*"],
       "@/data/*": ["src/data/*"],
-      "@/helpers/*": ["src/helpers/*"],
-      "@/layouts/*": ["src/layouts/*"],
+      "@/lib/*": ["src/lib/*"], // update package.json moduleAlias if changed
       "@/locales/*": ["src/locales/*"],
       "@/src/*": ["src/*"],
       "@/styles/*": ["src/styles/*"]

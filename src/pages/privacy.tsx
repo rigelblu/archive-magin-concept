@@ -1,9 +1,9 @@
 // Copyright rigélblu inc. All rights reserved.
-import { SiteLayout } from '@/layouts/Layout';
+import { SiteView } from '@/components/Views/SiteView';
 
 export default function Privacy() {
   return (
-    <SiteLayout canvasClassName='bg-ivory-100' mainClassName='px-2 py-1'>
+    <SiteView>
       <h1>Privacy Policy</h1>
       <p>Last updated: July 14, 2023</p>
 
@@ -442,6 +442,6 @@ export default function Privacy() {
         would like to exercise any of the rights available to you, please email us at
         magin-support@rigelblu.com.
       </p>
-    </SiteLayout>
+    </SiteView>
   );
 }

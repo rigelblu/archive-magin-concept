@@ -2,9 +2,9 @@
 import { useRouter } from 'next/router';
 import { joinClassesWithComponent } from '@rigelblu/rb-base-packages-join-classes';
 import IconGithub from '@/assets/common/icons/github-mark.svg';
+import { SiteFullScreenView } from '@/components/Views/SiteView';
 import { Button, CTAButton, CTARole } from '@/components/BaseComponents';
 import featureFlag from '@/config/featureFlags';
-import { SiteLayout } from '@/layouts/Layout';
 import locale, { LocaleType } from '@/locales/en';
 
 const t: LocaleType = locale;
@@ -13,11 +13,7 @@ export default function Home() {
   const router = useRouter();
 
   return (
-    <SiteLayout
-      bodyClassName='h-screen flex flex-col'
-      canvasClassName='bg-ivory-100'
-      mainClassName='flex flex-1 flex-col items-center justify-center py-1'
-    >
+    <SiteFullScreenView>
       <div
         className={joinClassesWithComponent(
           Home.name,
@@ -74,6 +70,6 @@ export default function Home() {
       >
         magin on GitHub
       </Button>
-    </SiteLayout>
+    </SiteFullScreenView>
   );
 }

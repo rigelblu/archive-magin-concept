@@ -18,8 +18,9 @@ export type SceneType = {
   image: ImageType;
 };
 
+// TODO: create book props {id, title, author, etc}
 export enum Book {
-  ProjectHailMary = 'project hail mary',
+  ProjectHailMary = 'Project Hail Mary',
 }
 
 const ProjectHailMary: SceneType[] = [

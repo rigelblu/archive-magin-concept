@@ -13,7 +13,7 @@ import styles from '@/components/Scene/SceneContent.module.scss';
 export type SceneRange = {
   start: number;
   end: number;
-  current?: number | null;
+  current: number;
 };
 
 const t: LocaleType = locale;
@@ -72,7 +72,6 @@ export default function SceneContent({
     // HACk: typing animation is only supported on the first scene since typed.js doesn't support multiple <p> strings
     if (
       !animateTyping ||
-      sceneRange.current !== 0 ||
       !refSpanTyped ||
       !refSpanTyped.current ||
       !refSpanTypedStrings ||
@@ -175,12 +174,18 @@ function generateParagraphs(scene: SceneType, isCurrentScene: boolean, isTypedSt
   });
 }
 
-function mapScenes(sceneData: SceneType[], sceneRange: SceneRange, isTypedString: boolean) {
+function mapScenes(
+  sceneData: SceneType[],
+  sceneRange: SceneRange,
+  isTypedString = false,
+  animateTyping = false
+) {
   return sceneData.map((scene, index) => {
     const isCurrentScene = sceneRange.current ? sceneRange.current - 1 === index : false;
     let paragraphs = generateParagraphs(scene, isCurrentScene, isTypedString);
 
-    if (isCurrentScene) paragraphs = [<SceneMarker key='scene-marker'>{paragraphs}</SceneMarker>];
+    if (isCurrentScene && !animateTyping)
+      paragraphs = [<SceneMarker key='scene-marker'>{paragraphs}</SceneMarker>];
 
     const title =
       !isTypedString && scene.title ? (
@@ -201,9 +206,9 @@ function mapScenes(sceneData: SceneType[], sceneRange: SceneRange, isTypedString
 }
 
 function sceneDataToTypedStrings(sceneData: SceneType[], sceneRange: SceneRange) {
-  return mapScenes(sceneData, sceneRange, true);
+  return mapScenes(sceneData, sceneRange, true, true);
 }
 
 function sceneDataToJSX(sceneData: SceneType[], sceneRange: SceneRange) {
-  return mapScenes(sceneData, sceneRange, false);
+  return mapScenes(sceneData, sceneRange);
 }

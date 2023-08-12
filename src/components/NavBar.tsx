@@ -17,6 +17,7 @@ type Props = {
   className?: string;
 };
 
+// OPTIMiZE: convert items in children of type NavItem, NavButton
 export default function NavBar({ items, className = '' }: Props) {
   const alignClass = items.length === 1 ? 'justify-center' : 'justify-between';
 

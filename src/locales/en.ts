@@ -23,8 +23,8 @@ const locale = {
     comingSoon: 'coming soon',
   },
   guide: {
-    tryMagin1_maginPresents: 'magin presents',
-    tryMagin1_watchNovel: 'Watch Novel',
+    maginPresents_opening: 'magin presents',
+    maginPresents_watchNovel: 'Watch Novel',
     tryMagin2a_guidedMessages: [
       'read the scene',
       'and now imagine',

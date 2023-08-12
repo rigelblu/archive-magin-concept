@@ -3,8 +3,8 @@ import type { AppProps } from 'next/app';
 import Script from 'next/script';
 import 'primereact/resources/primereact.css';
 import { setClassPrefix } from '@rigelblu/rb-base-packages-join-classes';
-import Head from '@/layouts/Head';
-import * as gtag from '@/helpers/googleAnalytics';
+import Head from '@/components/Page/Head';
+import * as gtag from '@/lib/googleAnalytics';
 import '@/styles/tailwind.css';
 import '@/styles/global.scss';
 

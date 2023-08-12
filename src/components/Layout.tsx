@@ -1,13 +1,13 @@
 // Copyright rigélblu inc. All rights reserved.
 import React, { useEffect, useState } from 'react';
 import { joinClassesWithComponent } from '@rigelblu/rb-base-packages-join-classes';
-import Header from '@/components/Page/Header';
+import Header from './Header';
 // import Footer from './Footer';
 
 type LayoutProps = {
   children: React.ReactNode;
   canvasClassName?: string;
-  bodyClassName?: string;
+  containerClassName?: string;
   mainClassName?: string;
 };
 
@@ -27,7 +27,7 @@ enum LayoutType {
 type MainLayoutProps = {
   children: React.ReactNode;
   canvasClassName?: string;
-  bodyClassName?: string;
+  containerClassName?: string; // Container for header, footer, and main
   mainClassName?: string;
   layoutType: LayoutType;
 };
@@ -35,8 +35,8 @@ type MainLayoutProps = {
 function MainLayout(props: MainLayoutProps) {
   const {
     children,
-    bodyClassName = '',
     canvasClassName = '',
+    containerClassName = '',
     mainClassName = '',
     layoutType,
   } = props;
@@ -55,15 +55,11 @@ function MainLayout(props: MainLayoutProps) {
 
   return (
     <div className={joinClassesWithComponent(MainLayout.name, canvasClassName)}>
-      <div
-        className={joinClassesWithComponent(
-          'body',
-          'mx-auto max-w-4xl bg-ivory-100',
-          bodyClassName
-        )}
-      >
+      <div className={containerClassName}>
         {layoutType === LayoutType.Site && <Header />}
         <main className={mainClassName}>{children}</main>
+
+        {/* Temporarily disable until we need a footer */}
         {/* {layoutType === LayoutType.Site && <Footer />} */}
       </div>
     </div>
