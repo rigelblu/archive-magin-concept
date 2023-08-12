@@ -19,9 +19,10 @@ export type SceneType = {
 };
 
 // TODO: create book props {id, title, author, etc}
-export enum Book {
-  ProjectHailMary = 'Project Hail Mary',
-}
+export const Book = {
+  ProjectHailMary: 'Project Hail Mary',
+} as const;
+export type BookType = (typeof Book)[keyof typeof Book];
 
 const ProjectHailMary: SceneType[] = [
   {
@@ -84,9 +85,9 @@ const ProjectHailMary: SceneType[] = [
 ];
 
 export type BookData = {
-  [key in Book]: SceneType[];
+  [key in BookType]: SceneType[];
 };
 
 // OPTIMIZE: shape should be {{id: "book name", data: ProjectHailMary}}
-const bookData: Record<Book, SceneType[]> = { [Book.ProjectHailMary]: ProjectHailMary };
+const bookData: Record<BookType, SceneType[]> = { [Book.ProjectHailMary]: ProjectHailMary };
 export default bookData;

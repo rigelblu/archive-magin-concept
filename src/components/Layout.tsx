@@ -4,6 +4,13 @@ import clsx, { cmpCls } from '@/lib/clsx-helpers';
 import Header from '@/components/Page/Header';
 // import Footer from './Footer';
 
+// Public Interface: SiteLayout and AppLayout
+const Layout = {
+  App: 'app',
+  Site: 'site',
+} as const;
+type LayoutType = (typeof Layout)[keyof typeof Layout];
+
 type LayoutProps = {
   children: React.ReactNode;
   canvasClassName?: string;
@@ -12,16 +19,11 @@ type LayoutProps = {
 };
 
 export function SiteLayout(props: LayoutProps) {
-  return <MainLayout {...props} layoutType={LayoutType.Site} />; // eslint-disable-line @typescript-eslint/no-use-before-define, no-use-before-define, react/jsx-props-no-spreading
+  return <MainLayout {...props} layoutType={Layout.Site} />; // eslint-disable-line @typescript-eslint/no-use-before-define, no-use-before-define, react/jsx-props-no-spreading
 }
 
 export function AppLayout(props: LayoutProps) {
-  return <MainLayout {...props} layoutType={LayoutType.App} />; // eslint-disable-line @typescript-eslint/no-use-before-define, no-use-before-define, react/jsx-props-no-spreading
-}
-
-enum LayoutType {
-  App = 'app',
-  Site = 'site',
+  return <MainLayout {...props} layoutType={Layout.App} />; // eslint-disable-line @typescript-eslint/no-use-before-define, no-use-before-define, react/jsx-props-no-spreading
 }
 
 type MainLayoutProps = {
@@ -32,6 +34,7 @@ type MainLayoutProps = {
   layoutType: LayoutType;
 };
 
+// Private interface
 function MainLayout(props: MainLayoutProps) {
   const {
     children,
@@ -56,7 +59,7 @@ function MainLayout(props: MainLayoutProps) {
   return (
     <div className={clsx(cmpCls(MainLayout.name), canvasClassName)}>
       <div className={containerClassName}>
-        {layoutType === LayoutType.Site && <Header />}
+        {layoutType === Layout.Site && <Header />}
         <main className={mainClassName}>{children}</main>
 
         {/* Temporarily disable until we need a footer */}

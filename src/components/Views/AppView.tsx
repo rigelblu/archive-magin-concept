@@ -1,6 +1,6 @@
 // Copyright rigélblu inc. All rights reserved.
 import { AppLayout } from '@/components/Layout';
-import NavBar from '@/components/NavBar';
+import type NavBar from '@/components/NavBar';
 
 type Props = {
   appContent: React.ReactNode;
@@ -15,9 +15,9 @@ export default function AppView({ appContent, appNavBar }: Props) {
         containerClassName='mx-auto max-w-4xl'
         mainClassName='flex h-screen flex-col items-center justify-center bg-neutral-950'
       >
-        {/* HACK: have to use fixed rem for max height and width due to mobile browsers */}
+        {/* HACK: Using fixed rem for max height and width due to mobile browsers. Future improvements could include responsive design adjustments. */}
         <div className='flex max-h-[48rem] w-full flex-1 flex-col justify-between bg-ivory-100 p-2 sm:max-w-[25rem]'>
-          <div className='flex w-full flex-1 flex-col justify-between'>{appContent}</div>
+          <main className='flex w-full flex-1 flex-col justify-between'>{appContent}</main>
           {appNavBar}
         </div>
       </AppLayout>

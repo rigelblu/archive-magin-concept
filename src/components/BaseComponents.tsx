@@ -4,10 +4,11 @@ import { Button as PrimeButton, ButtonProps as PrimeButtonProps } from 'primerea
 import { HTMLAttributes, ReactNode } from 'react';
 import clsx, { cmpCls } from '@/lib/clsx-helpers';
 
-export enum LinkCTA {
-  Primary = 'Primary',
+export const LinkCTA = {
+  Primary: 'Primary',
   // TODO: consider adding secondary
-}
+} as const;
+export type LinkCTAType = (typeof LinkCTA)[keyof typeof LinkCTA];
 
 // ----------
 // Link
@@ -15,7 +16,7 @@ type LinkProps = {
   children: ReactNode;
   href: string;
   className?: string;
-  cta?: LinkCTA;
+  cta?: LinkCTAType;
   external?: boolean;
   openInNewWindow?: boolean;
 };
@@ -72,13 +73,14 @@ export function Button({
 
 // ----------
 // Button - Call to Action
-export enum CTARole {
-  Primary = 'Primary',
-  Secondary = 'Secondary',
-}
+export const CTARole = {
+  Primary: 'Primary',
+  Secondary: 'Secondary',
+} as const;
+export type CTARoleType = (typeof CTARole)[keyof typeof CTARole];
 
 interface CTAButtonProps extends PrimeButtonProps {
-  role?: CTARole;
+  role?: CTARoleType;
 }
 export function CTAButton({
   role = CTARole.Primary,

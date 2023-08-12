@@ -1,4 +1,4 @@
-// Copyright rigélblu inc. All rigts reserve
+// Copyright rigélblu inc. All rights reserve
 import { useRouter } from 'next/router';
 import AppView from '@/components/Views/AppView';
 import { CTAButton, CTARole, Link } from '@/components/BaseComponents';

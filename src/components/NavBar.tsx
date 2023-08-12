@@ -1,12 +1,12 @@
 // Copyright rigélblu inc. All rights reserved.
 import clsx, { cmpCls } from '@/lib/clsx-helpers';
-import { CTAButton, CTARole } from '@/components/BaseComponents';
+import { CTAButton, CTARoleType } from '@/components/BaseComponents';
 import FocusEffect from '@/components/FocusEffect';
 
 type NavItem = {
   id: string;
   label: string;
-  ctaRole: CTARole;
+  ctaRole: CTARoleType;
   onClick: () => void;
   className?: string;
   focusEffect?: boolean;

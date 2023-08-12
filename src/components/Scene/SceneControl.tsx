@@ -4,14 +4,15 @@ import IconArrowLeft from '@/assets/common/icons/arrow-left.svg';
 import IconArrowRight from '@/assets/common/icons/arrow-right.svg';
 import { Button } from '@/components/BaseComponents';
 
-export enum Action {
-  Prev = 'prev',
-  Next = 'next',
-}
+export const Action = {
+  Prev: 'Prev',
+  Next: 'Next',
+} as const;
+export type ActionType = (typeof Action)[keyof typeof Action];
 
 type Props = {
   // REFACTOR: improve naming to indicate aria-label
-  action: Action;
+  action: ActionType;
   onClick: () => void;
   isShown?: boolean;
   className?: string;

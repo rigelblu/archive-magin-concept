@@ -3,12 +3,12 @@ import anime from 'animejs';
 import { useEffect, useRef } from 'react';
 import clsx, { cmpCls } from '@/lib/clsx-helpers';
 import locale, { LocaleType } from '@/locales/en';
-import { Book } from '@/data/bookData';
+import { BookType } from '@/data/bookData';
 
 const t: LocaleType = locale;
 
 type Props = {
-  book: Book;
+  book: BookType;
 };
 
 export default function MaginPresents({ book }: Props) {
