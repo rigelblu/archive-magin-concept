@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
 /* eslint-disable no-use-before-define */
+import { joinClassesWithComponent } from '@rigelblu/rb-base-packages-join-classes';
 import { useEffect, useRef } from 'react';
 import Typed from 'typed.js';
 import { Button } from '@/components/BaseComponents';
@@ -38,7 +39,11 @@ function SkipAnimation(props: SkipAnimationProps) {
   return (
     <Button
       onClick={onSkipAnimation}
-      className={`mgn-skipanimation ${className} my-1 !bg-ivory-300 !text-gray-600`}
+      className={joinClassesWithComponent(
+        SkipAnimation.name,
+        'my-1 !bg-ivory-300 !text-gray-600',
+        className
+      )}
     >
       {t.guide.tryMagin_skipAnimation}
     </Button>
@@ -125,6 +130,7 @@ export default function SceneContent({
   const typingNotUsed = !styleTypedNonTypedSame ? 'typing-not-used' : 'typing-used';
 
   return (
+    //  TODO: add support to not switch to lower case
     <div className={`${styles['mgn-scenecontent']} content-text ${className}`}>
       <div className={`mgn-content w-full overflow-y-auto bg-ivory-200 ${typingNotUsed}`}>
         {content}

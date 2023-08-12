@@ -1,5 +1,6 @@
 // Copyright rigélblu inc. All rights reserved.
 import React, { useEffect, useState } from 'react';
+import { joinClassesWithComponent } from '@rigelblu/rb-base-packages-join-classes';
 import Header from './Header';
 // import Footer from './Footer';
 
@@ -53,8 +54,14 @@ function MainLayout(props: MainLayoutProps) {
   }, [windowHeight]);
 
   return (
-    <div className={`mgn-canvas ${canvasClassName}`}>
-      <div className={`mgn-body mx-auto max-w-4xl bg-ivory-100 ${bodyClassName}`}>
+    <div className={joinClassesWithComponent(MainLayout.name, canvasClassName)}>
+      <div
+        className={joinClassesWithComponent(
+          'body',
+          'mx-auto max-w-4xl bg-ivory-100',
+          bodyClassName
+        )}
+      >
         {layoutType === LayoutType.Site && <Header />}
         <main className={mainClassName}>{children}</main>
         {/* {layoutType === LayoutType.Site && <Footer />} */}

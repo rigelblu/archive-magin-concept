@@ -1,9 +1,10 @@
 // Copyright rigélblu inc. All rights reserved.
+import { joinClassesWithComponent } from '@rigelblu/rb-base-packages-join-classes';
 import { Link } from '@/components/BaseComponents';
 
 export default function Footer() {
   return (
-    <footer className='flex'>
+    <footer className={joinClassesWithComponent(Footer.name, 'flex')}>
       <div className='flex w-full items-center justify-between p-2'>
         <div>
           magin is a product of&nbsp;

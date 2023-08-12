@@ -1,4 +1,5 @@
 // Copyright rigélblu inc. All rights reserved.
+import { joinClassesWithComponent } from '@rigelblu/rb-base-packages-join-classes';
 import { SceneRange } from '@/components/Scene/SceneContent';
 import locale, { LocaleType } from '@/locales/en';
 import Page from './Page';
@@ -22,7 +23,7 @@ export default function Book({
   styleTypedNonTypedSame = false,
 }: Props) {
   return (
-    <div className={`mgn-book flex w-full flex-1 flex-col ${className}`}>
+    <div className={joinClassesWithComponent(Book.name, 'flex w-full flex-1 flex-col', className)}>
       <h2 className='mb-2 text-center text-2xs text-gray-500'>{t.book.title}</h2>
       <Page
         sceneRange={sceneRange}

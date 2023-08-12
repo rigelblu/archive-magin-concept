@@ -1,4 +1,5 @@
 // Copyright rigélblu inc. All rights reserved.
+import { joinClassesWithComponent } from '@rigelblu/rb-base-packages-join-classes';
 import Image from 'next/image';
 import bookData, { Book } from '@/data/bookData';
 
@@ -14,7 +15,7 @@ export default function SceneImage({ scene }: Props) {
     <Image
       src={img.src}
       alt={img.alt}
-      className='mgn-scene-image !w-min object-scale-down pl-2'
+      className={joinClassesWithComponent(SceneImage.name, '!w-min object-scale-down pl-2')}
       fill
     />
   );

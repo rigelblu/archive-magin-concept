@@ -1,4 +1,5 @@
 // Copyright rigélblu inc. All rights reserved.
+import { joinClassesWithComponent } from '@rigelblu/rb-base-packages-join-classes';
 import SceneControl, { Action } from '@/components/Scene/SceneControl';
 import ScenePanel from '@/components/Scene/ScenePanel';
 
@@ -23,7 +24,13 @@ export default function Film({
   const showNext = !hideNext && scene !== 2; // Temporary, should be adjusted to 3
 
   return (
-    <div className={`film flex w-full flex-1 flex-col items-center justify-between ${className}`}>
+    <div
+      className={joinClassesWithComponent(
+        Film.name,
+        'flex w-full flex-1 flex-col items-center justify-between',
+        className
+      )}
+    >
       <main className='flex h-full w-full flex-1'>
         <SceneControl action={Action.Prev} onClick={onPrev} className='px-1' isShown={showPrev} />
         <ScenePanel scene={scene} />

@@ -1,4 +1,5 @@
 // Copyright rigélblu inc. All rigts reserve
+import { joinClassesWithComponent } from '@rigelblu/rb-base-packages-join-classes';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { CTARole } from '@/components/BaseComponents';
@@ -11,7 +12,7 @@ import locale, { LocaleType } from '@/locales/en';
 
 const t: LocaleType = locale;
 
-export default function MarginPreview() {
+export default function MaginPreview() {
   const router = useRouter();
   const [scene, setScene] = useState(2);
   const scenes = { start: 1, end: 2, current: scene };
@@ -19,7 +20,12 @@ export default function MarginPreview() {
   return (
     <AppLayout canvasClassName='bg-black' mainClassName='mgn-try-magin bg-white'>
       {/* REFACTOR: convert into component, accept 4 children elements */}
-      <div className='flex h-screen flex-col items-center justify-center bg-neutral-950'>
+      <div
+        className={joinClassesWithComponent(
+          MaginPreview.name,
+          'flex h-screen flex-col items-center justify-center bg-neutral-950'
+        )}
+      >
         {/* HACK: have to use fixed rem for max height and width due to mobile browsers */}
         <div className='mgn-step flex max-h-[48rem] w-full flex-1 flex-col justify-between bg-ivory-100 p-2 sm:max-w-[25rem]'>
           <div className='mgn-story flex w-full flex-1 flex-col justify-between'>

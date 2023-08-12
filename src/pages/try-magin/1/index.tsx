@@ -1,4 +1,5 @@
 // Copyright rigélblu inc. All rigts reserve
+import { joinClassesWithComponent } from '@rigelblu/rb-base-packages-join-classes';
 import anime from 'animejs';
 import { useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
@@ -42,7 +43,12 @@ export default function MarginPreview() {
   return (
     <AppLayout canvasClassName='bg-black' mainClassName='mgn-try-magin bg-white'>
       {/* REFACTOR: convert into component, accept 4 children elements */}
-      <div className='flex h-screen flex-col items-center justify-center bg-neutral-950'>
+      <div
+        className={joinClassesWithComponent(
+          MarginPreview.name,
+          'flex h-screen flex-col items-center justify-center bg-neutral-950'
+        )}
+      >
         <div className='mgn-step flex max-h-[48rem] w-full flex-1 flex-col justify-between bg-ivory-100 p-2 sm:max-w-[25rem]'>
           {/* OPTIMIZE: adjust for each device screen */}
           <div className='mgn-story flex max-h-[32rem] flex-1 flex-col justify-end sm:max-h-[40rem]'>

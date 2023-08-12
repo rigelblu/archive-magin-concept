@@ -1,4 +1,5 @@
 // Copyright rigélblu inc. All rights reserved.
+import { joinClassesWithComponent } from '@rigelblu/rb-base-packages-join-classes';
 import { useEffect, useState } from 'react';
 import settings from '@/config/settings';
 
@@ -36,7 +37,13 @@ export default function GuideMessage({
   // REFACTOR: define standard padding in global.css
   // OPTIMIZE: make color a parm
   return (
-    <div className={`mgn-guide p-1 text-center text-blue-rb-600 ${className}`}>
+    <div
+      className={joinClassesWithComponent(
+        GuideMessage.name,
+        'p-1 text-center text-blue-rb-600',
+        className
+      )}
+    >
       {messages[currentMessageIndex]}
       {children}
     </div>

@@ -1,5 +1,6 @@
 // Copyright rigélblu inc. All rights reserved.
 import { useRouter } from 'next/router';
+import { joinClassesWithComponent } from '@rigelblu/rb-base-packages-join-classes';
 import IconGithub from '@/assets/common/icons/github-mark.svg';
 import { Button, CTAButton, CTARole } from '@/components/BaseComponents';
 import featureFlag from '@/config/featureFlags';
@@ -17,7 +18,12 @@ export default function Home() {
       canvasClassName='bg-ivory-100'
       mainClassName='flex flex-1 flex-col items-center justify-center py-1'
     >
-      <div className='mgn-home flex flex-1 flex-col items-center justify-center'>
+      <div
+        className={joinClassesWithComponent(
+          Home.name,
+          'flex flex-1 flex-col items-center justify-center'
+        )}
+      >
         {/* Tagline */}
         <h1 className='mb-16 text-center'>
           Have you <span className='text-blue-rb-600'>read a novel</span> <br /> and wondered,

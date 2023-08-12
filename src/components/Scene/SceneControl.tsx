@@ -1,4 +1,5 @@
 // Copyright rigélblu inc. All rights reserved.
+import { joinClassesWithComponent } from '@rigelblu/rb-base-packages-join-classes';
 import IconArrowLeft from '@/assets/common/icons/arrow-left.svg';
 import IconArrowRight from '@/assets/common/icons/arrow-right.svg';
 import { Button } from '@/components/BaseComponents';
@@ -28,7 +29,11 @@ export default function SceneControl(props: Props) {
   // REFACTOR: w-4 is used to prevent Book from shifting
   // TODO: style chevron in blue-rb-600 and background in blue-rb-lighter
   return (
-    <Button onClick={onClick} className={`mgn-scenecontrol ${className}`} disabled={!isShown}>
+    <Button
+      onClick={onClick}
+      className={joinClassesWithComponent(SceneControl.name, className)}
+      disabled={!isShown}
+    >
       {NavIcon}
     </Button>
   );

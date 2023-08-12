@@ -1,4 +1,5 @@
 // Copyright rigélblu inc. All rights reserved.
+import { joinClassesWithComponent } from '@rigelblu/rb-base-packages-join-classes';
 import React, { ReactElement } from 'react';
 
 type Props = {
@@ -10,7 +11,7 @@ export default function FocusEffect(props: Props) {
   const { className = '', children = undefined } = props;
 
   return (
-    <div className={`${className}`}>
+    <div className={joinClassesWithComponent(FocusEffect.name, className)}>
       {React.Children.map(children, (child) => {
         if (!React.isValidElement(child)) {
           console.error(`FocusEffect: invalid child ${JSON.stringify(child, null, 2)}`);

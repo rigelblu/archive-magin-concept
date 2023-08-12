@@ -2,6 +2,7 @@
 import type { AppProps } from 'next/app';
 import Script from 'next/script';
 import 'primereact/resources/primereact.css';
+import { setClassPrefix } from '@rigelblu/rb-base-packages-join-classes';
 import Head from '@/layouts/Head';
 import * as gtag from '@/helpers/googleAnalytics';
 import '@/styles/tailwind.css';
@@ -9,6 +10,8 @@ import '@/styles/global.scss';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function App({ Component, pageProps }: AppProps) {
+  setClassPrefix('mgn');
+
   return (
     <>
       {/* Global Site Tag (gtag.js) - Google Analytics */}
