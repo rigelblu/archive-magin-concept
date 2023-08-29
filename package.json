@@ -78,7 +78,7 @@
     "postcss": "^8.4.27",
     "postcss-100vh-fix": "^1.0.2",
     "postcss-scss": "^4.0.6",
-    "prettier": "^2.8.8",
+    "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.2.8",
     "primereact": "^9.6.0",
     "react": "^18.2.0",
